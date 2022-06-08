@@ -39,6 +39,9 @@
     </button>
 </div>
 
+@pushonce('component-vendor-script')
+    <script src="{{ asset(mix('vendors/js/forms/repeater/jquery.repeater.min.js')) }}"></script>
+@endpushonce
 @push('component-script')
     <script>
         // jQuery cloneData.js

@@ -12,7 +12,8 @@ class Button extends Component
     public $icon;
     public $isSubmit;
     public $attrs;
-    public function __construct($class = "", $type = "primary", $text = "", $isSubmit = false, $icon = "", $attrs = "")
+    public $id;
+    public function __construct($class = "", $type = "primary", $text = "", $isSubmit = false, $icon = "", $attrs = "", $id = "")
     {
         $this->class = $class;
         $this->type = $type;
@@ -20,6 +21,7 @@ class Button extends Component
         $this->isSubmit = $isSubmit;
         $this->icon = $icon;
         $this->attrs = $attrs;
+        $this->id = $id;
     }
 
     /**

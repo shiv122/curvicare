@@ -11,13 +11,17 @@ class Form extends Component
     public $method;
     public $route;
     public $btnText;
-    public function __construct($id, $route, $class = "", $method = "POST",  $btnText = "Submit")
+    public $reset;
+    public $reload;
+    public function __construct($id, $route, $class = "", $method = "POST",  $btnText = "Submit", $reset = true, $reload = 0)
     {
         $this->id = $id;
         $this->class = $class;
         $this->method = $method;
         $this->route = $route;
         $this->btnText = $btnText;
+        $this->reset = $reset;
+        $this->reload = $reload;
     }
 
     /**

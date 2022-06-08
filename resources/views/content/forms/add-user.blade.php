@@ -3,19 +3,12 @@
 @section('title', 'Add User')
 
 @section('page-style')
-
-    <style>
-        #table-card {
-            padding: 10px;
-        }
-    </style>
 @endsection
 
 @section('content')
     @php
     $genders = json_decode(json_encode([['id' => 'male', 'name' => 'Male'], ['id' => 'female', 'name' => 'Female'], ['id' => 'other', 'name' => 'Other']]));
     @endphp
-    <!-- Dashboard Analytics Start -->
     <section>
         <div class="row match-height">
             <div class="col-lg-12 col-md-12 col-sm-12">

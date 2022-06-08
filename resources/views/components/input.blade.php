@@ -1,5 +1,7 @@
 <div class="form-group {{ $parentClass }} text-left">
-    <label for="{{ $name }}">{{ Str::ucfirst(Str::replace('_', ' ', $name)) }}</label>
+    @if ($hasLabel && $type !== 'hidden')
+        <label for="{{ $name }}">{!! $label ?? Str::ucfirst(Str::replace('_', ' ', $name)) !!}</label>
+    @endif
     @if ($type == 'textarea')
         <textarea @if ($required) required @endif {!! $attrs !!} class="form-control"
             id="{{ $name }}" name="{{ $name }}" rows="3">{{ $value }}</textarea>
@@ -10,7 +12,7 @@
     @else
         <input value="{{ $value }}" type="{{ $type }}" class="form-control {{ $class }}"
             @if ($required) required @endif name="{{ $name }}" {!! $attrs !!}
-            id="{{ $name }}" placeholder="Enter {{ Str::replace('_', ' ', $name) }}">
+            id="{{ $name }}" placeholder=" {{ $placeholder ?? 'Enter ' . Str::replace('_', ' ', $name) }}">
         @if (!empty($helperText))
             <p><small class="text-muted">{{ $helperText }}</small></p>
         @endif

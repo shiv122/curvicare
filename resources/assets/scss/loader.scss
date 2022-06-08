@@ -1,76 +1,135 @@
 $b: #161e31;
+$component-dimension: 180px;
+$timing: 2s;
+$color-shadow: lightgray;
+$pan-color-light: #3949ab;
+$pan-color-dark: #5c6bc0;
+$loader-color: #fdd835;
+
 #custom-loader {
+  height: 100%;
+  display: flex;
   position: fixed;
-  display: flex;
   width: 100%;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #b9b5c9;
-  .box {
-    margin: 0 auto;
-    width: 75px;
-    height: 175px;
-    // border: solid 1px black;
-    position: relative;
-
-    .shadow {
-      position: absolute;
-      width: 100%;
-      height: 10px;
-      background-color: grey;
-      bottom: 0;
-      border-radius: 100%;
-      transform: scaleX(0.8);
-      opacity: 0.6;
-      animation: shadowScale 1s linear infinite;
-    }
-  }
-  .gravity {
-    width: 75px;
-    height: 75px;
-    animation: bounce 1s cubic-bezier(0.68, 0.35, 0.29, 0.54) infinite;
-  }
-  .ball {
-    width: 75px;
-    height: 75px;
-    background-image: url("https://cdn2.iconfinder.com/data/icons/activity-5/50/26BD-soccer-ball-128.png");
-    background-size: cover;
-    animation: roll 0.7s linear infinite;
-  }
-
-  @keyframes roll {
+  z-index: 99999999;
+  @keyframes loader {
     0% {
+      width: 10%;
+      transform: rotate(0deg);
+    }
+    10% {
+      left: 0%;
+      transform: rotate(0deg);
+    }
+    20% {
+      width: 0%;
+      left: 20%;
+    }
+    30% {
+      width: 25%;
+    }
+    50% {
+      left: 15%;
+      width: 35%;
+    }
+    70% {
+      width: 30%;
+      left: 18%;
+      transform: rotate(240deg);
+    }
+    90% {
+      width: 30%;
+      left: 10%;
     }
     100% {
+      width: 2%;
+      left: 25%;
       transform: rotate(360deg);
     }
   }
-  @keyframes bounce {
+
+  @keyframes pan {
     0% {
+      transform: rotate(0deg);
+      transform-origin: top right;
+    }
+    10% {
+      transform: rotate(-2deg);
+      transform-origin: top right;
     }
     50% {
-      transform: translateY(100px);
+      transform: rotate(15deg);
     }
     100% {
+      transform: rotate(0deg);
     }
   }
-  @keyframes shadowScale {
+
+  @keyframes shadow {
     0% {
+      width: 30%;
     }
     50% {
-      transform: scaleX(1);
-      opacity: 0.8;
+      width: 40%;
+      left: 20px;
     }
     100% {
+      width: 30%;
+    }
+  }
+
+  .pan-loader {
+    width: $component-dimension;
+    height: $component-dimension;
+    margin: auto auto;
+    .loader {
+      position: relative;
+      top: 10%;
+      left: 0;
+      z-index: -1;
+      width: 60%;
+      height: 45%;
+      border: 10px solid transparent;
+      border-bottom: 10px solid $loader-color;
+      border-radius: 50%;
+      animation: loader $timing infinite;
+      animation-timing-function: linear;
+    }
+    .pan-container {
+      display: flex;
+      width: 100%;
+      animation: pan $timing infinite;
+    }
+    .pan {
+      width: 60%;
+      height: 20px;
+      background: linear-gradient($pan-color-light, $pan-color-dark);
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+    .handle {
+      width: 40%;
+      height: 10px;
+      background: linear-gradient($pan-color-light, $pan-color-dark);
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .shadow {
+      position: relative;
+      top: 15%;
+      left: 15%;
+      width: 30%;
+      height: 8px;
+      background: $color-shadow;
+      // box-shadow: 5px 0 8px 4px $color-shadow;
+      border-radius: 20px;
+      animation: shadow $timing infinite;
     }
   }
 }
-
 .dark-layout {
   #custom-loader {
     background-color: #161e31;

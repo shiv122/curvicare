@@ -160,4 +160,11 @@ class Helper
             }
         }
     }
+
+
+    public static function makePassword(String $name): string
+    {
+        $symbol = ['&', '@', '#', '$', '%', '^', '*', '-', '+', '=', '_', '{', '}', '[', ']', '|',  ':', ';', '<', '>', '?', '/', '.', ','];
+        return  $randomString =  Str::substr($name, 0, 3) . $symbol[rand(0, sizeof($symbol) - 1)] . $symbol[rand(0, sizeof($symbol) - 1)] . Str::random(6);
+    }
 }

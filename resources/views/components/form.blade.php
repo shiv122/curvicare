@@ -8,7 +8,13 @@
     </div>
 </form>
 
-
+@php
+if ($reload) {
+    $rld = 1;
+} else {
+    $rld = 0;
+}
+@endphp
 @push('component-script')
     <script>
         $(document).on('submit', '#{{ $id }}', function(e) {
@@ -17,7 +23,7 @@
             if (!validate($(this))) {
                 return false;
             }
-            $('[required]').each(function() {
+            $('[required]:not(:disabled)').each(function() {
                 if ($(this).is(':invalid') || !$(this).val()) snb('error', 'Validation Error', $(this)
                     .closest('.form-group').find('.invalid-tooltip').text(), valid = false);
             })
@@ -26,6 +32,8 @@
                 selector: this,
                 route: "{{ $route }}",
                 method: "POST",
+                reset: {{ $reset }},
+                relaod: {{ $rld }},
             })
         });
     </script>

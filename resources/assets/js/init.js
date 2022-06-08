@@ -164,56 +164,6 @@ function unblockDiv(place) {
         }
     });
 }
-function rebound({ selector = null, data = null, to = null, refresh = null, redirect = null, block = '#card', status = null, msg = null, method = "POST" }) {
-    if (to == null) { return 'Please set the target' } else if (selector == null && data == null) { return 'Please set the selector or data' }
-    blockDiv(block);
-    loadBtn('#sub-btn');
-    $.ajaxSetup({
-        headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-        }
-    });
-
-
-    if (selector !== null) {
-        var form = $(selector)[0];
-        var formData = new FormData(form);
-    }
-    if (data !== null) {
-        var formData = data;
-
-    }
-    // console.log(formData);
-    $.ajax({
-        type: method,
-        url: to,
-        processData: false,
-        contentType: false,
-        data: formData,
-        success: function (response) {
-            console.log(response);
-            unblockDiv(block);
-            initBtn('#sub-btn');
-            if (response.msg == 'success' || response.status == 'success') {
-                $(".custom-file-label").html('Choose file');
-                $(selector).trigger("reset");
-                snb('success', (response.header !== null) ? response.header : 'Added', (response.msg !== null) ? response.msg : 'Added Succesfullly');
-                (refresh == null) ? '' : setTimeout(function () { location.reload() }, refresh * 1000);
-                (redirect == null) ? '' : window.location.href = redirect;
-            } else {
-                snb('error', 'Error', 'Somthing Went Wrong');
-            }
-
-        },
-        error: function (response) {
-            unblockDiv(block);
-            initBtn('#sub-btn');
-            snb('error', 'Error', 'Somthing Went Wrong');
-            console.log(response.responseText);
-
-        },
-    });
-}
 $(document).on('change', '.status-switch', function () {
     const id = $(this).val();
     const checked = $(this).prop('checked');
@@ -275,7 +225,7 @@ function validate(form) {
     return true;
 }
 
-const reboundForm = function ({ selector, data = null, type = "POST", route = null }) {
+const reboundForm = async function ({ selector = null, data = null, type = "POST", route = null, reset = true, reload = false, successCallback = null, errorCallback = null }) {
 
     if (selector == null && data == null) {
         snb('error', 'Error', 'Please set the selector or data');
@@ -291,7 +241,12 @@ const reboundForm = function ({ selector, data = null, type = "POST", route = nu
         var formData = new FormData(form);
     }
     if (data !== null) {
-        var formData = data;
+        var formData = new FormData();
+
+        $.each(data, function (key, value) {
+            formData.append(key, value);
+        });
+
     }
     const btn = $(selector).find('button[type="submit"]');
     const btn_text = $(btn).text();
@@ -310,18 +265,32 @@ const reboundForm = function ({ selector, data = null, type = "POST", route = nu
         data: formData,
         success: function (response) {
             $(btn).html(btn_text);
-            $(selector).removeClass('was-validated');
-            $(selector)[0].reset();
-            $(selector).trigger("reset");
-            $(`form#${$(selector).attr('id')} select, form input[type=checkbox]`).trigger("change");
-            $(selector).find('.custom-file-label').html('Choose file');
+            console.log(response);
+            if (selector !== null) {
+                $(selector).removeClass('was-validated');
+                if (reset) {
+                    $(selector)[0].reset();
+                    $(selector).trigger("reset");
+                    $(`form#${$(selector).attr('id')} select, form input[type=checkbox]`).trigger("change");
+                    $(selector).find('.custom-file-label').html('Choose file');
+                }
+
+                $(selector).closest('.modal').modal('hide');
+            }
             unblockUI();
-            $(selector).closest('.modal').modal('hide');
             snb((response.type) ? response.type : 'success', response.header, response.message);
             if ($.fn.DataTable) {
                 $('#' + response.name).DataTable().ajax.reload();
             }
-            console.log(response);
+
+            if (reload) {
+                location.reload();
+            }
+
+            if (successCallback !== null) {
+                successCallback();
+            }
+
 
             return true
         },
@@ -334,12 +303,18 @@ const reboundForm = function ({ selector, data = null, type = "POST", route = nu
                     console.log(item);
                 });
             } else if (xhr.status == 500) {
-                snb('error', 'Error', error);
-                console.log(error);
-                report(xhr.responseJSON.errors);
+                snb('error', 'Error500', error);
+                // console.error(xhr.responseJSON.errors);
+                report(xhr.responseJSON);
             } else {
-                report(xhr.responseJSON.errors);
+                report(xhr.responseJSON);
                 snb('error', 'Error', error);
+                // console.error(xhr.responseJSON.errors);
+            }
+
+
+            if (errorCallback !== null) {
+                errorCallback();
             }
 
             return false;
@@ -349,6 +324,8 @@ const reboundForm = function ({ selector, data = null, type = "POST", route = nu
 
 
 }
+
+
 $(document).on('click', '.view-on-click', function () {
     try {
         Swal.fire({
@@ -451,6 +428,7 @@ function sendReport(error) {
         },
         error: function (response) {
             unblockUI();
+            console.log(response);
             snb('error', 'Error',
                 'There was an error while sending report. please contact the development team.');
             // console.log(response);
@@ -560,3 +538,46 @@ function initChart({ selector, categories, data, label = 'label' }) {
     salesLineChart.render();
 }
 
+
+// other functions
+(() => {
+
+    $(document).on('click', '[delete-action-btn]', async function () {
+        const id = $(this).data('id');
+        const route = $(this).data('route');
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            customClass: {
+                confirmButton: 'btn btn-primary',
+                cancelButton: 'btn btn-outline-danger ml-1'
+            },
+            buttonsStyling: false
+        }).then(async function (result) {
+            if (result.value) {
+                await reboundForm({
+                    data: { id: id },
+                    type: 'post',
+                    route: route,
+                    successCallback: () => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Deleted!',
+                            text: 'Your file has been deleted.',
+                            customClass: {
+                                confirmButton: 'btn btn-success'
+                            }
+                        });
+                    }
+                });
+
+
+            }
+        });
+    });
+})();

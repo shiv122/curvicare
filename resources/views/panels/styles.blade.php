@@ -85,9 +85,6 @@
 
 
 
-{{-- Laravel Style --}}
-<link rel="stylesheet" href="{{ asset(mix('css/overrides.css')) }}" />
-<link rel="stylesheet" href="{{ asset(mix('css/color-overrides.css')) }}" />
 
 {{-- Custom RTL Styles --}}
 
@@ -95,10 +92,9 @@
     <link rel="stylesheet" href="{{ asset(mix('css/custom-rtl.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('css/style-rtl.css')) }}" />
 @endif
-
-
-
-
-
+@stack('component-style')
 {{-- user custom styles --}}
 <link rel="stylesheet" href="{{ asset(mix('css/style.css')) }}" />
+{{-- Laravel Style --}}
+<link rel="stylesheet" href="{{ asset(mix('css/overrides.css')) }}" />
+<link rel="stylesheet" href="{{ asset(mix('css/color-overrides.css')) }}" />

@@ -4,11 +4,11 @@ namespace App\Helpers;
 
 use Exception;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Http\Request;
 
 class FileUploader
 {
-    public static function uploadFile($file, $path = "images", $initials = "img")
+    public static function uploadFile($file, string $path = "images", string $initials = "img"): string
     {
         try {
             $destinationPath =  $path;
@@ -16,7 +16,7 @@ class FileUploader
             return $file->move($destinationPath, $req_file);
         } catch (Exception  $e) {
             \Log::info('Exception in image upload : ' . $e->getMessage());
-            return 'failed';
+            throw new Exception("Failed to upload image. error : " . $e->getMessage());
         }
     }
 }

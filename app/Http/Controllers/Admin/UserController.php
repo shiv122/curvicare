@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function addUser()
+    public function add()
     {
         return view('content.forms.add-user');
     }
 
 
-    public function storeUser(Request $request)
+    public function store(Request $request)
     {
     }
 }

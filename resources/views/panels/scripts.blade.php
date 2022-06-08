@@ -32,12 +32,6 @@
 @endif
 
 
-@if (!empty($pageConfigs['has_formRepeater']))
-    @if ($pageConfigs['has_formRepeater'])
-        <script src="{{ asset(mix('vendors/js/forms/repeater/jquery.repeater.min.js')) }}"></script>
-    @endif
-@endif
-
 <script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
 @if (!empty($pageConfigs['has_player']))
     @if ($pageConfigs['has_player'])
@@ -52,6 +46,7 @@
     @endif
 @endif
 
+@stack('component-vendor-script')
 
 
 @yield('vendor-script')

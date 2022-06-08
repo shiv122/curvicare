@@ -7,11 +7,13 @@
     data-layout="{{ $configData['theme'] === 'light' ? '' : $configData['layoutTheme'] }}"
     style="{{ $configData['bodyStyle'] }}" data-framework="laravel" data-asset-path="{{ asset('/') }}">
     <div id="custom-loader">
-        <div class="box">
-            <div class="shadow"></div>
-            <div class="gravity">
-                <div class="ball"></div>
+        <div class="pan-loader">
+            <div class="loader"></div>
+            <div class="pan-container">
+                <div class="pan"></div>
+                <div class="handle"></div>
             </div>
+            <div class="shadow"></div>
         </div>
     </div>
 
