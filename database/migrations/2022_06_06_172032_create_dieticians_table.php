@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('image')->nullable();
             $table->string('phone');
+            $table->string('gender');
             $table->text('address');
             $table->string('location')->nullable();
             $table->string('device_id')->nullable();

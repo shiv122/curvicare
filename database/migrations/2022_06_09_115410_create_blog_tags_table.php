@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('dieticians', function (Blueprint $table) {
-            $table->enum('gender', ['male', 'female', 'other']);
+        Schema::create('blog_tags', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('blog_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('dieticians', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('blog_tags');
     }
 };

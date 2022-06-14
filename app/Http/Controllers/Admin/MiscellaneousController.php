@@ -26,4 +26,9 @@ class MiscellaneousController extends Controller
         $mail = \Mail::to('shivesh.appdid@gmail.com')->send(new Error($details, $path));
         return response(['status' => 'success', 'message' => 'Report sent successfully']);
     }
+
+    public function workInProgress()
+    {
+        return view('errors.work-in-progress');
+    }
 }

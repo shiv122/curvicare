@@ -1,5 +1,12 @@
 <div class="form-group">
-    <label for="{{ $name }}">{{ Str::ucfirst(Str::replace('_', ' ', $name)) }}</label>
+    <label for="{{ $name }}">
+        @if ($label)
+            {{ $label }}
+        @else
+            {{ Str::ucfirst(Str::replace('_', ' ', $name)) }}
+        @endif
+
+    </label>
 
     <select @if ($required) required @endif class="select2  form-control {{ $class }}"
         id="{{ $name }}" {!! $attrs !!}

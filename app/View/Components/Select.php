@@ -13,7 +13,8 @@ class Select extends Component
     public $attrs;
     public $required;
     public $additionalOptionText;
-    public function __construct(string $name, array|object $options = [], bool $multiple = false, string $class = "", $attrs = "", bool $required = true, array $additionalOptionText = [])
+    public $label;
+    public function __construct(string $name, array|object $options = [], bool $multiple = false, string $class = "", $attrs = "", bool $required = true, array $additionalOptionText = [], string|bool $label = false)
     {
         $this->name = $name;
         $this->options = $options;
@@ -22,6 +23,7 @@ class Select extends Component
         $this->attrs = $attrs;
         $this->required = $required;
         $this->additionalOptionText = $additionalOptionText;
+        $this->label = $label;
     }
 
     /**

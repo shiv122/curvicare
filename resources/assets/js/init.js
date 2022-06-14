@@ -283,7 +283,7 @@ const reboundForm = async function ({ selector = null, data = null, type = "POST
                 $('#' + response.name).DataTable().ajax.reload();
             }
 
-            if (reload) {
+            if (reload || response.reload) {
                 location.reload();
             }
 
