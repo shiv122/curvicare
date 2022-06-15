@@ -9,9 +9,12 @@
     </label>
 
     <select @if ($required) required @endif class="select2  form-control {{ $class }}"
-        id="{{ $name }}" {!! $attrs !!}
+        @if (!$array) id="{{ $name }}" @endif {!! $attrs !!}
         @if ($multiple) multiple
             name="{{ $name }}[]"
+
+        @elseif($array)
+         name="{{ $name }}[]"
         @else
             name="{{ $name }}" @endif>
         @if (!$multiple)
@@ -19,7 +22,10 @@
         @endif
 
         @forelse ($options as $option)
-            <option value="{{ $option->id }}">
+            <option
+                @if (!empty($optionValue)) value="{{ $option->$optionValue }}"
+            @else
+            value="{{ $option->id }}" @endif>
                 {{ $option->name ?? $option->title }}
                 @forelse ($additionalOptionText as $add)
                     {{ $option->$add ?? $add }}

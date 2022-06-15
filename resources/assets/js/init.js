@@ -288,7 +288,7 @@ const reboundForm = async function ({ selector = null, data = null, type = "POST
             }
 
             if (successCallback !== null) {
-                successCallback();
+                successCallback.apply(null, arguments);
             }
 
 

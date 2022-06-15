@@ -34,7 +34,12 @@ if ($reload) {
                 method: "POST",
                 reset: {{ $reset }},
                 relaod: {{ $rld }},
+                successCallback: {{ $successCallback }},
             })
         });
+
+        function none() {
+            return false;
+        }
     </script>
 @endpush

@@ -16,6 +16,11 @@
                                 name="{{ $f['name'] }}" />
                         </div>
                     @endif
+                    @if ($f['type'] === 'select')
+                        <div class="col-md-{{ $f['col'] ?? 6 }} col-12 ">
+                            <x-select name="{{ $f['name'] }}" :array="true" :options="$f['options']" />
+                        </div>
+                    @endif
                 @empty
                 @endforelse
                 {{ $data ?? '' }}

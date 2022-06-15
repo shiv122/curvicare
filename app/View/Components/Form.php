@@ -13,7 +13,8 @@ class Form extends Component
     public $btnText;
     public $reset;
     public $reload;
-    public function __construct($id, $route, $class = "", $method = "POST",  $btnText = "Submit", $reset = true, $reload = 0)
+    public $successCallback;
+    public function __construct($id, $route, $class = "", $method = "POST",  $btnText = "Submit", $reset = true, $reload = 0, $successCallback = "none")
     {
         $this->id = $id;
         $this->class = $class;
@@ -22,6 +23,7 @@ class Form extends Component
         $this->btnText = $btnText;
         $this->reset = $reset;
         $this->reload = $reload;
+        $this->successCallback = $successCallback;
     }
 
     /**
