@@ -73,6 +73,12 @@
           "name": "Add food",
           "icon": "circle",
           "slug": "admin.food.add"
+        },
+        {
+          "url": "/admin/food/view",
+          "name": "Foods",
+          "icon": "circle",
+          "slug": "admin.food.view"
         }
       ]
     },

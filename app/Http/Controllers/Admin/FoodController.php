@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\FoodDataTable;
 use App\Models\Food;
 use App\Models\FoodImage;
 use App\Models\Ingredient;
@@ -60,7 +61,12 @@ class FoodController extends Controller
             'reload' => true,
         ]);
     }
-    public function view()
+    public function view(FoodDataTable $table)
     {
+        $pageConfigs = ['has_table' => true];
+
+        //for filter use with
+        // $table->with('id', 1);
+        return $table->render('content.tables.foods', compact('pageConfigs'));
     }
 }

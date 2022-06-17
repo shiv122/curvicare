@@ -13,11 +13,11 @@ class Food extends Model
 
     public function ingredients()
     {
-        $this->hasMany(FoodIngredient::class)->with(['ingredient']);
+        return  $this->hasMany(FoodIngredient::class)->with(['ingredient']);
     }
 
     public function images()
     {
-        $this->hasMany(FoodImage::class);
+        return  $this->hasMany(FoodImage::class);
     }
 }

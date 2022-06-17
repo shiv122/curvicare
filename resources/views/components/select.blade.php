@@ -31,6 +31,7 @@
                     {{ $option->$add ?? $add }}
                 @empty
                 @endforelse
+
             </option>
         @empty
         @endforelse
