@@ -2,10 +2,8 @@
 <link rel="stylesheet" href="{{ asset(mix('vendors/css/ui/prism.min.css')) }}" />
 @if (!empty($pageConfigs['has_table']))
     @if ($pageConfigs['has_table'])
-        <link rel="stylesheet"
-            href="{{ asset(mix('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')) }}" />
-        <link rel="stylesheet"
-            href="{{ asset(mix('vendors/css/tables/datatable/responsive.bootstrap4.min.css')) }}" />
+        <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')) }}" />
+        <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/responsive.bootstrap4.min.css')) }}" />
         <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/buttons.bootstrap4.min.css')) }}" />
         <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/rowGroup.bootstrap4.min.css')) }}" />
     @endif
@@ -46,6 +44,8 @@
 {{-- Vendor Styles --}}
 @yield('vendor-style')
 {{-- Theme Styles --}}
+
+@stack('component-vendor-style')
 
 <link rel="stylesheet" href="{{ asset(mix('css/core.css')) }}" />
 

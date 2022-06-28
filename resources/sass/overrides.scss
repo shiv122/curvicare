@@ -58,6 +58,8 @@ html body.navbar-static .app-content .header-navbar {
     }
   }
 }
+
+a svg,
 button svg {
   min-width: 15px;
   max-width: min-content;
@@ -284,6 +286,9 @@ i.side-bar-icon {
 
 .modal {
   p {
+    white-space: break-spaces;
+  }
+  .modal-body {
     white-space: break-spaces;
   }
 }

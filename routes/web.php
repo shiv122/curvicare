@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\DieticianController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\IngredientController;
 use App\Http\Controllers\Admin\MiscellaneousController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::prefix('admin')->middleware(['web'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -56,10 +57,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 
 
     Route::name('recipe.')->prefix('recipe')->controller(RecipeController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
         Route::get('/add', 'add')->name('add');
         Route::post('/store', 'store')->name('store');
-        Route::get('/view', 'view')->name('view');
         Route::put('/status', 'status')->name('status');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/edit/{id}', 'edit')->name('edit');
     });
 
     Route::name('food.')->prefix('food')->controller(FoodController::class)->group(function () {
@@ -114,5 +117,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
             Route::get('/view', 'view')->name('view');
             Route::put('/status', 'status')->name('status');
         });
+    });
+
+
+
+
+    Route::name('product.')->prefix('product')->controller(ProductController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('add', 'add')->name('add');
+        Route::post('store', 'store')->name('store');
+        Route::put('status', 'status')->name('status');
     });
 });

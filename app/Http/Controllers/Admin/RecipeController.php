@@ -2,20 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\FileUploader;
+use DB;
 use App\Models\Tag;
 use App\Models\Food;
-use App\Models\Nutrient;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Recipe;
-use App\Models\RecipeComposition;
+use App\Models\Nutrient;
 use App\Models\RecipeFood;
 use App\Models\RecipeTags;
-use DB;
+use Illuminate\Http\Request;
+use App\Helpers\FileUploader;
+use App\Models\RecipeComposition;
+use App\DataTables\RecipeDataTable;
+use App\Http\Controllers\Controller;
 
 class RecipeController extends Controller
 {
+    public function index(RecipeDataTable $table)
+    {
+        $pageConfigs = ['has_table' => true];
+        // $table->with('id', 4);
+        return $table->render('content.tables.recipes', compact('pageConfigs'));
+    }
     public function add()
     {
         $foods = Food::select('id', 'name')->get();
@@ -75,8 +82,11 @@ class RecipeController extends Controller
 
         return $request->all();
     }
-    public function view()
+    public function show($id)
     {
+        $recipe = Recipe::where('id', $id)->with(['foods', 'compositions', 'tags'])->first();
+
+        return view('content.pages.recipe-details', compact('recipe'));
     }
     public function status()
     {

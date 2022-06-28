@@ -580,4 +580,9 @@ function initChart({ selector, categories, data, label = 'label' }) {
             }
         });
     });
+    $(document).on('click', '[data-viewer-btn]', function () {
+        const id = $(this).data('id');
+        $("#data-viewer-" + id).modal('show');
+
+    });
 })();
