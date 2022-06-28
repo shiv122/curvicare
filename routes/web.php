@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\DieticianController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\IngredientController;
 use App\Http\Controllers\Admin\MiscellaneousController;
+use App\Http\Controllers\Admin\MoodController;
 use App\Http\Controllers\Admin\ProductController;
 
 Route::prefix('admin')->middleware(['web'])->group(function () {
@@ -115,6 +116,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::name('tag.')->prefix('tag')->controller(TagController::class)->group(function () {
             Route::post('/store', 'store')->name('store');
             Route::get('/view', 'view')->name('view');
+            Route::put('/status', 'status')->name('status');
+        });
+
+        Route::name('mood.')->prefix('mood')->controller(MoodController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
             Route::put('/status', 'status')->name('status');
         });
     });

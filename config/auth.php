@@ -40,18 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'student'  => [
-            'driver'  => 'session',
-            'provider' => 'students',
-        ],
         'api' => [
             'driver' => 'sanctum',
-            'provider' => 'students',
+            'provider' => 'users',
             'hash' => false,
         ],
-        'coach' => [
+        'dietician' => [
             'driver' => 'sanctum',
-            'provider' => 'coaches',
+            'provider' => 'dieticians',
             'hash' => false,
         ],
     ],
@@ -78,13 +74,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'students' => [
+        'dieticians' => [
             'driver' => 'eloquent',
-            'model'  => App\Models\Student::class,
-        ],
-        'coaches' => [
-            'driver' => 'eloquent',
-            'model'  => App\Models\Coach::class,
+            'model'  => App\Models\Dietician::class,
         ],
     ],
 

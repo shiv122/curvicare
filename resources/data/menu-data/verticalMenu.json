@@ -190,6 +190,18 @@
           "name": "Tags",
           "icon": "circle",
           "slug": "admin.metadata.tag.view"
+        },
+        {
+          "url": "/admin/metadata/mood/",
+          "name": "Moods",
+          "icon": "circle",
+          "slug": "admin.metadata.mood.index"
+        }
+        {
+          "url": "/admin/metadata/mood/",
+          "name": "Moods",
+          "icon": "circle",
+          "slug": "admin.metadata.mood.index"
         }
       ]
     }
