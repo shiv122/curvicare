@@ -55,7 +55,7 @@ class ProductDataTable extends DataTable
      */
     public function query(Product $model)
     {
-        $model->with(['media'])->newQuery();
+        $model =  $model->with(['media'])->newQuery();
 
         if ($this->id) {
             $model->where('id', $this->id);

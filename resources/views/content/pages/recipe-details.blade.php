@@ -66,15 +66,19 @@
 
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="card-header d-flex justify-content-center align-items-center">
                         <h4 class="card-title">Composition</h4>
-                        <i data-feather="help-circle" class="font-medium-3 text-muted cursor-pointer"></i>
+
                     </div>
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div id="goal-overview-radial-bar-chart" class="my-2"></div>
-                            </div>
+                            @forelse ($recipe->compositions as $comp)
+                                <div class="col-md-6 text-center">
+                                    <x-gauge id="composition_{{ $comp->id }}"
+                                        value="{{ $comp->quantity?->percentage }}" label="{{ $comp->name }}" />
+                                </div>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -196,75 +200,6 @@
 @section('vendor-script')
     {{-- vendor files --}}
     <script src="{{ asset(mix('vendors/js/charts/apexcharts.min.js')) }}"></script>
-    <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 @endsection
 @section('page-script')
-    <script>
-        var goalOverviewChartOptions = {
-            chart: {
-                height: 180,
-                type: 'radialBar',
-                sparkline: {
-                    enabled: true
-                },
-                dropShadow: {
-                    enabled: true,
-                    blur: 3,
-                    left: 1,
-                    top: 1,
-                    opacity: 0.1
-                }
-            },
-            colors: ['#51e5a8'],
-            plotOptions: {
-                radialBar: {
-                    offsetY: -10,
-                    startAngle: -150,
-                    endAngle: 150,
-                    hollow: {
-                        size: '77%'
-                    },
-                    track: {
-                        background: '#ebe9f1',
-                        strokeWidth: '50%'
-                    },
-                    dataLabels: {
-                        name: {
-                            show: false
-                        },
-                        value: {
-                            color: '#5e5873',
-                            fontSize: '2.86rem',
-                            fontWeight: '600'
-                        }
-                    }
-                }
-            },
-            fill: {
-                type: 'gradient',
-                gradient: {
-                    shade: 'dark',
-                    type: 'horizontal',
-                    shadeIntensity: 0.5,
-                    gradientToColors: [window.colors.solid.success],
-                    inverseColors: true,
-                    opacityFrom: 1,
-                    opacityTo: 1,
-                    stops: [0, 100]
-                }
-            },
-            series: [83],
-            stroke: {
-                lineCap: 'round'
-            },
-            grid: {
-                padding: {
-                    bottom: 30
-                }
-            }
-        };
-        goalOverviewChart = new ApexCharts(document.querySelector('#goal-overview-radial-bar-chart'),
-            goalOverviewChartOptions);
-        goalOverviewChart.render();
-    </script>
 @endsection

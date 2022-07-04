@@ -3,7 +3,7 @@
         <label for="{{ $name }}">{{ Str::ucfirst(Str::replace('_', ' ', $name)) }}</label>
     @endif
     <div class="custom-file">
-        <input type="file"
+        <input type="file" @if ($required) required @endif
             @if ($multiple) multiple name="{{ $name }}[]" @else name="{{ $name }}" @endif
             {!! $attrs !!} class="custom-file-input {{ $class }}" id="{{ $name }}">
         <label class="custom-file-label" for="{{ $name }}">Choose

@@ -12,7 +12,8 @@ class InputFile extends Component
     public $multiple;
     public $attrs;
     public $parentClass;
-    public function __construct($name, $class = "", $hasLabel = true, $multiple = false, $attrs = "", $parentClass = "")
+    public $required;
+    public function __construct($name, $class = "", $hasLabel = true, $multiple = false, $attrs = "", $parentClass = "", bool $required = false)
     {
         $this->class = $class;
         $this->name = $name;
@@ -20,6 +21,7 @@ class InputFile extends Component
         $this->multiple = $multiple;
         $this->attrs = $attrs;
         $this->parentClass = $parentClass;
+        $this->required = $required;
     }
 
 

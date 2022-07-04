@@ -196,12 +196,12 @@
           "name": "Moods",
           "icon": "circle",
           "slug": "admin.metadata.mood.index"
-        }
+        },
         {
-          "url": "/admin/metadata/mood/",
-          "name": "Moods",
+          "url": "/admin/metadata/quote/",
+          "name": "Quotes",
           "icon": "circle",
-          "slug": "admin.metadata.mood.index"
+          "slug": "admin.metadata.quote.index"
         }
       ]
     }

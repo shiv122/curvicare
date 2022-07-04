@@ -20,8 +20,7 @@ Route::prefix('v1')->group(function () {
         Route::middleware(['auth:api'])->group(function () {
             Route::controller(UserController::class)->group(function () {
                 Route::get('/', 'index');
-                Route::post('update', 'update');
-                Route::post('test', 'test');
+                Route::get('/update', 'update');
             });
         });
     });

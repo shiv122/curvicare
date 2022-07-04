@@ -52,7 +52,7 @@ class FoodDataTable extends DataTable
      */
     public function query(Food $model)
     {
-        return $model->with(['images:id,food_id,image', 'ingredients.ingredient:id,name'])->newQuery();
+        return $model->with(['images:id,food_id,image', 'ingredients:id,name'])->newQuery();
     }
 
     /**

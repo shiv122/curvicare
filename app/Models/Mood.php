@@ -10,4 +10,10 @@ class Mood extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+
+    public function scopeActive($query,  $status = 'active')
+    {
+        return $query->where('status', $status);
+    }
 }

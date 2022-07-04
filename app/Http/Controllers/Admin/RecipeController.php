@@ -85,7 +85,7 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::where('id', $id)->with(['foods', 'compositions', 'tags'])->first();
-
+        // dd($recipe->toArray());
         return view('content.pages.recipe-details', compact('recipe'));
     }
     public function status()
