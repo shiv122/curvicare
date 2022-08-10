@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Metadata;
 
 use App\Models\Mood;
 use App\Models\MoodQuote;
@@ -15,7 +15,7 @@ class QuoteController extends Controller
     {
         $pageConfigs = ['has_table' => true];
         $moods = Mood::active()->get();
-        return $table->render('content.tables.quotes', compact('pageConfigs', 'moods'));
+        return $table->render('content.tables.metadata.quotes', compact('pageConfigs', 'moods'));
     }
 
 
@@ -44,7 +44,40 @@ class QuoteController extends Controller
             'message' => 'Quote added successfully',
             'status' => 'success',
             'header' => 'Created',
-            'name' => 'quote-table',
+            'table' => 'quote-table',
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $quote = MoodQuote::findOrFail($id);
+        return response($quote);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'mood' => 'required|exists:moods,id',
+            'quote' => 'required|string|max:1000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'id' => 'required|exists:mood_quotes,id'
+        ]);
+        $quote = MoodQuote::find($request->id);
+        $image = null;
+        if ($request->image) {
+            $image = FileUploader::uploadFile($request->file('image'), 'images/quotes');
+            unlink($quote->image);
+        }
+        $quote->quotes = $request->quote;
+        $quote->mood_id = $request->mood;
+        if ($image) {
+            $quote->image = $image;
+        }
+        $quote->save();
+        return response([
+            'message' => 'Quote updated successfully',
+            'header' => 'Updated',
+            'table' => 'quote-table',
         ]);
     }
 }

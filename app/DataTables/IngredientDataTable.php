@@ -22,7 +22,7 @@ class IngredientDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->editColumn('created_at', function ($data) {
-                return  date("M jS, Y h:i A", strtotime($data->created_at));
+                return  '<span class="badge badge-light-success">' . date("M jS, Y h:i A", strtotime($data->created_at)) . '</span>';
             })
             ->editColumn('image', function ($data) {
                 $image = $data->image;
@@ -31,7 +31,8 @@ class IngredientDataTable extends DataTable
             ->addColumn('status', function ($data) {
                 $route = route('admin.package.status');
                 return view('content.table-component.switch', compact('data', 'route'));
-            });
+            })
+            ->escapeColumns('created_at');
     }
 
     /**
@@ -87,11 +88,11 @@ class IngredientDataTable extends DataTable
                 ->exportable(false)
                 ->printable(false),
             Column::make('name'),
+            Column::make('created_at'),
             Column::make('status')
                 ->orderable(false)
                 ->exportable(false)
                 ->printable(false),
-            Column::make('created_at'),
         ];
     }
 

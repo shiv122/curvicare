@@ -94,10 +94,10 @@
       "slug": "",
       "submenu": [
         {
-          "url": "/admin/ingredient/view",
+          "url": "/admin/ingredient/",
           "name": "Ingredient",
           "icon": "circle",
-          "slug": "admin.ingredient.view"
+          "slug": "admin.ingredient.index"
         }
       ]
     },
@@ -180,16 +180,16 @@
       "slug": "",
       "submenu": [
         {
-          "url": "/admin/metadata/coupon/add",
-          "name": "Add Coupon",
+          "url": "/admin/metadata/coupon/",
+          "name": " Coupon",
           "icon": "circle",
-          "slug": "admin.metadata.coupon.add"
+          "slug": "admin.metadata.coupon.index"
         },
         {
-          "url": "/admin/metadata/tag/view",
+          "url": "/admin/metadata/tag",
           "name": "Tags",
           "icon": "circle",
-          "slug": "admin.metadata.tag.view"
+          "slug": "admin.metadata.tag.index"
         },
         {
           "url": "/admin/metadata/mood/",

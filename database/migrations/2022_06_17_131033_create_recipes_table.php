@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('image', 2000);
             $table->string('caution', 2000);
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('status', ['active', 'blocked'])->default('active');
             $table->timestamps();
         });
     }

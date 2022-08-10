@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="{{ $name }}">
+    <label for="{{ $id ?? $name }}">
         @if ($label)
             {{ $label }}
         @else
@@ -9,7 +9,7 @@
     </label>
 
     <select @if ($required) required @endif class="select2  form-control {{ $class }}"
-        @if (!$array) id="{{ $name }}" @endif {!! $attrs !!}
+        @if (!$array) id="{{ $id ?? $name }}" @endif {!! $attrs !!}
         @if ($multiple) multiple
             name="{{ $name }}[]"
 

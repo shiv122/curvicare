@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title', 2000);
             $table->text('description');
-            $table->foreignId('dietician_id')->default(0)->constrained()->nullOnDelete();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->foreignId('dietician_id')->nullable()->constrained()->nullOnDelete();
+            $table->enum('status', ['active', 'blocked'])->default('active');
             $table->timestamps();
         });
     }

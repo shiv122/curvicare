@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('package_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('status', ['active', 'blocked'])->default('active');
             $table->timestamps();
         });
     }

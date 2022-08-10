@@ -1,5 +1,5 @@
 <div class="modal modal-slide-in fade {{ $class }}" id="{{ $id }}">
-    <div class="modal-dialog sidebar-lg">
+    <div class="modal-dialog sidebar-{{ $size }}">
         <div class="modal-content p-0">
 
             <div class="modal-header align-items-center mb-1">
@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
 
-                {{ $modal_body ?? '' }}
+                {{ $slot ?? '' }}
 
             </div>
 

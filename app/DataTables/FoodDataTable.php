@@ -32,16 +32,28 @@ class FoodDataTable extends DataTable
                 return  view('content.table-component.avatar-group', compact('images'));
             })
             ->addColumn('description', function ($data) {
-                $title = "Description";
-                $body = $data->description;
-                $id = $data->id;
-                return view('content.table-component.modal', compact('title', 'body', 'id'));
+                $text = 'View';
+                $class = 'btn btn-sm btn-primary data-viewer-btn';
+                $prepend = '<span class=" d-none  data-viewer-content">' . $data->description . '</span>';
+                return view('content.table-component.button', compact('text', 'class', 'prepend'));
+            })
+            ->addColumn('ingredients', function ($data) {
+                $table = '<table class="table ">';
+                $table .= '<thead><tr><th>Ingredient</th><th>Quantity</th><th>Unit</th></tr></thead>';
+                foreach ($data->ingredients as $key => $value) {
+                    $table .= '<tr><td>' . $value->name . '</td><td>' . $value->quantity->quantity . '</td><td>' . $value->quantity->unit . '</td></tr>';
+                }
+                $table .= '</table>';
+                $text = 'View ingredients';
+                $class = 'btn btn-sm btn-primary data-viewer-btn';
+                $prepend = '<span class=" d-none  data-viewer-content">' . $table . '</span>';
+                return view('content.table-component.button', compact('text', 'class', 'prepend'));
             })
             ->addColumn('status', function ($data) {
                 $route = route('admin.package.status');
                 return view('content.table-component.switch', compact('data', 'route'));
             })
-            ->escapeColumns('images');
+            ->escapeColumns('images',);
     }
 
     /**
@@ -52,7 +64,13 @@ class FoodDataTable extends DataTable
      */
     public function query(Food $model)
     {
-        return $model->with(['images:id,food_id,image', 'ingredients:id,name'])->newQuery();
+        $model = $model->with([
+            'images:id,food_id,image',
+            'ingredients:id,name'
+        ])->newQuery();
+
+
+        return $model;
     }
 
     /**
@@ -95,9 +113,15 @@ class FoodDataTable extends DataTable
             Column::make('id'),
             Column::make('name'),
             Column::make('description')
+                ->width('100')
+                ->searchable(true)
                 ->orderable(false)
-                ->exportable(false)
-                ->printable(false),
+                ->addClass('text-center'),
+            Column::make('ingredients')
+                ->data('ingredients')
+                ->orderable(false)
+                ->name('ingredients.name')
+                ->addClass('text-center'),
             Column::make('images')
                 ->orderable(false)
                 ->exportable(false)

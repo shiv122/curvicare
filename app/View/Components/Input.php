@@ -17,8 +17,21 @@ class Input extends Component
     public $required;
     public $label;
     public $placeholder;
-    public function __construct($class = "", $name = "", $type = "text", $hasLabel = true, $attrs = "", $parentClass = "", $helperText = "", $value = "", $required = true, $label = null, $placeholder = null)
-    {
+    public $id;
+    public function __construct(
+        $class = "",
+        $name = "",
+        $type = "text",
+        $hasLabel = true,
+        $attrs = "",
+        $parentClass = "",
+        $helperText = "",
+        $value = "",
+        $required = true,
+        $label = null,
+        $placeholder = null,
+        $id = null,
+    ) {
         $this->class = $class;
         $this->name = $name;
         $this->type = $type;
@@ -30,6 +43,7 @@ class Input extends Component
         $this->required = $required;
         $this->label = $label;
         $this->placeholder = $placeholder;
+        $this->id = $id;
     }
 
     /**

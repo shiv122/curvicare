@@ -10,6 +10,7 @@ class Ingredient extends Model
     use HasFactory;
     protected $guarded = [];
 
+    protected $table = 'ingredients';
 
     //active scope
     public function scopeActive($query, $status = 'active')

@@ -15,11 +15,11 @@
             <!-- Login v1 -->
             <div class="card mb-0">
                 <div class="card-body">
-                    <a href="javascript:void(0);" class="brand-logo align-items-center">
+                    <a href="javascript:void(0);" class="brand-logo align-items-center flex-column">
 
-                        {{-- <img style="max-width: 5em" src="{{ asset('images/logo/logo.png') }}" alt=""> --}}
+                        <img style="max-width: 5em" src="{{ asset('images/logo/logo.png') }}" alt="">
 
-                        <h2 class="brand-text text-primary ml-1">Curvicare</h2>
+                        <h2 class="brand-text text-primary ">Curvicare</h2>
                     </a>
 
                     <h4 class="card-title mb-1">Welcome to Curvicare! 👋</h4>

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('discount_value');
             $table->enum('currency', ['INR', 'USD'])->default('INR');
             $table->integer('max_discount_amount')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('status', ['active', 'blocked'])->default('active');
             $table->dateTime('expiry_date')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->timestamps();

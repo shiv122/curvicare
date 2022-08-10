@@ -76,6 +76,7 @@ class ProductDataTable extends DataTable
             ->minifiedAjax()
             ->dom('Bfrtip')
             ->orderBy(0)
+            ->searchDelay(500)
             ->parameters([
                 'scrollX' => true, 'paging' => true,
                 'lengthMenu' => [
@@ -103,6 +104,7 @@ class ProductDataTable extends DataTable
             Column::make('media')
                 ->orderable(false)
                 ->exportable(false)
+                ->searchable(false)
                 ->printable(false),
             Column::make('description')
                 ->orderable(false)

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\PackageDataTable;
-use App\Helpers\FileUploader;
-use App\Http\Controllers\Controller;
 use App\Models\Coupon;
 use App\Models\Package;
+use Illuminate\Http\Request;
+use App\Helpers\FileUploader;
 use App\Models\PackageCoupon;
 use App\Models\PackageFeature;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\DataTables\PackageDataTable;
+use App\Http\Controllers\Controller;
 
 class PackageController extends Controller
 {
@@ -36,59 +37,61 @@ class PackageController extends Controller
         ]);
 
 
-        $image = FileUploader::uploadFile($request->file('image'), 'images/packages');
+        return  DB::transaction(function () use ($request) {
+            $image = FileUploader::uploadFile($request->file('image'), 'images/packages');
 
-        $package = Package::create([
-            'title' => $request->title,
-            'image' => $image,
-            'duration' => $request->duration,
-            'terms' => $request->terms_and_conditions,
-        ]);
-
-
-
-        $package->package_prices()->create([
-            'currency' => "USD",
-            'price' => $request->price_in_dollar,
-        ]);
-        $package->package_prices()->create([
-            'currency' => "INR",
-            'price' => $request->price_in_rupees,
-        ]);
+            $package = Package::create([
+                'title' => $request->title,
+                'image' => $image,
+                'duration' => $request->duration,
+                'terms' => $request->terms_and_conditions,
+            ]);
 
 
-        $features = [];
-        foreach ($request->features as $key => $ft) {
-            $features[] = [
-                'title' => $ft['features'],
-                'package_id' => $package->id,
-                'created_at' => now(),
-            ];
-        }
-        PackageFeature::insert($features);
+
+            $package->prices()->create([
+                'currency' => "USD",
+                'price' => $request->price_in_dollar,
+            ]);
+            $package->prices()->create([
+                'currency' => "INR",
+                'price' => $request->price_in_rupees,
+            ]);
 
 
-        $coupons = [];
-
-        if ($request->coupon) {
-            foreach ($request->coupon as $key => $coupon) {
-                $coupons[] = [
-                    'coupon_id' => $coupon,
+            $features = [];
+            foreach ($request->features as $key => $ft) {
+                $features[] = [
+                    'title' => $ft['features'],
                     'package_id' => $package->id,
                     'created_at' => now(),
                 ];
             }
-
-            PackageCoupon::insert($coupons);
-        }
+            PackageFeature::insert($features);
 
 
+            $coupons = [];
 
-        return response([
-            'message' => 'Package added successfully',
-            'package' => $package,
-            'status' => 'success',
-        ]);
+            if ($request->coupon) {
+                foreach ($request->coupon as $key => $coupon) {
+                    $coupons[] = [
+                        'coupon_id' => $coupon,
+                        'package_id' => $package->id,
+                        'created_at' => now(),
+                    ];
+                }
+
+                PackageCoupon::insert($coupons);
+            }
+
+
+
+            return response([
+                'message' => 'Package added successfully',
+                'package' => $package,
+                'status' => 'success',
+            ]);
+        });
     }
 
     public function view(PackageDataTable $table)
@@ -97,6 +100,14 @@ class PackageController extends Controller
         //for filter use with
         // $table->with('id', 1);
         return $table->render('content.tables.packages', compact('pageConfigs'));
+    }
+
+
+    public function show($id)
+    {
+        $package = Package::with(['prices', 'coupons.coupon', 'features'])->findOrFail($id);
+
+        return view('content.pages.package-details', compact('package'));
     }
 
     public function status(Request $request)

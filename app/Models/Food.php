@@ -13,11 +13,18 @@ class Food extends Model
 
     public function ingredients()
     {
-        // return  $this->hasMany(FoodIngredient::class)->with(['ingredient']);
-
-        return $this->belongsToMany(Ingredient::class,  'food_ingredients', 'food_id', 'ingredient_id')->withPivot('quantity', 'unit')->as('quantity');
+        return $this->belongsToMany(
+            Ingredient::class,
+            'food_ingredients',
+            'food_id',
+            'ingredient_id'
+        )->withPivot('quantity', 'unit')->as('quantity');
     }
 
+    public function food_ingredients()
+    {
+        return  $this->hasMany(FoodIngredient::class)->with(['ingredient']);
+    }
 
 
 

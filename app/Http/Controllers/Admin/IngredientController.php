@@ -11,8 +11,11 @@ use App\Models\Ingredient;
 
 class IngredientController extends Controller
 {
-    public function add()
+    public function index(IngredientDataTable $table)
     {
+        $pageConfigs = ['has_table' => true];
+        $baseIngredient = BaseIngredient::active()->get();
+        return $table->render('content.tables.ingredients', compact('pageConfigs', 'baseIngredient'));
     }
     public function store(Request $request)
     {
@@ -35,15 +38,12 @@ class IngredientController extends Controller
             'caution' => $request->caution,
         ]);
 
-        return response(['header' => 'Success', 'message' => 'Ingredient added successfully.', 'name' => 'ingredient-table', 'new_ingredient' => $name], 200);
-    }
-    public function view(IngredientDataTable $table)
-    {
-        $pageConfigs = ['has_table' => true];
-        $baseIngredient = BaseIngredient::active()->get();
-        //for filter use with
-        // $table->with('id', 1);
-        return $table->render('content.tables.ingredients', compact('pageConfigs', 'baseIngredient'));
+        return response([
+            'header' => 'Success',
+            'message' => 'Ingredient added successfully.',
+            'table' => 'ingredient-table',
+            'new_ingredient' => $name
+        ], 200);
     }
     public function status()
     {

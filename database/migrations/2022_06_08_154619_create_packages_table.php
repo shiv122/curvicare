@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('image');
-            $table->string('terms');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('terms', 3000);
+            $table->enum('status', ['active', 'blocked'])->default('active');
             $table->timestamps();
         });
     }

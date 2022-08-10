@@ -34,7 +34,27 @@ class PackageDataTable extends DataTable
             ->addColumn('status', function ($data) {
                 $route = route('admin.package.status');
                 return view('content.table-component.switch', compact('data', 'route'));
-            });
+            })
+            ->addColumn('coupons', function ($data) {
+                $coupons = $data->coupons;
+                $coupon_badge = '';
+                if (count($coupons) > 0) {
+                    foreach ($coupons as $coupon) {
+                        $coupon_badge .= '<span class="badge badge-light-success ml-1">' . $coupon->code . '</span>';
+                    }
+                } else {
+                    $coupon_badge .= '<span class="badge badge-light-danger">No Coupon</span>';
+                }
+                return $coupon_badge;
+            })
+            ->addColumn('view', function ($data) {
+                $route = route('admin.package.show', $data->id);
+                $type = 'link';
+                $icon = 'view';
+                $class = 'btn-icon rounded-circle btn-primary';
+                return view('content.table-component.button', compact('route', 'type', 'icon', 'class'));
+            })
+            ->escapeColumns('coupons');
     }
 
     /**
@@ -96,6 +116,11 @@ class PackageDataTable extends DataTable
                 ->printable(false),
             Column::make('title'),
             Column::make('duration'),
+            Column::make('coupons'),
+            Column::make('view')
+                ->orderable(false)
+                ->exportable(false)
+                ->printable(false),
             Column::make('status')
                 ->orderable(false)
                 ->exportable(false)

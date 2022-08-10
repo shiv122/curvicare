@@ -11,7 +11,29 @@ var $salesStrokeColor2 = '#3585c6';
 var $white = '#fff';
 var $earningsStrokeColor2 = '#28c76f66';
 var $earningsStrokeColor3 = '#28c76f33';
-
+chartColors = {
+    column: {
+        series1: '#826af9',
+        series2: '#d2b0ff',
+        bg: '#f8d3ff'
+    },
+    success: {
+        shade_100: '#7eefc7',
+        shade_200: '#06774f'
+    },
+    donut: {
+        series1: '#ffe700',
+        series2: '#00d4bd',
+        series3: '#826bf8',
+        series4: '#2b9bf4',
+        series5: '#FFA1A1'
+    },
+    area: {
+        series3: '#a4f8cd',
+        series2: '#60f2ca',
+        series1: '#2bdac7'
+    }
+};
 function snb(type, head, text) {
     toastr[type](text, head, {
         closeButton: true,
@@ -104,10 +126,10 @@ function initEditor({ editor = null }) {
         })
     }
 }
-function blockUI() {
+function blockUI(message = null) {
     $.blockUI({
         message:
-            '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p> <div class="spinner-grow spinner-grow-sm text-white" role="status"></div> </div>',
+            message ?? '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p> <div class="spinner-grow spinner-grow-sm text-white" role="status"></div> </div>',
         css: {
             backgroundColor: 'transparent',
             color: '#fff',
@@ -118,10 +140,10 @@ function blockUI() {
         }
     });
 }
-function unblockUI() {
+function unblockUI(message = null) {
     $.blockUI({
         message:
-            '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p> <div class="spinner-grow spinner-grow-sm text-white" role="status"></div> </div>',
+            message ?? '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p> <div class="spinner-grow spinner-grow-sm text-white" role="status"></div> </div>',
         timeout: 1,
         css: {
             backgroundColor: 'transparent',
@@ -134,10 +156,10 @@ function unblockUI() {
     });
 }
 
-function blockDiv(place) {
+function blockDiv(place, message = null) {
     var section = $(place);
     section.block({
-        message: '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p><div class="spinner-grow spinner-grow-sm text-white" role="status"></div>',
+        message: message ?? '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p><div class="spinner-grow spinner-grow-sm text-white" role="status"></div>',
         css: {
             backgroundColor: 'transparent',
             color: '#fff',
@@ -183,17 +205,19 @@ $(document).on('change', '.status-switch', function () {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         }
     });
+    const status = (Number(checked)) ? 'active' : 'blocked';
     $.ajax({
         type: "PUT",
         url: url,
         data: {
             id: id,
-            status: Number(checked),
+            status: status,
         },
         success: function (response) {
             unblockDiv(block);
             console.log(response);
-            snb('success', 'Success', response.message ?? 'Status Changed');
+            snb('success', response.header ?? 'Success', response.message ?? 'Status Changed');
+            (response.table) && $('#' + response.table).DataTable().ajax.reload();
         },
         error: function (xhr, status, error) {
             $(This).prop('checked', !checked);
@@ -225,7 +249,7 @@ function validate(form) {
     return true;
 }
 
-const reboundForm = async function ({ selector = null, data = null, type = "POST", route = null, reset = true, reload = false, successCallback = null, errorCallback = null }) {
+const reboundForm = async function ({ selector = null, data = null, type = "POST", route = null, reset = true, reload = false, successCallback = null, errorCallback = null, loader = null }) {
 
     if (selector == null && data == null) {
         snb('error', 'Error', 'Please set the selector or data');
@@ -251,7 +275,7 @@ const reboundForm = async function ({ selector = null, data = null, type = "POST
     const btn = $(selector).find('button[type="submit"]');
     const btn_text = $(btn).text();
     $(btn).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
-    blockUI();
+    blockUI(loader);
     $.ajaxSetup({
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
@@ -278,10 +302,13 @@ const reboundForm = async function ({ selector = null, data = null, type = "POST
                 $(selector).closest('.modal').modal('hide');
             }
             unblockUI();
-            snb((response.type) ? response.type : 'success', response.header, response.message);
-            if ($.fn.DataTable) {
-                $('#' + response.name).DataTable().ajax.reload();
+            if (type == "get" || type == "GET") { } else {
+                snb((response.type) ? response.type : 'success', response.header, response.message);
+                if ($.fn.DataTable) {
+                    $('#' + response.table).DataTable().ajax.reload();
+                }
             }
+
 
             if (reload || response.reload) {
                 location.reload();
@@ -291,7 +318,9 @@ const reboundForm = async function ({ selector = null, data = null, type = "POST
                 successCallback.apply(null, arguments);
             }
 
-
+            if (type == "get" || type == "GET") {
+                return response;
+            }
             return true
         },
         error: function (xhr, status, error) {
@@ -314,7 +343,7 @@ const reboundForm = async function ({ selector = null, data = null, type = "POST
 
 
             if (errorCallback !== null) {
-                errorCallback();
+                errorCallback.apply(null, arguments);
             }
 
             return false;
@@ -341,52 +370,7 @@ $(document).on('click', '.view-on-click', function () {
     }
 
 });
-$(document).on('click', '.view-modal-data', function () {
-    const btn = $(this);
-    const btn_text = $(btn).text();
-    $(btn).attr('disabled', true).html(
-        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span class="ml-25 align-middle">Loading...</span>`
-    );
-    const school = $(this).data('id');
-    const route = $(this).data('route');
-    const modal = $(this).data('modal-id');
-    if (route.length == 0) {
-        snb('error', 'Error', 'Route cant be empty');
-        $(btn).attr('disabled', false).html(btn_text);
-        return false;
-    }
-    if ($('.modal').length == 0) {
-        snb('warning', 'Warning', 'There is no modal to show data.');
-        $(btn).attr('disabled', false).html(btn_text);
-        return false;
 
-    } else if ($(`#${modal}`).length == 0) {
-        snb('warning', 'Modal not found', `The modal with id "${modal}" was not found.`);
-        $(btn).attr('disabled', false).html(btn_text);
-        return false;
-    }
-    $.ajax({
-        type: "GET",
-        url: route,
-        data: "",
-        success: function (response) {
-            // console.log(response);
-            $(`#${modal} .modal-body`).html(response);
-            $(`#${modal}`).modal('show');
-            $(btn).attr('disabled', false).html(btn_text);
-        },
-        error: function (response) {
-            snb('error', 'Error', 'There was an error while getting data.');
-            $(btn).attr('disabled', false).html(btn_text);
-
-            report(response.responseText);
-
-            // console.log(response);
-        }
-    });
-
-});
 function report(error) {
     Swal.fire({
         title: 'An Error encountered',
@@ -438,115 +422,176 @@ function sendReport(error) {
 
 
 
-function initChart({ selector, categories, data, label = 'label' }) {
+function initBarChart({ selector, categories, data, label = 'label', color = '#3585c6' }) {
     const $salesLineChart = document.querySelector(selector);
-    const salesLineChartOptions = {
+    const chartOptions = {
         chart: {
-            height: 240,
+            height: 400,
+            type: 'bar',
+            stacked: true,
+            parentHeightOffset: 0,
             toolbar: {
                 show: false
-            },
-            zoom: {
-                enabled: false
-            },
-            type: 'line',
-            dropShadow: {
-                enabled: true,
-                top: 18,
-                left: 2,
-                blur: 5,
-                opacity: 0.2
-            },
-            offsetX: -10
-        },
-        stroke: {
-            curve: 'smooth',
-            width: 4
-        },
-        grid: {
-            borderColor: $strokeColor,
-            padding: {
-                top: -20,
-                bottom: 5,
-                left: 20
             }
+        },
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                barHeight: '30%',
+                endingShape: 'flat'
+            }
+        },
+        dataLabels: {
+            enabled: false
         },
         legend: {
-            show: false
+            show: true,
+            position: 'top',
+            horizontalAlign: 'start'
         },
-        colors: [$salesStrokeColor2],
-        fill: {
-            type: 'gradient',
-            gradient: {
-                shade: 'dark',
-                inverseColors: false,
-                gradientToColors: [window.colors.solid.primary],
-                shadeIntensity: 1,
-                type: 'horizontal',
-                opacityFrom: 1,
-                opacityTo: 1,
-                stops: [0, 100, 100, 100]
-            }
+        colors: [color],
+        stroke: {
+            show: true,
+            colors: ['transparent']
         },
-        markers: {
-            size: 0,
-            hover: {
-                size: 5
-            }
-        },
-        xaxis: {
-            labels: {
-                offsetY: 5,
-                style: {
-                    colors: $textMutedColor,
-                    fontSize: '0.857rem'
+        grid: {
+            xaxis: {
+                lines: {
+                    show: false
                 }
-            },
-            axisTicks: {
-                show: false
-            },
+            }
+        },
+        series: [
+            {
+                name: label,
+                data: data
+            }
+        ],
+        xaxis: {
             categories: categories,
-            type: 'datetime',
-            axisBorder: {
-                show: false
-            },
-            tickPlacement: 'on'
+            // type: 'datetime',
+            labels: {
+                rotate: -45,
+                rotateAlways: false,
+            }
+        },
+        fill: {
+            opacity: 1
         },
         yaxis: {
-
-            labels: {
-                style: {
-                    colors: $textMutedColor,
-                    fontSize: '0.857rem'
-                },
-                formatter: function (val) {
-                    return val > 999 ? (val / 1000).toFixed(1) + 'k' : val.toFixed(0);
-                }
-            }
-        },
-        tooltip: {
-            x: {
-                show: false
-            }
-        },
-        series: [{
-            name: label,
-            data: data
-        }]
+            opposite: isRtl
+        }
     };
-    salesLineChart = new ApexCharts($salesLineChart, salesLineChartOptions);
+    salesLineChart = new ApexCharts($salesLineChart, chartOptions);
     salesLineChart.render();
 }
 
+function initDonutChart({ selector, categories, data, label = 'label', color = '#3585c6' }) {
+    const $donutCart = document.querySelector(selector);
+    const chartOptions = {
+        chart: {
+            height: 350,
+            type: 'donut'
+        },
+        legend: {
+            show: true,
+            position: 'right'
+        },
+        labels: categories.map((cat) => cat ? cat : "No city"),
+        series: data,
+        colors: [
+            chartColors.donut.series5,
+            chartColors.donut.series3,
+            chartColors.donut.series2
+        ],
+        dataLabels: {
+            enabled: true,
+            formatter: function (val, opt) {
+                return parseInt(val) + '%';
+            }
+        },
+        plotOptions: {
+            pie: {
+                donut: {
+                    labels: {
+                        show: true,
+                        name: {
+                            fontSize: '2rem',
+                            fontFamily: 'Montserrat'
+                        },
+                        value: {
+                            fontSize: '1rem',
+                            fontFamily: 'Montserrat',
+                            formatter: function (val) {
+                                return parseInt(val) + '%';
+                            }
+                        },
+                        total: {
+                            show: true,
+                            fontSize: '1.5rem',
+                            label: label,
+                            formatter: function (w) {
+                                return data.reduce((pre, curr) => pre + curr, 0);
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        responsive: [
+            {
+                breakpoint: 992,
+                options: {
+                    chart: {
+                        height: 380
+                    }
+                }
+            },
+            {
+                breakpoint: 576,
+                options: {
+                    chart: {
+                        height: 250
+                    },
+                    legend: {
+                        show: true,
+                        position: 'bottom'
+                    },
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                labels: {
+                                    show: true,
+                                    name: {
+                                        fontSize: '1.5rem',
+                                    },
+                                    value: {
+                                        fontSize: '1rem'
+                                    },
+                                    total: {
+                                        // show: false,
+                                        fontSize: '0.1rem'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    };
+    donutCart = new ApexCharts($donutCart, chartOptions);
+    donutCart.render();
+}
+function noCallback() {
+    snb('error', 'Callback undefined', 'No callback function defined for edit action.');
+}
 
 // other functions
 (() => {
 
-    $(document).on('click', '[delete-action-btn]', async function () {
-        const id = $(this).data('id');
-        const route = $(this).data('route');
-
-
+    $(document).on('click', '[data-delete]', async function () {
+        const route = $(this).data('delete');
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -561,9 +606,10 @@ function initChart({ selector, categories, data, label = 'label' }) {
         }).then(async function (result) {
             if (result.value) {
                 await reboundForm({
-                    data: { id: id },
-                    type: 'post',
+                    data: '',
+                    type: 'delete',
                     route: route,
+                    loader: '<div class="delete"><span class="loader">Deleting</span></div>',
                     successCallback: () => {
                         Swal.fire({
                             icon: 'success',
@@ -580,9 +626,77 @@ function initChart({ selector, categories, data, label = 'label' }) {
             }
         });
     });
-    $(document).on('click', '[data-viewer-btn]', function () {
-        const id = $(this).data('id');
-        $("#data-viewer-" + id).modal('show');
+    $(document).on('click', '[data-edit]', function () {
+        const route = $(this).data('edit');
+        const modal = $(this).data('modal');
+        const callback = $(this).data('callback');
+
+        const data = reboundForm({
+            data: '',
+            type: 'get',
+            route: route,
+            loader: '<div class="fetch"><span class="loader"></span></div>',
+            successCallback: (data) => {
+                if ((typeof window[callback]) == 'function') {
+                    eval(callback)(data, modal);
+                } else {
+                    snb('error', 'Callback undefined', 'No callback function defined for edit action.');
+                }
+            }
+        });
+
+    });
+
+    $(document).on('click', '.view-modal-data', function () {
+        const btn = $(this);
+        const btn_text = $(btn).text();
+        $(btn).attr('disabled', true).html(
+            `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="ml-25 align-middle">Loading...</span>`
+        );
+        const school = $(this).data('id');
+        const route = $(this).data('route');
+        const modal = $(this).data('modal-id');
+        if (route.length == 0) {
+            snb('error', 'Error', 'Route cant be empty');
+            $(btn).attr('disabled', false).html(btn_text);
+            return false;
+        }
+        if ($('.modal').length == 0) {
+            snb('warning', 'Warning', 'There is no modal to show data.');
+            $(btn).attr('disabled', false).html(btn_text);
+            return false;
+
+        } else if ($(`#${modal}`).length == 0) {
+            snb('warning', 'Modal not found', `The modal with id "${modal}" was not found.`);
+            $(btn).attr('disabled', false).html(btn_text);
+            return false;
+        }
+        $.ajax({
+            type: "GET",
+            url: route,
+            data: "",
+            success: function (response) {
+                // console.log(response);
+                $(`#${modal} .modal-body`).html(response);
+                $(`#${modal}`).modal('show');
+                $(btn).attr('disabled', false).html(btn_text);
+            },
+            error: function (response) {
+                snb('error', 'Error', 'There was an error while getting data.');
+                $(btn).attr('disabled', false).html(btn_text);
+
+                report(response.responseText);
+
+                // console.log(response);
+            }
+        });
+
+    });
+    $(document).on('click', '.data-viewer-btn', function () {
+        const content = $(this).parent('td').find('.data-viewer-content').html();
+        $('#data-viewer-modal .modal-body').html(content);
+        $('#data-viewer-modal').modal('show');
 
     });
 })();

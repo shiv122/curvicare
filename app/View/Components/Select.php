@@ -16,6 +16,7 @@ class Select extends Component
     public $label;
     public $optionValue;
     public $array;
+    public $id;
     public function __construct(
         string $name,
         array|object $options = [],
@@ -26,7 +27,8 @@ class Select extends Component
         array $additionalOptionText = [],
         string|bool $label = false,
         string $optionValue = null,
-        bool $array = false
+        bool $array = false,
+        string|null $id = null
     ) {
         $this->name = $name;
         $this->options = $options;
@@ -38,6 +40,7 @@ class Select extends Component
         $this->label = $label;
         $this->optionValue = $optionValue;
         $this->array = $array;
+        $this->id = $id;
     }
 
     /**

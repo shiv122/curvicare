@@ -9,11 +9,17 @@ class SideModal extends Component
     public $id;
     public $title;
     public $class;
-    public function __construct($id, $title = "", $class = "")
-    {
+    public $size;
+    public function __construct(
+        $id,
+        $title = "",
+        $class = "",
+        $size = "lg"
+    ) {
         $this->id = $id;
         $this->title = $title;
         $this->class = $class;
+        $this->size = $size;
     }
 
     /**

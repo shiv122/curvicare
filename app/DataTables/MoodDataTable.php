@@ -27,7 +27,15 @@ class MoodDataTable extends DataTable
             ->addColumn('status', function ($data) {
                 $route = route('admin.metadata.mood.status');
                 return view('content.table-component.switch', compact('data', 'route'));
-            });
+            })
+            ->addColumn('action', function ($value) {
+                $edit_route = route('admin.metadata.mood.edit', $value->id);
+                $edit_callback = 'setValue';
+                $modal = '#edit-mood-modal';
+                $delete_route = route('admin.metadata.mood.destroy', $value->id);
+                return view('content.table-component.action', compact('edit_route', 'delete_route', 'edit_callback', 'modal'));
+            })
+            ->escapeColumns('action');
     }
 
     /**
@@ -84,6 +92,11 @@ class MoodDataTable extends DataTable
                 ->exportable(false)
                 ->printable(false),
             Column::make('created_at'),
+            Column::make('action')
+                ->exportable(false)
+                ->printable(false)
+                ->searchable(false)
+                ->addClass('text-center'),
         ];
     }
 

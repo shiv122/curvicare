@@ -31,7 +31,13 @@ class MoodQuoteDataTable extends DataTable
             ->editColumn('mood', function ($data) {
                 return '<span class="badge badge-success">' . $data->mood->name . '</span>';
             })
-
+            ->addColumn('action', function ($value) {
+                $edit_route = route('admin.metadata.quote.edit', $value->id);
+                $edit_callback = 'setValue';
+                $modal = '#edit-quote-modal';
+                $delete_route = route('admin.metadata.quote.destroy', $value->id);
+                return view('content.table-component.action', compact('edit_route', 'delete_route', 'edit_callback', 'modal'));
+            })
             ->escapeColumns('moods');
     }
 
@@ -96,6 +102,11 @@ class MoodQuoteDataTable extends DataTable
             Column::make('mood')
                 ->orderable(false),
             Column::make('created_at'),
+            Column::make('action')
+                ->exportable(false)
+                ->printable(false)
+                ->searchable(false)
+                ->addClass('text-center'),
         ];
     }
 

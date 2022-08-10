@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('url', 2000);
             $table->string('description');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('status', ['active', 'blocked'])->default('active');
             $table->timestamps();
         });
     }

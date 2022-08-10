@@ -2,15 +2,14 @@
 
 namespace App\DataTables;
 
-
-use App\Models\Tag;
+use App\Models\Coupon;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class TagDataTable extends DataTable
+class CouponDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,30 +21,29 @@ class TagDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->editColumn('created_at', function ($data) {
-                return  date("M jS, Y h:i A", strtotime($data->created_at));
-            })
-            ->addColumn('status', function ($data) {
-                $route = route('admin.metadata.tag.status');
-                return view('content.table-component.switch', compact('data', 'route'));
-            })
             ->addColumn('action', function ($value) {
-                $edit_route = route('admin.metadata.tag.edit', $value->id);
+                $edit_route = route('admin.metadata.coupon.edit', $value->id);
                 $edit_callback = 'setValue';
-                $modal = '#edit-tag-modal';
-                $delete_route = route('admin.metadata.tag.destroy', $value->id);
+                $modal = '#edit-coupon-modal';
+                $delete_route = route('admin.metadata.coupon.destroy', $value->id);
                 return view('content.table-component.action', compact('edit_route', 'delete_route', 'edit_callback', 'modal'));
             })
-            ->escapeColumns('action');
+            ->editColumn('created_at', function ($data) {
+                return  '<span class="badge badge-primary">' . date("M jS, Y h:i A", strtotime($data->created_at)) . '</span>';
+            })->addColumn('status', function ($data) {
+                $route = route('admin.metadata.coupon.status');
+                return view('content.table-component.switch', compact('data', 'route'));
+            })
+            ->escapeColumns('created_at', 'action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param App\Models\Tag $model
+     * @param \App\Models\Coupon $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Tag $model)
+    public function query(Coupon $model)
     {
         return $model->newQuery();
     }
@@ -58,13 +56,15 @@ class TagDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('tag-table')
+            ->setTableId('coupon-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
             ->orderBy(0)
+            ->searchDelay(1000)
             ->parameters([
                 'scrollX' => true, 'paging' => true,
+                'searchDelay' => 350,
                 'lengthMenu' => [
                     [10, 25, 50, -1],
                     ['10 rows', '25 rows', '50 rows', 'Show all']
@@ -87,14 +87,22 @@ class TagDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('name'),
-            Column::make('status'),
+            Column::make('title'),
+            Column::make('discount_type'),
+            Column::make('discount_value'),
+            Column::make('currency'),
             Column::make('created_at'),
-            Column::make('action')
+            Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->searchable(false)
+                ->width(60)
                 ->addClass('text-center'),
+            Column::computed('status')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
+
         ];
     }
 
@@ -105,6 +113,6 @@ class TagDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Tag_' . date('YmdHis');
+        return 'Coupon._' . date('YmdHis');
     }
 }

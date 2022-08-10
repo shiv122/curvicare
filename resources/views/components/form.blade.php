@@ -1,6 +1,6 @@
 <form class="needs-validation {{ $class }}" id="{{ $id }}" novalidate="">
     <div class="form-row">
-        {{ $form }}
+        {{ $slot ?? '' }}
     </div>
     <div class="col-12 mt-3 text-center">
         <x-button :isSubmit="true" :text="$btnText" />
@@ -23,7 +23,7 @@ if ($reload) {
             if (!validate($(this))) {
                 return false;
             }
-            $('[required]:not(:disabled)').each(function() {
+            $('#{{ $id }} [required]:not(:disabled)').each(function() {
                 if ($(this).is(':invalid') || !$(this).val()) snb('error', 'Validation Error', $(this)
                     .closest('.form-group').find('.invalid-tooltip').text(), valid = false);
             })
@@ -32,6 +32,7 @@ if ($reload) {
                 selector: this,
                 route: "{{ $route }}",
                 method: "POST",
+                loader: '<div class="create"><span class="loader"></span></div>',
                 reset: {{ $reset }},
                 relaod: {{ $rld }},
                 successCallback: {{ $successCallback }},
