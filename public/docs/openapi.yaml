@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: curvicare
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/user/login:
+    post:
+      summary: Login
+      description: "This endpoint is used to authenticate user by token or register new user\nif user is not found in database it will create new user and return it with token\nif user is found in database it will return old user with new token"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User Auth'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: 'The token of the user.'
+                  example: '<<json web token>>'
+                device_id:
+                  type: string
+                  description: 'The device id of the user.'
+                  example: 1e6c1d3c2f5b4f6d8c3e5a7b9c6d8f5e
+              required:
+                - token
+                - device_id
+      security: []
+tags:
+  -
+    name: 'User Auth'
+    description: "\nAPIs for user authentication/registration\nAll auth related APIs are here"

@@ -24,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone',
         'device_id',
         'username',
+        'firebase_uid',
     ];
 
     /**

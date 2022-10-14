@@ -1,0 +1,58 @@
+name: 'User Auth'
+description: |-
+
+  APIs for user authentication/registration
+  All auth related APIs are here
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/user/login
+    metadata:
+      groupName: 'User Auth'
+      groupDescription: |-
+
+        APIs for user authentication/registration
+        All auth related APIs are here
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: |-
+        This endpoint is used to authenticate user by token or register new user
+        if user is not found in database it will create new user and return it with token
+        if user is found in database it will return old user with new token
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      token:
+        name: token
+        description: 'The token of the user.'
+        required: true
+        example: '<<json web token>>'
+        type: string
+        custom: []
+      device_id:
+        name: device_id
+        description: 'The device id of the user.'
+        required: true
+        example: 1e6c1d3c2f5b4f6d8c3e5a7b9c6d8f5e
+        type: string
+        custom: []
+    cleanBodyParameters:
+      token: '<<json web token>>'
+      device_id: 1e6c1d3c2f5b4f6d8c3e5a7b9c6d8f5e
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
