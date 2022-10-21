@@ -23,6 +23,9 @@
                             <x-select name="tags" :multiple="true" :options="$tags" />
                         </div>
                         <div class="col-md-12 col-12 ">
+                            <x-select name="is_paid" :options="['yes', 'no']" />
+                        </div>
+                        <div class="col-md-12 col-12 ">
                             <x-input name="caution" type="textarea" />
                         </div>
                         <x-divider class="custom-divider" text="Add composition" />

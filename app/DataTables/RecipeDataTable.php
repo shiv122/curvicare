@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\Recipe;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class RecipeDataTable extends DataTable
@@ -32,16 +30,21 @@ class RecipeDataTable extends DataTable
                 return  view('content.table-component.avatar', compact('image'));
             })
             ->addColumn('status', function ($data) {
-                $route = route('admin.product.status');
+                $route = route('admin.recipe.status');
                 return view('content.table-component.switch', compact('data', 'route'));
             })
             ->addColumn('view', function ($data) {
-                $route = route('admin.recipe.show', $data->id);
-                $type = 'link';
-                $icon = 'view';
-                $class = 'btn-icon rounded-circle btn-flat-success';
-                return view('content.table-component.button', compact('route', 'type', 'icon', 'class'));
-            });
+                return '<a target="_blank" href="' . route('admin.recipe.show', $data->id) . '" class="btn btn-primary btn-sm">View</a>';
+            })
+
+            ->editColumn('is_paid', function ($data) {
+                $route = route('admin.recipe.paid-status');
+                $column = 'is_paid';
+                $checked_value = 'yes';
+                return view('content.table-component.switch', compact('data', 'column', 'route', 'checked_value'));
+            })
+
+            ->escapeColumns('view');
     }
 
     /**
@@ -109,6 +112,7 @@ class RecipeDataTable extends DataTable
                 ->orderable(false)
                 ->exportable(false)
                 ->printable(false),
+            Column::make('is_paid'),
             Column::make('created_at'),
         ];
     }

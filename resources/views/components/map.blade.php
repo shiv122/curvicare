@@ -1,12 +1,12 @@
 @php
-$uuid = Str::uuid();
+    $uuid = Str::uuid();
 @endphp
 
 @if ($modal)
     <x-modal title="Map" footer="false" size="xl" id="{{ $uuid }}">
-        <x-slot name="body">
-            <div id="map"></div>
-        </x-slot>
+
+        <div id="map"></div>
+
     </x-modal>
 @else
     <div id="map"></div>
@@ -22,16 +22,6 @@ $uuid = Str::uuid();
 
 @push('component-script')
     <script>
-        @if ($modal)
-            $(document).on('focus', '{{ $linked_to }}', (function(e) {
-                e.preventDefault();
-                $('#{{ $uuid }}').modal('show');
-
-            }));
-            $("#{{ $uuid }}").on('shown.bs.modal', function() {
-                map.invalidateSize();
-            });
-        @endif
         var map;
         var pin;
         var tilesURL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -75,5 +65,16 @@ $uuid = Str::uuid();
                 });
             }
         });
+
+        @if ($modal)
+            $(document).on('focus', '{{ $linked_to }}', (function(e) {
+                e.preventDefault();
+                $('#{{ $uuid }}').modal('show');
+
+            }));
+            $("#{{ $uuid }}").on('shown.bs.modal', function() {
+                map.invalidateSize();
+            });
+        @endif
     </script>
 @endpush

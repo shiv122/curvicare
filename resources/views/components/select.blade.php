@@ -25,8 +25,8 @@
             <option
                 @if (!empty($optionValue)) value="{{ $option->$optionValue }}"
             @else
-            value="{{ $option->id }}" @endif>
-                {{ $option->name ?? $option->title }}
+            value="{{ $option->id ?? $option }}" @endif>
+                {{ $option->name ?? ($option->title ?? ucfirst($option)) }}
                 @forelse ($additionalOptionText as $add)
                     {{ $option->$add ?? $add }}
                 @empty

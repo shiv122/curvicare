@@ -33,11 +33,12 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|unique:recipes,name',
             'foods.*' => 'required|exists:food,id',
             'nutrients.*' => 'required|exists:nutrients,id',
             'tags.*' => 'required|exists:tags,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_paid' => 'required|in:yes,no',
         ]);
 
         DB::transaction(function () use ($request) {
@@ -45,6 +46,7 @@ class RecipeController extends Controller
                 'name' => $request->name,
                 'caution' => $request->caution,
                 'image' => FileUploader::uploadFile($request->file('image'), 'images/recipes'),
+                'is_paid' => $request->is_paid,
             ]);
 
             $nutrients = [];
@@ -80,7 +82,11 @@ class RecipeController extends Controller
         });
 
 
-        return $request->all();
+        return response()->json([
+            'message' => 'Recipe Added Successfully',
+            'header' => 'Success!!',
+            'reload' => true,
+        ]);
     }
     public function show($id)
     {
@@ -88,7 +94,45 @@ class RecipeController extends Controller
         // dd($recipe->toArray());
         return view('content.pages.recipe-details', compact('recipe'));
     }
-    public function status()
+    public function status(Request $request)
     {
+        $request->validate([
+            'id' => 'required|exists:recipes,id',
+            'status' => 'required|in:active,blocked',
+        ]);
+
+        // return $request->all();
+
+        Recipe::where('id', $request->id)->update(['status' => $request->status]);
+
+        return response()->json([
+            'message' => 'Recipe status updated successfully',
+            'table' => 'recipes-table',
+        ]);
+    }
+
+
+    public function paidStatus(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:recipes,id',
+            'status' => 'required|in:active,blocked',
+        ]);
+
+
+
+        Recipe::where('id', $request->id)->update(['is_paid' => ($request->status == 'active') ? 'yes' : 'no']);
+
+        return response()->json([
+            'message' => 'Recipe paid status updated successfully',
+            'table' => 'recipes-table',
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $recipe = Recipe::findOrFail($id);
+
+        dd($recipe);
     }
 }

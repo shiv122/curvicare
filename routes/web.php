@@ -63,6 +63,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::get('/add', 'add')->name('add');
         Route::post('/store', 'store')->name('store');
         Route::put('/status', 'status')->name('status');
+        Route::put('/paid-status', 'paidStatus')->name('paid-status');
         Route::get('/show/{id}', 'show')->name('show');
         Route::get('/edit/{id}', 'edit')->name('edit');
     });
