@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Kreait\Firebase\Auth\UserMetaData;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -59,6 +60,24 @@ class User extends Authenticatable implements MustVerifyEmail
     public function user_data()
     {
         return $this->hasOne(UserData::class);
+    }
+
+
+    public function moods()
+    {
+        return $this->hasMany(UserMoodTracker::class, 'user_id');
+    }
+
+
+    public function water()
+    {
+        return $this->hasMany(UserWaterTracker::class, 'user_id');
+    }
+
+
+    public function steps()
+    {
+        return $this->hasMany(UserStepCounter::class, 'user_id');
     }
 
     public function medical_conditions()
