@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_data', function (Blueprint $table) {
+        Schema::create('user_activities', function (Blueprint $table) {
             $table->id();
-            $table->integer('age');
-            $table->enum('gender', ['male', 'female', 'other']);
-            $table->integer('height');
-            $table->integer('weight');
-            $table->string('activity', 1000);
+            $table->string('name');
+            $table->string('image', 3000)->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_data');
+        Schema::dropIfExists('user_activities');
     }
 };

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\v1\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Services\User\UserAuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -42,6 +43,14 @@ class UserAuthController extends Controller
             'token' => 'required|string',
             'device_id' => 'required|string|size:36',
         ]);
+
+
+        // $user = User::find(2)->createToken('user')->plainTextToken;
+
+
+        // return response()->json([
+        //     'user' => $user,
+        // ]);
 
         return $authService->authenticate($request);
     }

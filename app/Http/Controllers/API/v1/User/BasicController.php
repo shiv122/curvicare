@@ -8,6 +8,8 @@ use App\Models\MoodQuote;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RecipeResource;
+use Illuminate\Support\Facades\DB;
 
 class BasicController extends Controller
 {
@@ -24,15 +26,41 @@ class BasicController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required|email',
+            'dob' => 'required|date',
+            'user_activity_id' => 'required|integer|exists:user_activities,id',
+            'user_goal_id' => 'required|integer|exists:user_goals,id',
+            'weight' => 'required|numeric',
+            'height' => 'required|numeric',
+            'medical_conditions' => 'nullable|array',
+            'medical_conditions.*' => 'nullable|exists:medical_conditions,id',
+            'gender' => 'required|in:male,female,other|string',
         ]);
 
         $user = $request->user();
 
-        $user->update($request->only(
+
+        DB::beginTransaction();
+
+        $user->update($request->only([
             'name',
-            'email',
-        ));
+        ]));
+
+        $user->user_data()->create($request->only([
+            'dob',
+            'user_activity_id',
+            'user_goal_id',
+            'weight',
+            'height',
+            'gender',
+        ]));
+
+
+        if ($request->has('medical_conditions')) {
+            $user->medicalConditions()->sync($request->medical_conditions);
+        }
+
+        DB::commit();
+
 
         return response()->json($user);
     }
@@ -48,12 +76,12 @@ class BasicController extends Controller
     public function recipes()
     {
         $recipes = Recipe::with([
-            'foods',
+            'foods' => ['ingredients', 'images'],
             'compositions',
             'tags',
         ])->get();
 
-        return response()->json($recipes);
+        return RecipeResource::collection($recipes);
     }
 
 
@@ -74,5 +102,16 @@ class BasicController extends Controller
         $testimonials = Testimonial::all();
 
         return response()->json($testimonials);
+    }
+
+    public function metadata()
+    {
+        $data = [
+            'user_activities' => DB::table('user_activities')->get(),
+            'user_goals' => DB::table('user_goals')->get(),
+            'medical_conditions' => DB::table('medical_conditions')->get(),
+        ];
+
+        return response()->json($data);
     }
 }

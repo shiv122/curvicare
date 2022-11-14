@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1/user')->group(function () {
     Route::post('login', [UserAuthController::class, 'login']);
+    Route::get('metadata', [BasicController::class, 'metadata']);
 
 
 

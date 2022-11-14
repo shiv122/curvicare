@@ -45,4 +45,24 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    public function user_data()
+    {
+        return $this->hasOne(UserData::class);
+    }
+
+    public function medical_conditions()
+    {
+        return $this->hasMany(UserMedicalCondition::class);
+    }
 }

@@ -14,8 +14,7 @@ class Recipe extends Model
     public function foods()
     {
         // return $this->hasMany(RecipeFood::class, 'recipe_id')->with('food');
-        return $this->belongsToMany(Food::class,  'recipe_food', 'recipe_id', 'food_id')
-            ->with(['ingredients', 'images']);
+        return $this->belongsToMany(Food::class,  'recipe_food', 'recipe_id', 'food_id');
     }
 
 
