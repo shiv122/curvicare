@@ -70,6 +70,65 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-user-basic" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user-basic">
+                    <a href="#user-basic">User Basic</a>
+                </li>
+                                    <ul id="tocify-subheader-user-basic" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-metadata">
+                                <a href="#user-basic-GETapi-v1-user-metadata">Metadata</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user">
+                                <a href="#user-basic-GETapi-v1-user">Profile</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-POSTapi-v1-user">
+                                <a href="#user-basic-POSTapi-v1-user">Update Profile</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-quotes">
+                                <a href="#user-basic-GETapi-v1-user-quotes">Quotes</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-recipes">
+                                <a href="#user-basic-GETapi-v1-user-recipes">Recipes</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-blogs">
+                                <a href="#user-basic-GETapi-v1-user-blogs">Blogs</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-testimonials">
+                                <a href="#user-basic-GETapi-v1-user-testimonials">Testimonials</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-user-tracker" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user-tracker">
+                    <a href="#user-tracker">User Tracker</a>
+                </li>
+                                    <ul id="tocify-subheader-user-tracker" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-tracker-GETapi-v1-user-tracker">
+                                <a href="#user-tracker-GETapi-v1-user-tracker">GET api/v1/user/tracker</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-tracker-GETapi-v1-user-tracker-moods">
+                                <a href="#user-tracker-GETapi-v1-user-tracker-moods">Moods</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-tracker-GETapi-v1-user-tracker-mood">
+                                <a href="#user-tracker-GETapi-v1-user-tracker-mood">User Mood</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-tracker-POSTapi-v1-user-tracker-mood">
+                                <a href="#user-tracker-POSTapi-v1-user-tracker-mood">Store User Mood</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-tracker-GETapi-v1-user-tracker-water">
+                                <a href="#user-tracker-GETapi-v1-user-tracker-water">User Steps</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-tracker-POSTapi-v1-user-tracker-water">
+                                <a href="#user-tracker-POSTapi-v1-user-tracker-water">Store User Water</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-tracker-GETapi-v1-user-tracker-step">
+                                <a href="#user-tracker-GETapi-v1-user-tracker-step">User Steps</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-tracker-POSTapi-v1-user-tracker-step">
+                                <a href="#user-tracker-POSTapi-v1-user-tracker-step">Store User Steps</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
             <ul class="toc-footer" id="toc-footer">
@@ -78,7 +137,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 14 2022</li>
+        <li>Last updated: November 16 2022</li>
     </ul>
 </div>
 
@@ -199,6 +258,1384 @@ fetch(url, {
                data-component="body" hidden>
     <br>
 <p>The device id of the user.</p>
+        </p>
+        </form>
+
+                <h1 id="user-basic">User Basic</h1>
+
+    <p>APIs for basic data</p>
+
+                                <h2 id="user-basic-GETapi-v1-user-metadata">Metadata</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get metadata for the app like user goals, user activities, medical conditions etc.</p>
+
+<span id="example-requests-GETapi-v1-user-metadata">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/metadata" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/metadata"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-metadata">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;user_activities&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Activity 1&quot;,
+            &quot;image&quot;: null,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2022-11-11 16:31:16&quot;,
+            &quot;updated_at&quot;: null
+        }
+    ],
+    &quot;user_goals&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Weight Loss&quot;,
+            &quot;image&quot;: null,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2022-11-11 16:31:43&quot;,
+            &quot;updated_at&quot;: null
+        }
+    ],
+    &quot;medical_conditions&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Diabetes&quot;,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2022-11-11 15:46:56&quot;,
+            &quot;updated_at&quot;: null
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-metadata" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-metadata"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-metadata"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-metadata" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-metadata"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-metadata" data-method="GET"
+      data-path="api/v1/user/metadata"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-metadata', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/metadata</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-basic-GETapi-v1-user">Profile</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get user profile data</p>
+
+<span id="example-requests-GETapi-v1-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user"></code></pre>
+</span>
+<form id="form-GETapi-v1-user" data-method="GET"
+      data-path="api/v1/user"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-basic-POSTapi-v1-user">Update Profile</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to update user profile data</p>
+
+<span id="example-requests-POSTapi-v1-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/user" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"natus\",
+    \"dob\": \"2022-11-16T11:24:08\",
+    \"user_activity_id\": 18,
+    \"user_goal_id\": 4,
+    \"weight\": 8989.18059,
+    \"height\": 1270.3368,
+    \"medical_conditions\": [
+        null
+    ],
+    \"gender\": \"odit\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "natus",
+    "dob": "2022-11-16T11:24:08",
+    "user_activity_id": 18,
+    "user_goal_id": 4,
+    "weight": 8989.18059,
+    "height": 1270.3368,
+    "medical_conditions": [
+        null
+    ],
+    "gender": "odit"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user">
+</span>
+<span id="execution-results-POSTapi-v1-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user" data-method="POST"
+      data-path="api/v1/user"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-v1-user"
+               value="natus"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>dob</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="dob"
+               data-endpoint="POSTapi-v1-user"
+               value="2022-11-16T11:24:08"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid date.</p>
+        </p>
+                <p>
+            <b><code>user_activity_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="user_activity_id"
+               data-endpoint="POSTapi-v1-user"
+               value="18"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>user_goal_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="user_goal_id"
+               data-endpoint="POSTapi-v1-user"
+               value="4"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>weight</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="weight"
+               data-endpoint="POSTapi-v1-user"
+               value="8989.18059"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>height</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="height"
+               data-endpoint="POSTapi-v1-user"
+               value="1270.3368"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>medical_conditions</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="medical_conditions[0]"
+               data-endpoint="POSTapi-v1-user"
+               data-component="body" hidden>
+        <input type="text"
+               name="medical_conditions[1]"
+               data-endpoint="POSTapi-v1-user"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>gender</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="gender"
+               data-endpoint="POSTapi-v1-user"
+               value="odit"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.</p>
+        </p>
+        </form>
+
+                    <h2 id="user-basic-GETapi-v1-user-quotes">Quotes</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get random quotes</p>
+
+<span id="example-requests-GETapi-v1-user-quotes">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/quotes" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/quotes"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-quotes">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-quotes" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-quotes"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-quotes"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-quotes" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-quotes"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-quotes" data-method="GET"
+      data-path="api/v1/user/quotes"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-quotes', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/quotes</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-basic-GETapi-v1-user-recipes">Recipes</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get list of recipes.</p>
+
+<span id="example-requests-GETapi-v1-user-recipes">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/recipes" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/recipes"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-recipes">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-recipes" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-recipes"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-recipes"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-recipes" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-recipes"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-recipes" data-method="GET"
+      data-path="api/v1/user/recipes"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-recipes', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/recipes</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-basic-GETapi-v1-user-blogs">Blogs</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get list of blogs.</p>
+
+<span id="example-requests-GETapi-v1-user-blogs">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/blogs" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/blogs"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-blogs">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-blogs" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-blogs"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-blogs"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-blogs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-blogs"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-blogs" data-method="GET"
+      data-path="api/v1/user/blogs"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-blogs', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/blogs</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-basic-GETapi-v1-user-testimonials">Testimonials</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get list of testimonials.</p>
+
+<span id="example-requests-GETapi-v1-user-testimonials">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/testimonials" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/testimonials"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-testimonials">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-testimonials" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-testimonials"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-testimonials"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-testimonials" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-testimonials"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-testimonials" data-method="GET"
+      data-path="api/v1/user/testimonials"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-testimonials', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/testimonials</code></b>
+        </p>
+                    </form>
+
+                <h1 id="user-tracker">User Tracker</h1>
+
+    <p>APIs for user tracker eg. mood, steps, water</p>
+
+                                <h2 id="user-tracker-GETapi-v1-user-tracker">GET api/v1/user/tracker</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-user-tracker">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/tracker" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-tracker">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-tracker" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-tracker"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-tracker"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-tracker" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-tracker"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-tracker" data-method="GET"
+      data-path="api/v1/user/tracker"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-tracker', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/tracker</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-tracker-GETapi-v1-user-tracker-moods">Moods</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get all moods</p>
+
+<span id="example-requests-GETapi-v1-user-tracker-moods">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/tracker/moods" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker/moods"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-tracker-moods">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-tracker-moods" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-tracker-moods"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-tracker-moods"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-tracker-moods" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-tracker-moods"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-tracker-moods" data-method="GET"
+      data-path="api/v1/user/tracker/moods"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-tracker-moods', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/tracker/moods</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-tracker-GETapi-v1-user-tracker-mood">User Mood</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get user mood</p>
+
+<span id="example-requests-GETapi-v1-user-tracker-mood">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/tracker/mood" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker/mood"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-tracker-mood">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-tracker-mood" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-tracker-mood"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-tracker-mood"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-tracker-mood" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-tracker-mood"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-tracker-mood" data-method="GET"
+      data-path="api/v1/user/tracker/mood"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-tracker-mood', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/tracker/mood</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-tracker-POSTapi-v1-user-tracker-mood">Store User Mood</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to store user mood</p>
+
+<span id="example-requests-POSTapi-v1-user-tracker-mood">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/user/tracker/mood" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"mood\": 12
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker/mood"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "mood": 12
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-tracker-mood">
+</span>
+<span id="execution-results-POSTapi-v1-user-tracker-mood" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-tracker-mood"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-tracker-mood"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-tracker-mood" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-tracker-mood"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-tracker-mood" data-method="POST"
+      data-path="api/v1/user/tracker/mood"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-tracker-mood', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/tracker/mood</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>mood</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="mood"
+               data-endpoint="POSTapi-v1-user-tracker-mood"
+               value="12"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="user-tracker-GETapi-v1-user-tracker-water">User Steps</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get user steps</p>
+
+<span id="example-requests-GETapi-v1-user-tracker-water">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/tracker/water" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker/water"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-tracker-water">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-tracker-water" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-tracker-water"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-tracker-water"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-tracker-water" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-tracker-water"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-tracker-water" data-method="GET"
+      data-path="api/v1/user/tracker/water"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-tracker-water', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/tracker/water</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-tracker-POSTapi-v1-user-tracker-water">Store User Water</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to store user water</p>
+
+<span id="example-requests-POSTapi-v1-user-tracker-water">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/user/tracker/water" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"water_amount\": 482836
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker/water"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "water_amount": 482836
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-tracker-water">
+</span>
+<span id="execution-results-POSTapi-v1-user-tracker-water" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-tracker-water"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-tracker-water"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-tracker-water" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-tracker-water"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-tracker-water" data-method="POST"
+      data-path="api/v1/user/tracker/water"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-tracker-water', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/tracker/water</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>water_amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="water_amount"
+               data-endpoint="POSTapi-v1-user-tracker-water"
+               value="482836"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="user-tracker-GETapi-v1-user-tracker-step">User Steps</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get user steps</p>
+
+<span id="example-requests-GETapi-v1-user-tracker-step">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/user/tracker/step" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker/step"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-tracker-step">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-tracker-step" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-tracker-step"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-tracker-step"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-tracker-step" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-tracker-step"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-tracker-step" data-method="GET"
+      data-path="api/v1/user/tracker/step"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-tracker-step', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/tracker/step</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="user-tracker-POSTapi-v1-user-tracker-step">Store User Steps</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to store user steps</p>
+
+<span id="example-requests-POSTapi-v1-user-tracker-step">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/user/tracker/step" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"step\": 2
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/tracker/step"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "step": 2
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-tracker-step">
+</span>
+<span id="execution-results-POSTapi-v1-user-tracker-step" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-tracker-step"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-tracker-step"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-tracker-step" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-tracker-step"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-tracker-step" data-method="POST"
+      data-path="api/v1/user/tracker/step"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-tracker-step', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/tracker/step</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>step</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="step"
+               data-endpoint="POSTapi-v1-user-tracker-step"
+               value="2"
+               data-component="body" hidden>
+    <br>
+
         </p>
         </form>
 

@@ -7,13 +7,33 @@ use App\Models\Recipe;
 use App\Models\MoodQuote;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\RecipeResource;
-use Illuminate\Support\Facades\DB;
+use App\Http\Resources\Misc\BlogResource;
+use App\Http\Resources\Misc\QuoteResource;
+use App\Http\Resources\Misc\TestimonialsResource;
+
+
+
+/**
+ * @group User Basic
+ * 
+ * APIs for basic data
+ */
+
 
 class BasicController extends Controller
 {
 
+
+
+    /**
+     * Profile
+     * 
+     * This endpoint is used to get user profile data
+     * 
+     */
 
     public function profile(Request $request)
     {
@@ -21,6 +41,14 @@ class BasicController extends Controller
 
         return response()->json($user);
     }
+
+
+    /**
+     * Update Profile
+     * 
+     * This endpoint is used to update user profile data
+     * 
+     */
 
     public function updateProfile(Request $request)
     {
@@ -56,7 +84,11 @@ class BasicController extends Controller
 
 
         if ($request->has('medical_conditions')) {
-            $user->medicalConditions()->sync($request->medical_conditions);
+            foreach ($request->medical_conditions as $condition) {
+                $user->medical_conditions()->create([
+                    'medical_condition_id' => $condition,
+                ]);
+            }
         }
 
         DB::commit();
@@ -66,12 +98,24 @@ class BasicController extends Controller
     }
 
 
+    /**
+     * Quotes
+     * 
+     * This endpoint is used to get random quotes
+     */
 
     public function quotes(Request $request)
     {
         $quote = MoodQuote::inRandomOrder()->first();
-        return response()->json($quote);
+        return QuoteResource::make($quote);
     }
+
+
+    /**
+     * Recipes
+     * 
+     * This endpoint is used to get list of recipes.
+     */
 
     public function recipes()
     {
@@ -84,25 +128,42 @@ class BasicController extends Controller
         return RecipeResource::collection($recipes);
     }
 
+    /**
+     * Blogs
+     * 
+     * This endpoint is used to get list of blogs.
+     */
 
     public function blogs()
     {
         $blogs = Blog::with([
-            'tags',
+            'direct_tags',
             'images',
             'dietician',
         ])->get();
 
 
-        return response()->json($blogs);
+        return BlogResource::collection($blogs);
     }
+
+    /** 
+     * Testimonials
+     * 
+     * This endpoint is used to get list of testimonials.
+     */
 
     public function testimonials()
     {
-        $testimonials = Testimonial::all();
+        $testimonials = Testimonial::active()->get();
 
-        return response()->json($testimonials);
+        return TestimonialsResource::collection($testimonials);
     }
+
+    /**
+     * Metadata
+     * 
+     * This endpoint is used to get metadata for the app like user goals, user activities, medical conditions etc.
+     */
 
     public function metadata()
     {

@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Package;
+use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -40,7 +41,8 @@ class PackageDataTable extends DataTable
                 $coupon_badge = '';
                 if (count($coupons) > 0) {
                     foreach ($coupons as $coupon) {
-                        $coupon_badge .= '<span class="badge badge-light-success ml-1">' . $coupon->code . '</span>';
+                        $coupon_badge .= '<span
+                         class="badge badge-light-success ml-1">' . $coupon->coupon->code . '</span>';
                     }
                 } else {
                     $coupon_badge .= '<span class="badge badge-light-danger">No Coupon</span>';
@@ -49,10 +51,7 @@ class PackageDataTable extends DataTable
             })
             ->addColumn('view', function ($data) {
                 $route = route('admin.package.show', $data->id);
-                $type = 'link';
-                $icon = 'view';
-                $class = 'btn-icon rounded-circle btn-primary';
-                return view('content.table-component.button', compact('route', 'type', 'icon', 'class'));
+                return '<a href="' . $route . '" class="btn btn-sm btn-primary">View</a>';
             })
             ->escapeColumns('coupons');
     }
@@ -66,10 +65,10 @@ class PackageDataTable extends DataTable
     public function query(Package $model)
     {
         $model =   $model->newQuery();
+        $model->with(['prices', 'coupons.coupon', 'features']);
         if ($this->id) {
             $model =  $model->where('id', $this->id);
         }
-        // ->with(['prices', 'coupons.coupon', 'features'])
         return $model;
     }
 

@@ -24,12 +24,12 @@ class UserData extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function userGoal()
+    public function user_goal()
     {
         return $this->belongsTo(UserGoal::class);
     }
 
-    public function userActivity()
+    public function user_activity()
     {
         return $this->belongsTo(UserActivity::class);
     }

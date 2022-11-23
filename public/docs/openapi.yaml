@@ -48,7 +48,629 @@ paths:
                 - token
                 - device_id
       security: []
+  /api/v1/user/metadata:
+    get:
+      summary: Metadata
+      description: 'This endpoint is used to get metadata for the app like user goals, user activities, medical conditions etc.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  user_activities:
+                    -
+                      id: 1
+                      name: 'Activity 1'
+                      image: null
+                      status: active
+                      created_at: '2022-11-11 16:31:16'
+                      updated_at: null
+                  user_goals:
+                    -
+                      id: 1
+                      name: 'Weight Loss'
+                      image: null
+                      status: active
+                      created_at: '2022-11-11 16:31:43'
+                      updated_at: null
+                  medical_conditions:
+                    -
+                      id: 1
+                      name: Diabetes
+                      status: active
+                      created_at: '2022-11-11 15:46:56'
+                      updated_at: null
+                properties:
+                  user_activities:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Activity 1'
+                        image: null
+                        status: active
+                        created_at: '2022-11-11 16:31:16'
+                        updated_at: null
+                    items:
+                      type: object
+                  user_goals:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Weight Loss'
+                        image: null
+                        status: active
+                        created_at: '2022-11-11 16:31:43'
+                        updated_at: null
+                    items:
+                      type: object
+                  medical_conditions:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Diabetes
+                        status: active
+                        created_at: '2022-11-11 15:46:56'
+                        updated_at: null
+                    items:
+                      type: object
+      tags:
+        - 'User Basic'
+      security: []
+  /api/v1/user:
+    get:
+      summary: Profile
+      description: 'This endpoint is used to get user profile data'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Basic'
+      security: []
+    post:
+      summary: 'Update Profile'
+      description: 'This endpoint is used to update user profile data'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User Basic'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: natus
+                dob:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2022-11-16T11:24:08'
+                user_activity_id:
+                  type: integer
+                  description: ''
+                  example: 18
+                user_goal_id:
+                  type: integer
+                  description: ''
+                  example: 4
+                weight:
+                  type: number
+                  description: ''
+                  example: 8989.18059
+                height:
+                  type: number
+                  description: ''
+                  example: 1270.3368
+                medical_conditions:
+                  type: array
+                  description: ''
+                  example:
+                    - null
+                  items:
+                    type: string
+                gender:
+                  type: string
+                  description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
+                  example: odit
+              required:
+                - name
+                - dob
+                - user_activity_id
+                - user_goal_id
+                - weight
+                - height
+                - gender
+      security: []
+  /api/v1/user/quotes:
+    get:
+      summary: Quotes
+      description: 'This endpoint is used to get random quotes'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Basic'
+      security: []
+  /api/v1/user/recipes:
+    get:
+      summary: Recipes
+      description: 'This endpoint is used to get list of recipes.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Basic'
+      security: []
+  /api/v1/user/blogs:
+    get:
+      summary: Blogs
+      description: 'This endpoint is used to get list of blogs.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Basic'
+      security: []
+  /api/v1/user/testimonials:
+    get:
+      summary: Testimonials
+      description: 'This endpoint is used to get list of testimonials.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Basic'
+      security: []
+  /api/v1/user/tracker:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Tracker'
+      security: []
+  /api/v1/user/tracker/moods:
+    get:
+      summary: Moods
+      description: 'This endpoint is used to get all moods'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Tracker'
+      security: []
+  /api/v1/user/tracker/mood:
+    get:
+      summary: 'User Mood'
+      description: 'This endpoint is used to get user mood'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Tracker'
+      security: []
+    post:
+      summary: 'Store User Mood'
+      description: 'This endpoint is used to store user mood'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User Tracker'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mood:
+                  type: integer
+                  description: ''
+                  example: 12
+              required:
+                - mood
+      security: []
+  /api/v1/user/tracker/water:
+    get:
+      summary: 'User Steps'
+      description: 'This endpoint is used to get user steps'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Tracker'
+      security: []
+    post:
+      summary: 'Store User Water'
+      description: 'This endpoint is used to store user water'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User Tracker'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                water_amount:
+                  type: number
+                  description: ''
+                  example: 482836.0
+              required:
+                - water_amount
+      security: []
+  /api/v1/user/tracker/step:
+    get:
+      summary: 'User Steps'
+      description: 'This endpoint is used to get user steps'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User Tracker'
+      security: []
+    post:
+      summary: 'Store User Steps'
+      description: 'This endpoint is used to store user steps'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User Tracker'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                step:
+                  type: integer
+                  description: ''
+                  example: 2
+              required:
+                - step
+      security: []
 tags:
   -
     name: 'User Auth'
     description: "\nAPIs for user authentication/registration\nAll auth related APIs are here"
+  -
+    name: 'User Basic'
+    description: "\nAPIs for basic data"
+  -
+    name: 'User Tracker'
+    description: "\nAPIs for user tracker eg. mood, steps, water"

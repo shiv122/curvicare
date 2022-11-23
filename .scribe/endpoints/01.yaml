@@ -1,0 +1,351 @@
+name: 'User Basic'
+description: |-
+
+  APIs for basic data
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/metadata
+    metadata:
+      groupName: 'User Basic'
+      groupDescription: |-
+
+        APIs for basic data
+      subgroup: ''
+      subgroupDescription: ''
+      title: Metadata
+      description: 'This endpoint is used to get metadata for the app like user goals, user activities, medical conditions etc.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"user_activities":[{"id":1,"name":"Activity 1","image":null,"status":"active","created_at":"2022-11-11 16:31:16","updated_at":null}],"user_goals":[{"id":1,"name":"Weight Loss","image":null,"status":"active","created_at":"2022-11-11 16:31:43","updated_at":null}],"medical_conditions":[{"id":1,"name":"Diabetes","status":"active","created_at":"2022-11-11 15:46:56","updated_at":null}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user
+    metadata:
+      groupName: 'User Basic'
+      groupDescription: |-
+
+        APIs for basic data
+      subgroup: ''
+      subgroupDescription: ''
+      title: Profile
+      description: 'This endpoint is used to get user profile data'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/user
+    metadata:
+      groupName: 'User Basic'
+      groupDescription: |-
+
+        APIs for basic data
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Profile'
+      description: 'This endpoint is used to update user profile data'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: natus
+        type: string
+        custom: []
+      dob:
+        name: dob
+        description: 'Must be a valid date.'
+        required: true
+        example: '2022-11-16T11:24:08'
+        type: string
+        custom: []
+      user_activity_id:
+        name: user_activity_id
+        description: ''
+        required: true
+        example: 18
+        type: integer
+        custom: []
+      user_goal_id:
+        name: user_goal_id
+        description: ''
+        required: true
+        example: 4
+        type: integer
+        custom: []
+      weight:
+        name: weight
+        description: ''
+        required: true
+        example: 8989.18059
+        type: number
+        custom: []
+      height:
+        name: height
+        description: ''
+        required: true
+        example: 1270.3368
+        type: number
+        custom: []
+      medical_conditions:
+        name: medical_conditions
+        description: ''
+        required: false
+        example:
+          - null
+        type: 'string[]'
+        custom: []
+      gender:
+        name: gender
+        description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
+        required: true
+        example: odit
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: natus
+      dob: '2022-11-16T11:24:08'
+      user_activity_id: 18
+      user_goal_id: 4
+      weight: 8989.18059
+      height: 1270.3368
+      medical_conditions:
+        - null
+      gender: odit
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/quotes
+    metadata:
+      groupName: 'User Basic'
+      groupDescription: |-
+
+        APIs for basic data
+      subgroup: ''
+      subgroupDescription: ''
+      title: Quotes
+      description: 'This endpoint is used to get random quotes'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/recipes
+    metadata:
+      groupName: 'User Basic'
+      groupDescription: |-
+
+        APIs for basic data
+      subgroup: ''
+      subgroupDescription: ''
+      title: Recipes
+      description: 'This endpoint is used to get list of recipes.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/blogs
+    metadata:
+      groupName: 'User Basic'
+      groupDescription: |-
+
+        APIs for basic data
+      subgroup: ''
+      subgroupDescription: ''
+      title: Blogs
+      description: 'This endpoint is used to get list of blogs.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/testimonials
+    metadata:
+      groupName: 'User Basic'
+      groupDescription: |-
+
+        APIs for basic data
+      subgroup: ''
+      subgroupDescription: ''
+      title: Testimonials
+      description: 'This endpoint is used to get list of testimonials.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

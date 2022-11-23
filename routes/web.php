@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\Metadata\TagController;
 use App\Http\Controllers\Admin\Metadata\MoodController;
 use App\Http\Controllers\Admin\MiscellaneousController;
 use App\Http\Controllers\Admin\Metadata\QuoteController;
+use App\Http\Controllers\Payment\PaymentController;
 
 Route::prefix('admin')->middleware(['web'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -44,6 +45,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 
 
     Route::name('user.')->prefix('user')->controller(UserController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('view/{id}', 'view')->name('view');
         Route::get('/add', 'add')->name('add');
         Route::post('/store', 'store')->name('store');
     });
@@ -156,3 +159,13 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::put('status', 'status')->name('status');
     });
 });
+
+
+
+Route::name('payment.')->prefix('payment-gateway')
+    ->controller(PaymentController::class)
+    ->group(function () {
+        Route::get('/{id}', 'paymentPage')->name('pay');
+        Route::get('/payment/{string}/{price}', 'charge')->name('goToPayment');
+        Route::post('/', 'storePayment')->name('store');
+    });

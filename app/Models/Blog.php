@@ -27,6 +27,12 @@ class Blog extends Model
         return $this->hasMany(BlogTag::class)->with(['tag:id,name']);
     }
 
+
+    public function direct_tags()
+    {
+        return $this->hasManyThrough(Tag::class, BlogTag::class, 'blog_id', 'id', 'id', 'tag_id');
+    }
+
     public function dietician()
     {
         return $this->belongsTo(Dietician::class)->select('id', 'name', 'image');

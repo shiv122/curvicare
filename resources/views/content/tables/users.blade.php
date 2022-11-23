@@ -1,17 +1,13 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Packages')
-
-@section('vendor-style')
-
-@endsection
+@section('title', 'Users')
 @section('page-style')
 @endsection
 
 @section('content')
 
     <!-- Dashboard Analytics Start -->
-    <section id="dashboard-analytics">
+    <section id="user-section">
         <div class="row match-height">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <x-card>
@@ -21,10 +17,10 @@
         </div>
     </section>
 
-@endsection
-@section('vendor-script')
+    <x-modal id="data-viewer-modal" size="lg" title="description">
+
+    </x-modal>
 
 @endsection
 @section('page-script')
-    <script src="{{ asset(mix('js/scripts/components/components-popovers.js')) }}"></script>
 @endsection
