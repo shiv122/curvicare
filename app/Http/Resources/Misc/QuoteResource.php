@@ -17,7 +17,7 @@ class QuoteResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'quote' => $this->quote,
+            'quote' => $this->quotes,
             'image' => $this->image,
             'mood' => new MoodResource($this->whenLoaded('mood')),
         ];

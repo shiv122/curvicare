@@ -23,11 +23,40 @@ class PaymentController extends Controller
     public function charge(String $product, $price)
     {
         $user = User::find(2);
-        return view('payment.pay', [
-            'user' => $user,
-            'intent' => $user->createSetupIntent(),
-            'product' => $product,
-            'price' => $price
-        ]);
+
+        return  $user->charge(
+            100,
+            'tok_visa',
+            [
+                'description' => 'Test Charge',
+                'receipt_email' => $user->email,
+                'metadata' => [
+                    'product' => $product,
+                    'price' => $price,
+                ],
+            ]
+        );
+        // return view('payment.pay', [
+        //     'user' => $user,
+        //     'intent' => $user->createSetupIntent(),
+        //     'product' => $product,
+        //     'price' => $price
+        // ]);
+    }
+
+
+    public function processPayment(Request $request, String $product, $price)
+    {
+        $user = User::find(2);
+        $paymentMethod = $request->input('payment_method');
+        $user->createOrGetStripeCustomer();
+        $user->addPaymentMethod($paymentMethod);
+        try {
+            $ch = $user->charge($price * 100, $paymentMethod);
+        } catch (\Exception $e) {
+            return back()->withErrors(['message' => 'Error creating subscription. ' . $e->getMessage()]);
+        }
+
+        return $ch;
     }
 }

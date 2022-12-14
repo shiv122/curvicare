@@ -63,7 +63,7 @@ class BlogController extends Controller
             'reload' => true,
         ]);
     }
-    public function view()
+    public function viewBlog()
     {
         $blogs = Blog::with(['image', 'tags', 'dietician'])->get();
         // dd($blogs);

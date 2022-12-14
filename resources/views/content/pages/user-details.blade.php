@@ -227,6 +227,50 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header justify-content-center">
+                                <h4 class="card-title text-center">User subscription history</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Package Name</th>
+                                            <th>Package Price</th>
+                                            <th>Currency</th>
+                                            <th>Start Date</th>
+                                            <th>End Date </th>
+                                            <th>Created At</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse ($user->subscriptions as $sub)
+                                            <tr>
+                                                <td>{{ $sub->id }}</td>
+                                                <td>{{ json_decode($sub->subscription, true)['name'] }}</td>
+                                                <td>{{ json_decode($sub->subscription, true)['price'] }}</td>
+                                                <td>{{ json_decode($sub->subscription, true)['currency'] }}</td>
+                                                <td>{{ \Carbon\Carbon::createFromDate($sub->start_date)->format('jS F Y h:i A') }}
+                                                </td>
+                                                <td>{{ \Carbon\Carbon::createFromDate($sub->end_date)->format('jS F Y h:i A') }}
+                                                </td>
+                                                <td>{{ $sub->created_at->format('jS F Y h:i A') }}
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="3" class="text-center text-danger">
+                                                    No Water intake history found
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

@@ -64,7 +64,7 @@ class FoodController extends Controller
             ]);
         });
     }
-    public function view(FoodDataTable $table)
+    public function viewFood(FoodDataTable $table)
     {
         $pageConfigs = ['has_table' => true];
 

@@ -13,7 +13,7 @@
 
 @section('content')
     @php
-    $genders = json_decode(json_encode([['id' => 'male', 'name' => 'Male'], ['id' => 'female', 'name' => 'Female'], ['id' => 'other', 'name' => 'Other']]));
+        $genders = json_decode(json_encode([['id' => 'male', 'name' => 'Male'], ['id' => 'female', 'name' => 'Female'], ['id' => 'other', 'name' => 'Other']]));
     @endphp
     <!-- Dashboard Analytics Start -->
     <section>
@@ -40,13 +40,16 @@
                             <x-input-file name="image" />
                         </div>
                         <div class="col-md-12 col-12 ">
-                            <x-input name="address" />
+                            <x-input name="address" type="textarea" />
                         </div>
-                        <div class="col-md-8 col-8 ">
+                        <div class="col-md-6 col-8 ">
                             <x-input name="username" />
                         </div>
-                        <div class="col-md-4 col-4 d-flex align-items-center justify-content-center">
+                        <div class="col-md-2 col-2 d-flex align-items-center justify-content-center">
                             <x-button id="generate-username" text="Generate Username" />
+                        </div>
+                        <div class="col-md-4 col-12 ">
+                            <x-input name="password" :required="false" />
                         </div>
                         <x-divider class="custom-divider" text="Bank details" />
                         <div class="col-md-6 col-12 ">
@@ -79,6 +82,13 @@
                         </div>
                         <div class="col-md-12 col-12 ">
                             <x-input-file name="certificate" />
+                        </div>
+                        <x-divider class="custom-divider" text="Misc" />
+                        <div class="col-md-6 col-12 ">
+                            <x-select name="expertise" :multiple="true" :options="$expertise" />
+                        </div>
+                        <div class="col-md-6 col-12 ">
+                            <x-select name="for" :options="['local', 'abroad', 'global']" />
                         </div>
                     </x-form>
                 </x-card>

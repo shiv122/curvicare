@@ -2,23 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\DieticianDataTable;
-use App\Helpers\FileUploader;
 use App\Helpers\Helper;
-use App\Http\Controllers\Controller;
-use App\Mail\Dietician\DieticianPassword;
 use App\Models\Dietician;
-use App\Models\DieticianBankDetails;
+use App\Models\Expertise;
 use App\Models\DieticianKyc;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Helpers\FileUploader;
 use Yajra\DataTables\DataTables;
+use App\Models\DieticianExpertise;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\DieticianBankDetails;
+use Illuminate\Support\Facades\Hash;
+use App\DataTables\DieticianDataTable;
+use App\Mail\Dietician\DieticianPassword;
 
 class DieticianController extends Controller
 {
     public function add()
     {
-        return view('content.forms.add-dietician');
+        $expertise = Expertise::active()->get();
+        return view('content.forms.add-dietician', compact('expertise'));
     }
 
 
@@ -41,10 +45,17 @@ class DieticianController extends Controller
             'gender' => 'required|in:male,female,other',
             'location' => 'required|string',
             'username' => 'required|unique:dieticians',
+            'password' => 'nullable|string|min:8',
+            'expertise' => 'required|array',
+            'expertise.*' => 'required|numeric',
+            'for' => 'required|string|in:local,abroad,global',
         ]);
 
         $image = FileUploader::uploadFile($request->file('image'), 'images/dietician');
-        $pass = Helper::makePassword($request->name);
+        $pass = $request->password ? $request->password : Helper::makePassword($request->name);
+
+        DB::beginTransaction();
+
         $dietician =  Dietician::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -53,8 +64,18 @@ class DieticianController extends Controller
             'image' => $image,
             'gender' => $request->gender,
             'password' => Hash::make($pass),
-            'username' => $request->username
+            'username' => $request->username,
+            'for' => $request->for,
         ]);
+        $exp_data = [];
+        foreach ($request->expertise as $key => $value) {
+            $exp_data[] = [
+                'dietician_id' => $dietician->id,
+                'expertise_id' => $value,
+                'created_at' => now(),
+            ];
+        }
+        DieticianExpertise::insert($exp_data);
 
         DieticianBankDetails::create([
             'dietician_id' => $dietician->id,
@@ -83,6 +104,7 @@ class DieticianController extends Controller
             'certificate' => $certificate,
         ]);
 
+        DB::commit();
 
 
         $details = ['name' => $request->name, 'password' => $pass, 'username' => $request->username, 'reset_link' => '#'];
@@ -90,7 +112,7 @@ class DieticianController extends Controller
         return response(['status' => 'success', 'header' => 'Inserted', 'message' => 'Dietician added successfully', 'mail' => $mail]);
     }
 
-    public function view(DieticianDataTable $table)
+    public function viewDietician(DieticianDataTable $table)
     {
         $pageConfigs = ['has_table' => true, 'has_sweetAlert' => true];
         //for filter use with

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Tracker;
 
+use App\Http\Resources\MoodResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserMoodResource extends JsonResource
@@ -16,9 +17,7 @@ class UserMoodResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'mood' => $this->whenLoaded('mood', function () {
-                return $this->mood->name;
-            }),
+            'mood' => new MoodResource($this->whenLoaded('mood')),
             'created_at' => $this->created_at,
         ];
     }

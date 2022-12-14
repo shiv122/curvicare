@@ -29,6 +29,8 @@ class BlogResource extends JsonResource
                 });
             }),
             'dietician' => $this->whenLoaded('dietician'),
+            'is_featured' => $this->is_featured,
+            'is_paid' => $this->is_paid,
         ];
     }
 }

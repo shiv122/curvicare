@@ -8,4 +8,8 @@ use Illuminate\Http\Request;
 class BlogTagController extends Controller
 {
     //
+
+    public function viewTag()
+    {
+    }
 }

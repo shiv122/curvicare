@@ -31,13 +31,14 @@ class UserController extends Controller
     }
 
 
-    public function view($id)
+    public function viewUser($id)
     {
         $user =  User::with([
             'user_data' => ['user_goal', 'user_activity'],
             'moods' => ['mood'],
             'water',
             'steps',
+            'subscriptions',
             'medical_conditions' => ['condition'],
 
         ])->findOrFail($id);

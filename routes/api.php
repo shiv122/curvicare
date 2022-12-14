@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\v1\User\LikeController;
 use App\Http\Controllers\API\v1\User\BasicController;
 use App\Http\Controllers\API\v1\User\TrackerController;
 use App\Http\Controllers\API\v1\Auth\UserAuthController;
-
-
+use App\Http\Controllers\API\v1\User\SubscriptionController;
 
 Route::prefix('v1/user')->group(function () {
     Route::post('login', [UserAuthController::class, 'login']);
@@ -13,15 +13,21 @@ Route::prefix('v1/user')->group(function () {
 
 
 
-    Route::controller(BasicController::class)
-        ->middleware(['auth:api'])
+    Route::middleware(['auth:api'])
         ->group(function () {
-            Route::get('/', 'profile');
-            Route::post('/', 'updateProfile');
-            Route::get('quotes', 'quotes');
-            Route::get('recipes', 'recipes');
-            Route::get('blogs', 'blogs');
-            Route::get('testimonials', 'testimonials');
+
+            Route::controller(BasicController::class)
+                ->group(function () {
+                    Route::get('/', 'profile');
+                    Route::post('/', 'updateProfile');
+                    Route::get('quotes', 'quotes');
+                    Route::get('recipes', 'recipes');
+                    Route::get('blogs', 'blogs');
+                    Route::get('faqs', 'faqs');
+                    Route::get('faq-categories', 'faqCategories');
+                    Route::get('testimonials', 'testimonials');
+                    Route::get('packages', 'packages');
+                });
 
             Route::controller(TrackerController::class)
                 ->prefix('tracker')
@@ -34,6 +40,23 @@ Route::prefix('v1/user')->group(function () {
                     Route::post('water', 'storeUserWater');
                     Route::get('step', 'userStep');
                     Route::post('step', 'storeUserStep');
+                });
+
+            Route::controller(SubscriptionController::class)
+                ->prefix('subscription')
+                ->group(function () {
+                    Route::get('/', 'index');
+                    Route::post('/create-order', 'createOrder');
+                    Route::post('/fetch-order', 'fetchOrder');
+                });
+
+
+
+            Route::controller(LikeController::class)
+                ->prefix('like')
+                ->group(function () {
+                    Route::post('toggle/blog', 'toggleBlog');
+                    Route::post('toggle/recipe', 'toggleRecipe');
                 });
         });
 });

@@ -2,19 +2,29 @@
 
 namespace App\Http\Controllers\API\v1\User;
 
+use App\Helpers\RecipeHelper;
+use App\Models\Faq;
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\Recipe;
+use App\Models\Package;
+use App\Models\UserGoal;
+use App\Models\Expertise;
 use App\Models\MoodQuote;
+use App\Models\FaqCategory;
 use App\Models\Testimonial;
+use App\Models\UserActivity;
 use Illuminate\Http\Request;
+use App\Models\MedicalCondition;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\RecipeResource;
+use App\Http\Resources\Misc\FaqResource;
 use App\Http\Resources\Misc\BlogResource;
 use App\Http\Resources\Misc\QuoteResource;
+use App\Http\Resources\Package\PackageResource;
+use App\Http\Resources\Misc\FaqCategoryResource;
 use App\Http\Resources\Misc\TestimonialsResource;
-
-
 
 /**
  * @group User Basic
@@ -37,7 +47,9 @@ class BasicController extends Controller
 
     public function profile(Request $request)
     {
-        $user = $request->user();
+        $user = User::where('id', $request->user()->id)
+            ->with(['user_data' => ['user_goal', 'user_activity'], 'medical_conditions'])
+            ->first();
 
         return response()->json($user);
     }
@@ -106,7 +118,10 @@ class BasicController extends Controller
 
     public function quotes(Request $request)
     {
-        $quote = MoodQuote::inRandomOrder()->first();
+
+        $quote = MoodQuote::inRandomOrder()
+            ->with(['mood'])
+            ->first();
         return QuoteResource::make($quote);
     }
 
@@ -115,15 +130,20 @@ class BasicController extends Controller
      * Recipes
      * 
      * This endpoint is used to get list of recipes.
+     * 
      */
 
-    public function recipes()
+    public function recipes(Request $request, RecipeHelper $recipeHelper)
     {
+        $user = $request->user();
         $recipes = Recipe::with([
             'foods' => ['ingredients', 'images'],
             'compositions',
             'tags',
-        ])->get();
+        ])->simplePaginate(30);
+
+        $recipes = $recipeHelper->filterPaidRecipes($recipes, $user->isCurrentlySubscribed());
+
 
         return RecipeResource::collection($recipes);
     }
@@ -134,13 +154,17 @@ class BasicController extends Controller
      * This endpoint is used to get list of blogs.
      */
 
-    public function blogs()
+    public function blogs(Request $request, RecipeHelper $recipeHelper)
     {
         $blogs = Blog::with([
             'direct_tags',
             'images',
             'dietician',
-        ])->get();
+        ])->simplePaginate(30);
+
+
+
+        $blogs = $recipeHelper->filterPaidBlogs($blogs, $request->user()->isCurrentlySubscribed());
 
 
         return BlogResource::collection($blogs);
@@ -168,11 +192,59 @@ class BasicController extends Controller
     public function metadata()
     {
         $data = [
-            'user_activities' => DB::table('user_activities')->get(),
-            'user_goals' => DB::table('user_goals')->get(),
-            'medical_conditions' => DB::table('medical_conditions')->get(),
+            'user_activities' => UserActivity::get(),
+            'user_goals' => UserGoal::get(),
+            'medical_conditions' => MedicalCondition::get(),
+            'expertise' => Expertise::active()->get(),
         ];
 
         return response()->json($data);
+    }
+
+
+    /**
+     * Featured Faqs
+     * 
+     * This endpoint is used to get list of faqs.
+     */
+
+    public function faqs()
+    {
+        $faqs =  Faq::active()
+            ->isFeatured()
+            ->get();
+
+        return FaqResource::collection($faqs);
+    }
+
+    /**
+     * Faq Categories
+     * 
+     * This endpoint is used to get list of faq categories.
+     */
+
+
+    public function faqCategories()
+    {
+        $categories = FaqCategory::with('faqs')->get();
+
+        return FaqCategoryResource::collection($categories);
+    }
+
+
+    /**
+     * Packages
+     * 
+     * This endpoint is used to get list of packages.
+     */
+
+    public function packages()
+    {
+        $packages = Package::active()->with([
+            'prices',
+            'features',
+        ])->get();
+
+        return PackageResource::collection($packages);
     }
 }

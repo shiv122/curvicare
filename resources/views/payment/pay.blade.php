@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="{{ route('processPayment', [$product, $price]) }}" method="POST" id="subscribe-form">
+    <form action="{{ route('payment.processPayment', [$product, $price]) }}" method="POST" id="subscribe-form">
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">

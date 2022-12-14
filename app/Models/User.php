@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Laravel\Cashier\Billable;
+use App\Traits\Liker;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, HasApiTokens, Billable;
+    use HasFactory, Notifiable, HasApiTokens, Liker;
 
     /**
      * The attributes that are mass assignable.
@@ -87,6 +87,17 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    public function subscriptions()
+    {
+        return $this->hasMany(UserSubscription::class);
+    }
+
+
+    public function assignments()
+    {
+        return $this->hasMany(DieticianAssignment::class);
+    }
+
 
     /*
     |--------------------------------------------------------------------------
@@ -99,5 +110,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function scopeNotAdmin($query)
     {
         return $query->where('isAdmin', '0');
+    }
+
+    public function scopeIsCurrentlySubscribed($q)
+    {
+        return $q->whereHas('assignments', function ($q) {
+            $q->where('expiry', '>=', now())
+                ->where('status', '!=', 'cancelled');
+        })->exists();
     }
 }

@@ -99,6 +99,22 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'info' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/info.log'),
+            'level' => 'info',
+        ],
+        'payment' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/payment.log'),
+            'level' => 'info',
+        ],
+        'failed_order' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/failed_order.log'),
+            'level' => 'info',
+        ],
     ],
 
 ];

@@ -2,44 +2,33 @@
 
 namespace App\Services\Dietician;
 
+use App\Models\Dietician;
+use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Kreait\Firebase\Exception\Auth\FailedToVerifyToken;
+use Illuminate\Support\Facades\Auth;
 
 class DieticianAuthService
 {
 
-    public function authenticate(Request $request): JsonResource
+    public function authenticate(Request $request): JsonResponse
     {
 
-        $auth = app('firebase.auth');
 
-        try {
-            $verifiedIdToken = $auth->verifyIdToken($request->token);
-        } catch (FailedToVerifyToken $e) {
+        $user = Dietician::where('email', $request->email)->first();
+        if (!$user || !\Hash::check($request->password, $user->password)) {
             return response()->json([
-                'message' => 'The token is invalid: ' . $e->getMessage(),
+                'message' => 'Email or password is incorrect'
             ], 401);
         }
-        $uid = $verifiedIdToken->claims()->get('sub');
-        $firebase_user = $auth->getUser($uid);
-        if ($firebase_user->phoneNumber !== null) {
-            return  $this->loginUsingPhone($request, $firebase_user);
-        } elseif ($firebase_user->email !== null) {
-            return  $this->loginUsingGmail($request, $firebase_user);
-        } else {
-            return response()->json([
-                'message' => 'The user has no email or phone number',
-            ], 401);
-        }
-    }
 
 
-
-
-
-
-    public function loginUsingPhone()
-    {
+        $user->tokens()->delete();
+        $token = $user->createToken('dietician')->plainTextToken;
+        return response()->json([
+            'token' => $token,
+            'token_type' => 'Bearer',
+            'user' => $user,
+        ], 200);
     }
 }

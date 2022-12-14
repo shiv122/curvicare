@@ -26,4 +26,16 @@ class Package extends Model
     {
         return $this->hasMany(PackageFeature::class);
     }
+
+
+
+
+
+
+
+
+    public function scopeActive()
+    {
+        return $this->where('status', 'active');
+    }
 }

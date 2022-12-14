@@ -9,11 +9,11 @@
 </form>
 
 @php
-if ($reload) {
-    $rld = 1;
-} else {
-    $rld = 0;
-}
+    if ($reload) {
+        $rld = 1;
+    } else {
+        $rld = 0;
+    }
 @endphp
 @push('component-script')
     <script>

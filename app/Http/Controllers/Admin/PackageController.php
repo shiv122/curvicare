@@ -94,7 +94,7 @@ class PackageController extends Controller
         });
     }
 
-    public function view(PackageDataTable $table)
+    public function viewPackage(PackageDataTable $table)
     {
         $pageConfigs = ['has_table' => true, 'has_sweetAlert' => true];
         //for filter use with

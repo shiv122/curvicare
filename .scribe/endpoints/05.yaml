@@ -1,0 +1,57 @@
+name: 'Dietician Auth'
+description: |-
+
+  APIs for user authentication/registration
+  All auth related APIs are here
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/dietician/login
+    metadata:
+      groupName: 'Dietician Auth'
+      groupDescription: |-
+
+        APIs for user authentication/registration
+        All auth related APIs are here
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: |-
+        This endpoint is used to authenticate dietician by token .
+        if dietician is not found in database it will return error
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: hahn.audie@example.net
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: hahn.audie@example.net
+      password: voluptatem
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

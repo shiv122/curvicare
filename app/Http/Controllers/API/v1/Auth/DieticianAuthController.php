@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API\v1\Auth;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Services\Dietician\DieticianAuthService;
 
 /**
  * 
@@ -28,7 +29,12 @@ class DieticianAuthController extends Controller
      * 
      */
 
-    public function login()
+    public function login(Request $request, DieticianAuthService $authService)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        return $authService->authenticate($request);
     }
 }

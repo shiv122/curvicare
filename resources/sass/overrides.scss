@@ -61,7 +61,7 @@ html body.navbar-static .app-content .header-navbar {
 
 a svg,
 button svg {
-  min-width: 15px;
+  min-width: 20px;
   max-width: min-content;
 }
 .navigation li {
@@ -291,4 +291,7 @@ i.side-bar-icon {
   .modal-body {
     // white-space: break-spaces;
   }
+}
+.w-space-line {
+  white-space: pre-line !important;
 }

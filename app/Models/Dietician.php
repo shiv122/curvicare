@@ -27,6 +27,16 @@ class Dietician extends Authenticatable
     }
 
 
+    public function direct_expertise()
+    {
+        return $this->hasManyThrough(Expertise::class, DieticianExpertise::class, 'dietician_id', 'id', 'id', 'expertise_id');
+    }
+
+    public function expertise()
+    {
+        return $this->hasMany(DieticianExpertise::class, 'dietician_id', 'id');
+    }
+
 
 
     //scopes
