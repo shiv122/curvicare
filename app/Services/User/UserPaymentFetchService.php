@@ -2,6 +2,7 @@
 
 namespace App\Services\User;
 
+use App\Jobs\User\AssignDieticianJob;
 use Razorpay\Api\Api;
 use Illuminate\Support\Str;
 use App\Models\RazorpayOrder;
@@ -91,6 +92,8 @@ class UserPaymentFetchService
 
         Log::channel('payment')->info('========================= Below order paid =========================');
         Log::channel('payment')->info($order);
+        Log::channel('payment')->info('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
+        dispatch(new AssignDieticianJob($assignment));
         return response()->json([
             'status' => 'success',
             'message' => 'Order is paid'

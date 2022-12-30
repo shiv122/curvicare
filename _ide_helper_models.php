@@ -21,6 +21,8 @@ namespace App\Models{
  * @property string $status pending,assigned,completed,cancelled
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\DieticianAssignment $assignment
+ * @property-read \App\Models\Dietician $dietician
  * @method static \Illuminate\Database\Eloquent\Builder|AssignedDietician newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AssignedDietician newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AssignedDietician query()
@@ -73,9 +75,11 @@ namespace App\Models{
  * @property-read \App\Models\Dietician|null $dietician
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $direct_tags
  * @property-read int|null $direct_tags_count
+ * @property-read int|null $likes_count
  * @property-read \App\Models\BlogImage|null $image
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BlogImage[] $images
  * @property-read int|null $images_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Like[] $likes
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BlogTag[] $tags
  * @property-read int|null $tags_count
  * @method static \Illuminate\Database\Eloquent\Builder|Blog newModelQuery()
@@ -194,6 +198,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AssignedDietician[] $assignments
+ * @property-read int|null $assignments_count
  * @property-read \App\Models\DieticianBankDetails|null $bank
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Expertise[] $direct_expertise
  * @property-read int|null $direct_expertise_count
@@ -243,6 +249,9 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $expiry
  * @property mixed|null $form_data
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AssignedDietician[] $assigned_dieticians
+ * @property-read int|null $assigned_dieticians_count
+ * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|DieticianAssignment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DieticianAssignment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DieticianAssignment query()
@@ -535,6 +544,33 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereUpdatedAt($value)
  */
 	class Ingredient extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Like
+ *
+ * @property int $id
+ * @property string $likeable_type
+ * @property int $likeable_id
+ * @property string $liker_type
+ * @property int $liker_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $likeable
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $liker
+ * @method static \Illuminate\Database\Eloquent\Builder|Like newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Like newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Like query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Like whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Like whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Like whereLikeableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Like whereLikeableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Like whereLikerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Like whereLikerType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Like whereUpdatedAt($value)
+ */
+	class Like extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -838,20 +874,22 @@ namespace App\Models{
  * @property float $amount
  * @property string $currency
  * @property float|null $discount
- * @property string|null $discount_code
+ * @property string|null $coupon_code
  * @property float|null $tax
  * @property float $payable_amount
  * @property string $status pending,paid,failed
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property mixed|null $form_data
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder query()
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereCouponCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereCurrency($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereDiscount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereDiscountCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereFormData($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder whereOrderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder wherePackage($value)
@@ -871,6 +909,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $transaction_id
+ * @property int|null $user_subscription_id
  * @property int $order_id
  * @property float $paid_amount
  * @property string $currency
@@ -888,6 +927,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayTransaction whereRefunded($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayTransaction whereTransactionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayTransaction whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RazorpayTransaction whereUserSubscriptionId($value)
  */
 	class RazorpayTransaction extends \Eloquent {}
 }
@@ -908,6 +948,8 @@ namespace App\Models{
  * @property-read int|null $compositions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Food[] $foods
  * @property-read int|null $foods_count
+ * @property-read int|null $likes_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Like[] $likes
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  * @property-read int|null $tags_count
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe newModelQuery()
@@ -1059,10 +1101,6 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $firebase_uid
- * @property string|null $stripe_id
- * @property string|null $pm_type
- * @property string|null $pm_last_four
- * @property string|null $trial_ends_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DieticianAssignment[] $assignments
  * @property-read int|null $assignments_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserMedicalCondition[] $medical_conditions
@@ -1096,11 +1134,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePmLastFour($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePmType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereStripeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTrialEndsAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  */
 	class User extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}

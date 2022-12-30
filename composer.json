@@ -9,6 +9,7 @@
   "license": "MIT",
   "require": {
     "php": "^7.3|^8.0",
+    "berkayk/onesignal-laravel": "^1.0",
     "beyondcode/laravel-websockets": "^1.13",
     "fideloper/proxy": "^4.4",
     "fruitcake/laravel-cors": "^2.0",
@@ -24,6 +25,7 @@
     "rap2hpoutre/fast-excel": "^3.2",
     "razorpay/razorpay": "2.*",
     "staudenmeir/belongs-to-through": "^2.5",
+    "staudenmeir/eloquent-has-many-deep": "^1.7",
     "stevebauman/location": "^6.4",
     "yajra/laravel-datatables-buttons": "^4.13",
     "yajra/laravel-datatables-oracle": "^9.19"

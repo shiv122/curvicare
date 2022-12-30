@@ -10,4 +10,18 @@ class AssignedDietician extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+
+
+
+    public function dietician()
+    {
+        return $this->belongsTo(Dietician::class, 'dietician_id', 'id');
+    }
+
+
+    public function assignment()
+    {
+        return $this->belongsTo(DieticianAssignment::class, 'dietician_assignment_id', 'id');
+    }
 }

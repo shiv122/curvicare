@@ -40,11 +40,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: hahn.audie@example.net
+                  example: alden.waelchi@example.com
                 password:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: culpa
               required:
                 - email
                 - password
@@ -700,11 +700,11 @@ paths:
                 package_id:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 2
                 type:
                   type: string
                   description: 'Must be one of <code>new</code> or <code>renew</code>.'
-                  example: new
+                  example: renew
                 currency:
                   type: string
                   description: 'Must be one of <code>INR</code> or <code>USD</code>.'
@@ -712,7 +712,7 @@ paths:
                 coupon_code:
                   type: string
                   description: 'Must be 255 characters.'
-                  example: rmrsjozebzjjkppzlptcrbknuasewvgijqqsxmjnvxbfvsybndmrlcwlmkumkqdndwxpunhiolqgrzukbcanpvxcwtsrcrhiewwcgyaiezlomtftbzvgfiwvjzlsnbsrikutooypgmenogtqdjpscuhgkulxyglhpwwohhqrghvqhhdmwxocxpzcnmqsswjceraoivqxydjncyeobxzaifphcltsmumhscnrrxdakbpsjujfupckshfemabqhvw
+                  example: vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah
                 form_data:
                   type: object
                   description: ''
@@ -756,9 +756,627 @@ paths:
                 id:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: gnxdonkverrtud
+                  example: qw
               required:
                 - id
+      security: []
+  /api/broadcasting/auth:
+    get:
+      summary: 'Authenticate the request for channel access.'
+      operationId: authenticateTheRequestForChannelAccess
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php'
+                  line: 44
+                  trace:
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php'
+                      line: 162
+                      function: handleMatchedRoute
+                      class: Illuminate\Routing\AbstractRouteCollection
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 753
+                      function: match
+                      class: Illuminate\Routing\RouteCollection
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 740
+                      function: findRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 729
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 190
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 141
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                      line: 52
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Fruitcake\Cors\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 165
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 134
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 306
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 294
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 92
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 209
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 122
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 69
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 47
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 53
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 651
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 182
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Command\Command.php'
+                      line: 312
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 152
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Application.php'
+                      line: 1020
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Application.php'
+                      line: 312
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Application.php'
+                      line: 168
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 102
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 155
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\7854\Desktop\curvicare\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: ''
+                  exception:
+                    type: string
+                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file:
+                    type: string
+                    example: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php'
+                  line:
+                    type: integer
+                    example: 44
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php'
+                        line: 162
+                        function: handleMatchedRoute
+                        class: Illuminate\Routing\AbstractRouteCollection
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 753
+                        function: match
+                        class: Illuminate\Routing\RouteCollection
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 740
+                        function: findRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 729
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 190
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 141
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                        line: 52
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Fruitcake\Cors\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 165
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 134
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 306
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 294
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 92
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 209
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 122
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 69
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 47
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 53
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 651
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 182
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Command\Command.php'
+                        line: 312
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 152
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Application.php'
+                        line: 1020
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Application.php'
+                        line: 312
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\symfony\console\Application.php'
+                        line: 168
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 102
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 155
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\7854\Desktop\curvicare\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
       security: []
   /api/v1/dietician:
     get:
@@ -1411,7 +2029,7 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: giefrxfbwreazvqwoxiusieul
+                  example: canofxrpxwoolhkjhei
                 image:
                   type: string
                   format: binary
@@ -1419,11 +2037,11 @@ paths:
                 phone:
                   type: string
                   description: 'Must be 10 characters.'
-                  example: kqeafiolna
+                  example: epyrpgfqib
                 address:
                   type: string
                   description: 'Must not be greater than 3000 characters.'
-                  example: hwkcckxfrdtclkgptn
+                  example: gfiin
               required:
                 - name
                 - phone
@@ -2089,7 +2707,7 @@ paths:
       tags:
         - 'User Basic'
       security: []
-  /api/v1/user/basic:
+  /api/v1/user:
     get:
       summary: Profile
       operationId: profile
@@ -2739,27 +3357,27 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: est
+                  example: qui
                 dob:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2022-12-14T16:09:33'
+                  example: '2022-12-30T12:30:09'
                 user_activity_id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 11
                 user_goal_id:
                   type: integer
                   description: ''
-                  example: 16
+                  example: 12
                 weight:
                   type: number
                   description: ''
-                  example: 2189.06
+                  example: 34677.7245
                 height:
                   type: number
                   description: ''
-                  example: 1077781.77
+                  example: 670308.94019694
                 medical_conditions:
                   type: array
                   description: ''
@@ -2769,7 +3387,7 @@ paths:
                 gender:
                   type: string
                   description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
-                  example: delectus
+                  example: suscipit
               required:
                 - name
                 - dob
@@ -2779,7 +3397,7 @@ paths:
                 - height
                 - gender
       security: []
-  /api/v1/user/basic/quotes:
+  /api/v1/user/quotes:
     get:
       summary: Quotes
       operationId: quotes
@@ -3397,7 +4015,7 @@ paths:
       tags:
         - 'User Basic'
       security: []
-  /api/v1/user/basic/recipes:
+  /api/v1/user/recipes:
     get:
       summary: Recipes
       operationId: recipes
@@ -4015,7 +4633,7 @@ paths:
       tags:
         - 'User Basic'
       security: []
-  /api/v1/user/basic/blogs:
+  /api/v1/user/blogs:
     get:
       summary: Blogs
       operationId: blogs
@@ -4633,7 +5251,7 @@ paths:
       tags:
         - 'User Basic'
       security: []
-  /api/v1/user/basic/faqs:
+  /api/v1/user/faqs:
     get:
       summary: 'Featured Faqs'
       operationId: featuredFaqs
@@ -5251,7 +5869,7 @@ paths:
       tags:
         - 'User Basic'
       security: []
-  /api/v1/user/basic/faq-categories:
+  /api/v1/user/faq-categories:
     get:
       summary: 'Faq Categories'
       operationId: faqCategories
@@ -5869,7 +6487,7 @@ paths:
       tags:
         - 'User Basic'
       security: []
-  /api/v1/user/basic/testimonials:
+  /api/v1/user/testimonials:
     get:
       summary: Testimonials
       operationId: testimonials
@@ -6487,7 +7105,7 @@ paths:
       tags:
         - 'User Basic'
       security: []
-  /api/v1/user/basic/packages:
+  /api/v1/user/packages:
     get:
       summary: Packages
       operationId: packages
@@ -7104,6 +7722,182 @@ paths:
                       type: object
       tags:
         - 'User Basic'
+      security: []
+  /api/v1/user/chat/active:
+    get:
+      summary: 'Get Active Chat'
+      operationId: getActiveChat
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      message: 'Hiii chetan'
+                      user_id: 2
+                      dietician: null
+                      media:
+                        -
+                          id: 1
+                          type: image
+                          data: '{"image": ["uploads/image/image-685694294ff402b988c53fc346e19d5fb5f62f88e24.jpg", "uploads/image/image-176694294ff402b988c53fc346e19d5fb5f62f88e24.jpg"]}'
+                          created_at: '2022-12-30T05:38:58.000000Z'
+                      reply: null
+                      created_at: '2022-12-30T05:38:58.000000Z'
+                    -
+                      id: 2
+                      message: 'Hello '
+                      user_id: null
+                      dietician:
+                        id: 3
+                        name: 'Chetan Chadam'
+                        image: images/dietician/img-516396d609d62ae537360a10547ba805bd7895a7b2.png
+                      media: []
+                      reply:
+                        id: 1
+                        message: 'Hiii chetan'
+                        user_id: 2
+                        media:
+                          -
+                            id: 1
+                            type: image
+                            data: '{"image": ["uploads/image/image-685694294ff402b988c53fc346e19d5fb5f62f88e24.jpg", "uploads/image/image-176694294ff402b988c53fc346e19d5fb5f62f88e24.jpg"]}'
+                            created_at: '2022-12-30T05:38:58.000000Z'
+                        created_at: '2022-12-30T05:38:58.000000Z'
+                      created_at: '2022-12-30T05:38:58.000000Z'
+                  links:
+                    first: 'http://127.0.0.1:9000/api/v1/user/chat/active?page=1'
+                    last: null
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    path: 'http://127.0.0.1:9000/api/v1/user/chat/active'
+                    per_page: 15
+                    to: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        message: 'Hiii chetan'
+                        user_id: 2
+                        dietician: null
+                        media:
+                          -
+                            id: 1
+                            type: image
+                            data: '{"image": ["uploads/image/image-685694294ff402b988c53fc346e19d5fb5f62f88e24.jpg", "uploads/image/image-176694294ff402b988c53fc346e19d5fb5f62f88e24.jpg"]}'
+                            created_at: '2022-12-30T05:38:58.000000Z'
+                        reply: null
+                        created_at: '2022-12-30T05:38:58.000000Z'
+                      -
+                        id: 2
+                        message: 'Hello '
+                        user_id: null
+                        dietician:
+                          id: 3
+                          name: 'Chetan Chadam'
+                          image: images/dietician/img-516396d609d62ae537360a10547ba805bd7895a7b2.png
+                        media: []
+                        reply:
+                          id: 1
+                          message: 'Hiii chetan'
+                          user_id: 2
+                          media:
+                            -
+                              id: 1
+                              type: image
+                              data: '{"image": ["uploads/image/image-685694294ff402b988c53fc346e19d5fb5f62f88e24.jpg", "uploads/image/image-176694294ff402b988c53fc346e19d5fb5f62f88e24.jpg"]}'
+                              created_at: '2022-12-30T05:38:58.000000Z'
+                          created_at: '2022-12-30T05:38:58.000000Z'
+                        created_at: '2022-12-30T05:38:58.000000Z'
+                    items:
+                      type: object
+                  links:
+                    type: object
+                    example:
+                      first: 'http://127.0.0.1:9000/api/v1/user/chat/active?page=1'
+                      last: null
+                      prev: null
+                      next: null
+                  meta:
+                    type: object
+                    example:
+                      current_page: 1
+                      from: 1
+                      path: 'http://127.0.0.1:9000/api/v1/user/chat/active'
+                      per_page: 15
+                      to: 2
+      tags:
+        - 'User Chat'
+  /api/v1/user/chat/send-message:
+    post:
+      summary: 'Send Message'
+      operationId: sendMessage
+      description: 'This endpoint is used to send message to dietician'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User Chat'
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: 'This field is required when <code>media</code> is not present. Must not be greater than 3000 characters.'
+                  example: fjkhanittpzmheqvkiw
+                media:
+                  type: array
+                  description: 'This field is required when <code>message</code> is not present.  Must be a file. Must not be greater than 2048 kilobytes.'
+                  items:
+                    type: string
+                    format: binary
+                reply_to:
+                  type: string
+                  description: ''
+                  example: null
       security: []
   /api/v1/user/like/toggle/blog:
     post:
@@ -9097,7 +9891,7 @@ paths:
                 mood:
                   type: integer
                   description: ''
-                  example: 15
+                  example: 4
               required:
                 - mood
       security: []
@@ -9751,7 +10545,7 @@ paths:
                 water_amount:
                   type: number
                   description: ''
-                  example: 33.23079
+                  example: 15.61573
               required:
                 - water_amount
       security: []
@@ -10405,7 +11199,7 @@ paths:
                 step:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 6
               required:
                 - step
       security: []
@@ -10422,6 +11216,9 @@ tags:
   -
     name: 'User Basic'
     description: "\nAPIs for basic data"
+  -
+    name: 'User Chat'
+    description: "\nAPIs for User Chat"
   -
     name: 'User Like'
     description: "\nAPIs for User To Like/Unlike"

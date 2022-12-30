@@ -38,6 +38,13 @@ class Dietician extends Authenticatable
     }
 
 
+    public function assignments()
+    {
+        return $this->hasMany(AssignedDietician::class, 'dietician_id', 'id');
+    }
+
+
+
 
     //scopes
     public function scopeActive($query, $status = 'active')

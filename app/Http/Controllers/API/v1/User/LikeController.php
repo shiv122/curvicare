@@ -44,6 +44,7 @@ class LikeController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'You have successfully ' . $resp . ' ' . $blog->title,
+            'liked' => ($resp == 'liked' ? true : false)
         ]);
     }
 
@@ -75,6 +76,7 @@ class LikeController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'You have successfully ' . $resp . ' ' . $recipe->title,
+            'liked' => ($resp == 'liked' ? true : false)
         ]);
     }
 }

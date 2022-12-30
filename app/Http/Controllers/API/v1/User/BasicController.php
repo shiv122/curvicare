@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\v1\User;
 
+use App\Helpers\BlogHelper;
 use App\Helpers\RecipeHelper;
 use App\Models\Faq;
 use App\Models\Blog;
@@ -41,6 +42,8 @@ class BasicController extends Controller
     /**
      * Profile
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get user profile data
      * 
      */
@@ -57,6 +60,8 @@ class BasicController extends Controller
 
     /**
      * Update Profile
+     * 
+     * @authenticated
      * 
      * This endpoint is used to update user profile data
      * 
@@ -113,6 +118,8 @@ class BasicController extends Controller
     /**
      * Quotes
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get random quotes
      */
 
@@ -128,6 +135,8 @@ class BasicController extends Controller
 
     /**
      * Recipes
+     * 
+     * @authenticated
      * 
      * This endpoint is used to get list of recipes.
      * 
@@ -151,10 +160,12 @@ class BasicController extends Controller
     /**
      * Blogs
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get list of blogs.
      */
 
-    public function blogs(Request $request, RecipeHelper $recipeHelper)
+    public function blogs(Request $request, BlogHelper $blogHelper)
     {
         $blogs = Blog::with([
             'direct_tags',
@@ -164,7 +175,7 @@ class BasicController extends Controller
 
 
 
-        $blogs = $recipeHelper->filterPaidBlogs($blogs, $request->user()->isCurrentlySubscribed());
+        $blogs = $blogHelper->filterPaidBlogs($blogs, $request->user()->isCurrentlySubscribed());
 
 
         return BlogResource::collection($blogs);
@@ -172,6 +183,8 @@ class BasicController extends Controller
 
     /** 
      * Testimonials
+     * 
+     * @authenticated
      * 
      * This endpoint is used to get list of testimonials.
      */
@@ -185,6 +198,7 @@ class BasicController extends Controller
 
     /**
      * Metadata
+     * 
      * 
      * This endpoint is used to get metadata for the app like user goals, user activities, medical conditions etc.
      */
@@ -205,6 +219,8 @@ class BasicController extends Controller
     /**
      * Featured Faqs
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get list of faqs.
      */
 
@@ -220,6 +236,8 @@ class BasicController extends Controller
     /**
      * Faq Categories
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get list of faq categories.
      */
 
@@ -234,6 +252,8 @@ class BasicController extends Controller
 
     /**
      * Packages
+     * 
+     * @authenticated
      * 
      * This endpoint is used to get list of packages.
      */

@@ -5,6 +5,7 @@ use App\Http\Controllers\API\v1\User\LikeController;
 use App\Http\Controllers\API\v1\User\BasicController;
 use App\Http\Controllers\API\v1\User\TrackerController;
 use App\Http\Controllers\API\v1\Auth\UserAuthController;
+use App\Http\Controllers\API\v1\User\ChatController;
 use App\Http\Controllers\API\v1\User\SubscriptionController;
 
 Route::prefix('v1/user')->group(function () {
@@ -58,5 +59,15 @@ Route::prefix('v1/user')->group(function () {
                     Route::post('toggle/blog', 'toggleBlog');
                     Route::post('toggle/recipe', 'toggleRecipe');
                 });
+
+            Route::controller(ChatController::class)
+                ->prefix('chat')
+                ->group(function () {
+                    Route::get('active', 'activeChat');
+                    Route::post('send-message', 'sendMessage');
+                });
         });
 });
+
+
+Broadcast::routes(['middleware' => ['auth:sanctum']]);

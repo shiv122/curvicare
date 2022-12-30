@@ -115,6 +115,18 @@ return [
             'path' => storage_path('logs/failed_order.log'),
             'level' => 'info',
         ],
+
+        'dietician_assignment' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/dietician_assignment.log'),
+            'level' => 'info',
+        ],
+
+        'file_manager' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/file_manager.log'),
+            'level' => 'info',
+        ],
     ],
 
 ];

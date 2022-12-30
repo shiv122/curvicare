@@ -8,6 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use App\Services\DieticianAssignmentService;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 
 class AssignDieticianJob implements ShouldQueue
@@ -34,6 +35,7 @@ class AssignDieticianJob implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $service = new DieticianAssignmentService();
+        $service->assign($this->assignment);
     }
 }

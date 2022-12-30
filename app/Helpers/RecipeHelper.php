@@ -9,7 +9,7 @@ class RecipeHelper
 
 
 
-    public function filterPaidBlogs($recipes, $currentlySubscribed)
+    public function filterPaidRecipes($recipes, $currentlySubscribed)
     {
         foreach ($recipes as $key => $recipe) {
             if ($recipe->is_paid === 'yes' && !$currentlySubscribed) {

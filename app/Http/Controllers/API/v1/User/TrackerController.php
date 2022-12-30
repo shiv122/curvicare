@@ -29,6 +29,8 @@ class TrackerController extends Controller
     /**
      * Moods
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get all moods
      * 
      */
@@ -43,6 +45,8 @@ class TrackerController extends Controller
 
     /**
      * User Mood
+     * 
+     * @authenticated
      * 
      * This endpoint is used to get user mood
      * 
@@ -59,6 +63,8 @@ class TrackerController extends Controller
 
     /**
      * Store User Mood
+     * 
+     * @authenticated
      * 
      * This endpoint is used to store user mood
      * 
@@ -82,6 +88,8 @@ class TrackerController extends Controller
     /**
      * User Steps
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get user steps
      * 
      */
@@ -98,6 +106,8 @@ class TrackerController extends Controller
 
     /**
      * Store User Water
+     * 
+     * @authenticated
      * 
      * This endpoint is used to store user water
      * 
@@ -135,6 +145,8 @@ class TrackerController extends Controller
     /**
      * User Steps
      * 
+     * @authenticated
+     * 
      * This endpoint is used to get user steps
      * 
      */
@@ -150,6 +162,8 @@ class TrackerController extends Controller
 
     /**
      * Store User Steps
+     * 
+     * @authenticated
      * 
      * This endpoint is used to store user steps
      * 

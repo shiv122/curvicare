@@ -84,6 +84,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-user-subscription-fetch-order">
                                 <a href="#endpoints-POSTapi-v1-user-subscription-fetch-order">POST api/v1/user/subscription/fetch-order</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-broadcasting-auth">
+                                <a href="#endpoints-GETapi-broadcasting-auth">Authenticate the request for channel access.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-dietician">
                                 <a href="#endpoints-GETapi-v1-dietician">GET api/v1/dietician</a>
                             </li>
@@ -110,32 +113,45 @@
                                                     <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-metadata">
                                 <a href="#user-basic-GETapi-v1-user-metadata">Metadata</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic">
-                                <a href="#user-basic-GETapi-v1-user-basic">Profile</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user">
+                                <a href="#user-basic-GETapi-v1-user">Profile</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-POSTapi-v1-user-basic">
-                                <a href="#user-basic-POSTapi-v1-user-basic">Update Profile</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-POSTapi-v1-user">
+                                <a href="#user-basic-POSTapi-v1-user">Update Profile</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic-quotes">
-                                <a href="#user-basic-GETapi-v1-user-basic-quotes">Quotes</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-quotes">
+                                <a href="#user-basic-GETapi-v1-user-quotes">Quotes</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic-recipes">
-                                <a href="#user-basic-GETapi-v1-user-basic-recipes">Recipes</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-recipes">
+                                <a href="#user-basic-GETapi-v1-user-recipes">Recipes</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic-blogs">
-                                <a href="#user-basic-GETapi-v1-user-basic-blogs">Blogs</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-blogs">
+                                <a href="#user-basic-GETapi-v1-user-blogs">Blogs</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic-faqs">
-                                <a href="#user-basic-GETapi-v1-user-basic-faqs">Featured Faqs</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-faqs">
+                                <a href="#user-basic-GETapi-v1-user-faqs">Featured Faqs</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic-faq-categories">
-                                <a href="#user-basic-GETapi-v1-user-basic-faq-categories">Faq Categories</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-faq-categories">
+                                <a href="#user-basic-GETapi-v1-user-faq-categories">Faq Categories</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic-testimonials">
-                                <a href="#user-basic-GETapi-v1-user-basic-testimonials">Testimonials</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-testimonials">
+                                <a href="#user-basic-GETapi-v1-user-testimonials">Testimonials</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-basic-packages">
-                                <a href="#user-basic-GETapi-v1-user-basic-packages">Packages</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-basic-GETapi-v1-user-packages">
+                                <a href="#user-basic-GETapi-v1-user-packages">Packages</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-user-chat" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user-chat">
+                    <a href="#user-chat">User Chat</a>
+                </li>
+                                    <ul id="tocify-subheader-user-chat" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-chat-GETapi-v1-user-chat-active">
+                                <a href="#user-chat-GETapi-v1-user-chat-active">Get Active Chat</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-chat-POSTapi-v1-user-chat-send-message">
+                                <a href="#user-chat-POSTapi-v1-user-chat-send-message">Send Message</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -192,7 +208,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 14, 2022</li>
+        <li>Last updated: December 30, 2022</li>
     </ul>
 </div>
 
@@ -231,8 +247,8 @@ if dietician is not found in database it will return error</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"hahn.audie@example.net\",
-    \"password\": \"voluptatem\"
+    \"email\": \"alden.waelchi@example.com\",
+    \"password\": \"culpa\"
 }"
 </code></pre></div>
 
@@ -248,8 +264,8 @@ const headers = {
 };
 
 let body = {
-    "email": "hahn.audie@example.net",
-    "password": "voluptatem"
+    "email": "alden.waelchi@example.com",
+    "password": "culpa"
 };
 
 fetch(url, {
@@ -316,10 +332,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-dietician-login"
-               value="hahn.audie@example.net"
+               value="alden.waelchi@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>hahn.audie@example.net</code></p>
+<p>Must be a valid email address. Example: <code>alden.waelchi@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -327,10 +343,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-v1-dietician-login"
-               value="voluptatem"
+               value="culpa"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>culpa</code></p>
         </div>
         </form>
 
@@ -791,10 +807,10 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"package_id\": 5,
-    \"type\": \"new\",
+    \"package_id\": 2,
+    \"type\": \"renew\",
     \"currency\": \"USD\",
-    \"coupon_code\": \"rmrsjozebzjjkppzlptcrbknuasewvgijqqsxmjnvxbfvsybndmrlcwlmkumkqdndwxpunhiolqgrzukbcanpvxcwtsrcrhiewwcgyaiezlomtftbzvgfiwvjzlsnbsrikutooypgmenogtqdjpscuhgkulxyglhpwwohhqrghvqhhdmwxocxpzcnmqsswjceraoivqxydjncyeobxzaifphcltsmumhscnrrxdakbpsjujfupckshfemabqhvw\",
+    \"coupon_code\": \"vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah\",
     \"form_data\": []
 }"
 </code></pre></div>
@@ -811,10 +827,10 @@ const headers = {
 };
 
 let body = {
-    "package_id": 5,
-    "type": "new",
+    "package_id": 2,
+    "type": "renew",
     "currency": "USD",
-    "coupon_code": "rmrsjozebzjjkppzlptcrbknuasewvgijqqsxmjnvxbfvsybndmrlcwlmkumkqdndwxpunhiolqgrzukbcanpvxcwtsrcrhiewwcgyaiezlomtftbzvgfiwvjzlsnbsrikutooypgmenogtqdjpscuhgkulxyglhpwwohhqrghvqhhdmwxocxpzcnmqsswjceraoivqxydjncyeobxzaifphcltsmumhscnrrxdakbpsjujfupckshfemabqhvw",
+    "coupon_code": "vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah",
     "form_data": []
 };
 
@@ -882,10 +898,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="package_id"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="5"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>5</code></p>
+<p>Example: <code>2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -893,10 +909,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="type"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="new"
+               value="renew"
                data-component="body">
     <br>
-<p>Must be one of <code>new</code> or <code>renew</code>. Example: <code>new</code></p>
+<p>Must be one of <code>new</code> or <code>renew</code>. Example: <code>renew</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -915,10 +931,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="coupon_code"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="rmrsjozebzjjkppzlptcrbknuasewvgijqqsxmjnvxbfvsybndmrlcwlmkumkqdndwxpunhiolqgrzukbcanpvxcwtsrcrhiewwcgyaiezlomtftbzvgfiwvjzlsnbsrikutooypgmenogtqdjpscuhgkulxyglhpwwohhqrghvqhhdmwxocxpzcnmqsswjceraoivqxydjncyeobxzaifphcltsmumhscnrrxdakbpsjujfupckshfemabqhvw"
+               value="vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah"
                data-component="body">
     <br>
-<p>Must be 255 characters. Example: <code>rmrsjozebzjjkppzlptcrbknuasewvgijqqsxmjnvxbfvsybndmrlcwlmkumkqdndwxpunhiolqgrzukbcanpvxcwtsrcrhiewwcgyaiezlomtftbzvgfiwvjzlsnbsrikutooypgmenogtqdjpscuhgkulxyglhpwwohhqrghvqhhdmwxocxpzcnmqsswjceraoivqxydjncyeobxzaifphcltsmumhscnrrxdakbpsjujfupckshfemabqhvw</code></p>
+<p>Must be 255 characters. Example: <code>vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>form_data</code></b>&nbsp;&nbsp;
@@ -950,7 +966,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": \"gnxdonkverrtud\"
+    \"id\": \"qw\"
 }"
 </code></pre></div>
 
@@ -966,7 +982,7 @@ const headers = {
 };
 
 let body = {
-    "id": "gnxdonkverrtud"
+    "id": "qw"
 };
 
 fetch(url, {
@@ -1033,12 +1049,452 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
-               value="gnxdonkverrtud"
+               value="qw"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>gnxdonkverrtud</code></p>
+<p>Must not be greater than 255 characters. Example: <code>qw</code></p>
         </div>
         </form>
+
+                    <h2 id="endpoints-GETapi-broadcasting-auth">Authenticate the request for channel access.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-broadcasting-auth">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:9000/api/broadcasting/auth" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/broadcasting/auth"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-broadcasting-auth">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
+    &quot;line&quot;: 44,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php&quot;,
+            &quot;line&quot;: 162,
+            &quot;function&quot;: &quot;handleMatchedRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\AbstractRouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 753,
+            &quot;function&quot;: &quot;match&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\RouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 740,
+            &quot;function&quot;: &quot;findRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 729,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php&quot;,
+            &quot;line&quot;: 52,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fruitcake\\Cors\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 306,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 294,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 53,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 312,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 152,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1020,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 312,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 168,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-broadcasting-auth" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-broadcasting-auth"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-broadcasting-auth" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-broadcasting-auth" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-broadcasting-auth"></code></pre>
+</span>
+<form id="form-GETapi-broadcasting-auth" data-method="GET"
+      data-path="api/broadcasting/auth"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-broadcasting-auth', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/broadcasting/auth</code></b>
+        </p>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/broadcasting/auth</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-broadcasting-auth"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-broadcasting-auth"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                     <h2 id="endpoints-GETapi-v1-dietician">GET api/v1/dietician</h2>
 
@@ -1492,10 +1948,10 @@ access-control-allow-origin: *
     "http://127.0.0.1:9000/api/v1/dietician/update" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=giefrxfbwreazvqwoxiusieul" \
-    --form "phone=kqeafiolna" \
-    --form "address=hwkcckxfrdtclkgptn" \
-    --form "image=@C:\Users\7854\AppData\Local\Temp\phpBA3E.tmp" </code></pre></div>
+    --form "name=canofxrpxwoolhkjhei" \
+    --form "phone=epyrpgfqib" \
+    --form "address=gfiin" \
+    --form "image=@C:\Users\7854\AppData\Local\Temp\php31B0.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1509,9 +1965,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'giefrxfbwreazvqwoxiusieul');
-body.append('phone', 'kqeafiolna');
-body.append('address', 'hwkcckxfrdtclkgptn');
+body.append('name', 'canofxrpxwoolhkjhei');
+body.append('phone', 'epyrpgfqib');
+body.append('address', 'gfiin');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -1578,10 +2034,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-dietician-update"
-               value="giefrxfbwreazvqwoxiusieul"
+               value="canofxrpxwoolhkjhei"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>giefrxfbwreazvqwoxiusieul</code></p>
+<p>Must not be greater than 255 characters. Example: <code>canofxrpxwoolhkjhei</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
@@ -1592,7 +2048,7 @@ fetch(url, {
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\phpBA3E.tmp</code></p>
+<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\php31B0.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -1600,10 +2056,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="phone"                data-endpoint="POSTapi-v1-dietician-update"
-               value="kqeafiolna"
+               value="epyrpgfqib"
                data-component="body">
     <br>
-<p>Must be 10 characters. Example: <code>kqeafiolna</code></p>
+<p>Must be 10 characters. Example: <code>epyrpgfqib</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -1611,10 +2067,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="address"                data-endpoint="POSTapi-v1-dietician-update"
-               value="hwkcckxfrdtclkgptn"
+               value="gfiin"
                data-component="body">
     <br>
-<p>Must not be greater than 3000 characters. Example: <code>hwkcckxfrdtclkgptn</code></p>
+<p>Must not be greater than 3000 characters. Example: <code>gfiin</code></p>
         </div>
         </form>
 
@@ -2185,27 +2641,27 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic">Profile</h2>
+                    <h2 id="user-basic-GETapi-v1-user">Profile</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get user profile data</p>
 
-<span id="example-requests-GETapi-v1-user-basic">
+<span id="example-requests-GETapi-v1-user">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic" \
+    --get "http://127.0.0.1:9000/api/v1/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic"
+    "http://127.0.0.1:9000/api/v1/user"
 );
 
 const headers = {
@@ -2220,7 +2676,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic">
+<span id="example-responses-GETapi-v1-user">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -2572,29 +3028,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic" hidden>
+<span id="execution-results-GETapi-v1-user" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic"></span>:
+                id="execution-response-status-GETapi-v1-user"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic" hidden>
+<span id="execution-error-GETapi-v1-user" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic" data-method="GET"
-      data-path="api/v1/user/basic"
+<form id="form-GETapi-v1-user" data-method="GET"
+      data-path="api/v1/user"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic</code></b>
+            <b><code>api/v1/user</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -2602,7 +3058,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic"
+               name="Content-Type"                data-endpoint="GETapi-v1-user"
                value="application/json"
                data-component="header">
     <br>
@@ -2613,7 +3069,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic"
+               name="Accept"                data-endpoint="GETapi-v1-user"
                value="application/json"
                data-component="header">
     <br>
@@ -2621,37 +3077,37 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-POSTapi-v1-user-basic">Update Profile</h2>
+                    <h2 id="user-basic-POSTapi-v1-user">Update Profile</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to update user profile data</p>
 
-<span id="example-requests-POSTapi-v1-user-basic">
+<span id="example-requests-POSTapi-v1-user">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:9000/api/v1/user/basic" \
+    "http://127.0.0.1:9000/api/v1/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"est\",
-    \"dob\": \"2022-12-14T16:09:33\",
-    \"user_activity_id\": 7,
-    \"user_goal_id\": 16,
-    \"weight\": 2189.06,
-    \"height\": 1077781.77,
-    \"gender\": \"delectus\"
+    \"name\": \"qui\",
+    \"dob\": \"2022-12-30T12:30:09\",
+    \"user_activity_id\": 11,
+    \"user_goal_id\": 12,
+    \"weight\": 34677.7245,
+    \"height\": 670308.940196945,
+    \"gender\": \"suscipit\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic"
+    "http://127.0.0.1:9000/api/v1/user"
 );
 
 const headers = {
@@ -2660,13 +3116,13 @@ const headers = {
 };
 
 let body = {
-    "name": "est",
-    "dob": "2022-12-14T16:09:33",
-    "user_activity_id": 7,
-    "user_goal_id": 16,
-    "weight": 2189.06,
-    "height": 1077781.77,
-    "gender": "delectus"
+    "name": "qui",
+    "dob": "2022-12-30T12:30:09",
+    "user_activity_id": 11,
+    "user_goal_id": 12,
+    "weight": 34677.7245,
+    "height": 670308.940196945,
+    "gender": "suscipit"
 };
 
 fetch(url, {
@@ -2677,31 +3133,31 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-v1-user-basic">
+<span id="example-responses-POSTapi-v1-user">
 </span>
-<span id="execution-results-POSTapi-v1-user-basic" hidden>
+<span id="execution-results-POSTapi-v1-user" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-user-basic"></span>:
+                id="execution-response-status-POSTapi-v1-user"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-basic" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1-user-basic" hidden>
+<span id="execution-error-POSTapi-v1-user" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-user-basic"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-v1-user"></code></pre>
 </span>
-<form id="form-POSTapi-v1-user-basic" data-method="POST"
-      data-path="api/v1/user/basic"
+<form id="form-POSTapi-v1-user" data-method="POST"
+      data-path="api/v1/user"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-basic', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/v1/user/basic</code></b>
+            <b><code>api/v1/user</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -2709,7 +3165,7 @@ fetch(url, {
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-user-basic"
+               name="Content-Type"                data-endpoint="POSTapi-v1-user"
                value="application/json"
                data-component="header">
     <br>
@@ -2720,7 +3176,7 @@ fetch(url, {
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-user-basic"
+               name="Accept"                data-endpoint="POSTapi-v1-user"
                value="application/json"
                data-component="header">
     <br>
@@ -2732,76 +3188,76 @@ fetch(url, {
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="name"                data-endpoint="POSTapi-v1-user-basic"
-               value="est"
+               name="name"                data-endpoint="POSTapi-v1-user"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>est</code></p>
+<p>Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>dob</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="dob"                data-endpoint="POSTapi-v1-user-basic"
-               value="2022-12-14T16:09:33"
+               name="dob"                data-endpoint="POSTapi-v1-user"
+               value="2022-12-30T12:30:09"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2022-12-14T16:09:33</code></p>
+<p>Must be a valid date. Example: <code>2022-12-30T12:30:09</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_activity_id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               name="user_activity_id"                data-endpoint="POSTapi-v1-user-basic"
-               value="7"
+               name="user_activity_id"                data-endpoint="POSTapi-v1-user"
+               value="11"
                data-component="body">
     <br>
-<p>Example: <code>7</code></p>
+<p>Example: <code>11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_goal_id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               name="user_goal_id"                data-endpoint="POSTapi-v1-user-basic"
-               value="16"
+               name="user_goal_id"                data-endpoint="POSTapi-v1-user"
+               value="12"
                data-component="body">
     <br>
-<p>Example: <code>16</code></p>
+<p>Example: <code>12</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>weight</code></b>&nbsp;&nbsp;
 <small>number</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               name="weight"                data-endpoint="POSTapi-v1-user-basic"
-               value="2189.06"
+               name="weight"                data-endpoint="POSTapi-v1-user"
+               value="34677.7245"
                data-component="body">
     <br>
-<p>Example: <code>2189.06</code></p>
+<p>Example: <code>34677.7245</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>height</code></b>&nbsp;&nbsp;
 <small>number</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               name="height"                data-endpoint="POSTapi-v1-user-basic"
-               value="1077781.77"
+               name="height"                data-endpoint="POSTapi-v1-user"
+               value="670308.94019694"
                data-component="body">
     <br>
-<p>Example: <code>1077781.77</code></p>
+<p>Example: <code>670308.94019694</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>medical_conditions</code></b>&nbsp;&nbsp;
 <small>string[]</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-               name="medical_conditions[0]"                data-endpoint="POSTapi-v1-user-basic"
+               name="medical_conditions[0]"                data-endpoint="POSTapi-v1-user"
                data-component="body">
         <input type="text" style="display: none"
-               name="medical_conditions[1]"                data-endpoint="POSTapi-v1-user-basic"
+               name="medical_conditions[1]"                data-endpoint="POSTapi-v1-user"
                data-component="body">
     <br>
 
@@ -2811,35 +3267,35 @@ fetch(url, {
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="gender"                data-endpoint="POSTapi-v1-user-basic"
-               value="delectus"
+               name="gender"                data-endpoint="POSTapi-v1-user"
+               value="suscipit"
                data-component="body">
     <br>
-<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>delectus</code></p>
+<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>suscipit</code></p>
         </div>
         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic-quotes">Quotes</h2>
+                    <h2 id="user-basic-GETapi-v1-user-quotes">Quotes</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get random quotes</p>
 
-<span id="example-requests-GETapi-v1-user-basic-quotes">
+<span id="example-requests-GETapi-v1-user-quotes">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic/quotes" \
+    --get "http://127.0.0.1:9000/api/v1/user/quotes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic/quotes"
+    "http://127.0.0.1:9000/api/v1/user/quotes"
 );
 
 const headers = {
@@ -2854,7 +3310,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic-quotes">
+<span id="example-responses-GETapi-v1-user-quotes">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -3206,29 +3662,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic-quotes" hidden>
+<span id="execution-results-GETapi-v1-user-quotes" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic-quotes"></span>:
+                id="execution-response-status-GETapi-v1-user-quotes"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic-quotes" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-quotes" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic-quotes" hidden>
+<span id="execution-error-GETapi-v1-user-quotes" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic-quotes"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user-quotes"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic-quotes" data-method="GET"
-      data-path="api/v1/user/basic/quotes"
+<form id="form-GETapi-v1-user-quotes" data-method="GET"
+      data-path="api/v1/user/quotes"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic-quotes', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-quotes', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic/quotes</code></b>
+            <b><code>api/v1/user/quotes</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -3236,7 +3692,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic-quotes"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-quotes"
                value="application/json"
                data-component="header">
     <br>
@@ -3247,7 +3703,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic-quotes"
+               name="Accept"                data-endpoint="GETapi-v1-user-quotes"
                value="application/json"
                data-component="header">
     <br>
@@ -3255,27 +3711,27 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic-recipes">Recipes</h2>
+                    <h2 id="user-basic-GETapi-v1-user-recipes">Recipes</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get list of recipes.</p>
 
-<span id="example-requests-GETapi-v1-user-basic-recipes">
+<span id="example-requests-GETapi-v1-user-recipes">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic/recipes" \
+    --get "http://127.0.0.1:9000/api/v1/user/recipes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic/recipes"
+    "http://127.0.0.1:9000/api/v1/user/recipes"
 );
 
 const headers = {
@@ -3290,7 +3746,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic-recipes">
+<span id="example-responses-GETapi-v1-user-recipes">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -3642,29 +4098,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic-recipes" hidden>
+<span id="execution-results-GETapi-v1-user-recipes" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic-recipes"></span>:
+                id="execution-response-status-GETapi-v1-user-recipes"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic-recipes" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-recipes" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic-recipes" hidden>
+<span id="execution-error-GETapi-v1-user-recipes" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic-recipes"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user-recipes"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic-recipes" data-method="GET"
-      data-path="api/v1/user/basic/recipes"
+<form id="form-GETapi-v1-user-recipes" data-method="GET"
+      data-path="api/v1/user/recipes"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic-recipes', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-recipes', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic/recipes</code></b>
+            <b><code>api/v1/user/recipes</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -3672,7 +4128,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic-recipes"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-recipes"
                value="application/json"
                data-component="header">
     <br>
@@ -3683,7 +4139,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic-recipes"
+               name="Accept"                data-endpoint="GETapi-v1-user-recipes"
                value="application/json"
                data-component="header">
     <br>
@@ -3691,27 +4147,27 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic-blogs">Blogs</h2>
+                    <h2 id="user-basic-GETapi-v1-user-blogs">Blogs</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get list of blogs.</p>
 
-<span id="example-requests-GETapi-v1-user-basic-blogs">
+<span id="example-requests-GETapi-v1-user-blogs">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic/blogs" \
+    --get "http://127.0.0.1:9000/api/v1/user/blogs" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic/blogs"
+    "http://127.0.0.1:9000/api/v1/user/blogs"
 );
 
 const headers = {
@@ -3726,7 +4182,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic-blogs">
+<span id="example-responses-GETapi-v1-user-blogs">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -4078,29 +4534,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic-blogs" hidden>
+<span id="execution-results-GETapi-v1-user-blogs" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic-blogs"></span>:
+                id="execution-response-status-GETapi-v1-user-blogs"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic-blogs" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-blogs" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic-blogs" hidden>
+<span id="execution-error-GETapi-v1-user-blogs" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic-blogs"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user-blogs"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic-blogs" data-method="GET"
-      data-path="api/v1/user/basic/blogs"
+<form id="form-GETapi-v1-user-blogs" data-method="GET"
+      data-path="api/v1/user/blogs"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic-blogs', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-blogs', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic/blogs</code></b>
+            <b><code>api/v1/user/blogs</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -4108,7 +4564,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic-blogs"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-blogs"
                value="application/json"
                data-component="header">
     <br>
@@ -4119,7 +4575,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic-blogs"
+               name="Accept"                data-endpoint="GETapi-v1-user-blogs"
                value="application/json"
                data-component="header">
     <br>
@@ -4127,27 +4583,27 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic-faqs">Featured Faqs</h2>
+                    <h2 id="user-basic-GETapi-v1-user-faqs">Featured Faqs</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get list of faqs.</p>
 
-<span id="example-requests-GETapi-v1-user-basic-faqs">
+<span id="example-requests-GETapi-v1-user-faqs">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic/faqs" \
+    --get "http://127.0.0.1:9000/api/v1/user/faqs" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic/faqs"
+    "http://127.0.0.1:9000/api/v1/user/faqs"
 );
 
 const headers = {
@@ -4162,7 +4618,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic-faqs">
+<span id="example-responses-GETapi-v1-user-faqs">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -4514,29 +4970,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic-faqs" hidden>
+<span id="execution-results-GETapi-v1-user-faqs" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic-faqs"></span>:
+                id="execution-response-status-GETapi-v1-user-faqs"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic-faqs" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-faqs" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic-faqs" hidden>
+<span id="execution-error-GETapi-v1-user-faqs" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic-faqs"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user-faqs"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic-faqs" data-method="GET"
-      data-path="api/v1/user/basic/faqs"
+<form id="form-GETapi-v1-user-faqs" data-method="GET"
+      data-path="api/v1/user/faqs"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic-faqs', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-faqs', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic/faqs</code></b>
+            <b><code>api/v1/user/faqs</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -4544,7 +5000,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic-faqs"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-faqs"
                value="application/json"
                data-component="header">
     <br>
@@ -4555,7 +5011,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic-faqs"
+               name="Accept"                data-endpoint="GETapi-v1-user-faqs"
                value="application/json"
                data-component="header">
     <br>
@@ -4563,27 +5019,27 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic-faq-categories">Faq Categories</h2>
+                    <h2 id="user-basic-GETapi-v1-user-faq-categories">Faq Categories</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get list of faq categories.</p>
 
-<span id="example-requests-GETapi-v1-user-basic-faq-categories">
+<span id="example-requests-GETapi-v1-user-faq-categories">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic/faq-categories" \
+    --get "http://127.0.0.1:9000/api/v1/user/faq-categories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic/faq-categories"
+    "http://127.0.0.1:9000/api/v1/user/faq-categories"
 );
 
 const headers = {
@@ -4598,7 +5054,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic-faq-categories">
+<span id="example-responses-GETapi-v1-user-faq-categories">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -4950,29 +5406,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic-faq-categories" hidden>
+<span id="execution-results-GETapi-v1-user-faq-categories" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic-faq-categories"></span>:
+                id="execution-response-status-GETapi-v1-user-faq-categories"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic-faq-categories" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-faq-categories" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic-faq-categories" hidden>
+<span id="execution-error-GETapi-v1-user-faq-categories" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic-faq-categories"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user-faq-categories"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic-faq-categories" data-method="GET"
-      data-path="api/v1/user/basic/faq-categories"
+<form id="form-GETapi-v1-user-faq-categories" data-method="GET"
+      data-path="api/v1/user/faq-categories"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic-faq-categories', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-faq-categories', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic/faq-categories</code></b>
+            <b><code>api/v1/user/faq-categories</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -4980,7 +5436,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic-faq-categories"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-faq-categories"
                value="application/json"
                data-component="header">
     <br>
@@ -4991,7 +5447,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic-faq-categories"
+               name="Accept"                data-endpoint="GETapi-v1-user-faq-categories"
                value="application/json"
                data-component="header">
     <br>
@@ -4999,27 +5455,27 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic-testimonials">Testimonials</h2>
+                    <h2 id="user-basic-GETapi-v1-user-testimonials">Testimonials</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get list of testimonials.</p>
 
-<span id="example-requests-GETapi-v1-user-basic-testimonials">
+<span id="example-requests-GETapi-v1-user-testimonials">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic/testimonials" \
+    --get "http://127.0.0.1:9000/api/v1/user/testimonials" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic/testimonials"
+    "http://127.0.0.1:9000/api/v1/user/testimonials"
 );
 
 const headers = {
@@ -5034,7 +5490,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic-testimonials">
+<span id="example-responses-GETapi-v1-user-testimonials">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -5386,29 +5842,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic-testimonials" hidden>
+<span id="execution-results-GETapi-v1-user-testimonials" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic-testimonials"></span>:
+                id="execution-response-status-GETapi-v1-user-testimonials"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic-testimonials" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-testimonials" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic-testimonials" hidden>
+<span id="execution-error-GETapi-v1-user-testimonials" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic-testimonials"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user-testimonials"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic-testimonials" data-method="GET"
-      data-path="api/v1/user/basic/testimonials"
+<form id="form-GETapi-v1-user-testimonials" data-method="GET"
+      data-path="api/v1/user/testimonials"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic-testimonials', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-testimonials', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic/testimonials</code></b>
+            <b><code>api/v1/user/testimonials</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -5416,7 +5872,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic-testimonials"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-testimonials"
                value="application/json"
                data-component="header">
     <br>
@@ -5427,7 +5883,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic-testimonials"
+               name="Accept"                data-endpoint="GETapi-v1-user-testimonials"
                value="application/json"
                data-component="header">
     <br>
@@ -5435,27 +5891,27 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="user-basic-GETapi-v1-user-basic-packages">Packages</h2>
+                    <h2 id="user-basic-GETapi-v1-user-packages">Packages</h2>
 
 <p>
 </p>
 
 <p>This endpoint is used to get list of packages.</p>
 
-<span id="example-requests-GETapi-v1-user-basic-packages">
+<span id="example-requests-GETapi-v1-user-packages">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/basic/packages" \
+    --get "http://127.0.0.1:9000/api/v1/user/packages" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/basic/packages"
+    "http://127.0.0.1:9000/api/v1/user/packages"
 );
 
 const headers = {
@@ -5470,7 +5926,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-basic-packages">
+<span id="example-responses-GETapi-v1-user-packages">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -5822,29 +6278,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-basic-packages" hidden>
+<span id="execution-results-GETapi-v1-user-packages" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-basic-packages"></span>:
+                id="execution-response-status-GETapi-v1-user-packages"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-basic-packages" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-packages" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-basic-packages" hidden>
+<span id="execution-error-GETapi-v1-user-packages" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-basic-packages"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-user-packages"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-basic-packages" data-method="GET"
-      data-path="api/v1/user/basic/packages"
+<form id="form-GETapi-v1-user-packages" data-method="GET"
+      data-path="api/v1/user/packages"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-basic-packages', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-packages', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/basic/packages</code></b>
+            <b><code>api/v1/user/packages</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -5852,7 +6308,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-basic-packages"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-packages"
                value="application/json"
                data-component="header">
     <br>
@@ -5863,13 +6319,298 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-basic-packages"
+               name="Accept"                data-endpoint="GETapi-v1-user-packages"
                value="application/json"
                data-component="header">
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="user-chat">User Chat</h1>
+
+    <p>APIs for User Chat</p>
+
+                                <h2 id="user-chat-GETapi-v1-user-chat-active">Get Active Chat</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-user-chat-active">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:9000/api/v1/user/chat/active" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/user/chat/active"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-chat-active">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;message&quot;: &quot;Hiii chetan&quot;,
+            &quot;user_id&quot;: 2,
+            &quot;dietician&quot;: null,
+            &quot;media&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;type&quot;: &quot;image&quot;,
+                    &quot;data&quot;: &quot;{\&quot;image\&quot;: [\&quot;uploads/image/image-685694294ff402b988c53fc346e19d5fb5f62f88e24.jpg\&quot;, \&quot;uploads/image/image-176694294ff402b988c53fc346e19d5fb5f62f88e24.jpg\&quot;]}&quot;,
+                    &quot;created_at&quot;: &quot;2022-12-30T05:38:58.000000Z&quot;
+                }
+            ],
+            &quot;reply&quot;: null,
+            &quot;created_at&quot;: &quot;2022-12-30T05:38:58.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;message&quot;: &quot;Hello &quot;,
+            &quot;user_id&quot;: null,
+            &quot;dietician&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Chetan Chadam&quot;,
+                &quot;image&quot;: &quot;images/dietician/img-516396d609d62ae537360a10547ba805bd7895a7b2.png&quot;
+            },
+            &quot;media&quot;: [],
+            &quot;reply&quot;: {
+                &quot;id&quot;: 1,
+                &quot;message&quot;: &quot;Hiii chetan&quot;,
+                &quot;user_id&quot;: 2,
+                &quot;media&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;type&quot;: &quot;image&quot;,
+                        &quot;data&quot;: &quot;{\&quot;image\&quot;: [\&quot;uploads/image/image-685694294ff402b988c53fc346e19d5fb5f62f88e24.jpg\&quot;, \&quot;uploads/image/image-176694294ff402b988c53fc346e19d5fb5f62f88e24.jpg\&quot;]}&quot;,
+                        &quot;created_at&quot;: &quot;2022-12-30T05:38:58.000000Z&quot;
+                    }
+                ],
+                &quot;created_at&quot;: &quot;2022-12-30T05:38:58.000000Z&quot;
+            },
+            &quot;created_at&quot;: &quot;2022-12-30T05:38:58.000000Z&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://127.0.0.1:9000/api/v1/user/chat/active?page=1&quot;,
+        &quot;last&quot;: null,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;path&quot;: &quot;http://127.0.0.1:9000/api/v1/user/chat/active&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: 2
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-chat-active" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-chat-active"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-chat-active" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-chat-active" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-chat-active"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-chat-active" data-method="GET"
+      data-path="api/v1/user/chat/active"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-chat-active', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/chat/active</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-chat-active"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-user-chat-active"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="user-chat-POSTapi-v1-user-chat-send-message">Send Message</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to send message to dietician</p>
+
+<span id="example-requests-POSTapi-v1-user-chat-send-message">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:9000/api/v1/user/chat/send-message" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "message=fjkhanittpzmheqvkiw" \
+    --form "media[]=@C:\Users\7854\AppData\Local\Temp\php3190.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/user/chat/send-message"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('message', 'fjkhanittpzmheqvkiw');
+body.append('media[]', document.querySelector('input[name="media[]"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-chat-send-message">
+</span>
+<span id="execution-results-POSTapi-v1-user-chat-send-message" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-chat-send-message"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-chat-send-message" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-chat-send-message" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-chat-send-message"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-chat-send-message" data-method="POST"
+      data-path="api/v1/user/chat/send-message"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-chat-send-message', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/chat/send-message</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-user-chat-send-message"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-user-chat-send-message"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>message</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="message"                data-endpoint="POSTapi-v1-user-chat-send-message"
+               value="fjkhanittpzmheqvkiw"
+               data-component="body">
+    <br>
+<p>This field is required when <code>media</code> is not present. Must not be greater than 3000 characters. Example: <code>fjkhanittpzmheqvkiw</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media</code></b>&nbsp;&nbsp;
+<small>file[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+               name="media[0]"                data-endpoint="POSTapi-v1-user-chat-send-message"
+               data-component="body">
+        <input type="file" style="display: none"
+               name="media[1]"                data-endpoint="POSTapi-v1-user-chat-send-message"
+               data-component="body">
+    <br>
+<p>This field is required when <code>message</code> is not present.  Must be a file. Must not be greater than 2048 kilobytes.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>reply_to</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="reply_to"                data-endpoint="POSTapi-v1-user-chat-send-message"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
 
                 <h1 id="user-like">User Like</h1>
 
@@ -7438,7 +8179,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mood\": 15
+    \"mood\": 4
 }"
 </code></pre></div>
 
@@ -7454,7 +8195,7 @@ const headers = {
 };
 
 let body = {
-    "mood": 15
+    "mood": 4
 };
 
 fetch(url, {
@@ -7521,10 +8262,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="mood"                data-endpoint="POSTapi-v1-user-tracker-mood"
-               value="15"
+               value="4"
                data-component="body">
     <br>
-<p>Example: <code>15</code></p>
+<p>Example: <code>4</code></p>
         </div>
         </form>
 
@@ -7981,7 +8722,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"water_amount\": 33.23079
+    \"water_amount\": 15.61573
 }"
 </code></pre></div>
 
@@ -7997,7 +8738,7 @@ const headers = {
 };
 
 let body = {
-    "water_amount": 33.23079
+    "water_amount": 15.61573
 };
 
 fetch(url, {
@@ -8064,10 +8805,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="water_amount"                data-endpoint="POSTapi-v1-user-tracker-water"
-               value="33.23079"
+               value="15.61573"
                data-component="body">
     <br>
-<p>Example: <code>33.23079</code></p>
+<p>Example: <code>15.61573</code></p>
         </div>
         </form>
 
@@ -8524,7 +9265,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"step\": 20
+    \"step\": 6
 }"
 </code></pre></div>
 
@@ -8540,7 +9281,7 @@ const headers = {
 };
 
 let body = {
-    "step": 20
+    "step": 6
 };
 
 fetch(url, {
@@ -8607,10 +9348,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="step"                data-endpoint="POSTapi-v1-user-tracker-step"
-               value="20"
+               value="6"
                data-component="body">
     <br>
-<p>Example: <code>20</code></p>
+<p>Example: <code>6</code></p>
         </div>
         </form>
 

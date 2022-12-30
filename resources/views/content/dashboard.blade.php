@@ -413,4 +413,8 @@
 
         @section('page-script')
             <script src="{{ asset(mix('js/scripts/charts/chart-apex.js')) }}"></script>
+            <script>
+                window.me = @json(auth()->user());
+            </script>
+            <script src="{{ asset(mix('js/app.js')) }}"></script>
         @endsection

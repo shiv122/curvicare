@@ -386,7 +386,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic
+    uri: api/v1/user
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -764,7 +764,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/user/basic
+    uri: api/v1/user
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -788,42 +788,42 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: est
+        example: qui
         type: string
         custom: []
       dob:
         name: dob
         description: 'Must be a valid date.'
         required: true
-        example: '2022-12-14T16:09:33'
+        example: '2022-12-30T12:30:09'
         type: string
         custom: []
       user_activity_id:
         name: user_activity_id
         description: ''
         required: true
-        example: 7
+        example: 11
         type: integer
         custom: []
       user_goal_id:
         name: user_goal_id
         description: ''
         required: true
-        example: 16
+        example: 12
         type: integer
         custom: []
       weight:
         name: weight
         description: ''
         required: true
-        example: 2189.06
+        example: 34677.7245
         type: number
         custom: []
       height:
         name: height
         description: ''
         required: true
-        example: 1077781.77
+        example: 670308.94019694
         type: number
         custom: []
       medical_conditions:
@@ -837,17 +837,17 @@ endpoints:
         name: gender
         description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
         required: true
-        example: delectus
+        example: suscipit
         type: string
         custom: []
     cleanBodyParameters:
-      name: est
-      dob: '2022-12-14T16:09:33'
-      user_activity_id: 7
-      user_goal_id: 16
-      weight: 2189.06
-      height: 1077781.77
-      gender: delectus
+      name: qui
+      dob: '2022-12-30T12:30:09'
+      user_activity_id: 11
+      user_goal_id: 12
+      weight: 34677.7245
+      height: 670308.94019694
+      gender: suscipit
     fileParameters: []
     responses: []
     responseFields: []
@@ -859,7 +859,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic/quotes
+    uri: api/v1/user/quotes
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -1237,7 +1237,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic/recipes
+    uri: api/v1/user/recipes
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -1615,7 +1615,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic/blogs
+    uri: api/v1/user/blogs
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -1993,7 +1993,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic/faqs
+    uri: api/v1/user/faqs
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -2371,7 +2371,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic/faq-categories
+    uri: api/v1/user/faq-categories
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -2749,7 +2749,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic/testimonials
+    uri: api/v1/user/testimonials
     metadata:
       groupName: 'User Basic'
       groupDescription: |-
@@ -3127,7 +3127,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/user/basic/packages
+    uri: api/v1/user/packages
     metadata:
       groupName: 'User Basic'
       groupDescription: |-

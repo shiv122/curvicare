@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Events;
+namespace App\Events\Dietician;
 
+use App\Models\Dietician;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -9,9 +11,8 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
 
-class TestEvent implements ShouldBroadcast
+class ChatEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,14 +21,22 @@ class TestEvent implements ShouldBroadcast
      *
      * @return void
      */
+
+    public $dietician;
     public $message;
-    public $user_id;
+    public $from;
+    public $event;
+
     public function __construct(
-        $message,
-        $user_id
+        Dietician $dietician,
+        array $message,
+        User $from,
+        string $event,
     ) {
+        $this->dietician = $dietician;
         $this->message = $message;
-        $this->user_id = $user_id;
+        $this->from = $from;
+        $this->event = $event;
     }
 
     /**
@@ -37,24 +46,19 @@ class TestEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-
-
-        $channel = new PrivateChannel('private.chat.' . $this->user_id);
-        Log::info($channel);
-        return $channel;
+        return new PresenceChannel('dietician-chat-channel.' . $this->dietician->id);
     }
 
     public function broadcastAs()
     {
-        return 'message';
+        return $this->event;
     }
 
     public function broadcastWith()
     {
         return [
+            'from' => $this->from,
             'message' => $this->message,
-            'user' => auth()->user()->name,
-            'user_id' => auth()->user()->id,
         ];
     }
 }

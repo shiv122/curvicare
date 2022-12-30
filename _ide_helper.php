@@ -9593,45 +9593,44 @@
                         return $instance->setConnectionName($name);
         }
                     /**
-         * Release a reserved job back onto the queue after (n) seconds.
+         * Migrate the delayed jobs that are ready to the regular queue.
          *
-         * @param string $queue
-         * @param \Illuminate\Queue\Jobs\DatabaseJobRecord $job
-         * @param int $delay
-         * @return mixed 
+         * @param string $from
+         * @param string $to
+         * @param int $limit
+         * @return array 
          * @static 
          */ 
-        public static function release($queue, $job, $delay)
+        public static function migrateExpiredJobs($from, $to)
         {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->release($queue, $job, $delay);
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->migrateExpiredJobs($from, $to);
         }
                     /**
          * Delete a reserved job from the queue.
          *
          * @param string $queue
-         * @param string $id
+         * @param \Illuminate\Queue\Jobs\RedisJob $job
          * @return void 
-         * @throws \Throwable
          * @static 
          */ 
-        public static function deleteReserved($queue, $id)
+        public static function deleteReserved($queue, $job)
         {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        $instance->deleteReserved($queue, $id);
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        $instance->deleteReserved($queue, $job);
         }
                     /**
          * Delete a reserved job from the reserved queue and release it.
          *
          * @param string $queue
-         * @param \Illuminate\Queue\Jobs\DatabaseJob $job
+         * @param \Illuminate\Queue\Jobs\RedisJob $job
          * @param int $delay
          * @return void 
          * @static 
          */ 
         public static function deleteAndRelease($queue, $job, $delay)
         {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         $instance->deleteAndRelease($queue, $job, $delay);
         }
                     /**
@@ -9643,7 +9642,7 @@
          */ 
         public static function clear($queue)
         {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->clear($queue);
         }
                     /**
@@ -9655,19 +9654,30 @@
          */ 
         public static function getQueue($queue)
         {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getQueue($queue);
         }
                     /**
-         * Get the underlying database instance.
+         * Get the connection for the queue.
          *
-         * @return \Illuminate\Database\Connection 
+         * @return \Illuminate\Redis\Connections\Connection 
          * @static 
          */ 
-        public static function getDatabase()
+        public static function getConnection()
         {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->getDatabase();
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->getConnection();
+        }
+                    /**
+         * Get the underlying Redis instance.
+         *
+         * @return \Illuminate\Contracts\Redis\Factory 
+         * @static 
+         */ 
+        public static function getRedis()
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->getRedis();
         }
                     /**
          * Get the backoff for an object-based queue handler.
@@ -9678,7 +9688,7 @@
          */ 
         public static function getJobBackoff($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getJobBackoff($job);
         }
                     /**
@@ -9690,7 +9700,7 @@
          */ 
         public static function getJobExpiration($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getJobExpiration($job);
         }
                     /**
@@ -9702,7 +9712,7 @@
          */ 
         public static function createPayloadUsing($callback)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        \Illuminate\Queue\DatabaseQueue::createPayloadUsing($callback);
+                        \Illuminate\Queue\RedisQueue::createPayloadUsing($callback);
         }
                     /**
          * Get the container instance being used by the connection.
@@ -9712,7 +9722,7 @@
          */ 
         public static function getContainer()
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getContainer();
         }
                     /**
@@ -9724,7 +9734,7 @@
          */ 
         public static function setContainer($container)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         $instance->setContainer($container);
         }
          
@@ -17519,6 +17529,267 @@
      
 }
 
+    namespace Berkayk\OneSignal { 
+            /**
+     * 
+     *
+     */ 
+        class OneSignalFacade {
+                    /**
+         * Turn on, turn off async requests
+         *
+         * @param bool $on
+         * @return \Berkayk\OneSignal\OneSignalClient 
+         * @static 
+         */ 
+        public static function async($on = true)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->async($on);
+        }
+                    /**
+         * Callback to execute after OneSignal returns the response
+         *
+         * @param Callable $requestCallback
+         * @return \Berkayk\OneSignal\OneSignalClient 
+         * @static 
+         */ 
+        public static function callback($requestCallback)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->callback($requestCallback);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function testCredentials()
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->testCredentials();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function addParams($params = [])
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->addParams($params);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setParam($key, $value)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->setParam($key, $value);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function sendNotificationToUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->sendNotificationToUser($message, $userId, $url, $data, $buttons, $schedule, $headings, $subtitle);
+        }
+                    /**
+         * 
+         *
+         * @param $message
+         * @param $userId
+         * @param null $url
+         * @param null $data
+         * @param null $buttons
+         * @param null $schedule
+         * @param null $headings
+         * @param null $subtitle
+         * @static 
+         */ 
+        public static function sendNotificationToExternalUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->sendNotificationToExternalUser($message, $userId, $url, $data, $buttons, $schedule, $headings, $subtitle);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function sendNotificationUsingTags($message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->sendNotificationUsingTags($message, $tags, $url, $data, $buttons, $schedule, $headings, $subtitle);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function sendNotificationToAll($message, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->sendNotificationToAll($message, $url, $data, $buttons, $schedule, $headings, $subtitle);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function sendNotificationToSegment($message, $segment, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->sendNotificationToSegment($message, $segment, $url, $data, $buttons, $schedule, $headings, $subtitle);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function deleteNotification($notificationId, $appId = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->deleteNotification($notificationId, $appId);
+        }
+                    /**
+         * Send a notification with custom parameters defined in
+         * https://documentation.onesignal.com/reference#section-example-code-create-notification
+         *
+         * @param array $parameters
+         * @return mixed 
+         * @static 
+         */ 
+        public static function sendNotificationCustom($parameters = [])
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->sendNotificationCustom($parameters);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getNotification($notification_id, $app_id = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->getNotification($notification_id, $app_id);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getNotifications($app_id = null, $limit = null, $offset = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->getNotifications($app_id, $limit, $offset);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getApp($app_id = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->getApp($app_id);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getApps()
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->getApps();
+        }
+                    /**
+         * Creates a user/player
+         *
+         * @param array $parameters
+         * @return mixed 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function createPlayer($parameters)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->createPlayer($parameters);
+        }
+                    /**
+         * Edit a user/player
+         *
+         * @param array $parameters
+         * @return mixed 
+         * @static 
+         */ 
+        public static function editPlayer($parameters)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->editPlayer($parameters);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function requestPlayersCSV($app_id = null, $parameters = null)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->requestPlayersCSV($app_id, $parameters);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function post($endPoint)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->post($endPoint);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function put($endPoint)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->put($endPoint);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function get($endPoint)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->get($endPoint);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function delete($endPoint)
+        {
+                        /** @var \Berkayk\OneSignal\OneSignalClient $instance */
+                        return $instance->delete($endPoint);
+        }
+         
+    }
+     
+}
+
     namespace Clockwork\Support\Laravel { 
             /**
      * 
@@ -23405,6 +23676,7 @@ namespace  {
             class Helper extends \App\Helpers\Helper {}
             class Excel extends \Maatwebsite\Excel\Facades\Excel {}
             class DataTables extends \Yajra\DataTables\Facades\DataTables {}
+            class OneSignal extends \Berkayk\OneSignal\OneSignalFacade {}
             class Clockwork extends \Clockwork\Support\Laravel\Facade {}
             class Firebase extends \Kreait\Laravel\Firebase\Facades\Firebase {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}

@@ -1166,11 +1166,11 @@ endpoints:
         name: mood
         description: ''
         required: true
-        example: 15
+        example: 4
         type: integer
         custom: []
     cleanBodyParameters:
-      mood: 15
+      mood: 4
     fileParameters: []
     responses: []
     responseFields: []
@@ -1584,11 +1584,11 @@ endpoints:
         name: water_amount
         description: ''
         required: true
-        example: 33.23079
+        example: 15.61573
         type: number
         custom: []
     cleanBodyParameters:
-      water_amount: 33.23079
+      water_amount: 15.61573
     fileParameters: []
     responses: []
     responseFields: []
@@ -2002,11 +2002,11 @@ endpoints:
         name: step
         description: ''
         required: true
-        example: 20
+        example: 6
         type: integer
         custom: []
     cleanBodyParameters:
-      step: 20
+      step: 6
     fileParameters: []
     responses: []
     responseFields: []

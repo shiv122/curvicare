@@ -7,16 +7,44 @@ use App\Models\RazorpayOrder;
 use App\Services\User\UserPaymentFetchService;
 use App\Services\User\UserSubscriptionOrderService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+
+
+/**
+ * @group User Payment
+ * 
+ * APIs for User Payment
+ */
+
 
 class SubscriptionController extends Controller
 {
+
+
+    /**
+     * User Subscription
+     * 
+     * @authenticated
+     * 
+     * This endpoint is used to get user subscription
+     * 
+     */
+
     public function index(Request $request)
     {
         $subscriptions = $request->user()->subscriptions()->get();
 
         return $subscriptions;
     }
+
+
+    /**
+     * Create Order
+     * 
+     * @authenticated
+     * 
+     * This endpoint is used to create razorpay order
+     * 
+     */
 
     public function createOrder(Request $request, UserSubscriptionOrderService $service)
     {
@@ -31,6 +59,16 @@ class SubscriptionController extends Controller
 
         return $service->generateOrder($request);
     }
+
+
+    /**
+     * Fetch Order
+     * 
+     * @authenticated
+     * 
+     * This endpoint is used to fetch razorpay order and update order status and process payment
+     * 
+     */
 
     public function fetchOrder(Request $request, UserPaymentFetchService $service)
     {
