@@ -35,7 +35,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/metadata could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -189,14 +189,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -266,7 +266,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -329,14 +329,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -395,8 +395,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Profile
-      description: 'This endpoint is used to get user profile data'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -413,7 +413,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -567,14 +567,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -644,7 +644,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -707,14 +707,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -773,8 +773,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Update Profile'
-      description: 'This endpoint is used to update user profile data'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -788,42 +788,42 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: qui
+        example: nostrum
         type: string
         custom: []
       dob:
         name: dob
         description: 'Must be a valid date.'
         required: true
-        example: '2022-12-30T12:30:09'
+        example: '2023-01-03T13:07:10'
         type: string
         custom: []
       user_activity_id:
         name: user_activity_id
         description: ''
         required: true
-        example: 11
+        example: 14
         type: integer
         custom: []
       user_goal_id:
         name: user_goal_id
         description: ''
         required: true
-        example: 12
+        example: 14
         type: integer
         custom: []
       weight:
         name: weight
         description: ''
         required: true
-        example: 34677.7245
+        example: 329.9
         type: number
         custom: []
       height:
         name: height
         description: ''
         required: true
-        example: 670308.94019694
+        example: 3478.657
         type: number
         custom: []
       medical_conditions:
@@ -837,17 +837,17 @@ endpoints:
         name: gender
         description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
         required: true
-        example: suscipit
+        example: qui
         type: string
         custom: []
     cleanBodyParameters:
-      name: qui
-      dob: '2022-12-30T12:30:09'
-      user_activity_id: 11
-      user_goal_id: 12
-      weight: 34677.7245
-      height: 670308.94019694
-      gender: suscipit
+      name: nostrum
+      dob: '2023-01-03T13:07:10'
+      user_activity_id: 14
+      user_goal_id: 14
+      weight: 329.9
+      height: 3478.657
+      gender: qui
     fileParameters: []
     responses: []
     responseFields: []
@@ -868,8 +868,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Quotes
-      description: 'This endpoint is used to get random quotes'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -886,7 +886,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/quotes could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -1040,14 +1040,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -1117,7 +1117,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -1180,14 +1180,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -1246,8 +1246,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Recipes
-      description: 'This endpoint is used to get list of recipes.'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -1264,7 +1264,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/recipes could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -1418,14 +1418,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -1495,7 +1495,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -1558,14 +1558,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -1624,8 +1624,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Blogs
-      description: 'This endpoint is used to get list of blogs.'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -1642,7 +1642,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/blogs could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -1796,14 +1796,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -1873,7 +1873,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -1936,14 +1936,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -2002,8 +2002,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Featured Faqs'
-      description: 'This endpoint is used to get list of faqs.'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -2020,7 +2020,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/faqs could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -2174,14 +2174,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -2251,7 +2251,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -2314,14 +2314,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -2380,8 +2380,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Faq Categories'
-      description: 'This endpoint is used to get list of faq categories.'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -2398,7 +2398,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/faq-categories could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -2552,14 +2552,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -2629,7 +2629,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -2692,14 +2692,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -2758,8 +2758,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Testimonials
-      description: 'This endpoint is used to get list of testimonials.'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -2776,7 +2776,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/testimonials could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -2930,14 +2930,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -3007,7 +3007,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -3070,14 +3070,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
@@ -3136,8 +3136,8 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Packages
-      description: 'This endpoint is used to get list of packages.'
-      authenticated: false
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -3154,7 +3154,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "",
+              "message": "The route api/v1/user/packages could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -3308,14 +3308,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 306,
+                      "line": 299,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 294,
+                      "line": 287,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
@@ -3385,7 +3385,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
+                      "line": 51,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -3448,14 +3448,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1020,
+                      "line": 1022,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 312,
+                      "line": 314,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"

@@ -3,17 +3,16 @@
 namespace App\Events\Dietician;
 
 use App\Models\User;
+use App\Models\Dietician;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class BasicDieticianEvent implements ShouldBroadcast
+class BasicEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -22,20 +21,19 @@ class BasicDieticianEvent implements ShouldBroadcast
      *
      * @return void
      */
-
-    public $dietician;
-    public $from;
+    public $dietician_id;
+    public $from = null;
     public $data;
     public $event;
 
 
     public function __construct(
-        int $dietician,
-        User|array $from,
+        int $dietician_id,
+        Dietician|User|null|array $from = null,
         array $data,
         string $event,
     ) {
-        $this->dietician = $dietician;
+        $this->dietician_id = $dietician_id;
         $this->from = $from;
         $this->data = $data;
         $this->event = $event;
@@ -48,7 +46,8 @@ class BasicDieticianEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('dietician-channel.' . $this->dietician);
+
+        return new PrivateChannel('DChannel.' . $this->dietician_id);
     }
 
     public function broadcastAs()

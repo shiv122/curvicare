@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\v1\User;
 
 use App\Events\Dietician\BasicDieticianEvent;
+use App\Events\Dietician\BasicEvent;
 use App\Helpers\FileUploader;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Chat\ChatResources;
@@ -58,6 +59,7 @@ class ChatController extends Controller
                 'reply' => ['media'],
                 'dietician:id,name,image'
             ])
+            ->latest()
             ->simplePaginate();
 
         return MessageResources::collection($messages);
@@ -121,14 +123,12 @@ class ChatController extends Controller
 
         $data = $message->load(['media']);
 
-        broadcast(new BasicDieticianEvent(
-            dietician: $chat->dietician,
+        broadcast(new BasicEvent(
+            dietician_id: $chat->dietician->id,
             from: $user,
             data: $data->toArray(),
             event: 'message',
-        ))
-
-            ->toOthers();
+        ));
 
         return response()->json([
             'message' => 'Message sent successfully',

@@ -6,13 +6,14 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Dietician extends Authenticatable
 
 {
-    use HasFactory, HasApiTokens, Notifiable, SoftDeletes;
+    use HasFactory, HasApiTokens, Notifiable, SoftDeletes, HasRelationships;
 
     protected $guarded = [];
 
@@ -43,6 +44,23 @@ class Dietician extends Authenticatable
         return $this->hasMany(AssignedDietician::class, 'dietician_id', 'id');
     }
 
+
+    public function chats()
+    {
+        return $this->hasManyThrough(
+            Chat::class,
+            AssignedDietician::class
+        );
+    }
+
+
+    public function messages()
+    {
+        return $this->hasManyDeep(
+            Message::class,
+            [AssignedDietician::class, Chat::class],
+        );
+    }
 
 
 

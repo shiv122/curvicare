@@ -1,19 +1,22 @@
-name: Endpoints
-description: ''
+name: 'Dietician Chat'
+description: |-
+
+  APIs for Dietician Chat
 endpoints:
   -
     httpMethods:
       - GET
-      - POST
-    uri: api/broadcasting/auth
+    uri: api/v1/dietician/chat/active-list
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: 'Dietician Chat'
+      groupDescription: |-
+
+        APIs for Dietician Chat
       subgroup: ''
       subgroupDescription: ''
-      title: 'Authenticate the request for channel access.'
-      description: ''
-      authenticated: false
+      title: 'Get Active Chats'
+      description: 'This endpoint is used to get active chats'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -30,7 +33,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "The route api/broadcasting/auth could not be found.",
+              "message": "The route api/v1/dietician/chat/active-list could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -381,21 +384,31 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/dietician
+    uri: 'api/v1/dietician/chat/{id}/messages'
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: 'Dietician Chat'
+      groupDescription: |-
+
+        APIs for Dietician Chat
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
+      title: 'Get Messages'
+      description: 'This endpoint is used to get messages (with pagination)'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the chat.'
+        required: true
+        example: 3
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -406,7 +419,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "The route api/v1/dietician could not be found.",
+              "message": "The route api/v1/dietician/chat/3/messages could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -757,15 +770,17 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/dietician/update
+    uri: api/v1/dietician/chat/send-message
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: 'Dietician Chat'
+      groupDescription: |-
+
+        APIs for Dietician Chat
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
+      title: 'Send Message'
+      description: 'This endpoint is used to send message'
+      authenticated: true
       custom: []
     headers:
       Content-Type: multipart/form-data
@@ -775,40 +790,48 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: vtf
+      message:
+        name: message
+        description: 'message is required if media or recipe_id is not present. This field is required when none of <code>media</code> and <code>recipe_id</code> are present. Must not be greater than 3000 characters.'
+        required: false
+        example: nhq
         type: string
         custom: []
-      image:
-        name: image
-        description: 'Must be an image. Must not be greater than 512 kilobytes.'
+      media:
+        name: media
+        description: 'This field is required when none of <code>message</code> and <code>recipe_id</code> are present.  Must be a file. Must not be greater than 2048 kilobytes.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        custom: []
+      recipe_id:
+        name: recipe_id
+        description: 'This field is required when none of <code>message</code> and <code>media</code> are present.'
         required: false
         example: null
-        type: file
-        custom: []
-      phone:
-        name: phone
-        description: 'Must be 10 characters.'
-        required: true
-        example: sunueveahz
         type: string
         custom: []
-      address:
-        name: address
-        description: 'Must not be greater than 3000 characters.'
+      reply_to:
+        name: reply_to
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      chat_id:
+        name: chat_id
+        description: ''
         required: true
-        example: ofaaovdhjyxsivuvjgdm
+        example: officiis
         type: string
         custom: []
     cleanBodyParameters:
-      name: vtf
-      phone: sunueveahz
-      address: ofaaovdhjyxsivuvjgdm
+      message: nhq
+      chat_id: officiis
     fileParameters:
-      image: null
+      media:
+        - null
     responses: []
     responseFields: []
     auth: []

@@ -22,6 +22,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\DieticianAssignment $assignment
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Chat[] $chats
+ * @property-read int|null $chats_count
  * @property-read \App\Models\Dietician $dietician
  * @method static \Illuminate\Database\Eloquent\Builder|AssignedDietician newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AssignedDietician newQuery()
@@ -143,6 +145,35 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Chat
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property int|null $assigned_dietician_id
+ * @property int|null $dietician_assignment_id
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\DieticianAssignment|null $assignment
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Message[] $messages
+ * @property-read int|null $messages_count
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereAssignedDieticianId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereDieticianAssignmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereUserId($value)
+ */
+	class Chat extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Coupon
  *
  * @property int $id
@@ -201,6 +232,8 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AssignedDietician[] $assignments
  * @property-read int|null $assignments_count
  * @property-read \App\Models\DieticianBankDetails|null $bank
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Chat[] $chats
+ * @property-read int|null $chats_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Expertise[] $direct_expertise
  * @property-read int|null $direct_expertise_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DieticianExpertise[] $expertise
@@ -251,6 +284,7 @@ namespace App\Models{
  * @property mixed|null $form_data
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AssignedDietician[] $assigned_dieticians
  * @property-read int|null $assigned_dieticians_count
+ * @property-read \App\Models\Chat|null $chat
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|DieticianAssignment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DieticianAssignment newQuery()
@@ -592,6 +626,62 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|MedicalCondition whereUpdatedAt($value)
  */
 	class MedicalCondition extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Message
+ *
+ * @property int $id
+ * @property int $chat_id
+ * @property int|null $user_id
+ * @property int|null $dietician_id
+ * @property string|null $message
+ * @property string|null $read_at
+ * @property int|null $reply_to
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Dietician|null $dietician
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\MessageMedia[] $media
+ * @property-read int|null $media_count
+ * @property-read Message|null $reply
+ * @method static \Illuminate\Database\Eloquent\Builder|Message newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Message newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Message query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereChatId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereDieticianId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereReadAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereReplyTo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Message whereUserId($value)
+ */
+	class Message extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\MessageMedia
+ *
+ * @property int $id
+ * @property int $message_id
+ * @property string $media_type
+ * @property mixed $media_data
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia whereMediaData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia whereMediaType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia whereMessageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MessageMedia whereUpdatedAt($value)
+ */
+	class MessageMedia extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -1091,6 +1181,7 @@ namespace App\Models{
  * @property int $id
  * @property string|null $name
  * @property string|null $email
+ * @property string|null $image
  * @property string $phone
  * @property string|null $device_id
  * @property \Illuminate\Support\Carbon|null $email_verified_at
@@ -1103,6 +1194,8 @@ namespace App\Models{
  * @property string|null $firebase_uid
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DieticianAssignment[] $assignments
  * @property-read int|null $assignments_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Chat[] $chats
+ * @property-read int|null $chats_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserMedicalCondition[] $medical_conditions
  * @property-read int|null $medical_conditions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserMoodTracker[] $moods
@@ -1130,6 +1223,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereFirebaseUid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereIsAdmin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)

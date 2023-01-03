@@ -24,4 +24,17 @@ class AssignedDietician extends Model
     {
         return $this->belongsTo(DieticianAssignment::class, 'dietician_assignment_id', 'id');
     }
+
+
+    public function chats()
+    {
+        return $this->hasManyThrough(
+            Chat::class,
+            DieticianAssignment::class,
+            'id',
+            'dietician_assignment_id',
+            'dietician_assignment_id',
+            'id'
+        );
+    }
 }

@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Broadcast;
 
 
 Broadcast::channel('user-channel.{id}', BasicUserChannel::class);
-Broadcast::channel('dietician-channel.{id}', BasicDieticianChannel::class);
+Broadcast::channel('DChannel.{id}', BasicDieticianChannel::class);

@@ -26,7 +26,7 @@
             </style>
 
 
-    <script src="../docs/js/theme-default-4.9.0.js"></script>
+    <script src="../docs/js/theme-default-4.10.1.js"></script>
 
 </head>
 
@@ -70,21 +70,28 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-dietician-chat" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="dietician-chat">
+                    <a href="#dietician-chat">Dietician Chat</a>
+                </li>
+                                    <ul id="tocify-subheader-dietician-chat" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="dietician-chat-GETapi-v1-dietician-chat-active-list">
+                                <a href="#dietician-chat-GETapi-v1-dietician-chat-active-list">Get Active Chats</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="dietician-chat-GETapi-v1-dietician-chat--id--messages">
+                                <a href="#dietician-chat-GETapi-v1-dietician-chat--id--messages">Get Messages</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="dietician-chat-POSTapi-v1-dietician-chat-send-message">
+                                <a href="#dietician-chat-POSTapi-v1-dietician-chat-send-message">Send Message</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-endpoints" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="endpoints">
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-user-subscription">
-                                <a href="#endpoints-GETapi-v1-user-subscription">GET api/v1/user/subscription</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-user-subscription-create-order">
-                                <a href="#endpoints-POSTapi-v1-user-subscription-create-order">POST api/v1/user/subscription/create-order</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-user-subscription-fetch-order">
-                                <a href="#endpoints-POSTapi-v1-user-subscription-fetch-order">POST api/v1/user/subscription/fetch-order</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-broadcasting-auth">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-broadcasting-auth">
                                 <a href="#endpoints-GETapi-broadcasting-auth">Authenticate the request for channel access.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-dietician">
@@ -168,6 +175,22 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-user-payment" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user-payment">
+                    <a href="#user-payment">User Payment</a>
+                </li>
+                                    <ul id="tocify-subheader-user-payment" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-payment-GETapi-v1-user-subscription">
+                                <a href="#user-payment-GETapi-v1-user-subscription">User Subscription</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-payment-POSTapi-v1-user-subscription-create-order">
+                                <a href="#user-payment-POSTapi-v1-user-subscription-create-order">Create Order</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-payment-POSTapi-v1-user-subscription-fetch-order">
+                                <a href="#user-payment-POSTapi-v1-user-subscription-fetch-order">Fetch Order</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-user-tracker" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="user-tracker">
                     <a href="#user-tracker">User Tracker</a>
@@ -208,7 +231,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 30, 2022</li>
+        <li>Last updated: January 3, 2023</li>
     </ul>
 </div>
 
@@ -247,8 +270,8 @@ if dietician is not found in database it will return error</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"alden.waelchi@example.com\",
-    \"password\": \"culpa\"
+    \"email\": \"white.cora@example.com\",
+    \"password\": \"iste\"
 }"
 </code></pre></div>
 
@@ -264,8 +287,8 @@ const headers = {
 };
 
 let body = {
-    "email": "alden.waelchi@example.com",
-    "password": "culpa"
+    "email": "white.cora@example.com",
+    "password": "iste"
 };
 
 fetch(url, {
@@ -332,10 +355,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-dietician-login"
-               value="alden.waelchi@example.com"
+               value="white.cora@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>alden.waelchi@example.com</code></p>
+<p>Must be a valid email address. Example: <code>white.cora@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -343,38 +366,39 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-v1-dietician-login"
-               value="culpa"
+               value="iste"
                data-component="body">
     <br>
-<p>Example: <code>culpa</code></p>
+<p>Example: <code>iste</code></p>
         </div>
         </form>
 
-                <h1 id="endpoints">Endpoints</h1>
+                <h1 id="dietician-chat">Dietician Chat</h1>
 
-    
+    <p>APIs for Dietician Chat</p>
 
-                                <h2 id="endpoints-GETapi-v1-user-subscription">GET api/v1/user/subscription</h2>
+                                <h2 id="dietician-chat-GETapi-v1-dietician-chat-active-list">Get Active Chats</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
+<p>This endpoint is used to get active chats</p>
 
-
-<span id="example-requests-GETapi-v1-user-subscription">
+<span id="example-requests-GETapi-v1-dietician-chat-active-list">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/subscription" \
+    --get "http://127.0.0.1:9000/api/v1/dietician/chat/active-list" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/subscription"
+    "http://127.0.0.1:9000/api/v1/dietician/chat/active-list"
 );
 
 const headers = {
@@ -389,7 +413,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-subscription">
+<span id="example-responses-GETapi-v1-dietician-chat-active-list">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -403,7 +427,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/dietician/chat/active-list could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -557,14 +581,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -634,7 +658,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -697,14 +721,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -741,29 +765,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user-subscription" hidden>
+<span id="execution-results-GETapi-v1-dietician-chat-active-list" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user-subscription"></span>:
+                id="execution-response-status-GETapi-v1-dietician-chat-active-list"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user-subscription" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-dietician-chat-active-list" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user-subscription" hidden>
+<span id="execution-error-GETapi-v1-dietician-chat-active-list" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user-subscription"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-dietician-chat-active-list"></code></pre>
 </span>
-<form id="form-GETapi-v1-user-subscription" data-method="GET"
-      data-path="api/v1/user/subscription"
-      data-authed="0"
+<form id="form-GETapi-v1-dietician-chat-active-list" data-method="GET"
+      data-path="api/v1/dietician/chat/active-list"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-subscription', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dietician-chat-active-list', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user/subscription</code></b>
+            <b><code>api/v1/dietician/chat/active-list</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -771,7 +795,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-user-subscription"
+               name="Content-Type"                data-endpoint="GETapi-v1-dietician-chat-active-list"
                value="application/json"
                data-component="header">
     <br>
@@ -782,7 +806,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-user-subscription"
+               name="Accept"                data-endpoint="GETapi-v1-dietician-chat-active-list"
                value="application/json"
                data-component="header">
     <br>
@@ -790,35 +814,28 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-v1-user-subscription-create-order">POST api/v1/user/subscription/create-order</h2>
+                    <h2 id="dietician-chat-GETapi-v1-dietician-chat--id--messages">Get Messages</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
+<p>This endpoint is used to get messages (with pagination)</p>
 
-
-<span id="example-requests-POSTapi-v1-user-subscription-create-order">
+<span id="example-requests-GETapi-v1-dietician-chat--id--messages">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:9000/api/v1/user/subscription/create-order" \
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:9000/api/v1/dietician/chat/3/messages" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"package_id\": 2,
-    \"type\": \"renew\",
-    \"currency\": \"USD\",
-    \"coupon_code\": \"vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah\",
-    \"form_data\": []
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/subscription/create-order"
+    "http://127.0.0.1:9000/api/v1/dietician/chat/3/messages"
 );
 
 const headers = {
@@ -826,47 +843,388 @@ const headers = {
     "Accept": "application/json",
 };
 
-let body = {
-    "package_id": 2,
-    "type": "renew",
-    "currency": "USD",
-    "coupon_code": "vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah",
-    "form_data": []
-};
-
 fetch(url, {
-    method: "POST",
+    method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-v1-user-subscription-create-order">
-</span>
-<span id="execution-results-POSTapi-v1-user-subscription-create-order" hidden>
+<span id="example-responses-GETapi-v1-dietician-chat--id--messages">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The route api/v1/dietician/chat/3/messages could not be found.&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
+    &quot;line&quot;: 44,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php&quot;,
+            &quot;line&quot;: 162,
+            &quot;function&quot;: &quot;handleMatchedRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\AbstractRouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 753,
+            &quot;function&quot;: &quot;match&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\RouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 740,
+            &quot;function&quot;: &quot;findRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 729,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php&quot;,
+            &quot;line&quot;: 52,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fruitcake\\Cors\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 312,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 152,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1022,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 314,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 168,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-dietician-chat--id--messages" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-user-subscription-create-order"></span>:
+                id="execution-response-status-GETapi-v1-dietician-chat--id--messages"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-subscription-create-order" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-dietician-chat--id--messages" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1-user-subscription-create-order" hidden>
+<span id="execution-error-GETapi-v1-dietician-chat--id--messages" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-user-subscription-create-order"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-dietician-chat--id--messages"></code></pre>
 </span>
-<form id="form-POSTapi-v1-user-subscription-create-order" data-method="POST"
-      data-path="api/v1/user/subscription/create-order"
-      data-authed="0"
+<form id="form-GETapi-v1-dietician-chat--id--messages" data-method="GET"
+      data-path="api/v1/dietician/chat/{id}/messages"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-subscription-create-order', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dietician-chat--id--messages', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/user/subscription/create-order</code></b>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/dietician/chat/{id}/messages</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -874,7 +1232,7 @@ fetch(url, {
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               name="Content-Type"                data-endpoint="GETapi-v1-dietician-chat--id--messages"
                value="application/json"
                data-component="header">
     <br>
@@ -885,7 +1243,115 @@ fetch(url, {
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               name="Accept"                data-endpoint="GETapi-v1-dietician-chat--id--messages"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="GETapi-v1-dietician-chat--id--messages"
+               value="3"
+               data-component="url">
+    <br>
+<p>The ID of the chat. Example: <code>3</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="dietician-chat-POSTapi-v1-dietician-chat-send-message">Send Message</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This endpoint is used to send message</p>
+
+<span id="example-requests-POSTapi-v1-dietician-chat-send-message">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:9000/api/v1/dietician/chat/send-message" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "message=nhq" \
+    --form "chat_id=officiis" \
+    --form "media[]=@C:\Users\7854\AppData\Local\Temp\phpB82D.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/dietician/chat/send-message"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('message', 'nhq');
+body.append('chat_id', 'officiis');
+body.append('media[]', document.querySelector('input[name="media[]"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-dietician-chat-send-message">
+</span>
+<span id="execution-results-POSTapi-v1-dietician-chat-send-message" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-dietician-chat-send-message"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-dietician-chat-send-message" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-dietician-chat-send-message" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-dietician-chat-send-message"></code></pre>
+</span>
+<form id="form-POSTapi-v1-dietician-chat-send-message" data-method="POST"
+      data-path="api/v1/dietician/chat/send-message"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-dietician-chat-send-message', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/dietician/chat/send-message</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
                value="application/json"
                data-component="header">
     <br>
@@ -893,170 +1359,69 @@ fetch(url, {
             </div>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>package_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="package_id"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="2"
-               data-component="body">
-    <br>
-<p>Example: <code>2</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>message</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-               name="type"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="renew"
+               name="message"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
+               value="nhq"
                data-component="body">
     <br>
-<p>Must be one of <code>new</code> or <code>renew</code>. Example: <code>renew</code></p>
+<p>message is required if media or recipe_id is not present. This field is required when none of <code>media</code> and <code>recipe_id</code> are present. Must not be greater than 3000 characters. Example: <code>nhq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="currency"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="USD"
+            <b style="line-height: 2;"><code>media</code></b>&nbsp;&nbsp;
+<small>file[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+               name="media[0]"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
+               data-component="body">
+        <input type="file" style="display: none"
+               name="media[1]"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
                data-component="body">
     <br>
-<p>Must be one of <code>INR</code> or <code>USD</code>. Example: <code>USD</code></p>
+<p>This field is required when none of <code>message</code> and <code>recipe_id</code> are present.  Must be a file. Must not be greater than 2048 kilobytes.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>coupon_code</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>recipe_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-               name="coupon_code"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah"
+               name="recipe_id"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
+               value=""
                data-component="body">
     <br>
-<p>Must be 255 characters. Example: <code>vpdakqdvlordtnbitvcgjexzinrglextkbjonwhivurugwdeomyknuomccibppdsllkdhfktiqzxbwbdwwiqxezitdjmoyhkpbkfhfogwcvptiqcxpstuobmvdyadnsvcpajmvixlygrxjxfbuweqidfoaoeoqkfcpnjrwayynnnstxjlbdusvlyolmlxzuhgwroerbhzslfzyfotxlezbacxfpnxdsuhspwmtequsmxsnktdsygnfjcwafvuah</code></p>
+<p>This field is required when none of <code>message</code> and <code>media</code> are present.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>form_data</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
- &nbsp;
+            <b style="line-height: 2;"><code>reply_to</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-               name="form_data"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               name="reply_to"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
                value=""
                data-component="body">
     <br>
 
         </div>
-        </form>
-
-                    <h2 id="endpoints-POSTapi-v1-user-subscription-fetch-order">POST api/v1/user/subscription/fetch-order</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-user-subscription-fetch-order">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:9000/api/v1/user/subscription/fetch-order" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id\": \"qw\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/subscription/fetch-order"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "id": "qw"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-user-subscription-fetch-order">
-</span>
-<span id="execution-results-POSTapi-v1-user-subscription-fetch-order" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-user-subscription-fetch-order"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-subscription-fetch-order" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-user-subscription-fetch-order" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-user-subscription-fetch-order"></code></pre>
-</span>
-<form id="form-POSTapi-v1-user-subscription-fetch-order" data-method="POST"
-      data-path="api/v1/user/subscription/fetch-order"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-subscription-fetch-order', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/user/subscription/fetch-order</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>chat_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="id"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
-               value="qw"
+               name="chat_id"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
+               value="officiis"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>qw</code></p>
+<p>Example: <code>officiis</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-broadcasting-auth">Authenticate the request for channel access.</h2>
+                <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-broadcasting-auth">Authenticate the request for channel access.</h2>
 
 <p>
 </p>
@@ -1105,7 +1470,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/broadcasting/auth could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -1259,14 +1624,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -1336,7 +1701,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -1399,14 +1764,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -1545,7 +1910,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/dietician could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -1699,14 +2064,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -1776,7 +2141,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -1839,14 +2204,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -1948,10 +2313,10 @@ access-control-allow-origin: *
     "http://127.0.0.1:9000/api/v1/dietician/update" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=canofxrpxwoolhkjhei" \
-    --form "phone=epyrpgfqib" \
-    --form "address=gfiin" \
-    --form "image=@C:\Users\7854\AppData\Local\Temp\php31B0.tmp" </code></pre></div>
+    --form "name=vtf" \
+    --form "phone=sunueveahz" \
+    --form "address=ofaaovdhjyxsivuvjgdm" \
+    --form "image=@C:\Users\7854\AppData\Local\Temp\phpB7EE.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1965,9 +2330,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'canofxrpxwoolhkjhei');
-body.append('phone', 'epyrpgfqib');
-body.append('address', 'gfiin');
+body.append('name', 'vtf');
+body.append('phone', 'sunueveahz');
+body.append('address', 'ofaaovdhjyxsivuvjgdm');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -2034,10 +2399,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-dietician-update"
-               value="canofxrpxwoolhkjhei"
+               value="vtf"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>canofxrpxwoolhkjhei</code></p>
+<p>Must not be greater than 255 characters. Example: <code>vtf</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
@@ -2048,7 +2413,7 @@ fetch(url, {
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\php31B0.tmp</code></p>
+<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\phpB7EE.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -2056,10 +2421,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="phone"                data-endpoint="POSTapi-v1-dietician-update"
-               value="epyrpgfqib"
+               value="sunueveahz"
                data-component="body">
     <br>
-<p>Must be 10 characters. Example: <code>epyrpgfqib</code></p>
+<p>Must be 10 characters. Example: <code>sunueveahz</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -2067,10 +2432,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="address"                data-endpoint="POSTapi-v1-dietician-update"
-               value="gfiin"
+               value="ofaaovdhjyxsivuvjgdm"
                data-component="body">
     <br>
-<p>Must not be greater than 3000 characters. Example: <code>gfiin</code></p>
+<p>Must not be greater than 3000 characters. Example: <code>ofaaovdhjyxsivuvjgdm</code></p>
         </div>
         </form>
 
@@ -2254,7 +2619,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/metadata could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -2408,14 +2773,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -2485,7 +2850,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -2548,14 +2913,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -2644,9 +3009,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-GETapi-v1-user">Profile</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get user profile data</p>
+
 
 <span id="example-requests-GETapi-v1-user">
 <blockquote>Example request:</blockquote>
@@ -2690,7 +3056,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -2844,14 +3210,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -2921,7 +3287,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -2984,14 +3350,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -3040,7 +3406,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user" data-method="GET"
       data-path="api/v1/user"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -3080,9 +3446,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-POSTapi-v1-user">Update Profile</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to update user profile data</p>
+
 
 <span id="example-requests-POSTapi-v1-user">
 <blockquote>Example request:</blockquote>
@@ -3094,13 +3461,13 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"qui\",
-    \"dob\": \"2022-12-30T12:30:09\",
-    \"user_activity_id\": 11,
-    \"user_goal_id\": 12,
-    \"weight\": 34677.7245,
-    \"height\": 670308.940196945,
-    \"gender\": \"suscipit\"
+    \"name\": \"nostrum\",
+    \"dob\": \"2023-01-03T13:07:10\",
+    \"user_activity_id\": 14,
+    \"user_goal_id\": 14,
+    \"weight\": 329.9,
+    \"height\": 3478.657,
+    \"gender\": \"qui\"
 }"
 </code></pre></div>
 
@@ -3116,13 +3483,13 @@ const headers = {
 };
 
 let body = {
-    "name": "qui",
-    "dob": "2022-12-30T12:30:09",
-    "user_activity_id": 11,
-    "user_goal_id": 12,
-    "weight": 34677.7245,
-    "height": 670308.940196945,
-    "gender": "suscipit"
+    "name": "nostrum",
+    "dob": "2023-01-03T13:07:10",
+    "user_activity_id": 14,
+    "user_goal_id": 14,
+    "weight": 329.9,
+    "height": 3478.657,
+    "gender": "qui"
 };
 
 fetch(url, {
@@ -3147,7 +3514,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-v1-user" data-method="POST"
       data-path="api/v1/user"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -3189,10 +3556,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-user"
-               value="qui"
+               value="nostrum"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
+<p>Example: <code>nostrum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>dob</code></b>&nbsp;&nbsp;
@@ -3200,10 +3567,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="dob"                data-endpoint="POSTapi-v1-user"
-               value="2022-12-30T12:30:09"
+               value="2023-01-03T13:07:10"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2022-12-30T12:30:09</code></p>
+<p>Must be a valid date. Example: <code>2023-01-03T13:07:10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_activity_id</code></b>&nbsp;&nbsp;
@@ -3211,10 +3578,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_activity_id"                data-endpoint="POSTapi-v1-user"
-               value="11"
+               value="14"
                data-component="body">
     <br>
-<p>Example: <code>11</code></p>
+<p>Example: <code>14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_goal_id</code></b>&nbsp;&nbsp;
@@ -3222,10 +3589,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_goal_id"                data-endpoint="POSTapi-v1-user"
-               value="12"
+               value="14"
                data-component="body">
     <br>
-<p>Example: <code>12</code></p>
+<p>Example: <code>14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>weight</code></b>&nbsp;&nbsp;
@@ -3233,10 +3600,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="weight"                data-endpoint="POSTapi-v1-user"
-               value="34677.7245"
+               value="329.9"
                data-component="body">
     <br>
-<p>Example: <code>34677.7245</code></p>
+<p>Example: <code>329.9</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>height</code></b>&nbsp;&nbsp;
@@ -3244,10 +3611,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="height"                data-endpoint="POSTapi-v1-user"
-               value="670308.94019694"
+               value="3478.657"
                data-component="body">
     <br>
-<p>Example: <code>670308.94019694</code></p>
+<p>Example: <code>3478.657</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>medical_conditions</code></b>&nbsp;&nbsp;
@@ -3268,19 +3635,20 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="gender"                data-endpoint="POSTapi-v1-user"
-               value="suscipit"
+               value="qui"
                data-component="body">
     <br>
-<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>suscipit</code></p>
+<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>qui</code></p>
         </div>
         </form>
 
                     <h2 id="user-basic-GETapi-v1-user-quotes">Quotes</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get random quotes</p>
+
 
 <span id="example-requests-GETapi-v1-user-quotes">
 <blockquote>Example request:</blockquote>
@@ -3324,7 +3692,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/quotes could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -3478,14 +3846,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -3555,7 +3923,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -3618,14 +3986,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -3674,7 +4042,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-quotes" data-method="GET"
       data-path="api/v1/user/quotes"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -3714,9 +4082,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-GETapi-v1-user-recipes">Recipes</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get list of recipes.</p>
+
 
 <span id="example-requests-GETapi-v1-user-recipes">
 <blockquote>Example request:</blockquote>
@@ -3760,7 +4129,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/recipes could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -3914,14 +4283,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -3991,7 +4360,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4054,14 +4423,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4110,7 +4479,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-recipes" data-method="GET"
       data-path="api/v1/user/recipes"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -4150,9 +4519,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-GETapi-v1-user-blogs">Blogs</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get list of blogs.</p>
+
 
 <span id="example-requests-GETapi-v1-user-blogs">
 <blockquote>Example request:</blockquote>
@@ -4196,7 +4566,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/blogs could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -4350,14 +4720,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4427,7 +4797,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4490,14 +4860,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4546,7 +4916,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-blogs" data-method="GET"
       data-path="api/v1/user/blogs"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -4586,9 +4956,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-GETapi-v1-user-faqs">Featured Faqs</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get list of faqs.</p>
+
 
 <span id="example-requests-GETapi-v1-user-faqs">
 <blockquote>Example request:</blockquote>
@@ -4632,7 +5003,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/faqs could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -4786,14 +5157,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4863,7 +5234,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4926,14 +5297,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -4982,7 +5353,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-faqs" data-method="GET"
       data-path="api/v1/user/faqs"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -5022,9 +5393,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-GETapi-v1-user-faq-categories">Faq Categories</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get list of faq categories.</p>
+
 
 <span id="example-requests-GETapi-v1-user-faq-categories">
 <blockquote>Example request:</blockquote>
@@ -5068,7 +5440,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/faq-categories could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -5222,14 +5594,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -5299,7 +5671,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -5362,14 +5734,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -5418,7 +5790,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-faq-categories" data-method="GET"
       data-path="api/v1/user/faq-categories"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -5458,9 +5830,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-GETapi-v1-user-testimonials">Testimonials</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get list of testimonials.</p>
+
 
 <span id="example-requests-GETapi-v1-user-testimonials">
 <blockquote>Example request:</blockquote>
@@ -5504,7 +5877,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/testimonials could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -5658,14 +6031,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -5735,7 +6108,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -5798,14 +6171,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -5854,7 +6227,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-testimonials" data-method="GET"
       data-path="api/v1/user/testimonials"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -5894,9 +6267,10 @@ access-control-allow-origin: *
                     <h2 id="user-basic-GETapi-v1-user-packages">Packages</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get list of packages.</p>
+
 
 <span id="example-requests-GETapi-v1-user-packages">
 <blockquote>Example request:</blockquote>
@@ -5940,7 +6314,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/packages could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -6094,14 +6468,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -6171,7 +6545,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -6234,14 +6608,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -6290,7 +6664,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-packages" data-method="GET"
       data-path="api/v1/user/packages"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -6486,9 +6860,10 @@ fetch(url, {
                     <h2 id="user-chat-POSTapi-v1-user-chat-send-message">Send Message</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to send message to dietician</p>
+
 
 <span id="example-requests-POSTapi-v1-user-chat-send-message">
 <blockquote>Example request:</blockquote>
@@ -6499,8 +6874,8 @@ fetch(url, {
     "http://127.0.0.1:9000/api/v1/user/chat/send-message" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "message=fjkhanittpzmheqvkiw" \
-    --form "media[]=@C:\Users\7854\AppData\Local\Temp\php3190.tmp" </code></pre></div>
+    --form "message=mmjrhjjfakjnvydfhb" \
+    --form "media[]=@C:\Users\7854\AppData\Local\Temp\phpB7BE.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6514,7 +6889,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('message', 'fjkhanittpzmheqvkiw');
+body.append('message', 'mmjrhjjfakjnvydfhb');
 body.append('media[]', document.querySelector('input[name="media[]"]').files[0]);
 
 fetch(url, {
@@ -6539,7 +6914,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-v1-user-chat-send-message" data-method="POST"
       data-path="api/v1/user/chat/send-message"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
@@ -6581,10 +6956,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="message"                data-endpoint="POSTapi-v1-user-chat-send-message"
-               value="fjkhanittpzmheqvkiw"
+               value="mmjrhjjfakjnvydfhb"
                data-component="body">
     <br>
-<p>This field is required when <code>media</code> is not present. Must not be greater than 3000 characters. Example: <code>fjkhanittpzmheqvkiw</code></p>
+<p>This field is required when <code>media</code> is not present. Must not be greater than 3000 characters. Example: <code>mmjrhjjfakjnvydfhb</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media</code></b>&nbsp;&nbsp;
@@ -6850,31 +7225,32 @@ fetch(url, {
         </div>
         </form>
 
-                <h1 id="user-tracker">User Tracker</h1>
+                <h1 id="user-payment">User Payment</h1>
 
-    <p>APIs for user tracker eg. mood, steps, water</p>
+    <p>APIs for User Payment</p>
 
-                                <h2 id="user-tracker-GETapi-v1-user-tracker">GET api/v1/user/tracker</h2>
+                                <h2 id="user-payment-GETapi-v1-user-subscription">User Subscription</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
 
-<span id="example-requests-GETapi-v1-user-tracker">
+<span id="example-requests-GETapi-v1-user-subscription">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/user/tracker" \
+    --get "http://127.0.0.1:9000/api/v1/user/subscription" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/user/tracker"
+    "http://127.0.0.1:9000/api/v1/user/subscription"
 );
 
 const headers = {
@@ -6889,7 +7265,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user-tracker">
+<span id="example-responses-GETapi-v1-user-subscription">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -6903,7 +7279,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/subscription could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -7057,14 +7433,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -7134,7 +7510,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -7197,14 +7573,722 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 314,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 168,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-subscription" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-subscription"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-subscription" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-subscription" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-subscription"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-subscription" data-method="GET"
+      data-path="api/v1/user/subscription"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-subscription', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/subscription</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-subscription"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-user-subscription"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="user-payment-POSTapi-v1-user-subscription-create-order">Create Order</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-user-subscription-create-order">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:9000/api/v1/user/subscription/create-order" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"package_id\": 6,
+    \"type\": \"new\",
+    \"currency\": \"INR\",
+    \"coupon_code\": \"ustevopazhqkfprsrnrutjrwmeirusneutojiyxajwvirwlkgtkwwvchzmisblnzfsxynawyavxfnvizsvbptcarimgbkstshauqxgphtluuiyoygnfltpkkkotochxbopddqfcddxapzxbjxzgefymiaggqqxhexfehjqprxgqvimsblkatqwunihqssytsycgtueaxvgxtpagmofumkziiseumbaelxljgzelkaezajqvaynulraqygnsrkhl\",
+    \"form_data\": []
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/user/subscription/create-order"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "package_id": 6,
+    "type": "new",
+    "currency": "INR",
+    "coupon_code": "ustevopazhqkfprsrnrutjrwmeirusneutojiyxajwvirwlkgtkwwvchzmisblnzfsxynawyavxfnvizsvbptcarimgbkstshauqxgphtluuiyoygnfltpkkkotochxbopddqfcddxapzxbjxzgefymiaggqqxhexfehjqprxgqvimsblkatqwunihqssytsycgtueaxvgxtpagmofumkziiseumbaelxljgzelkaezajqvaynulraqygnsrkhl",
+    "form_data": []
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-subscription-create-order">
+</span>
+<span id="execution-results-POSTapi-v1-user-subscription-create-order" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-subscription-create-order"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-subscription-create-order" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-subscription-create-order" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-subscription-create-order"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-subscription-create-order" data-method="POST"
+      data-path="api/v1/user/subscription/create-order"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-subscription-create-order', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/subscription/create-order</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>package_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="package_id"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               value="6"
+               data-component="body">
+    <br>
+<p>Example: <code>6</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="type"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               value="new"
+               data-component="body">
+    <br>
+<p>Must be one of <code>new</code> or <code>renew</code>. Example: <code>new</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="currency"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               value="INR"
+               data-component="body">
+    <br>
+<p>Must be one of <code>INR</code> or <code>USD</code>. Example: <code>INR</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coupon_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="coupon_code"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               value="ustevopazhqkfprsrnrutjrwmeirusneutojiyxajwvirwlkgtkwwvchzmisblnzfsxynawyavxfnvizsvbptcarimgbkstshauqxgphtluuiyoygnfltpkkkotochxbopddqfcddxapzxbjxzgefymiaggqqxhexfehjqprxgqvimsblkatqwunihqssytsycgtueaxvgxtpagmofumkziiseumbaelxljgzelkaezajqvaynulraqygnsrkhl"
+               data-component="body">
+    <br>
+<p>Must be 255 characters. Example: <code>ustevopazhqkfprsrnrutjrwmeirusneutojiyxajwvirwlkgtkwwvchzmisblnzfsxynawyavxfnvizsvbptcarimgbkstshauqxgphtluuiyoygnfltpkkkotochxbopddqfcddxapzxbjxzgefymiaggqqxhexfehjqprxgqvimsblkatqwunihqssytsycgtueaxvgxtpagmofumkziiseumbaelxljgzelkaezajqvaynulraqygnsrkhl</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>form_data</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="form_data"                data-endpoint="POSTapi-v1-user-subscription-create-order"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
+                    <h2 id="user-payment-POSTapi-v1-user-subscription-fetch-order">Fetch Order</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-user-subscription-fetch-order">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:9000/api/v1/user/subscription/fetch-order" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"id\": \"upupzhqxvmll\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/user/subscription/fetch-order"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "upupzhqxvmll"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-subscription-fetch-order">
+</span>
+<span id="execution-results-POSTapi-v1-user-subscription-fetch-order" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-subscription-fetch-order"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-subscription-fetch-order" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-subscription-fetch-order" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-subscription-fetch-order"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-subscription-fetch-order" data-method="POST"
+      data-path="api/v1/user/subscription/fetch-order"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-subscription-fetch-order', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/subscription/fetch-order</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
+               value="upupzhqxvmll"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>upupzhqxvmll</code></p>
+        </div>
+        </form>
+
+                <h1 id="user-tracker">User Tracker</h1>
+
+    <p>APIs for user tracker eg. mood, steps, water</p>
+
+                                <h2 id="user-tracker-GETapi-v1-user-tracker">GET api/v1/user/tracker</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-user-tracker">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:9000/api/v1/user/tracker" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/user/tracker"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-tracker">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The route api/v1/user/tracker could not be found.&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
+    &quot;line&quot;: 44,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php&quot;,
+            &quot;line&quot;: 162,
+            &quot;function&quot;: &quot;handleMatchedRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\AbstractRouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 753,
+            &quot;function&quot;: &quot;match&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\RouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 740,
+            &quot;function&quot;: &quot;findRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 729,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php&quot;,
+            &quot;line&quot;: 52,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fruitcake\\Cors\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Command\\Command.php&quot;,
             &quot;line&quot;: 312,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 152,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1022,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -7293,9 +8377,10 @@ access-control-allow-origin: *
                     <h2 id="user-tracker-GETapi-v1-user-tracker-moods">Moods</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get all moods</p>
+
 
 <span id="example-requests-GETapi-v1-user-tracker-moods">
 <blockquote>Example request:</blockquote>
@@ -7339,7 +8424,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/tracker/moods could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -7493,14 +8578,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -7570,7 +8655,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -7633,14 +8718,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -7689,7 +8774,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-tracker-moods" data-method="GET"
       data-path="api/v1/user/tracker/moods"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -7729,9 +8814,10 @@ access-control-allow-origin: *
                     <h2 id="user-tracker-GETapi-v1-user-tracker-mood">User Mood</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get user mood</p>
+
 
 <span id="example-requests-GETapi-v1-user-tracker-mood">
 <blockquote>Example request:</blockquote>
@@ -7775,7 +8861,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/tracker/mood could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -7929,14 +9015,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -8006,7 +9092,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -8069,14 +9155,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -8125,7 +9211,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-tracker-mood" data-method="GET"
       data-path="api/v1/user/tracker/mood"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -8165,9 +9251,10 @@ access-control-allow-origin: *
                     <h2 id="user-tracker-POSTapi-v1-user-tracker-mood">Store User Mood</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to store user mood</p>
+
 
 <span id="example-requests-POSTapi-v1-user-tracker-mood">
 <blockquote>Example request:</blockquote>
@@ -8179,7 +9266,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mood\": 4
+    \"mood\": 12
 }"
 </code></pre></div>
 
@@ -8195,7 +9282,7 @@ const headers = {
 };
 
 let body = {
-    "mood": 4
+    "mood": 12
 };
 
 fetch(url, {
@@ -8220,7 +9307,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-v1-user-tracker-mood" data-method="POST"
       data-path="api/v1/user/tracker/mood"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -8262,19 +9349,20 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="mood"                data-endpoint="POSTapi-v1-user-tracker-mood"
-               value="4"
+               value="12"
                data-component="body">
     <br>
-<p>Example: <code>4</code></p>
+<p>Example: <code>12</code></p>
         </div>
         </form>
 
                     <h2 id="user-tracker-GETapi-v1-user-tracker-water">User Steps</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get user steps</p>
+
 
 <span id="example-requests-GETapi-v1-user-tracker-water">
 <blockquote>Example request:</blockquote>
@@ -8318,7 +9406,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/tracker/water could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -8472,14 +9560,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -8549,7 +9637,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -8612,14 +9700,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -8668,7 +9756,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-tracker-water" data-method="GET"
       data-path="api/v1/user/tracker/water"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -8708,9 +9796,10 @@ access-control-allow-origin: *
                     <h2 id="user-tracker-POSTapi-v1-user-tracker-water">Store User Water</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to store user water</p>
+
 
 <span id="example-requests-POSTapi-v1-user-tracker-water">
 <blockquote>Example request:</blockquote>
@@ -8722,7 +9811,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"water_amount\": 15.61573
+    \"water_amount\": 32.11196
 }"
 </code></pre></div>
 
@@ -8738,7 +9827,7 @@ const headers = {
 };
 
 let body = {
-    "water_amount": 15.61573
+    "water_amount": 32.11196
 };
 
 fetch(url, {
@@ -8763,7 +9852,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-v1-user-tracker-water" data-method="POST"
       data-path="api/v1/user/tracker/water"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -8805,19 +9894,20 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="water_amount"                data-endpoint="POSTapi-v1-user-tracker-water"
-               value="15.61573"
+               value="32.11196"
                data-component="body">
     <br>
-<p>Example: <code>15.61573</code></p>
+<p>Example: <code>32.11196</code></p>
         </div>
         </form>
 
                     <h2 id="user-tracker-GETapi-v1-user-tracker-step">User Steps</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to get user steps</p>
+
 
 <span id="example-requests-GETapi-v1-user-tracker-step">
 <blockquote>Example request:</blockquote>
@@ -8861,7 +9951,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;&quot;,
+    &quot;message&quot;: &quot;The route api/v1/user/tracker/step could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -9015,14 +10105,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 306,
+            &quot;line&quot;: 299,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 294,
+            &quot;line&quot;: 287,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -9092,7 +10182,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
+            &quot;line&quot;: 51,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -9155,14 +10245,14 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1020,
+            &quot;line&quot;: 1022,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 312,
+            &quot;line&quot;: 314,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -9211,7 +10301,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-v1-user-tracker-step" data-method="GET"
       data-path="api/v1/user/tracker/step"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -9251,9 +10341,10 @@ access-control-allow-origin: *
                     <h2 id="user-tracker-POSTapi-v1-user-tracker-step">Store User Steps</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint is used to store user steps</p>
+
 
 <span id="example-requests-POSTapi-v1-user-tracker-step">
 <blockquote>Example request:</blockquote>
@@ -9265,7 +10356,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"step\": 6
+    \"step\": 11
 }"
 </code></pre></div>
 
@@ -9281,7 +10372,7 @@ const headers = {
 };
 
 let body = {
-    "step": 6
+    "step": 11
 };
 
 fetch(url, {
@@ -9306,7 +10397,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-v1-user-tracker-step" data-method="POST"
       data-path="api/v1/user/tracker/step"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -9348,10 +10439,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="step"                data-endpoint="POSTapi-v1-user-tracker-step"
-               value="6"
+               value="11"
                data-component="body">
     <br>
-<p>Example: <code>6</code></p>
+<p>Example: <code>11</code></p>
         </div>
         </form>
 

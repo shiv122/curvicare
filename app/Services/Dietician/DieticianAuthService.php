@@ -16,6 +16,12 @@ class DieticianAuthService
 
 
         $user = Dietician::where('email', $request->email)->first();
+
+        // return response()->json([
+        //     'token' => $user->createToken('dietician')->plainTextToken,
+        // ], 200);
+
+
         if (!$user || !\Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Email or password is incorrect'
@@ -23,7 +29,8 @@ class DieticianAuthService
         }
 
 
-        $user->tokens()->delete();
+
+        // $user->tokens()->delete();
         $token = $user->createToken('dietician')->plainTextToken;
         return response()->json([
             'token' => $token,

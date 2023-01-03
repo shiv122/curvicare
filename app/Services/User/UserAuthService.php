@@ -85,7 +85,7 @@ class UserAuthService
 
             $type = AuthTypeEnum::NEW->value;
         }
-        $user->tokens()->delete();
+        // $user->tokens()->delete();
         return response()->json([
             'type' => $type,
             'token' => $user->createToken('user')->plainTextToken,

@@ -22,19 +22,19 @@ class BasicUserEvent implements ShouldBroadcast
      * @return void
      */
 
-    public $user;
+    public $user_id;
     public $from = null;
     public $data;
     public $event;
 
 
     public function __construct(
-        User $user,
-        Dietician|User|null $from = null,
+        int $user_id,
+        Dietician|User|null|array $from = null,
         array $data,
         string $event,
     ) {
-        $this->user = $user;
+        $this->user_id = $user_id;
         $this->from = $from;
         $this->data = $data;
         $this->event = $event;
@@ -47,7 +47,7 @@ class BasicUserEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('user-channel.' . $this->user->id);
+        return new PrivateChannel('user-channel.' . $this->user_id);
     }
 
     public function broadcastAs()

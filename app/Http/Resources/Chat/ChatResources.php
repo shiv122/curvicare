@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Chat;
 
 use App\Http\Resources\DieticianResource;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ChatResources extends JsonResource
@@ -18,6 +19,7 @@ class ChatResources extends JsonResource
         return [
             'id' => $this->id,
             'dietician' => new DieticianResource($this->whenLoaded('dietician')),
+            'user' => new UserResource($this->whenLoaded('user')),
             'messages' => MessageResources::collection($this->whenLoaded('messages')),
             'created_at' => $this->created_at,
         ];
