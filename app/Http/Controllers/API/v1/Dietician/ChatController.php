@@ -50,7 +50,7 @@ class ChatController extends Controller
                             ->with(['media', 'reply' => ['media'],]);
                     },
 
-                    'user:id,name,image'
+                    'user:id,name,images'
                 ]
             ])
             ->get();
