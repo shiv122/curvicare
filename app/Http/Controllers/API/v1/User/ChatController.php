@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\API\v1\User;
 
-use App\Events\Dietician\BasicDieticianEvent;
-use App\Events\Dietician\BasicEvent;
-use App\Helpers\FileUploader;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\Chat\ChatResources;
-use App\Http\Resources\Chat\MessageResources;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Helpers\FileUploader;
+use Illuminate\Support\Facades\DB;
+use App\Events\Dietician\BasicEvent;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Chat\ChatResources;
+use App\Events\Dietician\BasicDieticianEvent;
+use App\Http\Resources\Chat\MessageResources;
 
 
 
@@ -99,29 +100,34 @@ class ChatController extends Controller
                 'message' => 'No active chat found',
             ], 404);
         }
-
+        DB::beginTransaction();
         $message = $chat->messages()->create([
             'message' => $request->message,
             'user_id' => $user->id,
             'reply_to' => $request->reply_to,
         ]);
 
+        $media = null;
         if ($request->hasFile('media')) {
             foreach ($request->file('media') as $key => $file) {
                 $type = $file->getMimeType();
                 $type = explode('/', $type)[0];
                 $files[$type][$key] = $uploader->upload($file, 'uploads/' . $type, $type);
             }
-            $message->media()->create([
+            $media =   $message->media()->create([
                 'message_id' => $message->id,
                 'media_data' => json_encode($files),
                 'media_type' => $type,
                 'created_at' => now(),
             ]);
         }
+        DB::commit();
 
-
-        $data = $message->load(['media']);
+        if ($media) {
+            $data = $message->load(['media']);
+        } else {
+            $data = $message;
+        }
 
         broadcast(new BasicEvent(
             dietician_id: $chat->dietician->id,
@@ -133,6 +139,30 @@ class ChatController extends Controller
         return response()->json([
             'message' => 'Message sent successfully',
             'data' => $data,
+        ], 200);
+    }
+
+
+
+
+    public function markRead(Request $request)
+    {
+        $request->validate([
+            'chat_id' => 'required|exists:chats,id',
+        ]);
+
+        $user = $request->user();
+
+
+        $user->messages()
+            ->where('chat_id', $request->chat_id)
+            ->where('read_at', null)
+            ->update([
+                'read_at' => now(),
+            ]);
+
+        return response()->json([
+            'message' => 'Message marked as read',
         ], 200);
     }
 }

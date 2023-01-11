@@ -79,7 +79,7 @@
     <script>
         $(document).ready(function() {
             $('#coupon-table_wrapper .dt-buttons').append(
-                `<button type="button" data-show="add-coupon-modal" class="btn btn-flat-success waves-effect float-md-right">Add</button>`
+                `<button type="button" data-bs-toggle="modal" data-bs-target="#add-coupon-modal" class="btn btn-flat-success waves-effect float-md-right">Add</button>`
             );
             $(document).on('click', '[data-show]', function() {
                 const modal = $(this).data('show');

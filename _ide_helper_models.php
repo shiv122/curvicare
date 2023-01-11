@@ -1148,6 +1148,56 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Template
+ *
+ * @property int $id
+ * @property string $name
+ * @property string|null $image
+ * @property string|null $description
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Template newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Template newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Template query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereUpdatedAt($value)
+ */
+	class Template extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\TemplateRecipe
+ *
+ * @property int $id
+ * @property int $template_id
+ * @property int $recipe_id
+ * @property string $for breakfast, lunch, dinner, snack, dessert, etc.
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereFor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereRecipeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereTemplateId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereUpdatedAt($value)
+ */
+	class TemplateRecipe extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Testimonial
  *
  * @property int $id
@@ -1198,6 +1248,8 @@ namespace App\Models{
  * @property-read int|null $chats_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserMedicalCondition[] $medical_conditions
  * @property-read int|null $medical_conditions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Message[] $messages
+ * @property-read int|null $messages_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserMoodTracker[] $moods
  * @property-read int|null $moods_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
@@ -1415,6 +1467,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null $dietician_assignment_id
+ * @property-read \App\Models\RazorpayTransaction|null $transaction
+ * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|UserSubscription newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|UserSubscription newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|UserSubscription query()

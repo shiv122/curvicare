@@ -17,7 +17,7 @@ class MessageMediaResources extends JsonResource
         return [
             'id' => $this->id,
             'type' => $this->media_type,
-            'data' => $this->media_data,
+            'media_data' => $this->media_data,
             'created_at' => $this->created_at,
         ];
     }

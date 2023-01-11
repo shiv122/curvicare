@@ -249,9 +249,9 @@
                                         @forelse ($user->subscriptions as $sub)
                                             <tr>
                                                 <td>{{ $sub->id }}</td>
-                                                <td>{{ json_decode($sub->subscription, true)['name'] }}</td>
-                                                <td>{{ json_decode($sub->subscription, true)['price'] }}</td>
-                                                <td>{{ json_decode($sub->subscription, true)['currency'] }}</td>
+                                                <td>{{ json_decode($sub->subscription, true)['title'] }}</td>
+                                                <td>{{ $sub->transaction->paid_amount }}</td>
+                                                <td>{{ $sub->transaction->currency }}</td>
                                                 <td>{{ \Carbon\Carbon::createFromDate($sub->start_date)->format('jS F Y h:i A') }}
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::createFromDate($sub->end_date)->format('jS F Y h:i A') }}

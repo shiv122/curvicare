@@ -38,7 +38,7 @@ class UserController extends Controller
             'moods' => ['mood'],
             'water',
             'steps',
-            'subscriptions',
+            'subscriptions.transaction',
             'medical_conditions' => ['condition'],
 
         ])->findOrFail($id);

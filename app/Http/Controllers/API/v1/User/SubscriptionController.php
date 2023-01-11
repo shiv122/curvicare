@@ -31,7 +31,7 @@ class SubscriptionController extends Controller
 
     public function index(Request $request)
     {
-        $subscriptions = $request->user()->subscriptions()->get();
+        $subscriptions = $request->user()->subscriptions()->with(['transaction'])->get();
 
         return $subscriptions;
     }

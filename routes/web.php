@@ -15,15 +15,16 @@ use App\Http\Controllers\Admin\BlogTagController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TemplateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DieticianController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Admin\IngredientController;
-use App\Http\Controllers\Admin\Metadata\ExpertiseController;
 use App\Http\Controllers\Admin\Metadata\TagController;
 use App\Http\Controllers\Admin\Metadata\MoodController;
 use App\Http\Controllers\Admin\MiscellaneousController;
 use App\Http\Controllers\Admin\Metadata\QuoteController;
+use App\Http\Controllers\Admin\Metadata\ExpertiseController;
 
 Route::prefix('admin')->middleware(['web'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -62,6 +63,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::post('/store', 'store')->name('store');
         Route::get('/view', 'viewDietician')->name('view');
         Route::put('/status', 'status')->name('status');
+    });
+
+
+    Route::name('template.')->prefix('template')->controller(TemplateController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('store', 'store')->name('store');
+        Route::post('update', 'update')->name('update');
+        Route::put('status', 'status')->name('status');
     });
 
 

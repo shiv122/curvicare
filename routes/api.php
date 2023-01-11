@@ -65,6 +65,7 @@ Route::prefix('v1/user')->group(function () {
                 ->group(function () {
                     Route::get('active', 'activeChat');
                     Route::post('send-message', 'sendMessage');
+                    Route::post('mark-read', 'markRead');
                 });
         });
 });

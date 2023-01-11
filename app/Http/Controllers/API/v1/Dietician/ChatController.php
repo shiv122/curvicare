@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\RecipeResource;
 use App\Http\Resources\Chat\ChatResources;
 use App\Http\Resources\Chat\MessageResources;
+use DB;
 use Log;
 
 /**
@@ -114,6 +115,7 @@ class ChatController extends Controller
             ], 404);
         }
 
+        DB::beginTransaction();
 
         $message = $chat->messages()->create([
             'message' => $request->message,
@@ -152,6 +154,9 @@ class ChatController extends Controller
                 'created_at' => now(),
             ]);
         }
+
+        DB::commit();
+
         $message->media = $media;
 
         broadcast(new BasicUserEvent(
