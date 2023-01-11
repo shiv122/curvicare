@@ -28,4 +28,17 @@ class Recipe extends Model
         return $this->belongsToMany(Tag::class,  'recipe_tags', 'recipe_id', 'tag_id');
         // ->where('tags.status', 'active');
     }
+
+
+
+
+
+
+
+
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
 }

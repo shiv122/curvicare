@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\TemplateDataTable;
-use App\Http\Controllers\Controller;
+use App\Models\Recipe;
 use App\Models\Template;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\DataTables\TemplateDataTable;
+use App\Helpers\RecipeHelper;
+use App\Models\TemplateRecipe;
 
 class TemplateController extends Controller
 {
@@ -85,6 +88,67 @@ class TemplateController extends Controller
             'message' => 'Template status updated successfully',
             'status' => 'success',
             'table' => 'template-table'
+        ]);
+    }
+
+
+    public function assignPage()
+    {
+        $templates = Template::active()->get();
+        $recipes = Recipe::active()->get();
+        $pageConfigs = ['has_table' => true];
+
+
+        return view('content.forms.assign-recipe', compact('pageConfigs', 'templates', 'recipes'));
+    }
+
+
+
+
+    public function getAssignments(Request $request, RecipeHelper $helper)
+    {
+
+        $request->validate([
+            'template_id' => 'required|integer',
+        ]);
+
+        $template = Template::findOrFail($request->template_id);
+
+        $assignments = $template->template_recipes()->with(['recipe'])->get();
+
+        [$breakfast, $lunch, $dinner, $snacks] = $helper->getAssignmentsByMeal($assignments);
+
+        return response()->json([
+            'breakfast' => view('components.Recipe.recipe-list', ['recipes' => $breakfast])->render(),
+            'lunch' => view('components.Recipe.recipe-list', ['recipes' => $lunch])->render(),
+            'dinner' => view('components.Recipe.recipe-list', ['recipes' => $dinner])->render(),
+            'snacks' => view('components.Recipe.recipe-list', ['recipes' => $snacks])->render(),
+        ]);
+    }
+
+
+    public function assignRecipe(Request $request)
+    {
+        $request->validate([
+            'template' => 'required|integer|exists:templates,id',
+            'recipes' => 'required|array',
+            'recipes.*' => 'required|integer|exists:recipes,id',
+            'for' => 'required|in:breakfast,lunch,dinner,snacks',
+        ]);
+
+        foreach ($request->recipes as $key => $recipe) {
+            TemplateRecipe::updateOrCreate([
+                'template_id' => $request->template,
+                'recipe_id' => $recipe,
+                'for' => $request->for,
+            ]);
+        }
+
+
+        return response()->json([
+            'header' => 'Success',
+            'message' => 'Recipe assigned successfully',
+            'status' => 'success',
         ]);
     }
 }

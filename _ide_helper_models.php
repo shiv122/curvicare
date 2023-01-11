@@ -1042,6 +1042,7 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Like[] $likes
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  * @property-read int|null $tags_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe active()
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe query()
@@ -1157,6 +1158,9 @@ namespace App\Models{
  * @property string $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TemplateRecipe[] $template_recipes
+ * @property-read int|null $template_recipes_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Template active()
  * @method static \Illuminate\Database\Eloquent\Builder|Template newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Template newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Template query()
@@ -1182,6 +1186,8 @@ namespace App\Models{
  * @property string $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Recipe $recipe
+ * @property-read \App\Models\Template $template
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe query()

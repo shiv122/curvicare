@@ -273,6 +273,8 @@ const reboundForm = async function ({
   successCallback = null,
   errorCallback = null,
   loader = null,
+  processData = false,
+  notification = true,
 }) {
   if (selector == null && data == null) {
     snb("error", "Error", "Please set the selector or data");
@@ -286,13 +288,17 @@ const reboundForm = async function ({
   if (selector !== null) {
     var form = $(selector)[0];
     var formData = new FormData(form);
+
+    console.log(formData);
   }
-  if (data !== null) {
+  if (data !== null && !processData) {
     var formData = new FormData();
 
     $.each(data, function (key, value) {
       formData.append(key, value);
     });
+  } else if (selector === null) {
+    var formData = data;
   }
   const btn = $(selector).find('button[type="submit"]');
   const btn_text = $(btn).text();
@@ -308,8 +314,8 @@ const reboundForm = async function ({
   $.ajax({
     type: type,
     url: route,
-    processData: false,
-    contentType: false,
+    processData: processData,
+    contentType: processData,
     data: formData,
     success: function (response) {
       $(btn).html(btn_text);
@@ -330,11 +336,13 @@ const reboundForm = async function ({
       unblockUI();
       if (type == "get" || type == "GET") {
       } else {
-        snb(
-          response.type ? response.type : "success",
-          response.header,
-          response.message
-        );
+        if (notification) {
+          snb(
+            response.type ? response.type : "success",
+            response.header,
+            response.message
+          );
+        }
         if ($.fn.DataTable) {
           $("#" + response.table)
             .DataTable()

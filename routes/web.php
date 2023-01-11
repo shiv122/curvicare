@@ -72,6 +72,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::post('store', 'store')->name('store');
         Route::post('update', 'update')->name('update');
         Route::put('status', 'status')->name('status');
+
+        // for recipe assignment to template
+        Route::get('assign', 'assignPage')->name('assign');
+        Route::get('get-assignments', 'getAssignments')->name('get-assignments');
+        Route::post('assign-recipe', 'assignRecipe')->name('assign-recipe');
     });
 
 

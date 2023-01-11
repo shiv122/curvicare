@@ -66,6 +66,12 @@
           "name": "Template Management",
           "icon": "circle",
           "slug": "admin.template.index"
+        },
+        {
+          "url": "/admin/template/assign",
+          "name": "Assign Recipe to Template",
+          "icon": "circle",
+          "slug": "admin.template.assign"
         }
       ]
     },
