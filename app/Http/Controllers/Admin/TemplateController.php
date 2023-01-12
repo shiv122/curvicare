@@ -116,13 +116,14 @@ class TemplateController extends Controller
 
         $assignments = $template->template_recipes()->with(['recipe'])->get();
 
-        [$breakfast, $lunch, $dinner, $snacks] = $helper->getAssignmentsByMeal($assignments);
+        [$breakfast, $lunch, $dinner, $pre_snack, $post_snack] = $helper->getAssignmentsByMeal($assignments);
 
         return response()->json([
-            'breakfast' => view('components.Recipe.recipe-list', ['recipes' => $breakfast])->render(),
-            'lunch' => view('components.Recipe.recipe-list', ['recipes' => $lunch])->render(),
-            'dinner' => view('components.Recipe.recipe-list', ['recipes' => $dinner])->render(),
-            'snacks' => view('components.Recipe.recipe-list', ['recipes' => $snacks])->render(),
+            'breakfast' => view('components.Recipe.recipe-list', ['assignments' => $breakfast])->render(),
+            'lunch' => view('components.Recipe.recipe-list', ['assignments' => $lunch])->render(),
+            'dinner' => view('components.Recipe.recipe-list', ['assignments' => $dinner])->render(),
+            'pre_snack' => view('components.Recipe.recipe-list', ['assignments' => $pre_snack])->render(),
+            'post_snack' => view('components.Recipe.recipe-list', ['assignments' => $post_snack])->render(),
         ]);
     }
 
@@ -133,7 +134,7 @@ class TemplateController extends Controller
             'template' => 'required|integer|exists:templates,id',
             'recipes' => 'required|array',
             'recipes.*' => 'required|integer|exists:recipes,id',
-            'for' => 'required|in:breakfast,lunch,dinner,snacks',
+            'for' => 'required|in:breakfast,lunch,dinner,pre_snack,post_snack',
         ]);
 
         foreach ($request->recipes as $key => $recipe) {
@@ -148,6 +149,19 @@ class TemplateController extends Controller
         return response()->json([
             'header' => 'Success',
             'message' => 'Recipe assigned successfully',
+            'status' => 'success',
+        ]);
+    }
+
+
+    public function deleteAssignRecipe($id)
+    {
+
+        TemplateRecipe::findOrFail($id)->delete();
+
+        return response()->json([
+            'header' => 'Success',
+            'message' => 'Recipe unassigned successfully',
             'status' => 'success',
         ]);
     }

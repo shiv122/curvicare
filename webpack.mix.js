@@ -112,6 +112,12 @@ mix.then(() => {
   }
 });
 
+mix.webpackConfig({
+  stats: {
+    warnings: false,
+  },
+});
+
 // if (mix.inProduction()) {
 //   mix.version()
 //   mix.webpackConfig({

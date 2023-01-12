@@ -50,7 +50,11 @@ class ChatController extends Controller
                             ->with(['media', 'reply' => ['media'],]);
                     },
 
-                    'user:id,name,image'
+                    'user:id,name,image' => [
+                        'user_data' => ['user_goal', 'user_activity'],
+                        'subscriptions' => fn ($query) => $query->where('end_date', '>=', now()),
+                        'medical_conditions.condition'
+                    ]
                 ]
             ])
             ->get();

@@ -24,6 +24,9 @@ class RecipeResource extends JsonResource
             'foods' => FoodResource::collection($this->whenLoaded('foods')),
             'compositions' => CompositionResource::collection($this->whenLoaded('compositions')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),
+            'for' => $this->whenLoaded('pivot', function () {
+                return $this->pivot->for;
+            }),
         ];
     }
 }

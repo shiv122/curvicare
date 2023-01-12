@@ -642,6 +642,7 @@ function noCallback() {
 (() => {
   $(document).on("click", "[data-delete]", async function () {
     const route = $(this).data("delete");
+    const successCallback = $(this).data("success-callback");
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -661,11 +662,14 @@ function noCallback() {
           route: route,
           loader:
             '<div class="delete"><span class="loader">Deleting</span></div>',
-          successCallback: () => {
+          successCallback: (data) => {
+            if (typeof window[successCallback] == "function") {
+              eval(successCallback)(data);
+            }
             Swal.fire({
               icon: "success",
               title: "Deleted!",
-              text: "Your file has been deleted.",
+              text: "Date has been deleted.",
               customClass: {
                 confirmButton: "btn btn-success",
               },

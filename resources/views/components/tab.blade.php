@@ -5,7 +5,7 @@
             <li class="nav-item">
                 <a @class(['nav-link', 'active' => $active === $item])id="{{ $item }}-tab-fill" data-toggle="tab"
                     href="#{{ $item }}-fill" role="tab" aria-controls="{{ $item }}-fill"
-                    aria-selected="true">{{ ucfirst($item) }}</a>
+                    aria-selected="true">{{ Str::of($item)->replace(['_', '-'], ' ')->ucfirst() }}</a>
             </li>
         @endforeach
 

@@ -22,13 +22,12 @@ class Template extends Model
 
     public function recipes()
     {
-        return $this->belongsToThrough(
-            TemplateRecipe::class,
-            Recipe::class,
-        );
+        return $this->belongsToMany(Recipe::class, 'template_recipes', 'template_id', 'recipe_id')->withPivot('for');
     }
 
 
+
+    //get pivot table column fr
 
 
 

@@ -3,7 +3,7 @@
     <p class="clearfix mb-0">
         <script>
             document.write(new Date().getFullYear())
-        </script><a class="ml-25" href="https://www.appdid.com/" target="_blank">Appdid</a>
+        </script><a class="ml-25" href="https://www.appdid.com/" target="_blank">Curvicare</a>
         <span class="d-none d-sm-inline-block">, All rights Reserved</span>
         </span>
         <span class="float-md-right d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span>

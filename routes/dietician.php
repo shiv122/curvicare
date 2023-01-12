@@ -18,6 +18,7 @@ Route::prefix('v1/dietician')
             ->group(function () {
                 Route::get('/', 'profile');
                 Route::post('update', 'update');
+                Route::get('templates', 'templates');
             });
 
         Route::prefix('chat')->controller(ChatController::class)->group(function () {
@@ -25,12 +26,4 @@ Route::prefix('v1/dietician')
             Route::get('{id}/messages', 'messages');
             Route::post('send-message', 'sendMessage');
         });
-
-
-
-        // Assign Diet
-
-
-
-
     });

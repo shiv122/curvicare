@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\API\v1\Dietician;
 
+use App\Models\Template;
+use Illuminate\Http\Request;
 use App\Helpers\FileUploader;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Resources\TemplateResource;
 
 class BasicController extends Controller
 {
@@ -32,5 +34,19 @@ class BasicController extends Controller
             'status' => 'success',
             'message' => 'Dietician profile updated successfully',
         ]);
+    }
+
+
+    public function templates()
+    {
+
+        $templates =  Template::active()->with(['recipes' => [
+            'foods' => ['ingredients', 'images'],
+            'compositions',
+            'tags'
+        ]])->get();
+
+
+        return TemplateResource::collection($templates);
     }
 }

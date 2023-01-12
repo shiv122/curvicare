@@ -79,6 +79,7 @@ class BasicController extends Controller
             'medical_conditions' => 'nullable|array',
             'medical_conditions.*' => 'nullable|exists:medical_conditions,id',
             'gender' => 'required|in:male,female,other|string',
+            'target_weight' => 'nullable|numeric',
         ]);
 
         $user = $request->user();
@@ -97,6 +98,7 @@ class BasicController extends Controller
             'weight',
             'height',
             'gender',
+            'target_weight',
         ]));
 
 

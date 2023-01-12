@@ -62,7 +62,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function user_data()
     {
-        return $this->hasOne(UserData::class);
+        return $this->hasOne(UserData::class)->latest();
     }
 
 
@@ -111,6 +111,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Message::class);
     }
+
 
 
 
