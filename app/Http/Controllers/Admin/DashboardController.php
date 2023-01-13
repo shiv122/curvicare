@@ -4,8 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Events\User\BasicUserEvent;
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Dietician;
+use App\Models\RazorpayTransaction;
+use App\Models\Recipe;
+use App\Models\Template;
 use App\Models\User;
+use App\Models\UserSubscription;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -20,6 +25,9 @@ class DashboardController extends Controller
 
         $subscribed_users = User::whereHas('subscriptions')->count();
 
+
+        $total_subscription = UserSubscription::count();
+
         $active_subscriptions = User::whereHas('subscriptions', function ($query) {
             $query->where('end_date', '>=', now());
         })->count();
@@ -28,12 +36,36 @@ class DashboardController extends Controller
             $query->where('end_date', '<', now());
         })->count();
 
+        $total_earings_inr = RazorpayTransaction::where('currency', 'INR')->sum('paid_amount');
+        $total_earings_usd = RazorpayTransaction::where('currency', 'USD')->sum('paid_amount');
 
-        // $total_profit 
+        $total_dieticians = Dietician::count();
+
+        $total_recipe = Recipe::count();
+
+        $total_templates = Template::count();
+
+        $total_blogs = Blog::count();
+
+
+        $paid_recipe = Recipe::where('is_paid', 'yes')->count();
 
 
         return view('content.dashboard', compact(
-            'pageConfigs'
+            'pageConfigs',
+            'total_users',
+            'new_users',
+            'subscribed_users',
+            'active_subscriptions',
+            'expired_subscriptions',
+            'total_earings_inr',
+            'total_earings_usd',
+            'total_dieticians',
+            'total_recipe',
+            'total_templates',
+            'paid_recipe',
+            'total_subscription',
+            'total_blogs'
         ));
     }
 
@@ -43,7 +75,7 @@ class DashboardController extends Controller
 
 
         broadcast(new BasicUserEvent(
-            user: User::find(2),
+            user_id: User::find(2),
             from: null,
             data: ['test' => 'test'],
             event: 'notification'

@@ -87,8 +87,14 @@ class TemplateDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name'),
-            Column::make('status'),
+            Column::make('days'),
+            Column::make('type'),
             Column::make('created_at'),
+            Column::make('status')
+                ->exportable(false)
+                ->printable(false)
+                ->searchable(false)
+                ->addClass('text-center'),
             Column::make('action')
                 ->exportable(false)
                 ->printable(false)

@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Recipe;
 use App\Models\Template;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\DataTables\TemplateDataTable;
 use App\Helpers\RecipeHelper;
 use App\Models\TemplateRecipe;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\DataTables\TemplateDataTable;
 
 class TemplateController extends Controller
 {
@@ -26,11 +27,23 @@ class TemplateController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:3000',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:512',
+            'type' => 'required|in:daily,weekly,monthly',
+            'days' => [
+                'required', 'integer',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->type == 'weekly' && $value % 7 != 0) {
+                        $fail('Days should be divisible by 7');
+                    }
+                },
+
+            ],
         ]);
 
         Template::create([
             'name' => $request->name,
             'description' => $request->description,
+            'type' => $request->type,
+            'days' => $request->days,
         ]);
 
         return response()->json([
@@ -55,11 +68,23 @@ class TemplateController extends Controller
             'description' => 'nullable|string|max:3000',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:512',
             'id' => 'required|integer',
+            'type' => 'required|in:daily,weekly,monthly',
+            'days' => [
+                'required', 'integer',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->type == 'weekly' && $value % 7 != 0) {
+                        $fail('Days should be divisible by 7 if type is weekly');
+                    }
+                },
+
+            ],
         ]);
 
         Template::findOrFail($request->id)->update([
             'name' => $request->name,
             'description' => $request->description,
+            'type' => $request->type,
+            'days' => $request->days,
         ]);
 
 
@@ -103,6 +128,24 @@ class TemplateController extends Controller
     }
 
 
+    public function getDays(Request $request)
+    {
+        $request->validate([
+            'template_id' => 'required|integer',
+        ]);
+
+        $template = Template::findOrFail($request->template_id);
+
+        $selector_html = view('components.helper.radio-box', [
+            'name' => $template->type,
+            'text' => ucfirst(($template->type == 'weekly') ? 'Week' : 'Day'),
+            'count' => ($template->type == 'weekly') ? $template->days / 7 : $template->days,
+        ])->render();
+
+        return response()->json([
+            'selector_html' => $selector_html,
+        ]);
+    }
 
 
     public function getAssignments(Request $request, RecipeHelper $helper)
@@ -110,11 +153,26 @@ class TemplateController extends Controller
 
         $request->validate([
             'template_id' => 'required|integer',
+            'day' => 'required|integer',
         ]);
 
         $template = Template::findOrFail($request->template_id);
 
-        $assignments = $template->template_recipes()->with(['recipe'])->get();
+
+        DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+        $assignments = $template->template_recipes()
+            ->when($template->type == 'weekly', function ($query) use ($request) {
+                $start_day = ($request->day - 1) * 7 + 1;
+                $end_day = $request->day * 7;
+                return $query->whereBetween('day', [$start_day, $end_day])
+                    ->groupBy('recipe_id', 'for');
+            })
+            ->when($template->type == 'daily', function ($query) use ($request) {
+                return $query->where('day', $request->day);
+            })
+            ->with(['recipe'])->get();
+        DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
+
 
         [$breakfast, $lunch, $dinner, $pre_snack, $post_snack] = $helper->getAssignmentsByMeal($assignments);
 
@@ -131,18 +189,33 @@ class TemplateController extends Controller
     public function assignRecipe(Request $request)
     {
         $request->validate([
-            'template' => 'required|integer|exists:templates,id',
+            'template' => 'required|integer',
+            'day' => 'required|integer|gt:0',
             'recipes' => 'required|array',
             'recipes.*' => 'required|integer|exists:recipes,id',
             'for' => 'required|in:breakfast,lunch,dinner,pre_snack,post_snack',
         ]);
 
+        $template = Template::findOrFail($request->template);
+
+        $days = [];
+
+        if ($template->type == 'weekly') {
+            $start_day = ($request->day - 1) * 7 + 1;
+            $end_day = $request->day * 7;
+            $days = range($start_day, $end_day);
+        } else {
+            $days = [$request->day];
+        }
         foreach ($request->recipes as $key => $recipe) {
-            TemplateRecipe::updateOrCreate([
-                'template_id' => $request->template,
-                'recipe_id' => $recipe,
-                'for' => $request->for,
-            ]);
+            foreach ($days as $day) {
+                TemplateRecipe::updateOrCreate([
+                    'template_id' => $template->id,
+                    'recipe_id' => $recipe,
+                    'day' => $day,
+                    'for' => $request->for,
+                ]);
+            }
         }
 
 
@@ -157,7 +230,21 @@ class TemplateController extends Controller
     public function deleteAssignRecipe($id)
     {
 
-        TemplateRecipe::findOrFail($id)->delete();
+
+        $template_recipe = TemplateRecipe::findOrFail($id);
+        $template = $template_recipe->template;
+
+        if ($template->type == 'weekly') {
+
+            TemplateRecipe::where('template_id', $template_recipe->template_id)
+                ->where('recipe_id', $template_recipe->recipe_id)
+                ->where('for', $template_recipe->for)
+                ->delete();
+        } else {
+            $template_recipe->delete();
+        }
+
+
 
         return response()->json([
             'header' => 'Success',

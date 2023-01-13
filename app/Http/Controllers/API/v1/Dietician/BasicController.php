@@ -6,14 +6,39 @@ use App\Models\Template;
 use Illuminate\Http\Request;
 use App\Helpers\FileUploader;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RecipeResource;
 use App\Http\Resources\TemplateResource;
+use App\Models\Recipe;
+
+/** 
+ * @group Dietician Basic
+ *  @authenticated
+ */
+
 
 class BasicController extends Controller
 {
+
+    /**
+     * Dietician Profile
+     * 
+     * This endpoint is used to get dietician profile
+     * 
+     */
+
+
     public function profile(Request $request)
     {
         return $request->user('dietician');
     }
+
+
+    /**
+     * Update Dietician Profile
+     * 
+     * This endpoint is used to update dietician profile
+     */
+
 
     public function update(Request $request)
     {
@@ -36,6 +61,11 @@ class BasicController extends Controller
         ]);
     }
 
+    /**
+     * Get Templates
+     * 
+     * This endpoint is used to get templates
+     */
 
     public function templates()
     {
@@ -48,5 +78,31 @@ class BasicController extends Controller
 
 
         return TemplateResource::collection($templates);
+    }
+
+
+    /**
+     * Get Recipes
+     * 
+     * This endpoint is used to get recipes (paginated)
+     * You can also search recipes by name using query parameter q
+     * 
+     */
+
+    public function recipes(Request $request)
+    {
+        $request->validate([
+            'q' => 'nullable|string|max:255',
+        ]);
+
+        $recipes = Recipe::active()
+            ->when($request->has('q'), function ($query) use ($request) {
+                $query->where('name', 'like', '%' . $request->q . '%');
+            })
+            ->with(['compositions'])
+            ->orderBy('name', 'asc')
+            ->simplePaginate(20);
+
+        return RecipeResource::collection($recipes);
     }
 }

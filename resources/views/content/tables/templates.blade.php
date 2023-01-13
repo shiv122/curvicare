@@ -27,6 +27,16 @@
             <div class=" col-12 ">
                 <x-input name="name" />
             </div>
+            <div class=" col-12 ">
+                <x-select name="type" :options="['daily', 'weekly']" />
+            </div>
+            <div class=" col-12 ">
+                <x-input name="days" type="number" label="Number of days" />
+            </div>
+
+
+
+
         </x-form>
     </x-side-modal>
 
@@ -36,8 +46,14 @@
             <div class=" col-12 ">
                 <x-input name="name" />
                 <x-input name="id" type="hidden" />
-
             </div>
+            <div class=" col-12 ">
+                <x-input name="days" type="number" />
+            </div>
+            <div class=" col-12 ">
+                <x-select name="type" id="edit-type" :options="['daily', 'weekly']" />
+            </div>
+
         </x-form>
     </x-side-modal>
 
@@ -63,6 +79,8 @@
         function setValue(data, modal) {
             $(`${modal} input[name="id"]`).val(data.id);
             $(`${modal} input[name="name"]`).val(data.name);
+            $(`${modal} input[name="days"]`).val(data.days);
+            $(`${modal} select[name="type"]`).val(data.type).change();
             $(`${modal}`).modal('show');
         }
     </script>

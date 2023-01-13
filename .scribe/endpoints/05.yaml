@@ -68,7 +68,7 @@ endpoints:
         name: message
         description: 'This field is required when <code>media</code> is not present. Must not be greater than 3000 characters.'
         required: false
-        example: mmjrhjjfakjnvydfhb
+        example: yfomanxnqznxnjamhoujqn
         type: string
         custom: []
       media:
@@ -87,10 +87,50 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      message: mmjrhjjfakjnvydfhb
+      message: yfomanxnqznxnjamhoujqn
     fileParameters:
       media:
         - null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/user/chat/mark-read
+    metadata:
+      groupName: 'User Chat'
+      groupDescription: |-
+
+        APIs for User Chat
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      chat_id:
+        name: chat_id
+        description: ''
+        required: true
+        example: earum
+        type: string
+        custom: []
+    cleanBodyParameters:
+      chat_id: earum
+    fileParameters: []
     responses: []
     responseFields: []
     auth: []

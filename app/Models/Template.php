@@ -22,7 +22,7 @@ class Template extends Model
 
     public function recipes()
     {
-        return $this->belongsToMany(Recipe::class, 'template_recipes', 'template_id', 'recipe_id')->withPivot('for');
+        return $this->belongsToMany(Recipe::class, 'template_recipes', 'template_id', 'recipe_id')->withPivot('for', 'day');
     }
 
 

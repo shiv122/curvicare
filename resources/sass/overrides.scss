@@ -1,5 +1,6 @@
 @import "./base/bootstrap-extended/include"; // Bootstrap includes
 @import "./base/components/include"; // Components includes
+
 $base-color: #3585c6;
 // ------------------------------------------------
 // breadcrumb
@@ -58,7 +59,12 @@ html body.navbar-static .app-content .header-navbar {
     }
   }
 }
-
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__clear {
+  font-weight: 1000 !important;
+  font-size: x-large !important;
+}
 a svg,
 button svg {
   min-width: 20px;
@@ -294,4 +300,79 @@ i.side-bar-icon {
 }
 .w-space-line {
   white-space: pre-line !important;
+}
+
+// custom checkbox
+
+.selector-container {
+  display: flex;
+  flex-flow: row wrap;
+  h1 {
+    color: hsla(215, 5%, 10%, 1);
+    margin-bottom: 2rem;
+  }
+
+  section > div {
+    flex: 1;
+    padding: 0.5rem;
+  }
+  input[type="radio"] {
+    display: none;
+    &:not(:disabled) ~ label {
+      cursor: pointer;
+    }
+    &:disabled ~ label {
+      color: hsla(150, 5%, 75%, 1);
+      border-color: hsla(150, 5%, 75%, 1);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+  label {
+    height: 100%;
+    display: block;
+    background: white;
+    border: 2px solid #de1058;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    //margin: 1rem;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.5);
+    position: relative;
+  }
+  input[type="radio"]:checked + label {
+    background: #de1058;
+    color: hsla(215, 0%, 100%, 1);
+    box-shadow: 0px 0px 20px #afacba;
+    &::after {
+      color: #3d3f43;
+      border: 2px solid #de1058;
+      content: url(https://cdn.jsdelivr.net/npm/heroicons@2.0.13/24/outline/check.svg);
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2rem;
+      width: 2rem;
+      text-align: center;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
+    }
+  }
+  p {
+    font-weight: 900;
+    margin: 0;
+  }
+}
+
+.dark-layout {
+  .selector-container label {
+    background: #151c2f;
+    box-shadow: 0px 3px 10px -2px rgb(20, 28, 47) !important;
+    input[type="radio"]:checked + label {
+      box-shadow: 0px 0px 20px #151c2f !important;
+    }
+  }
 }

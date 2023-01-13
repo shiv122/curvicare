@@ -4,15 +4,15 @@
 
 
 @forelse ($assignments as $assignment)
-    <div class="col-md-4 col-12 mb-2">
+    <div class="col-md-6 col-12 mb-2">
         <div class="recipe-holder">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row m-0 w-100">
+                <div class="col-md-4 p-0">
                     <div class="recipe-image">
                         <img src="{{ asset($assignment->recipe->image) }}" alt="{{ $assignment->recipe->name }}">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="recipe-info">
                         <h5 class="recipe-name">
                             <a

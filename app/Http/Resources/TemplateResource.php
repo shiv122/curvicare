@@ -17,6 +17,8 @@ class TemplateResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'type' => $this->type,
+            'days' => $this->days,
             'recipes' => RecipeResource::collection($this->whenLoaded('recipes')),
         ];
     }

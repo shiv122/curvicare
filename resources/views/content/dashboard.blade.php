@@ -18,7 +18,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">8</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $new_users }}</h2>
                             <p class="card-text">New Users</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
@@ -51,7 +51,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">13</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $subscribed_users }}</h2>
                             <p class="card-text">Total Subscribed Users</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
@@ -84,7 +84,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">93</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $total_users }}</h2>
                             <p class="card-text">Total Users</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
@@ -117,7 +117,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">4</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $total_dieticians }}</h2>
                             <p class="card-text">Total Dietician</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
@@ -150,7 +150,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">21</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $total_subscription }}</h2>
                             <p class="card-text">Total Subscription</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
@@ -183,8 +183,8 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">1198</h2>
-                            <p class="card-text">Total Profit</p>
+                            <h2 class="font-weight-bolder mb-0">{{ $total_earings_inr }}</h2>
+                            <p class="card-text">Total Earnings (INR)</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
                             <div class="avatar-content">
@@ -216,7 +216,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">58</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $total_recipe }}</h2>
                             <p class="card-text">Total Recipe</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
@@ -250,7 +250,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">31</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $paid_recipe }}</h2>
                             <p class="card-text">Paid Recipe</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">
@@ -283,7 +283,7 @@
                 <div class="card cursor-pointer">
                     <div class="card-header">
                         <div>
-                            <h2 class="font-weight-bolder mb-0">59</h2>
+                            <h2 class="font-weight-bolder mb-0">{{ $total_blogs }}</h2>
                             <p class="card-text">Total Blogs</p>
                         </div>
                         <div class="avatar bg-light-primary p-50 m-0">

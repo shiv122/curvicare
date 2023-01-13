@@ -83,6 +83,20 @@ endpoints:
                       "type": "->"
                   },
                   {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
+                      "type": "->"
+                  },
+                  {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
@@ -461,6 +475,20 @@ endpoints:
                       "type": "->"
                   },
                   {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
+                      "type": "->"
+                  },
+                  {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
@@ -788,42 +816,42 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: nostrum
+        example: dolor
         type: string
         custom: []
       dob:
         name: dob
         description: 'Must be a valid date.'
         required: true
-        example: '2023-01-03T13:07:10'
+        example: '2023-01-13T16:18:23'
         type: string
         custom: []
       user_activity_id:
         name: user_activity_id
         description: ''
         required: true
-        example: 14
+        example: 15
         type: integer
         custom: []
       user_goal_id:
         name: user_goal_id
         description: ''
         required: true
-        example: 14
+        example: 5
         type: integer
         custom: []
       weight:
         name: weight
         description: ''
         required: true
-        example: 329.9
+        example: 23572.493624835
         type: number
         custom: []
       height:
         name: height
         description: ''
         required: true
-        example: 3478.657
+        example: 8525142.91366
         type: number
         custom: []
       medical_conditions:
@@ -837,17 +865,25 @@ endpoints:
         name: gender
         description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
         required: true
-        example: qui
+        example: occaecati
         type: string
         custom: []
+      target_weight:
+        name: target_weight
+        description: ''
+        required: false
+        example: 16.264
+        type: number
+        custom: []
     cleanBodyParameters:
-      name: nostrum
-      dob: '2023-01-03T13:07:10'
-      user_activity_id: 14
-      user_goal_id: 14
-      weight: 329.9
-      height: 3478.657
-      gender: qui
+      name: dolor
+      dob: '2023-01-13T16:18:23'
+      user_activity_id: 15
+      user_goal_id: 5
+      weight: 23572.493624835
+      height: 8525142.91366
+      gender: occaecati
+      target_weight: 16.264
     fileParameters: []
     responses: []
     responseFields: []
@@ -931,6 +967,20 @@ endpoints:
                       "line": 141,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
                       "type": "->"
                   },
                   {
@@ -1312,6 +1362,20 @@ endpoints:
                       "type": "->"
                   },
                   {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
+                      "type": "->"
+                  },
+                  {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
@@ -1687,6 +1751,20 @@ endpoints:
                       "line": 141,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
                       "type": "->"
                   },
                   {
@@ -2068,6 +2146,20 @@ endpoints:
                       "type": "->"
                   },
                   {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
+                      "type": "->"
+                  },
+                  {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
@@ -2443,6 +2535,20 @@ endpoints:
                       "line": 141,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
                       "type": "->"
                   },
                   {
@@ -2824,6 +2930,20 @@ endpoints:
                       "type": "->"
                   },
                   {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
+                      "type": "->"
+                  },
+                  {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
@@ -3199,6 +3319,20 @@ endpoints:
                       "line": 141,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
                       "type": "->"
                   },
                   {

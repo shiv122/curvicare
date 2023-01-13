@@ -36,19 +36,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: white.cora@example.com
+        example: iboyle@example.org
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: iste
+        example: earum
         type: string
         custom: []
     cleanBodyParameters:
-      email: white.cora@example.com
-      password: iste
+      email: iboyle@example.org
+      password: earum
     fileParameters: []
     responses: []
     responseFields: []

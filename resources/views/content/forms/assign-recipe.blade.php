@@ -3,6 +3,7 @@
 @section('title', 'Assign Recipe')
 
 @section('page-style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <style>
         .recipe-holder {
             display: flex;
@@ -29,7 +30,6 @@
             position: absolute;
             right: 0;
             bottom: 0;
-            padding: 1rem;
         }
 
         .recipe-info {
@@ -53,6 +53,12 @@
 
                     <div class="col-md-12 col-12 ">
                         <x-select name="template" :options="$templates" label="Select template to get the assigned recipes" />
+                    </div>
+
+                    <div class="col-12 mt-5">
+                        <div class="selector-container owl-carousel owl-theme">
+
+                        </div>
                     </div>
                 </x-card>
             </div>
@@ -129,6 +135,7 @@
                 <x-select :multiple="true" name="recipes" :options="$recipes" />
                 <input type="text" name="for" hidden>
                 <input type="number" name="template" hidden>
+                <input type="number" name="day" hidden>
             </div>
         </x-form>
 
@@ -136,15 +143,19 @@
 
 @endsection
 @section('page-script')
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         $(document).on('click', '[data-target="#add-meal"]', function(e) {
             $('#add-meal input[name="for"]').val($(this).data('for'));
             $('#add-meal input[name="template"]').val($('#template').val());
+            $('#add-meal input[name="day"]').val($('[data-custom-chb]:checked').val());
         });
 
 
         $(document).on('change', '#template', function(e) {
+            $('.selector-container').html("");
+            emptyRecipe();
+            updateTabCount();
             e.preventDefault();
             var template_id = $(this).val();
             if (template_id === '' || template_id === null) {
@@ -153,27 +164,84 @@
                 return;
             }
             $('#add-meal input[name="template"]').val(template_id);
-            fetchMealData(template_id);
+            fetchSelectorData(template_id);
         });
 
 
-        function fetchMealData(template_id) {
+        $(document).on('change', '[data-custom-chb]', function(e) {
+            e.preventDefault();
+            const selected = $(this).val();
+            const template_id = $('#template').val();
+            $('#add-meal-form input[name="day"]').val(selected);
+            fetchMealData(template_id, selected);
+        });
+
+
+
+        function fetchSelectorData(template_id) {
             reboundForm({
                 data: {
                     template_id: template_id
                 },
                 notification: false,
                 processData: true,
+                route: "{{ route('admin.template.get-days') }}",
+                type: "GET",
+                successCallback: function(response) {
+                    const container = $('.selector-container');
+                    container.html(response.selector_html);
+                    if (container.hasClass('owl-carousel')) {
+                        container.trigger('destroy.owl.carousel');
+                    }
+
+                    container.owlCarousel({
+                        loop: false,
+                        margin: 0,
+                        nav: false,
+                        stagePadding: 50,
+
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            600: {
+                                items: 3
+                            },
+                            1000: {
+                                items: 5
+                            }
+                        }
+                    })
+
+                },
+                errorCallback: function(response) {
+                    console.log(response);
+                }
+            });
+        }
+
+
+        function fetchMealData(template_id, day) {
+            console.log('fetchMealData Called from :', arguments.callee.caller.name);
+            reboundForm({
+                data: {
+                    template_id: template_id,
+                    day: day
+                },
+                notification: false,
+                processData: true,
                 route: "{{ route('admin.template.get-assignments') }}",
                 type: "GET",
                 successCallback: function(response) {
-                    console.log(response);
                     $('#breakfast-data').html(response.breakfast);
                     $('#lunch-data').html(response.lunch);
                     $('#dinner-data').html(response.dinner);
                     $('#post_snack-data').html(response.post_snack);
                     $('#pre_snack-data').html(response.pre_snack);
                     $('.btn-holder').removeClass('d-none');
+                    setTimeout(() => {
+                        updateTabCount();
+                    }, 10);
                 },
                 errorCallback: function(response) {
                     console.log(response);
@@ -183,13 +251,63 @@
 
         function mealAdded() {
             const template_id = $('#template').val();
-            fetchMealData(template_id);
+            const day = $('[data-custom-chb]:checked').val();
+            fetchMealData(template_id, day);
         }
 
         function recipeAssignmentDeleted(data) {
             const template_id = $('#template').val();
+            const day = $('[data-custom-chb]:checked').val();
             console.log(data);
-            fetchMealData(template_id);
+            fetchMealData(template_id, day);
+        }
+
+
+        function emptyRecipe() {
+            const error_html = `
+                            <div class="col-md-12 col-12">
+                                <div class="col-12">
+                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        <div class="alert-body">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                                ×</button>
+                                            <span class="glyphicon glyphicon-ok"></span> <strong>Info Message</strong>
+                                            <hr class="message-inner-separator">
+                                            <p>
+                                            Select a template and day or week to see the recipes assigned to it.    
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+            $('#breakfast-data').html(error_html);
+            $('#lunch-data').html(error_html);
+            $('#dinner-data').html(error_html);
+            $('#post_snack-data').html(error_html);
+            $('#pre_snack-data').html(error_html);
+        }
+
+        function updateTabCount() {
+            const breakfast_count = $('#breakfast-data .recipe-holder').length;
+            const lunch_count = $('#lunch-data .recipe-holder').length;
+            const dinner_count = $('#dinner-data .recipe-holder').length;
+            const post_snack_count = $('#post_snack-data .recipe-holder').length;
+            const pre_snack_count = $('#pre_snack-data .recipe-holder').length;
+            appentBadge($('#breakfast-tab-fill'), breakfast_count);
+            appentBadge($('#lunch-tab-fill'), lunch_count);
+            appentBadge($('#dinner-tab-fill'), dinner_count);
+            appentBadge($('#post_snack-tab-fill'), post_snack_count);
+            appentBadge($('#pre_snack-tab-fill'), pre_snack_count);
+        }
+
+        function appentBadge(element, count) {
+
+            if (element.find('.badge').length > 0) {
+                element.find('.badge').text(count);
+            } else {
+                element.prepend(`<span class="badge badge-pill badge-primary mr-1">${count}</span>`);
+            }
+
         }
     </script>
 
