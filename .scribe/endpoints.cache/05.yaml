@@ -70,7 +70,7 @@ endpoints:
         name: message
         description: 'This field is required when <code>media</code> is not present. Must not be greater than 3000 characters.'
         required: false
-        example: yfomanxnqznxnjamhoujqn
+        example: e
         type: string
         custom: []
       media:
@@ -89,7 +89,7 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      message: yfomanxnqznxnjamhoujqn
+      message: e
     fileParameters:
       media:
         - null
@@ -127,11 +127,11 @@ endpoints:
         name: chat_id
         description: ''
         required: true
-        example: earum
+        example: sunt
         type: string
         custom: []
     cleanBodyParameters:
-      chat_id: earum
+      chat_id: sunt
     fileParameters: []
     responses: []
     responseFields: []

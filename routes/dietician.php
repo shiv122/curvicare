@@ -18,8 +18,9 @@ Route::prefix('v1/dietician')
             ->group(function () {
                 Route::get('/', 'profile');
                 Route::post('update', 'update');
-                Route::get('templates', 'templates');
+                Route::get('templates/{id?}', 'templates');
                 Route::get('recipes', 'recipes');
+                Route::get('blogs', 'blogs');
             });
 
         Route::prefix('chat')->controller(ChatController::class)->group(function () {

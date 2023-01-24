@@ -81,8 +81,8 @@
                                                                                 <li class="tocify-item level-2" data-unique="dietician-basic-POSTapi-v1-dietician-update">
                                 <a href="#dietician-basic-POSTapi-v1-dietician-update">Update Dietician Profile</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="dietician-basic-GETapi-v1-dietician-templates">
-                                <a href="#dietician-basic-GETapi-v1-dietician-templates">Get Templates</a>
+                                                                                <li class="tocify-item level-2" data-unique="dietician-basic-GETapi-v1-dietician-templates--id--">
+                                <a href="#dietician-basic-GETapi-v1-dietician-templates--id--">Get Templates</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="dietician-basic-GETapi-v1-dietician-recipes">
                                 <a href="#dietician-basic-GETapi-v1-dietician-recipes">Get Recipes</a>
@@ -247,7 +247,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 13, 2023</li>
+        <li>Last updated: January 24, 2023</li>
     </ul>
 </div>
 
@@ -286,8 +286,8 @@ if dietician is not found in database it will return error</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"iboyle@example.org\",
-    \"password\": \"earum\"
+    \"email\": \"atreutel@example.net\",
+    \"password\": \"eveniet\"
 }"
 </code></pre></div>
 
@@ -303,8 +303,8 @@ const headers = {
 };
 
 let body = {
-    "email": "iboyle@example.org",
-    "password": "earum"
+    "email": "atreutel@example.net",
+    "password": "eveniet"
 };
 
 fetch(url, {
@@ -371,10 +371,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-dietician-login"
-               value="iboyle@example.org"
+               value="atreutel@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>iboyle@example.org</code></p>
+<p>Must be a valid email address. Example: <code>atreutel@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -382,10 +382,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-v1-dietician-login"
-               value="earum"
+               value="eveniet"
                data-component="body">
     <br>
-<p>Example: <code>earum</code></p>
+<p>Example: <code>eveniet</code></p>
         </div>
         </form>
 
@@ -859,10 +859,10 @@ access-control-allow-origin: *
     "http://127.0.0.1:9000/api/v1/dietician/update" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=dvrokwnhxhobijtfkff" \
-    --form "phone=cabtnzrhqt" \
-    --form "address=fxknuczqu" \
-    --form "image=@C:\Users\7854\AppData\Local\Temp\php54DC.tmp" </code></pre></div>
+    --form "name=scyxfyxujbmrtk" \
+    --form "phone=iizxaufimf" \
+    --form "address=cjpksyyzvlhmyojkw" \
+    --form "image=@C:\Users\7854\AppData\Local\Temp\phpC860.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -876,9 +876,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'dvrokwnhxhobijtfkff');
-body.append('phone', 'cabtnzrhqt');
-body.append('address', 'fxknuczqu');
+body.append('name', 'scyxfyxujbmrtk');
+body.append('phone', 'iizxaufimf');
+body.append('address', 'cjpksyyzvlhmyojkw');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -945,10 +945,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-dietician-update"
-               value="dvrokwnhxhobijtfkff"
+               value="scyxfyxujbmrtk"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>dvrokwnhxhobijtfkff</code></p>
+<p>Must not be greater than 255 characters. Example: <code>scyxfyxujbmrtk</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
@@ -959,7 +959,7 @@ fetch(url, {
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\php54DC.tmp</code></p>
+<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\phpC860.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -967,10 +967,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="phone"                data-endpoint="POSTapi-v1-dietician-update"
-               value="cabtnzrhqt"
+               value="iizxaufimf"
                data-component="body">
     <br>
-<p>Must be 10 characters. Example: <code>cabtnzrhqt</code></p>
+<p>Must be 10 characters. Example: <code>iizxaufimf</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -978,34 +978,37 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="address"                data-endpoint="POSTapi-v1-dietician-update"
-               value="fxknuczqu"
+               value="cjpksyyzvlhmyojkw"
                data-component="body">
     <br>
-<p>Must not be greater than 3000 characters. Example: <code>fxknuczqu</code></p>
+<p>Must not be greater than 3000 characters. Example: <code>cjpksyyzvlhmyojkw</code></p>
         </div>
         </form>
 
-                    <h2 id="dietician-basic-GETapi-v1-dietician-templates">Get Templates</h2>
+                    <h2 id="dietician-basic-GETapi-v1-dietician-templates--id--">Get Templates</h2>
 
 <p>
 </p>
 
-<p>This endpoint is used to get templates</p>
+<p>This endpoint is used to get templates
+You can also get single template by id
+if id is not provided, all templates will be returned
+if id is provided, single template will be returned with its recipes</p>
 
-<span id="example-requests-GETapi-v1-dietician-templates">
+<span id="example-requests-GETapi-v1-dietician-templates--id--">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/dietician/templates" \
+    --get "http://127.0.0.1:9000/api/v1/dietician/templates/unde" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/dietician/templates"
+    "http://127.0.0.1:9000/api/v1/dietician/templates/unde"
 );
 
 const headers = {
@@ -1020,7 +1023,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-dietician-templates">
+<span id="example-responses-GETapi-v1-dietician-templates--id--">
             <blockquote>
             <p>Example response (404):</p>
         </blockquote>
@@ -1034,7 +1037,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The route api/v1/dietician/templates could not be found.&quot;,
+    &quot;message&quot;: &quot;The route api/v1/dietician/templates/unde could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -1386,29 +1389,29 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-dietician-templates" hidden>
+<span id="execution-results-GETapi-v1-dietician-templates--id--" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-dietician-templates"></span>:
+                id="execution-response-status-GETapi-v1-dietician-templates--id--"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-dietician-templates" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-dietician-templates--id--" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-dietician-templates" hidden>
+<span id="execution-error-GETapi-v1-dietician-templates--id--" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-dietician-templates"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-dietician-templates--id--"></code></pre>
 </span>
-<form id="form-GETapi-v1-dietician-templates" data-method="GET"
-      data-path="api/v1/dietician/templates"
+<form id="form-GETapi-v1-dietician-templates--id--" data-method="GET"
+      data-path="api/v1/dietician/templates/{id?}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dietician-templates', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dietician-templates--id--', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/dietician/templates</code></b>
+            <b><code>api/v1/dietician/templates/{id?}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1416,7 +1419,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-dietician-templates"
+               name="Content-Type"                data-endpoint="GETapi-v1-dietician-templates--id--"
                value="application/json"
                data-component="header">
     <br>
@@ -1427,13 +1430,25 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-dietician-templates"
+               name="Accept"                data-endpoint="GETapi-v1-dietician-templates--id--"
                value="application/json"
                data-component="header">
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="GETapi-v1-dietician-templates--id--"
+               value="unde"
+               data-component="url">
+    <br>
+<p>The ID of the . Example: <code>unde</code></p>
+            </div>
+                    </form>
 
                     <h2 id="dietician-basic-GETapi-v1-dietician-recipes">Get Recipes</h2>
 
@@ -1453,7 +1468,7 @@ You can also search recipes by name using query parameter q</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"q\": \"wqadxhxtylxeacrfsuenne\"
+    \"q\": \"dch\"
 }"
 </code></pre></div>
 
@@ -1469,7 +1484,7 @@ const headers = {
 };
 
 let body = {
-    "q": "wqadxhxtylxeacrfsuenne"
+    "q": "dch"
 };
 
 fetch(url, {
@@ -1900,10 +1915,10 @@ access-control-allow-origin: *
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="q"                data-endpoint="GETapi-v1-dietician-recipes"
-               value="wqadxhxtylxeacrfsuenne"
+               value="dch"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>wqadxhxtylxeacrfsuenne</code></p>
+<p>Must not be greater than 255 characters. Example: <code>dch</code></p>
         </div>
         </form>
 
@@ -2842,9 +2857,9 @@ access-control-allow-origin: *
     "http://127.0.0.1:9000/api/v1/dietician/chat/send-message" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "message=lxeqj" \
-    --form "chat_id=et" \
-    --form "media[]=@C:\Users\7854\AppData\Local\Temp\php552B.tmp" </code></pre></div>
+    --form "message=hllfkogstuzkteilidjietoz" \
+    --form "chat_id=ex" \
+    --form "media[]=@C:\Users\7854\AppData\Local\Temp\phpC8A0.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2858,8 +2873,8 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('message', 'lxeqj');
-body.append('chat_id', 'et');
+body.append('message', 'hllfkogstuzkteilidjietoz');
+body.append('chat_id', 'ex');
 body.append('media[]', document.querySelector('input[name="media[]"]').files[0]);
 
 fetch(url, {
@@ -2926,10 +2941,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="message"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
-               value="lxeqj"
+               value="hllfkogstuzkteilidjietoz"
                data-component="body">
     <br>
-<p>message is required if media or recipe_id is not present. This field is required when none of <code>media</code> and <code>recipe_id</code> are present. Must not be greater than 3000 characters. Example: <code>lxeqj</code></p>
+<p>message is required if media or recipe_id is not present. This field is required when none of <code>media</code> and <code>recipe_id</code> are present. Must not be greater than 3000 characters. Example: <code>hllfkogstuzkteilidjietoz</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media</code></b>&nbsp;&nbsp;
@@ -2972,10 +2987,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="chat_id"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
-               value="et"
+               value="ex"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>ex</code></p>
         </div>
         </form>
 
@@ -4487,14 +4502,14 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"dolor\",
-    \"dob\": \"2023-01-13T16:18:23\",
-    \"user_activity_id\": 15,
-    \"user_goal_id\": 5,
-    \"weight\": 23572.493624835,
-    \"height\": 8525142.91366,
-    \"gender\": \"occaecati\",
-    \"target_weight\": 16.264
+    \"name\": \"et\",
+    \"dob\": \"2023-01-24T11:16:24\",
+    \"user_activity_id\": 11,
+    \"user_goal_id\": 18,
+    \"weight\": 151490344.06421348,
+    \"height\": 124.0699,
+    \"gender\": \"dolor\",
+    \"target_weight\": 16166
 }"
 </code></pre></div>
 
@@ -4510,14 +4525,14 @@ const headers = {
 };
 
 let body = {
-    "name": "dolor",
-    "dob": "2023-01-13T16:18:23",
-    "user_activity_id": 15,
-    "user_goal_id": 5,
-    "weight": 23572.493624835,
-    "height": 8525142.91366,
-    "gender": "occaecati",
-    "target_weight": 16.264
+    "name": "et",
+    "dob": "2023-01-24T11:16:24",
+    "user_activity_id": 11,
+    "user_goal_id": 18,
+    "weight": 151490344.06421348,
+    "height": 124.0699,
+    "gender": "dolor",
+    "target_weight": 16166
 };
 
 fetch(url, {
@@ -4584,10 +4599,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-user"
-               value="dolor"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>dolor</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>dob</code></b>&nbsp;&nbsp;
@@ -4595,10 +4610,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="dob"                data-endpoint="POSTapi-v1-user"
-               value="2023-01-13T16:18:23"
+               value="2023-01-24T11:16:24"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-01-13T16:18:23</code></p>
+<p>Must be a valid date. Example: <code>2023-01-24T11:16:24</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_activity_id</code></b>&nbsp;&nbsp;
@@ -4606,10 +4621,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_activity_id"                data-endpoint="POSTapi-v1-user"
-               value="15"
+               value="11"
                data-component="body">
     <br>
-<p>Example: <code>15</code></p>
+<p>Example: <code>11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_goal_id</code></b>&nbsp;&nbsp;
@@ -4617,10 +4632,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_goal_id"                data-endpoint="POSTapi-v1-user"
-               value="5"
+               value="18"
                data-component="body">
     <br>
-<p>Example: <code>5</code></p>
+<p>Example: <code>18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>weight</code></b>&nbsp;&nbsp;
@@ -4628,10 +4643,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="weight"                data-endpoint="POSTapi-v1-user"
-               value="23572.493624835"
+               value="151490344.06421"
                data-component="body">
     <br>
-<p>Example: <code>23572.493624835</code></p>
+<p>Example: <code>151490344.06421</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>height</code></b>&nbsp;&nbsp;
@@ -4639,10 +4654,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="height"                data-endpoint="POSTapi-v1-user"
-               value="8525142.91366"
+               value="124.0699"
                data-component="body">
     <br>
-<p>Example: <code>8525142.91366</code></p>
+<p>Example: <code>124.0699</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>medical_conditions</code></b>&nbsp;&nbsp;
@@ -4663,10 +4678,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="gender"                data-endpoint="POSTapi-v1-user"
-               value="occaecati"
+               value="dolor"
                data-component="body">
     <br>
-<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>occaecati</code></p>
+<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>dolor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>target_weight</code></b>&nbsp;&nbsp;
@@ -4674,10 +4689,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="target_weight"                data-endpoint="POSTapi-v1-user"
-               value="16.264"
+               value="16166"
                data-component="body">
     <br>
-<p>Example: <code>16.264</code></p>
+<p>Example: <code>16166</code></p>
         </div>
         </form>
 
@@ -8011,8 +8026,8 @@ fetch(url, {
     "http://127.0.0.1:9000/api/v1/user/chat/send-message" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "message=yfomanxnqznxnjamhoujqn" \
-    --form "media[]=@C:\Users\7854\AppData\Local\Temp\php548D.tmp" </code></pre></div>
+    --form "message=e" \
+    --form "media[]=@C:\Users\7854\AppData\Local\Temp\phpC746.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8026,7 +8041,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('message', 'yfomanxnqznxnjamhoujqn');
+body.append('message', 'e');
 body.append('media[]', document.querySelector('input[name="media[]"]').files[0]);
 
 fetch(url, {
@@ -8093,10 +8108,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="message"                data-endpoint="POSTapi-v1-user-chat-send-message"
-               value="yfomanxnqznxnjamhoujqn"
+               value="e"
                data-component="body">
     <br>
-<p>This field is required when <code>media</code> is not present. Must not be greater than 3000 characters. Example: <code>yfomanxnqznxnjamhoujqn</code></p>
+<p>This field is required when <code>media</code> is not present. Must not be greater than 3000 characters. Example: <code>e</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media</code></b>&nbsp;&nbsp;
@@ -8141,7 +8156,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"chat_id\": \"earum\"
+    \"chat_id\": \"sunt\"
 }"
 </code></pre></div>
 
@@ -8157,7 +8172,7 @@ const headers = {
 };
 
 let body = {
-    "chat_id": "earum"
+    "chat_id": "sunt"
 };
 
 fetch(url, {
@@ -8224,10 +8239,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="chat_id"                data-endpoint="POSTapi-v1-user-chat-mark-read"
-               value="earum"
+               value="sunt"
                data-component="body">
     <br>
-<p>Example: <code>earum</code></p>
+<p>Example: <code>sunt</code></p>
         </div>
         </form>
 
@@ -8942,10 +8957,10 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"package_id\": 20,
-    \"type\": \"renew\",
+    \"package_id\": 6,
+    \"type\": \"new\",
     \"currency\": \"INR\",
-    \"coupon_code\": \"orqikkhtlpgplhztkyhcyqdccfyybxthfxiegcmgespisgrefzretwxkippdzxdhwinslbbieqsuoknfkvqlfbpbwmvrzuzvvdjtitzlwlvlunmvijsyyguyalorcmcdcuptcuaedhengpnwtqbmwmxwcxcyvoshopqiziyfdzyvksulllhiukgemijhurimaljhddlzufjbhgfbkyqfmtzdsqzyxamfvemzbkbhlpcgpinbwjvnhnxlyowervb\",
+    \"coupon_code\": \"aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv\",
     \"form_data\": []
 }"
 </code></pre></div>
@@ -8962,10 +8977,10 @@ const headers = {
 };
 
 let body = {
-    "package_id": 20,
-    "type": "renew",
+    "package_id": 6,
+    "type": "new",
     "currency": "INR",
-    "coupon_code": "orqikkhtlpgplhztkyhcyqdccfyybxthfxiegcmgespisgrefzretwxkippdzxdhwinslbbieqsuoknfkvqlfbpbwmvrzuzvvdjtitzlwlvlunmvijsyyguyalorcmcdcuptcuaedhengpnwtqbmwmxwcxcyvoshopqiziyfdzyvksulllhiukgemijhurimaljhddlzufjbhgfbkyqfmtzdsqzyxamfvemzbkbhlpcgpinbwjvnhnxlyowervb",
+    "coupon_code": "aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv",
     "form_data": []
 };
 
@@ -9033,10 +9048,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="package_id"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="20"
+               value="6"
                data-component="body">
     <br>
-<p>Example: <code>20</code></p>
+<p>Example: <code>6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -9044,10 +9059,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="type"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="renew"
+               value="new"
                data-component="body">
     <br>
-<p>Must be one of <code>new</code> or <code>renew</code>. Example: <code>renew</code></p>
+<p>Must be one of <code>new</code> or <code>renew</code>. Example: <code>new</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -9066,10 +9081,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="coupon_code"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="orqikkhtlpgplhztkyhcyqdccfyybxthfxiegcmgespisgrefzretwxkippdzxdhwinslbbieqsuoknfkvqlfbpbwmvrzuzvvdjtitzlwlvlunmvijsyyguyalorcmcdcuptcuaedhengpnwtqbmwmxwcxcyvoshopqiziyfdzyvksulllhiukgemijhurimaljhddlzufjbhgfbkyqfmtzdsqzyxamfvemzbkbhlpcgpinbwjvnhnxlyowervb"
+               value="aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv"
                data-component="body">
     <br>
-<p>Must be 255 characters. Example: <code>orqikkhtlpgplhztkyhcyqdccfyybxthfxiegcmgespisgrefzretwxkippdzxdhwinslbbieqsuoknfkvqlfbpbwmvrzuzvvdjtitzlwlvlunmvijsyyguyalorcmcdcuptcuaedhengpnwtqbmwmxwcxcyvoshopqiziyfdzyvksulllhiukgemijhurimaljhddlzufjbhgfbkyqfmtzdsqzyxamfvemzbkbhlpcgpinbwjvnhnxlyowervb</code></p>
+<p>Must be 255 characters. Example: <code>aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>form_data</code></b>&nbsp;&nbsp;
@@ -9102,7 +9117,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": \"ehdthrjvni\"
+    \"id\": \"hggqcnlcpsnpsvdmehmm\"
 }"
 </code></pre></div>
 
@@ -9118,7 +9133,7 @@ const headers = {
 };
 
 let body = {
-    "id": "ehdthrjvni"
+    "id": "hggqcnlcpsnpsvdmehmm"
 };
 
 fetch(url, {
@@ -9185,10 +9200,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
-               value="ehdthrjvni"
+               value="hggqcnlcpsnpsvdmehmm"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>ehdthrjvni</code></p>
+<p>Must not be greater than 255 characters. Example: <code>hggqcnlcpsnpsvdmehmm</code></p>
         </div>
         </form>
 
@@ -10566,7 +10581,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mood\": 9
+    \"mood\": 16
 }"
 </code></pre></div>
 
@@ -10582,7 +10597,7 @@ const headers = {
 };
 
 let body = {
-    "mood": 9
+    "mood": 16
 };
 
 fetch(url, {
@@ -10649,10 +10664,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="mood"                data-endpoint="POSTapi-v1-user-tracker-mood"
-               value="9"
+               value="16"
                data-component="body">
     <br>
-<p>Example: <code>9</code></p>
+<p>Example: <code>16</code></p>
         </div>
         </form>
 
@@ -11125,7 +11140,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"water_amount\": 6.2917729
+    \"water_amount\": 42352
 }"
 </code></pre></div>
 
@@ -11141,7 +11156,7 @@ const headers = {
 };
 
 let body = {
-    "water_amount": 6.2917729
+    "water_amount": 42352
 };
 
 fetch(url, {
@@ -11208,10 +11223,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="water_amount"                data-endpoint="POSTapi-v1-user-tracker-water"
-               value="6.2917729"
+               value="42352"
                data-component="body">
     <br>
-<p>Example: <code>6.2917729</code></p>
+<p>Example: <code>42352</code></p>
         </div>
         </form>
 
@@ -11684,7 +11699,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"step\": 7
+    \"step\": 8
 }"
 </code></pre></div>
 
@@ -11700,7 +11715,7 @@ const headers = {
 };
 
 let body = {
-    "step": 7
+    "step": 8
 };
 
 fetch(url, {
@@ -11767,10 +11782,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="step"                data-endpoint="POSTapi-v1-user-tracker-step"
-               value="7"
+               value="8"
                data-component="body">
     <br>
-<p>Example: <code>7</code></p>
+<p>Example: <code>8</code></p>
         </div>
         </form>
 

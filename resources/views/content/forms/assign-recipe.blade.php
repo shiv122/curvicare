@@ -65,7 +65,30 @@
 
             <div class="col-12">
                 <x-card title="Recipe List">
-                    <x-tab class="col-md-12 nav-vertical" innerClass="nav-left" :tabs="['breakfast', 'lunch', 'post_snack', 'pre_snack', 'dinner']" active="breakfast">
+                    <x-tab class="col-md-12 nav-vertical" innerClass="nav-left" :tabs="[
+                        'early_morning',
+                        'breakfast',
+                        'mid_morning',
+                        'pre_lunch',
+                        'lunch',
+                        'post_lunch',
+                        'pre_snack',
+                        'evening_snack',
+                        'post_snack',
+                        'pre_dinner',
+                        'dinner',
+                        'post_dinner',
+                    ]" active="breakfast">
+
+                        <x-slot name="early_morning">
+                            <div class="row match-height w-md-90 mb-5" id="early_morning-data"></div>
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="early_morning"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Early Morning
+                                </button>
+                            </div>
+                        </x-slot>
                         <x-slot name="breakfast">
                             <div class="row match-height w-md-90 mb-5" id="breakfast-data"></div>
                             <div class="btn-holder d-none text-center">
@@ -75,7 +98,24 @@
                                 </button>
                             </div>
                         </x-slot>
-
+                        <x-slot name="mid_morning">
+                            <div class="row match-height w-md-90 mb-5" id="mid_morning-data"></div>
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="mid_morning"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Mid Morning
+                                </button>
+                            </div>
+                        </x-slot>
+                        <x-slot name="pre_lunch">
+                            <div class="row match-height w-md-90 mb-5" id="pre_lunch-data"></div>
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="pre_lunch"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Pre Lunch
+                                </button>
+                            </div>
+                        </x-slot>
                         <x-slot name="lunch">
                             <div class="row match-height w-md-90 mb-5" id="lunch-data"></div>
                             <div class="btn-holder d-none text-center">
@@ -85,26 +125,12 @@
                                 </button>
                             </div>
                         </x-slot>
-
-                        <x-slot name="dinner">
-                            <div class="row match-height w-md-90 mb-5" id="dinner-data"></div>
-
+                        <x-slot name="post_lunch">
+                            <div class="row match-height w-md-90 mb-5" id="post_lunch-data"></div>
                             <div class="btn-holder d-none text-center">
-                                <button type="button" class="btn btn-primary btn-sm" data-for="dinner" data-toggle="modal"
-                                    data-target="#add-meal">
-                                    Add Dinner
-                                </button>
-                            </div>
-                        </x-slot>
-
-
-                        <x-slot name="post_snack">
-                            <div class="row match-height w-md-90 mb-5" id="post_snack-data"></div>
-
-                            <div class="btn-holder d-none text-center">
-                                <button type="button" class="btn btn-primary btn-sm" data-for="post_snack"
+                                <button type="button" class="btn btn-primary btn-sm" data-for="post_lunch"
                                     data-toggle="modal" data-target="#add-meal">
-                                    Add Post Snack
+                                    Add Post Lunch
                                 </button>
                             </div>
                         </x-slot>
@@ -118,7 +144,56 @@
                                 </button>
                             </div>
                         </x-slot>
+                        <x-slot name="evening_snack">
+                            <div class="row match-height w-md-90 mb-5" id="evening_snack-data"></div>
 
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="evening_snack"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Evening Snack
+                                </button>
+                            </div>
+                        </x-slot>
+                        <x-slot name="post_snack">
+                            <div class="row match-height w-md-90 mb-5" id="post_snack-data"></div>
+
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="post_snack"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Post Snack
+                                </button>
+                            </div>
+                        </x-slot>
+                        <x-slot name="pre_dinner">
+                            <div class="row match-height w-md-90 mb-5" id="pre_dinner-data"></div>
+
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="pre_dinner"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Pre Dinner
+                                </button>
+                            </div>
+                        </x-slot>
+                        <x-slot name="dinner">
+                            <div class="row match-height w-md-90 mb-5" id="dinner-data"></div>
+
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="dinner"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Dinner
+                                </button>
+                            </div>
+                        </x-slot>
+                        <x-slot name="post_dinner">
+                            <div class="row match-height w-md-90 mb-5" id="post_dinner-data"></div>
+
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="post_dinner"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Post Dinner
+                                </button>
+                            </div>
+                        </x-slot>
 
                     </x-tab>
                 </x-card>
@@ -288,16 +363,24 @@
         }
 
         function updateTabCount() {
-            const breakfast_count = $('#breakfast-data .recipe-holder').length;
-            const lunch_count = $('#lunch-data .recipe-holder').length;
-            const dinner_count = $('#dinner-data .recipe-holder').length;
-            const post_snack_count = $('#post_snack-data .recipe-holder').length;
-            const pre_snack_count = $('#pre_snack-data .recipe-holder').length;
-            appentBadge($('#breakfast-tab-fill'), breakfast_count);
-            appentBadge($('#lunch-tab-fill'), lunch_count);
-            appentBadge($('#dinner-tab-fill'), dinner_count);
-            appentBadge($('#post_snack-tab-fill'), post_snack_count);
-            appentBadge($('#pre_snack-tab-fill'), pre_snack_count);
+            const arr = [
+                'early_morning',
+                'breakfast',
+                'mid_morning',
+                'pre_lunch',
+                'lunch',
+                'post_lunch',
+                'pre_snack',
+                'evening_snack',
+                'post_snack',
+                'pre_dinner',
+                'dinner',
+                'post_dinner',
+            ];
+            arr.forEach((item) => {
+                const count = $(`#${item}-data .recipe-holder`).length;
+                appentBadge($(`#${item}-tab-fill`), count);
+            })
         }
 
         function appentBadge(element, count) {

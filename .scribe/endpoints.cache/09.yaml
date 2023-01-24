@@ -824,7 +824,7 @@ endpoints:
         name: message
         description: 'message is required if media or recipe_id is not present. This field is required when none of <code>media</code> and <code>recipe_id</code> are present. Must not be greater than 3000 characters.'
         required: false
-        example: lxeqj
+        example: hllfkogstuzkteilidjietoz
         type: string
         custom: []
       media:
@@ -853,12 +853,12 @@ endpoints:
         name: chat_id
         description: ''
         required: true
-        example: et
+        example: ex
         type: string
         custom: []
     cleanBodyParameters:
-      message: lxeqj
-      chat_id: et
+      message: hllfkogstuzkteilidjietoz
+      chat_id: ex
     fileParameters:
       media:
         - null

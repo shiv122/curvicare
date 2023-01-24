@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\API\v1\Dietician;
 
+use App\Models\Blog;
+use App\Models\Recipe;
 use App\Models\Template;
 use Illuminate\Http\Request;
 use App\Helpers\FileUploader;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Misc\BlogResource;
 use App\Http\Resources\RecipeResource;
 use App\Http\Resources\TemplateResource;
-use App\Models\Recipe;
+use App\Services\Dietician\FormatDietService;
 
 /** 
  * @group Dietician Basic
@@ -65,19 +68,34 @@ class BasicController extends Controller
      * Get Templates
      * 
      * This endpoint is used to get templates
+     * You can also get single template by id
+     * if id is not provided, all templates will be returned
+     * if id is provided, single template will be returned with its recipes
      */
 
-    public function templates()
+    public function templates(FormatDietService $service, $id = null)
     {
 
-        $templates =  Template::active()->with(['recipes' => [
-            'foods' => ['ingredients', 'images'],
-            'compositions',
-            'tags'
-        ]])->get();
+        $templates =  Template::active()
+            ->when($id, function ($query) use ($id) {
+                $query->where('id', $id)
+                    ->with(['recipes' => [
+                        'foods' => ['ingredients', 'images'],
+                        'compositions',
+                        'tags'
+                    ]]);
+            })
+            ->get();
 
+        if (!$id) {
+            return TemplateResource::collection($templates);
+        }
 
-        return TemplateResource::collection($templates);
+        return $templates->map(function ($template) use ($service) {
+            $template->data = $service->format($template);
+            unset($template->recipes);
+            return $template;
+        });
     }
 
 
@@ -104,5 +122,26 @@ class BasicController extends Controller
             ->simplePaginate(20);
 
         return RecipeResource::collection($recipes);
+    }
+
+
+    /**
+     * Get Blogs
+     * 
+     * This endpoint is used to get blogs (paginated)
+     * 
+     */
+
+
+
+    public function blogs()
+    {
+        $blogs = Blog::with([
+            'direct_tags',
+            'images',
+            'dietician',
+        ])->simplePaginate(30);
+
+        return BlogResource::collection($blogs);
     }
 }

@@ -40,11 +40,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: iboyle@example.org
+                  example: atreutel@example.net
                 password:
                   type: string
                   description: ''
-                  example: earum
+                  example: eveniet
               required:
                 - email
                 - password
@@ -724,7 +724,7 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: dvrokwnhxhobijtfkff
+                  example: scyxfyxujbmrtk
                 image:
                   type: string
                   format: binary
@@ -732,21 +732,21 @@ paths:
                 phone:
                   type: string
                   description: 'Must be 10 characters.'
-                  example: cabtnzrhqt
+                  example: iizxaufimf
                 address:
                   type: string
                   description: 'Must not be greater than 3000 characters.'
-                  example: fxknuczqu
+                  example: cjpksyyzvlhmyojkw
               required:
                 - name
                 - phone
                 - address
       security: []
-  /api/v1/dietician/templates:
+  '/api/v1/dietician/templates/{id}':
     get:
       summary: 'Get Templates'
       operationId: getTemplates
-      description: 'This endpoint is used to get templates'
+      description: "This endpoint is used to get templates\nYou can also get single template by id\nif id is not provided, all templates will be returned\nif id is provided, single template will be returned with its recipes"
       parameters:
         -
           in: header
@@ -770,7 +770,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'The route api/v1/dietician/templates could not be found.'
+                  message: 'The route api/v1/dietician/templates/unde could not be found.'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'C:\Users\7854\Desktop\curvicare\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php'
                   line: 44
@@ -1072,7 +1072,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'The route api/v1/dietician/templates could not be found.'
+                    example: 'The route api/v1/dietician/templates/unde could not be found.'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -1384,6 +1384,21 @@ paths:
       tags:
         - 'Dietician Basic'
       security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the .'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: unde
   /api/v1/dietician/recipes:
     get:
       summary: 'Get Recipes'
@@ -2035,7 +2050,7 @@ paths:
                 q:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: wqadxhxtylxeacrfsuenne
+                  example: dch
       security: []
   /api/v1/dietician/chat/active-list:
     get:
@@ -3361,7 +3376,7 @@ paths:
                 message:
                   type: string
                   description: 'message is required if media or recipe_id is not present. This field is required when none of <code>media</code> and <code>recipe_id</code> are present. Must not be greater than 3000 characters.'
-                  example: lxeqj
+                  example: hllfkogstuzkteilidjietoz
                 media:
                   type: array
                   description: 'This field is required when none of <code>message</code> and <code>recipe_id</code> are present.  Must be a file. Must not be greater than 2048 kilobytes.'
@@ -3379,7 +3394,7 @@ paths:
                 chat_id:
                   type: string
                   description: ''
-                  example: et
+                  example: ex
               required:
                 - chat_id
   /api/broadcasting/auth:
@@ -5381,27 +5396,27 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: dolor
+                  example: et
                 dob:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-01-13T16:18:23'
+                  example: '2023-01-24T11:16:24'
                 user_activity_id:
                   type: integer
                   description: ''
-                  example: 15
+                  example: 11
                 user_goal_id:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 18
                 weight:
                   type: number
                   description: ''
-                  example: 23572.493624835
+                  example: 151490344.06421
                 height:
                   type: number
                   description: ''
-                  example: 8525142.91366
+                  example: 124.0699
                 medical_conditions:
                   type: array
                   description: ''
@@ -5411,11 +5426,11 @@ paths:
                 gender:
                   type: string
                   description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
-                  example: occaecati
+                  example: dolor
                 target_weight:
                   type: number
                   description: ''
-                  example: 16.264
+                  example: 16166.0
               required:
                 - name
                 - dob
@@ -10093,7 +10108,7 @@ paths:
                 message:
                   type: string
                   description: 'This field is required when <code>media</code> is not present. Must not be greater than 3000 characters.'
-                  example: yfomanxnqznxnjamhoujqn
+                  example: e
                 media:
                   type: array
                   description: 'This field is required when <code>message</code> is not present.  Must be a file. Must not be greater than 2048 kilobytes.'
@@ -10137,7 +10152,7 @@ paths:
                 chat_id:
                   type: string
                   description: ''
-                  example: earum
+                  example: sunt
               required:
                 - chat_id
       security: []
@@ -10921,11 +10936,11 @@ paths:
                 package_id:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 6
                 type:
                   type: string
                   description: 'Must be one of <code>new</code> or <code>renew</code>.'
-                  example: renew
+                  example: new
                 currency:
                   type: string
                   description: 'Must be one of <code>INR</code> or <code>USD</code>.'
@@ -10933,7 +10948,7 @@ paths:
                 coupon_code:
                   type: string
                   description: 'Must be 255 characters.'
-                  example: orqikkhtlpgplhztkyhcyqdccfyybxthfxiegcmgespisgrefzretwxkippdzxdhwinslbbieqsuoknfkvqlfbpbwmvrzuzvvdjtitzlwlvlunmvijsyyguyalorcmcdcuptcuaedhengpnwtqbmwmxwcxcyvoshopqiziyfdzyvksulllhiukgemijhurimaljhddlzufjbhgfbkyqfmtzdsqzyxamfvemzbkbhlpcgpinbwjvnhnxlyowervb
+                  example: aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv
                 form_data:
                   type: object
                   description: ''
@@ -10976,7 +10991,7 @@ paths:
                 id:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ehdthrjvni
+                  example: hggqcnlcpsnpsvdmehmm
               required:
                 - id
   /api/v1/user/tracker:
@@ -12935,7 +12950,7 @@ paths:
                 mood:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 16
               required:
                 - mood
   /api/v1/user/tracker/water:
@@ -13611,7 +13626,7 @@ paths:
                 water_amount:
                   type: number
                   description: ''
-                  example: 6.2917729
+                  example: 42352.0
               required:
                 - water_amount
   /api/v1/user/tracker/step:
@@ -14287,7 +14302,7 @@ paths:
                 step:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 8
               required:
                 - step
 tags:

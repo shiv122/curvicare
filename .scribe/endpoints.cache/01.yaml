@@ -816,42 +816,42 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: dolor
+        example: et
         type: string
         custom: []
       dob:
         name: dob
         description: 'Must be a valid date.'
         required: true
-        example: '2023-01-13T16:18:23'
+        example: '2023-01-24T11:16:24'
         type: string
         custom: []
       user_activity_id:
         name: user_activity_id
         description: ''
         required: true
-        example: 15
+        example: 11
         type: integer
         custom: []
       user_goal_id:
         name: user_goal_id
         description: ''
         required: true
-        example: 5
+        example: 18
         type: integer
         custom: []
       weight:
         name: weight
         description: ''
         required: true
-        example: 23572.493624835
+        example: 151490344.06421
         type: number
         custom: []
       height:
         name: height
         description: ''
         required: true
-        example: 8525142.91366
+        example: 124.0699
         type: number
         custom: []
       medical_conditions:
@@ -865,25 +865,25 @@ endpoints:
         name: gender
         description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
         required: true
-        example: occaecati
+        example: dolor
         type: string
         custom: []
       target_weight:
         name: target_weight
         description: ''
         required: false
-        example: 16.264
+        example: 16166.0
         type: number
         custom: []
     cleanBodyParameters:
-      name: dolor
-      dob: '2023-01-13T16:18:23'
-      user_activity_id: 15
-      user_goal_id: 5
-      weight: 23572.493624835
-      height: 8525142.91366
-      gender: occaecati
-      target_weight: 16.264
+      name: et
+      dob: '2023-01-24T11:16:24'
+      user_activity_id: 11
+      user_goal_id: 18
+      weight: 151490344.06421
+      height: 124.0699
+      gender: dolor
+      target_weight: 16166.0
     fileParameters: []
     responses: []
     responseFields: []

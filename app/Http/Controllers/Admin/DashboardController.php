@@ -72,14 +72,6 @@ class DashboardController extends Controller
 
     public function test()
     {
-
-
-        broadcast(new BasicUserEvent(
-            user_id: User::find(2),
-            from: null,
-            data: ['test' => 'test'],
-            event: 'notification'
-        ));
     }
 
 

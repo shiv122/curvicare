@@ -418,7 +418,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: dvrokwnhxhobijtfkff
+        example: scyxfyxujbmrtk
         type: string
         custom: []
       image:
@@ -432,20 +432,20 @@ endpoints:
         name: phone
         description: 'Must be 10 characters.'
         required: true
-        example: cabtnzrhqt
+        example: iizxaufimf
         type: string
         custom: []
       address:
         name: address
         description: 'Must not be greater than 3000 characters.'
         required: true
-        example: fxknuczqu
+        example: cjpksyyzvlhmyojkw
         type: string
         custom: []
     cleanBodyParameters:
-      name: dvrokwnhxhobijtfkff
-      phone: cabtnzrhqt
-      address: fxknuczqu
+      name: scyxfyxujbmrtk
+      phone: iizxaufimf
+      address: cjpksyyzvlhmyojkw
     fileParameters:
       image: null
     responses: []
@@ -458,21 +458,33 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/dietician/templates
+    uri: 'api/v1/dietician/templates/{id?}'
     metadata:
       groupName: 'Dietician Basic'
       groupDescription: ' @authenticated'
       subgroup: ''
       subgroupDescription: ''
       title: 'Get Templates'
-      description: 'This endpoint is used to get templates'
+      description: |-
+        This endpoint is used to get templates
+        You can also get single template by id
+        if id is not provided, all templates will be returned
+        if id is provided, single template will be returned with its recipes
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the .'
+        required: false
+        example: unde
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: unde
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -483,7 +495,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "The route api/v1/dietician/templates could not be found.",
+              "message": "The route api/v1/dietician/templates/unde could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,
@@ -872,11 +884,11 @@ endpoints:
         name: q
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: wqadxhxtylxeacrfsuenne
+        example: dch
         type: string
         custom: []
     cleanBodyParameters:
-      q: wqadxhxtylxeacrfsuenne
+      q: dch
     fileParameters: []
     responses:
       -

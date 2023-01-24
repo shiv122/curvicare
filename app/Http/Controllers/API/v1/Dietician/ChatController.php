@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\API\v1\Dietician;
 
+use DB;
+use Log;
+use App\Models\Blog;
 use App\Models\Chat;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
@@ -11,8 +14,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\RecipeResource;
 use App\Http\Resources\Chat\ChatResources;
 use App\Http\Resources\Chat\MessageResources;
-use DB;
-use Log;
 
 /**
  * 
@@ -95,10 +96,11 @@ class ChatController extends Controller
     {
         $request->validate([
             // message is required if media or recipe_id is not present
-            'message' => 'required_without_all:media,recipe_id|string|max:3000',
-            'media' => 'required_without_all:message,recipe_id|array|max:5',
-            'media.*' => 'required_without_all:message,recipe_id|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg,webm,mp3,wav,flac,avi,wmv,mpg,mpeg,3gp,3g2,m4v,pdf|max:2048',
-            'recipe_id' => 'required_without_all:message,media|exists:recipes,id',
+            'message' => 'required_without_all:media,recipe_id,blog_id|string|max:3000',
+            'media' => 'required_without_all:message,recipe_id,blog_id|array|max:5',
+            'media.*' => 'required_without_all:message,recipe_id,blog_id|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg,webm,mp3,wav,flac,avi,wmv,mpg,mpeg,3gp,3g2,m4v,pdf,doc,docx,xls,xlsx,ppt,pptx|max:2048',
+            'recipe_id' => 'required_without_all:message,media,blog_id',
+            'blog_id' => 'required_without_all:message,media,recipe_id',
             'reply_to' => 'nullable|exists:messages,id',
             'chat_id' => 'required|exists:chats,id',
         ]);
@@ -130,7 +132,11 @@ class ChatController extends Controller
         if ($request->hasFile('media')) {
             foreach ($request->file('media') as $key => $file) {
                 $type = $file->getMimeType();
+                \Log::info($type);
                 $type = explode('/', $type)[0];
+                if ($type === 'application') {
+                    $type = $file->getClientOriginalExtension();
+                }
                 $files[$type][$key] = $uploader->upload($file, 'uploads/' . $type, $type);
             }
             $media[] =  $message->media()->create([
@@ -147,7 +153,7 @@ class ChatController extends Controller
                 'compositions',
                 'tags',
             ])
-                ->find($request->recipe_id);
+                ->findOrFail($request->recipe_id);
 
             $recipe = new RecipeResource($recipe);
 
@@ -155,6 +161,22 @@ class ChatController extends Controller
                 'message_id' => $message->id,
                 'media_data' => json_encode($recipe),
                 'media_type' => 'recipe',
+                'created_at' => now(),
+            ]);
+        }
+
+        if ($request->blog_id) {
+            $blog = Blog::with([
+                'direct_tags',
+                'images',
+                'dietician'
+            ])
+                ->findOrFail($request->blog_id);
+
+            $media[] = $message->media()->create([
+                'message_id' => $message->id,
+                'media_data' => json_encode($blog),
+                'media_type' => 'blog',
                 'created_at' => now(),
             ]);
         }
