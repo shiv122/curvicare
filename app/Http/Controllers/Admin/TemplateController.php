@@ -174,15 +174,32 @@ class TemplateController extends Controller
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
 
-        [$breakfast, $lunch, $dinner, $pre_snack, $post_snack] = $helper->getAssignmentsByMeal($assignments);
+        $arr = [
+            'early_morning',
+            'breakfast',
+            'mid_morning',
+            'pre_lunch',
+            'lunch',
+            'post_lunch',
+            'pre_snack',
+            'evening_snack',
+            'post_snack',
+            'pre_dinner',
+            'dinner',
+            'post_dinner',
+        ];
 
-        return response()->json([
-            'breakfast' => view('components.Recipe.recipe-list', ['assignments' => $breakfast])->render(),
-            'lunch' => view('components.Recipe.recipe-list', ['assignments' => $lunch])->render(),
-            'dinner' => view('components.Recipe.recipe-list', ['assignments' => $dinner])->render(),
-            'pre_snack' => view('components.Recipe.recipe-list', ['assignments' => $pre_snack])->render(),
-            'post_snack' => view('components.Recipe.recipe-list', ['assignments' => $post_snack])->render(),
-        ]);
+
+        foreach ($arr as $key => $value) {
+            ${$value} = $helper->getAssignmentsByMeal($assignments, $value);
+        }
+
+        $res = [];
+
+        foreach ($arr as $key => $value) {
+            $res[$value] = view('components.Recipe.recipe-list', ['assignments' => ${$value}])->render();
+        }
+        return response()->json($res);
     }
 
 

@@ -220,6 +220,21 @@
 @section('page-script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
+        const arr = [
+            'early_morning',
+            'breakfast',
+            'mid_morning',
+            'pre_lunch',
+            'lunch',
+            'post_lunch',
+            'pre_snack',
+            'evening_snack',
+            'post_snack',
+            'pre_dinner',
+            'dinner',
+            'post_dinner',
+        ];
+        let temprary;
         $(document).on('click', '[data-target="#add-meal"]', function(e) {
             $('#add-meal input[name="for"]').val($(this).data('for'));
             $('#add-meal input[name="template"]').val($('#template').val());
@@ -308,11 +323,18 @@
                 route: "{{ route('admin.template.get-assignments') }}",
                 type: "GET",
                 successCallback: function(response) {
-                    $('#breakfast-data').html(response.breakfast);
-                    $('#lunch-data').html(response.lunch);
-                    $('#dinner-data').html(response.dinner);
-                    $('#post_snack-data').html(response.post_snack);
-                    $('#pre_snack-data').html(response.pre_snack);
+                    // $('#breakfast-data').html(response.breakfast);
+                    // $('#lunch-data').html(response.lunch);
+                    // $('#dinner-data').html(response.dinner);
+                    // $('#post_snack-data').html(response.post_snack);
+                    // $('#pre_snack-data').html(response.pre_snack);
+                    temprary = response;
+
+                    arr.forEach((item) => {
+
+                        $(`#${item}-data`).html(response[item]);
+                    });
+
                     $('.btn-holder').removeClass('d-none');
                     setTimeout(() => {
                         updateTabCount();
@@ -355,28 +377,12 @@
                                     </div>
                                 </div>
                             </div>`;
-            $('#breakfast-data').html(error_html);
-            $('#lunch-data').html(error_html);
-            $('#dinner-data').html(error_html);
-            $('#post_snack-data').html(error_html);
-            $('#pre_snack-data').html(error_html);
+            arr.forEach((item) => {
+                $(`#${item}-data`).html(error_html);
+            })
         }
 
         function updateTabCount() {
-            const arr = [
-                'early_morning',
-                'breakfast',
-                'mid_morning',
-                'pre_lunch',
-                'lunch',
-                'post_lunch',
-                'pre_snack',
-                'evening_snack',
-                'post_snack',
-                'pre_dinner',
-                'dinner',
-                'post_dinner',
-            ];
             arr.forEach((item) => {
                 const count = $(`#${item}-data .recipe-holder`).length;
                 appentBadge($(`#${item}-tab-fill`), count);

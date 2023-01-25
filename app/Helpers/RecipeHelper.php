@@ -25,15 +25,9 @@ class RecipeHelper
     }
 
 
-    public function  getAssignmentsByMeal($assignments)
+    public function  getAssignmentsByMeal($assignments, string $for)
     {
-        $breakfast = $assignments->where('for', 'breakfast');
-        $lunch = $assignments->where('for', 'lunch');
-        $dinner = $assignments->where('for', 'dinner');
-        $pre_snack = $assignments->where('for', 'pre_snack');
-        $post_snack = $assignments->where('for', 'post_snack');
-
-
-        return [$breakfast, $lunch, $dinner, $pre_snack, $post_snack];
+        $breakfast = $assignments->where('for', $for);
+        return $breakfast;
     }
 }
