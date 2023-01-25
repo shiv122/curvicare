@@ -193,7 +193,7 @@ class TemplateController extends Controller
             'day' => 'required|integer|gt:0',
             'recipes' => 'required|array',
             'recipes.*' => 'required|integer|exists:recipes,id',
-            'for' => 'required|in:breakfast,lunch,dinner,pre_snack,post_snack',
+            'for' => 'required|in:early_morning,breakfast,mid_morning,pre_lunch,lunch,post_lunch,pre_snack,evening_snack,post_snack,pre_dinner,dinner,post_dinner',
         ]);
 
         $template = Template::findOrFail($request->template);
