@@ -54,13 +54,6 @@ class UserSubscriptionOrderService
 
 
         $user = $request->user();
-        if ($user->isCurrentlySubscribed()) {
-            return response()->json([
-                'message' => 'You are already subscribed to a package',
-            ], 200);
-        }
-
-
 
 
         $package = Package::findOrFail($request->package_id);
