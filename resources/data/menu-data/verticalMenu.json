@@ -16,12 +16,6 @@
       "slug": "",
       "submenu": [
         {
-          "url": "/admin/user/add",
-          "name": "Add User",
-          "icon": "circle",
-          "slug": "admin.user.add"
-        },
-        {
           "url": "/admin/user",
           "name": "View User",
           "icon": "circle",

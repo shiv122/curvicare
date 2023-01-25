@@ -3,6 +3,7 @@
 @section('title', 'User Details')
 @section('page-style')
     <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-user.css')) }}" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
     <style>
         .badge i,
         .badge svg {
@@ -133,7 +134,8 @@
                                 <h4 class="card-title text-center">User Mood History</h4>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table data-toggle="table" data-search="true" data-pagination="true"
+                                    class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -165,7 +167,8 @@
                                 <h4 class="card-title text-center">User water intake history</h4>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table data-toggle="table" data-search="true" data-pagination="true"
+                                    class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -199,7 +202,8 @@
                                 <h4 class="card-title text-center">User step counter history</h4>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table data-toggle="table" data-search="true" data-pagination="true"
+                                    class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -233,7 +237,8 @@
                                 <h4 class="card-title text-center">User subscription history</h4>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table data-toggle="table" data-search="true" data-pagination="true"
+                                    class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -285,4 +290,5 @@
 @endsection
 
 @section('page-script')
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
 @endsection

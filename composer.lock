@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf2954380aa61ab97f4194552a019a02",
+    "content-hash": "f90e8f74a357ef4895338f1f11db9a13",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4723,20 +4723,20 @@
         },
         {
             "name": "opcodesio/log-viewer",
-            "version": "v1.7.2",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opcodesio/log-viewer.git",
-                "reference": "fffc6920a4964c502ae7aa4acf9f2b70a57d6828"
+                "reference": "d82d09c4db3cbf2c589aeb87aae16fbea642b56f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/fffc6920a4964c502ae7aa4acf9f2b70a57d6828",
-                "reference": "fffc6920a4964c502ae7aa4acf9f2b70a57d6828",
+                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/d82d09c4db3cbf2c589aeb87aae16fbea642b56f",
+                "reference": "d82d09c4db3cbf2c589aeb87aae16fbea642b56f",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^8.0|^9.0",
+                "illuminate/contracts": "^8.0|^9.0|^10.0",
                 "livewire/livewire": "^2.10",
                 "php": "^8.0"
             },
@@ -4747,7 +4747,7 @@
                 "itsgoingd/clockwork": "^5.1",
                 "laravel/pint": "^1.0",
                 "nunomaduro/collision": "^6.0",
-                "orchestra/testbench": "^7.6",
+                "orchestra/testbench": "^7.6|^8.0",
                 "pestphp/pest": "^1.21",
                 "pestphp/pest-plugin-laravel": "^1.1",
                 "phpunit/phpunit": "^9.5",
@@ -4792,9 +4792,9 @@
             ],
             "support": {
                 "issues": "https://github.com/opcodesio/log-viewer/issues",
-                "source": "https://github.com/opcodesio/log-viewer/tree/v1.7.2"
+                "source": "https://github.com/opcodesio/log-viewer/tree/v1.9.0"
             },
-            "time": "2022-11-22T05:57:23+00:00"
+            "time": "2023-01-12T17:13:13+00:00"
         },
         {
             "name": "paragonie/random_compat",

@@ -27,7 +27,16 @@ class UserDataTable extends DataTable
                 return '<a target="_blank" href="' . route('admin.user.view', $data->id) . '" class="btn btn-sm btn-primary">View</a>';
             })
 
-            ->escapeColumns('created_at');
+            ->editColumn('name', function ($data) {
+                if (!$data->name) return '<span class="badge badge-light-danger">Not Provided</span>';
+                return $data->name;
+            })
+            ->editColumn('email', function ($data) {
+                if (!$data->email) return '<span class="badge badge-light-danger">Not Provided</span>';
+                return $data->email;
+            })
+
+            ->escapeColumns('created_at', 'view', 'name', 'email');
     }
 
     /**
