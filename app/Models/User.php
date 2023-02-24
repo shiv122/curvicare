@@ -113,6 +113,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    public function daily_diet()
+    {
+        return $this->hasMany(UserDailyDiet::class);
+    }
+
 
 
 

@@ -1,18 +1,23 @@
-name: Endpoints
-description: ''
+name: 'User Diet'
+description: |-
+
+  APIs for User to get diet
 endpoints:
   -
     httpMethods:
       - GET
-      - POST
-    uri: api/broadcasting/auth
+    uri: api/v1/user/diet
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: 'User Diet'
+      groupDescription: |-
+
+        APIs for User to get diet
       subgroup: ''
       subgroupDescription: ''
-      title: 'Authenticate the request for channel access.'
-      description: ''
+      title: 'Get Diet'
+      description: |-
+        This API is used to get diet for user
+        if days is not provided then it will return diet for next 7 days
       authenticated: false
       custom: []
     headers:
@@ -22,15 +27,23 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      days:
+        name: days
+        description: ''
+        required: false
+        example: 13
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      days: 13
     fileParameters: []
     responses:
       -
         status: 404
         content: |-
           {
-              "message": "The route api/broadcasting/auth could not be found.",
+              "message": "The route api/v1/user/diet could not be found.",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
               "line": 44,

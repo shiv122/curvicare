@@ -422,7 +422,7 @@ endpoints:
         name: package_id
         description: ''
         required: true
-        example: 6
+        example: 13
         type: integer
         custom: []
       type:
@@ -443,7 +443,7 @@ endpoints:
         name: coupon_code
         description: 'Must be 255 characters.'
         required: false
-        example: aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv
+        example: ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi
         type: string
         custom: []
       form_data:
@@ -454,10 +454,10 @@ endpoints:
         type: object
         custom: []
     cleanBodyParameters:
-      package_id: 6
+      package_id: 13
       type: new
       currency: INR
-      coupon_code: aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv
+      coupon_code: ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi
       form_data: []
     fileParameters: []
     responses: []
@@ -494,11 +494,11 @@ endpoints:
         name: id
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: hggqcnlcpsnpsvdmehmm
+        example: ogdmbjfnwwplnhzisncbusegi
         type: string
         custom: []
     cleanBodyParameters:
-      id: hggqcnlcpsnpsvdmehmm
+      id: ogdmbjfnwwplnhzisncbusegi
     fileParameters: []
     responses: []
     responseFields: []

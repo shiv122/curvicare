@@ -60,6 +60,16 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
+                    <ul id="tocify-header-dietician-assigndiet" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="dietician-assigndiet">
+                    <a href="#dietician-assigndiet">Dietician AssignDiet</a>
+                </li>
+                                    <ul id="tocify-subheader-dietician-assigndiet" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="dietician-assigndiet-POSTapi-v1-dietician-diet-assign">
+                                <a href="#dietician-assigndiet-POSTapi-v1-dietician-diet-assign">Assign Diet</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-dietician-auth" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="dietician-auth">
                     <a href="#dietician-auth">Dietician Auth</a>
@@ -86,6 +96,9 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="dietician-basic-GETapi-v1-dietician-recipes">
                                 <a href="#dietician-basic-GETapi-v1-dietician-recipes">Get Recipes</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="dietician-basic-GETapi-v1-dietician-blogs">
+                                <a href="#dietician-basic-GETapi-v1-dietician-blogs">Get Blogs</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -178,6 +191,16 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-user-diet" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user-diet">
+                    <a href="#user-diet">User Diet</a>
+                </li>
+                                    <ul id="tocify-subheader-user-diet" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-diet-GETapi-v1-user-diet">
+                                <a href="#user-diet-GETapi-v1-user-diet">Get Diet</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-user-like" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="user-like">
                     <a href="#user-like">User Like</a>
@@ -247,7 +270,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 24, 2023</li>
+        <li>Last updated: February 24, 2023</li>
     </ul>
 </div>
 
@@ -263,7 +286,131 @@
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="dietician-auth">Dietician Auth</h1>
+        <h1 id="dietician-assigndiet">Dietician AssignDiet</h1>
+
+    <p>APIs for Dietician to assign diet to user</p>
+
+                                <h2 id="dietician-assigndiet-POSTapi-v1-dietician-diet-assign">Assign Diet</h2>
+
+<p>
+</p>
+
+<p>This API is used to assign diet to user</p>
+
+<span id="example-requests-POSTapi-v1-dietician-diet-assign">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:9000/api/v1/dietician/diet/assign" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": 13,
+    \"diet\": \"[\\\"dolores\\\",\\\"aliquam\\\"]\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/dietician/diet/assign"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 13,
+    "diet": "[\"dolores\",\"aliquam\"]"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-dietician-diet-assign">
+</span>
+<span id="execution-results-POSTapi-v1-dietician-diet-assign" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-dietician-diet-assign"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-dietician-diet-assign" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-dietician-diet-assign" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-dietician-diet-assign"></code></pre>
+</span>
+<form id="form-POSTapi-v1-dietician-diet-assign" data-method="POST"
+      data-path="api/v1/dietician/diet/assign"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-dietician-diet-assign', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/dietician/diet/assign</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-dietician-diet-assign"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-dietician-diet-assign"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="user_id"                data-endpoint="POSTapi-v1-dietician-diet-assign"
+               value="13"
+               data-component="body">
+    <br>
+<p>Example: <code>13</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>diet</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="diet"                data-endpoint="POSTapi-v1-dietician-diet-assign"
+               value="["dolores","aliquam"]"
+               data-component="body">
+    <br>
+<p>Must be a valid JSON string. Example: <code>["dolores","aliquam"]</code></p>
+        </div>
+        </form>
+
+                <h1 id="dietician-auth">Dietician Auth</h1>
 
     <p>APIs for user authentication/registration
 All auth related APIs are here</p>
@@ -286,8 +433,8 @@ if dietician is not found in database it will return error</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"atreutel@example.net\",
-    \"password\": \"eveniet\"
+    \"email\": \"muller.emmy@example.org\",
+    \"password\": \"ducimus\"
 }"
 </code></pre></div>
 
@@ -303,8 +450,8 @@ const headers = {
 };
 
 let body = {
-    "email": "atreutel@example.net",
-    "password": "eveniet"
+    "email": "muller.emmy@example.org",
+    "password": "ducimus"
 };
 
 fetch(url, {
@@ -371,10 +518,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-dietician-login"
-               value="atreutel@example.net"
+               value="muller.emmy@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>atreutel@example.net</code></p>
+<p>Must be a valid email address. Example: <code>muller.emmy@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -382,10 +529,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-v1-dietician-login"
-               value="eveniet"
+               value="ducimus"
                data-component="body">
     <br>
-<p>Example: <code>eveniet</code></p>
+<p>Example: <code>ducimus</code></p>
         </div>
         </form>
 
@@ -859,10 +1006,10 @@ access-control-allow-origin: *
     "http://127.0.0.1:9000/api/v1/dietician/update" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=scyxfyxujbmrtk" \
-    --form "phone=iizxaufimf" \
-    --form "address=cjpksyyzvlhmyojkw" \
-    --form "image=@C:\Users\7854\AppData\Local\Temp\phpC860.tmp" </code></pre></div>
+    --form "name=gzgvmwhoykob" \
+    --form "phone=ocgvgtchxm" \
+    --form "address=cvzdfqqofwcuqvyndy" \
+    --form "image=@C:\Users\7854\AppData\Local\Temp\php47F5.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -876,9 +1023,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'scyxfyxujbmrtk');
-body.append('phone', 'iizxaufimf');
-body.append('address', 'cjpksyyzvlhmyojkw');
+body.append('name', 'gzgvmwhoykob');
+body.append('phone', 'ocgvgtchxm');
+body.append('address', 'cvzdfqqofwcuqvyndy');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -945,10 +1092,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-dietician-update"
-               value="scyxfyxujbmrtk"
+               value="gzgvmwhoykob"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>scyxfyxujbmrtk</code></p>
+<p>Must not be greater than 255 characters. Example: <code>gzgvmwhoykob</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
@@ -959,7 +1106,7 @@ fetch(url, {
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\phpC860.tmp</code></p>
+<p>Must be an image. Must not be greater than 512 kilobytes. Example: <code>C:\Users\7854\AppData\Local\Temp\php47F5.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -967,10 +1114,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="phone"                data-endpoint="POSTapi-v1-dietician-update"
-               value="iizxaufimf"
+               value="ocgvgtchxm"
                data-component="body">
     <br>
-<p>Must be 10 characters. Example: <code>iizxaufimf</code></p>
+<p>Must be 10 characters. Example: <code>ocgvgtchxm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -978,10 +1125,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="address"                data-endpoint="POSTapi-v1-dietician-update"
-               value="cjpksyyzvlhmyojkw"
+               value="cvzdfqqofwcuqvyndy"
                data-component="body">
     <br>
-<p>Must not be greater than 3000 characters. Example: <code>cjpksyyzvlhmyojkw</code></p>
+<p>Must not be greater than 3000 characters. Example: <code>cvzdfqqofwcuqvyndy</code></p>
         </div>
         </form>
 
@@ -1001,14 +1148,14 @@ if id is provided, single template will be returned with its recipes</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:9000/api/v1/dietician/templates/unde" \
+    --get "http://127.0.0.1:9000/api/v1/dietician/templates/et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:9000/api/v1/dietician/templates/unde"
+    "http://127.0.0.1:9000/api/v1/dietician/templates/et"
 );
 
 const headers = {
@@ -1037,7 +1184,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The route api/v1/dietician/templates/unde could not be found.&quot;,
+    &quot;message&quot;: &quot;The route api/v1/dietician/templates/et could not be found.&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
     &quot;line&quot;: 44,
@@ -1443,10 +1590,10 @@ access-control-allow-origin: *
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="GETapi-v1-dietician-templates--id--"
-               value="unde"
+               value="et"
                data-component="url">
     <br>
-<p>The ID of the . Example: <code>unde</code></p>
+<p>The ID of the . Example: <code>et</code></p>
             </div>
                     </form>
 
@@ -1468,7 +1615,7 @@ You can also search recipes by name using query parameter q</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"q\": \"dch\"
+    \"q\": \"glohjvcfcntlrv\"
 }"
 </code></pre></div>
 
@@ -1484,7 +1631,7 @@ const headers = {
 };
 
 let body = {
-    "q": "dch"
+    "q": "glohjvcfcntlrv"
 };
 
 fetch(url, {
@@ -1915,12 +2062,462 @@ access-control-allow-origin: *
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="q"                data-endpoint="GETapi-v1-dietician-recipes"
-               value="dch"
+               value="glohjvcfcntlrv"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>dch</code></p>
+<p>Must not be greater than 255 characters. Example: <code>glohjvcfcntlrv</code></p>
         </div>
         </form>
+
+                    <h2 id="dietician-basic-GETapi-v1-dietician-blogs">Get Blogs</h2>
+
+<p>
+</p>
+
+<p>This endpoint is used to get blogs (paginated)</p>
+
+<span id="example-requests-GETapi-v1-dietician-blogs">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:9000/api/v1/dietician/blogs" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/dietician/blogs"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-dietician-blogs">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The route api/v1/dietician/blogs could not be found.&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
+    &quot;line&quot;: 44,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php&quot;,
+            &quot;line&quot;: 162,
+            &quot;function&quot;: &quot;handleMatchedRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\AbstractRouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 753,
+            &quot;function&quot;: &quot;match&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\RouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 740,
+            &quot;function&quot;: &quot;findRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 729,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php&quot;,
+            &quot;line&quot;: 19,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Livewire\\DisableBrowserCache&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php&quot;,
+            &quot;line&quot;: 52,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fruitcake\\Cors\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 312,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 152,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1022,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 314,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 168,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-dietician-blogs" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-dietician-blogs"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-dietician-blogs" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-dietician-blogs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-dietician-blogs"></code></pre>
+</span>
+<form id="form-GETapi-v1-dietician-blogs" data-method="GET"
+      data-path="api/v1/dietician/blogs"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dietician-blogs', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/dietician/blogs</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-dietician-blogs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-dietician-blogs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                 <h1 id="dietician-chat">Dietician Chat</h1>
 
@@ -2857,9 +3454,9 @@ access-control-allow-origin: *
     "http://127.0.0.1:9000/api/v1/dietician/chat/send-message" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "message=hllfkogstuzkteilidjietoz" \
-    --form "chat_id=ex" \
-    --form "media[]=@C:\Users\7854\AppData\Local\Temp\phpC8A0.tmp" </code></pre></div>
+    --form "message=t" \
+    --form "chat_id=temporibus" \
+    --form "media[]=@C:\Users\7854\AppData\Local\Temp\php4863.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2873,8 +3470,8 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('message', 'hllfkogstuzkteilidjietoz');
-body.append('chat_id', 'ex');
+body.append('message', 't');
+body.append('chat_id', 'temporibus');
 body.append('media[]', document.querySelector('input[name="media[]"]').files[0]);
 
 fetch(url, {
@@ -2941,10 +3538,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="message"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
-               value="hllfkogstuzkteilidjietoz"
+               value="t"
                data-component="body">
     <br>
-<p>message is required if media or recipe_id is not present. This field is required when none of <code>media</code> and <code>recipe_id</code> are present. Must not be greater than 3000 characters. Example: <code>hllfkogstuzkteilidjietoz</code></p>
+<p>message is required if media or recipe_id is not present. This field is required when none of <code>media</code>, <code>recipe_id</code>, and <code>blog_id</code> are present. Must not be greater than 3000 characters. Example: <code>t</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media</code></b>&nbsp;&nbsp;
@@ -2957,7 +3554,7 @@ fetch(url, {
                name="media[1]"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
                data-component="body">
     <br>
-<p>This field is required when none of <code>message</code> and <code>recipe_id</code> are present.  Must be a file. Must not be greater than 2048 kilobytes.</p>
+<p>This field is required when none of <code>message</code>, <code>recipe_id</code>, and <code>blog_id</code> are present.  Must be a file. Must not be greater than 2048 kilobytes.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>recipe_id</code></b>&nbsp;&nbsp;
@@ -2968,7 +3565,18 @@ fetch(url, {
                value=""
                data-component="body">
     <br>
-<p>This field is required when none of <code>message</code> and <code>media</code> are present.</p>
+<p>This field is required when none of <code>message</code>, <code>media</code>, and <code>blog_id</code> are present.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>blog_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="blog_id"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
+               value=""
+               data-component="body">
+    <br>
+<p>This field is required when none of <code>message</code>, <code>media</code>, and <code>recipe_id</code> are present.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>reply_to</code></b>&nbsp;&nbsp;
@@ -2987,10 +3595,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="chat_id"                data-endpoint="POSTapi-v1-dietician-chat-send-message"
-               value="ex"
+               value="temporibus"
                data-component="body">
     <br>
-<p>Example: <code>ex</code></p>
+<p>Example: <code>temporibus</code></p>
         </div>
         </form>
 
@@ -4502,14 +5110,14 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"et\",
-    \"dob\": \"2023-01-24T11:16:24\",
-    \"user_activity_id\": 11,
-    \"user_goal_id\": 18,
-    \"weight\": 151490344.06421348,
-    \"height\": 124.0699,
-    \"gender\": \"dolor\",
-    \"target_weight\": 16166
+    \"name\": \"est\",
+    \"dob\": \"2023-02-24T14:50:42\",
+    \"user_activity_id\": 8,
+    \"user_goal_id\": 19,
+    \"weight\": 766.04,
+    \"height\": 3630.495017753,
+    \"gender\": \"rerum\",
+    \"target_weight\": 426.33
 }"
 </code></pre></div>
 
@@ -4525,14 +5133,14 @@ const headers = {
 };
 
 let body = {
-    "name": "et",
-    "dob": "2023-01-24T11:16:24",
-    "user_activity_id": 11,
-    "user_goal_id": 18,
-    "weight": 151490344.06421348,
-    "height": 124.0699,
-    "gender": "dolor",
-    "target_weight": 16166
+    "name": "est",
+    "dob": "2023-02-24T14:50:42",
+    "user_activity_id": 8,
+    "user_goal_id": 19,
+    "weight": 766.04,
+    "height": 3630.495017753,
+    "gender": "rerum",
+    "target_weight": 426.33
 };
 
 fetch(url, {
@@ -4599,10 +5207,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-user"
-               value="et"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>dob</code></b>&nbsp;&nbsp;
@@ -4610,10 +5218,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="dob"                data-endpoint="POSTapi-v1-user"
-               value="2023-01-24T11:16:24"
+               value="2023-02-24T14:50:42"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-01-24T11:16:24</code></p>
+<p>Must be a valid date. Example: <code>2023-02-24T14:50:42</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_activity_id</code></b>&nbsp;&nbsp;
@@ -4621,10 +5229,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_activity_id"                data-endpoint="POSTapi-v1-user"
-               value="11"
+               value="8"
                data-component="body">
     <br>
-<p>Example: <code>11</code></p>
+<p>Example: <code>8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_goal_id</code></b>&nbsp;&nbsp;
@@ -4632,10 +5240,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_goal_id"                data-endpoint="POSTapi-v1-user"
-               value="18"
+               value="19"
                data-component="body">
     <br>
-<p>Example: <code>18</code></p>
+<p>Example: <code>19</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>weight</code></b>&nbsp;&nbsp;
@@ -4643,10 +5251,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="weight"                data-endpoint="POSTapi-v1-user"
-               value="151490344.06421"
+               value="766.04"
                data-component="body">
     <br>
-<p>Example: <code>151490344.06421</code></p>
+<p>Example: <code>766.04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>height</code></b>&nbsp;&nbsp;
@@ -4654,10 +5262,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="height"                data-endpoint="POSTapi-v1-user"
-               value="124.0699"
+               value="3630.495017753"
                data-component="body">
     <br>
-<p>Example: <code>124.0699</code></p>
+<p>Example: <code>3630.495017753</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>medical_conditions</code></b>&nbsp;&nbsp;
@@ -4678,10 +5286,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="gender"                data-endpoint="POSTapi-v1-user"
-               value="dolor"
+               value="rerum"
                data-component="body">
     <br>
-<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>dolor</code></p>
+<p>Must be one of <code>male</code>, <code>female</code>, or <code>other</code>. Example: <code>rerum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>target_weight</code></b>&nbsp;&nbsp;
@@ -4689,10 +5297,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="target_weight"                data-endpoint="POSTapi-v1-user"
-               value="16166"
+               value="426.33"
                data-component="body">
     <br>
-<p>Example: <code>16166</code></p>
+<p>Example: <code>426.33</code></p>
         </div>
         </form>
 
@@ -8026,8 +8634,8 @@ fetch(url, {
     "http://127.0.0.1:9000/api/v1/user/chat/send-message" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "message=e" \
-    --form "media[]=@C:\Users\7854\AppData\Local\Temp\phpC746.tmp" </code></pre></div>
+    --form "message=upcobukjtnftl" \
+    --form "media[]=@C:\Users\7854\AppData\Local\Temp\php46AC.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8041,7 +8649,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('message', 'e');
+body.append('message', 'upcobukjtnftl');
 body.append('media[]', document.querySelector('input[name="media[]"]').files[0]);
 
 fetch(url, {
@@ -8108,10 +8716,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="message"                data-endpoint="POSTapi-v1-user-chat-send-message"
-               value="e"
+               value="upcobukjtnftl"
                data-component="body">
     <br>
-<p>This field is required when <code>media</code> is not present. Must not be greater than 3000 characters. Example: <code>e</code></p>
+<p>This field is required when <code>media</code> is not present. Must not be greater than 3000 characters. Example: <code>upcobukjtnftl</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media</code></b>&nbsp;&nbsp;
@@ -8243,6 +8851,482 @@ fetch(url, {
                data-component="body">
     <br>
 <p>Example: <code>sunt</code></p>
+        </div>
+        </form>
+
+                <h1 id="user-diet">User Diet</h1>
+
+    <p>APIs for User to get diet</p>
+
+                                <h2 id="user-diet-GETapi-v1-user-diet">Get Diet</h2>
+
+<p>
+</p>
+
+<p>This API is used to get diet for user
+if days is not provided then it will return diet for next 7 days</p>
+
+<span id="example-requests-GETapi-v1-user-diet">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:9000/api/v1/user/diet" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"days\": 13
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:9000/api/v1/user/diet"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "days": 13
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-diet">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The route api/v1/user/diet could not be found.&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
+    &quot;line&quot;: 44,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php&quot;,
+            &quot;line&quot;: 162,
+            &quot;function&quot;: &quot;handleMatchedRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\AbstractRouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 753,
+            &quot;function&quot;: &quot;match&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\RouteCollection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 740,
+            &quot;function&quot;: &quot;findRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 729,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php&quot;,
+            &quot;line&quot;: 19,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Livewire\\DisableBrowserCache&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php&quot;,
+            &quot;line&quot;: 52,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fruitcake\\Cors\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 92,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 182,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 312,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 152,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1022,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 314,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 168,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\7854\\Desktop\\curvicare\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-diet" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-diet"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-diet" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-diet" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-diet"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-diet" data-method="GET"
+      data-path="api/v1/user/diet"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-diet', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/diet</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-diet"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-user-diet"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>days</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="days"                data-endpoint="GETapi-v1-user-diet"
+               value="13"
+               data-component="body">
+    <br>
+<p>Example: <code>13</code></p>
         </div>
         </form>
 
@@ -8957,10 +10041,10 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"package_id\": 6,
+    \"package_id\": 13,
     \"type\": \"new\",
     \"currency\": \"INR\",
-    \"coupon_code\": \"aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv\",
+    \"coupon_code\": \"ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi\",
     \"form_data\": []
 }"
 </code></pre></div>
@@ -8977,10 +10061,10 @@ const headers = {
 };
 
 let body = {
-    "package_id": 6,
+    "package_id": 13,
     "type": "new",
     "currency": "INR",
-    "coupon_code": "aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv",
+    "coupon_code": "ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi",
     "form_data": []
 };
 
@@ -9048,10 +10132,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="package_id"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="6"
+               value="13"
                data-component="body">
     <br>
-<p>Example: <code>6</code></p>
+<p>Example: <code>13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -9081,10 +10165,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="coupon_code"                data-endpoint="POSTapi-v1-user-subscription-create-order"
-               value="aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv"
+               value="ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi"
                data-component="body">
     <br>
-<p>Must be 255 characters. Example: <code>aitleoyqlejiqsghulggjfvtyswkjcrtouovsppnkbqtmhmyqiyivxclsurzpplovfhruipsbbbiggzwfevdvtccntywoiqbnayrywaefaxwtrgqcsnztolsfwghizxfesxvsvrmgndsrqgdlnfkzlnxefpofpfclaikhmewxnscidbzotyktgexepbtfjqjgtshcdtwxvqsdtkicvvonhozfazidoywibglrzghyywkmzmroakgdzjvxzrbmqv</code></p>
+<p>Must be 255 characters. Example: <code>ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>form_data</code></b>&nbsp;&nbsp;
@@ -9117,7 +10201,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": \"hggqcnlcpsnpsvdmehmm\"
+    \"id\": \"ogdmbjfnwwplnhzisncbusegi\"
 }"
 </code></pre></div>
 
@@ -9133,7 +10217,7 @@ const headers = {
 };
 
 let body = {
-    "id": "hggqcnlcpsnpsvdmehmm"
+    "id": "ogdmbjfnwwplnhzisncbusegi"
 };
 
 fetch(url, {
@@ -9200,10 +10284,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="POSTapi-v1-user-subscription-fetch-order"
-               value="hggqcnlcpsnpsvdmehmm"
+               value="ogdmbjfnwwplnhzisncbusegi"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>hggqcnlcpsnpsvdmehmm</code></p>
+<p>Must not be greater than 255 characters. Example: <code>ogdmbjfnwwplnhzisncbusegi</code></p>
         </div>
         </form>
 
@@ -10581,7 +11665,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mood\": 16
+    \"mood\": 2
 }"
 </code></pre></div>
 
@@ -10597,7 +11681,7 @@ const headers = {
 };
 
 let body = {
-    "mood": 16
+    "mood": 2
 };
 
 fetch(url, {
@@ -10664,10 +11748,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="mood"                data-endpoint="POSTapi-v1-user-tracker-mood"
-               value="16"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>16</code></p>
+<p>Example: <code>2</code></p>
         </div>
         </form>
 
@@ -11140,7 +12224,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"water_amount\": 42352
+    \"water_amount\": 57886330.08642
 }"
 </code></pre></div>
 
@@ -11156,7 +12240,7 @@ const headers = {
 };
 
 let body = {
-    "water_amount": 42352
+    "water_amount": 57886330.08642
 };
 
 fetch(url, {
@@ -11223,10 +12307,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="water_amount"                data-endpoint="POSTapi-v1-user-tracker-water"
-               value="42352"
+               value="57886330.08642"
                data-component="body">
     <br>
-<p>Example: <code>42352</code></p>
+<p>Example: <code>57886330.08642</code></p>
         </div>
         </form>
 
@@ -11699,7 +12783,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"step\": 8
+    \"step\": 1
 }"
 </code></pre></div>
 
@@ -11715,7 +12799,7 @@ const headers = {
 };
 
 let body = {
-    "step": 8
+    "step": 1
 };
 
 fetch(url, {
@@ -11782,10 +12866,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="step"                data-endpoint="POSTapi-v1-user-tracker-step"
-               value="8"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>1</code></p>
         </div>
         </form>
 
