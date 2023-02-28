@@ -35,9 +35,9 @@ class UserDailyDiet extends Model
         return $this->where('is_completed', true);
     }
 
-    public function scopeForUpcomingDays($query, int $days)
+    public function scopeForUpcomingDays($query, int $days, string $date = null)
     {
-        return $query->whereDate('schedule_date', '>=', today())
+        return $query->whereDate('schedule_date', '>=', $date ?? today())
             ->whereDate('schedule_date', '<=', today()->addDays($days)->toDateString());
     }
 }

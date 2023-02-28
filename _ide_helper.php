@@ -19957,6 +19957,16 @@
                         return $instance->lazyScanChunkSize();
         }
                     /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function shouldEagerScanLogFiles()
+        {
+                        /** @var \Opcodes\LogViewer\LogViewerService $instance */
+                        return $instance->shouldEagerScanLogFiles();
+        }
+                    /**
          * Get the maximum number of bytes of the log that we should display.
          *
          * @return int 

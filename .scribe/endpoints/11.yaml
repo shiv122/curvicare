@@ -30,19 +30,67 @@ endpoints:
         name: user_id
         description: ''
         required: true
-        example: 13
+        example: 17
         type: integer
         custom: []
       diet:
         name: diet
         description: 'Must be a valid JSON string.'
         required: true
-        example: '["dolores","aliquam"]'
+        example: '["distinctio","aut"]'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      user_id: 17
+      diet: '["distinctio","aut"]'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/dietician/diet/assigned
+    metadata:
+      groupName: 'Dietician AssignDiet'
+      groupDescription: |-
+
+        APIs for Dietician to assign diet to user
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Assigned Diet'
+      description: 'This API is used to get assigned diet to user by date'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: 13
+        type: integer
+        custom: []
+      date:
+        name: date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-02-27T15:38:04'
         type: string
         custom: []
     cleanBodyParameters:
       user_id: 13
-      diet: '["dolores","aliquam"]'
+      date: '2023-02-27T15:38:04'
     fileParameters: []
     responses: []
     responseFields: []

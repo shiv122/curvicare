@@ -422,7 +422,7 @@ endpoints:
         name: package_id
         description: ''
         required: true
-        example: 13
+        example: 15
         type: integer
         custom: []
       type:
@@ -436,14 +436,14 @@ endpoints:
         name: currency
         description: 'Must be one of <code>INR</code> or <code>USD</code>.'
         required: true
-        example: INR
+        example: USD
         type: string
         custom: []
       coupon_code:
         name: coupon_code
         description: 'Must be 255 characters.'
         required: false
-        example: ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi
+        example: djeiprkchpssujhkptxxxhgkupqasesalboabpvebxkkptgujlsbahtwvfdefhqzlapuepvrtqtpncfzblxysimctclcmhjdsxngoxregasmanqzjjprmbwyhpsgpgsskwrfsxfxlmjdovdthuarpifsqqkdbfypvfavrjfpbunitisxbhnfwitxgddjgdoqppkmgpjhlgzpynagefuhyoaezsjhuifcyaotisyovydddbcjsfwedfroysfhcmz
         type: string
         custom: []
       form_data:
@@ -454,10 +454,10 @@ endpoints:
         type: object
         custom: []
     cleanBodyParameters:
-      package_id: 13
+      package_id: 15
       type: new
-      currency: INR
-      coupon_code: ssuuvbwnqmqatustpbincrqngcduqjqjwgytjipwmjrupopnxggdlesdchelnweyxdokxvvxushghierjqkllcejbnwlkpvnhgyeoaethiwxjgvhqyshqybjnmjxtdsotidmyuuaedvbdiqidtgasulnuarzsjfhkavvxxkzjzsyavchbfdiqpdzvmfkrlwjosxnmicogihmlhpihpoxidvbhggaddbsvxjkizseqgkywtxvvwowmuyocoiopfi
+      currency: USD
+      coupon_code: djeiprkchpssujhkptxxxhgkupqasesalboabpvebxkkptgujlsbahtwvfdefhqzlapuepvrtqtpncfzblxysimctclcmhjdsxngoxregasmanqzjjprmbwyhpsgpgsskwrfsxfxlmjdovdthuarpifsqqkdbfypvfavrjfpbunitisxbhnfwitxgddjgdoqppkmgpjhlgzpynagefuhyoaezsjhuifcyaotisyovydddbcjsfwedfroysfhcmz
       form_data: []
     fileParameters: []
     responses: []
@@ -494,11 +494,11 @@ endpoints:
         name: id
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: ogdmbjfnwwplnhzisncbusegi
+        example: kqvvidxrbag
         type: string
         custom: []
     cleanBodyParameters:
-      id: ogdmbjfnwwplnhzisncbusegi
+      id: kqvvidxrbag
     fileParameters: []
     responses: []
     responseFields: []

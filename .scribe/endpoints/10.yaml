@@ -822,7 +822,7 @@ endpoints:
         name: message
         description: 'message is required if media or recipe_id is not present. This field is required when none of <code>media</code>, <code>recipe_id</code>, and <code>blog_id</code> are present. Must not be greater than 3000 characters.'
         required: false
-        example: t
+        example: jlfeyu
         type: string
         custom: []
       media:
@@ -858,12 +858,12 @@ endpoints:
         name: chat_id
         description: ''
         required: true
-        example: temporibus
+        example: deserunt
         type: string
         custom: []
     cleanBodyParameters:
-      message: t
-      chat_id: temporibus
+      message: jlfeyu
+      chat_id: deserunt
     fileParameters:
       media:
         - null

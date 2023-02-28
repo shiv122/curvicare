@@ -814,42 +814,42 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: est
+        example: explicabo
         type: string
         custom: []
       dob:
         name: dob
         description: 'Must be a valid date.'
         required: true
-        example: '2023-02-24T14:50:42'
+        example: '2023-02-27T15:38:03'
         type: string
         custom: []
       user_activity_id:
         name: user_activity_id
         description: ''
         required: true
-        example: 8
+        example: 10
         type: integer
         custom: []
       user_goal_id:
         name: user_goal_id
         description: ''
         required: true
-        example: 19
+        example: 11
         type: integer
         custom: []
       weight:
         name: weight
         description: ''
         required: true
-        example: 766.04
+        example: 292.630167696
         type: number
         custom: []
       height:
         name: height
         description: ''
         required: true
-        example: 3630.495017753
+        example: 18.8659
         type: number
         custom: []
       medical_conditions:
@@ -863,25 +863,25 @@ endpoints:
         name: gender
         description: 'Must be one of <code>male</code>, <code>female</code>, or <code>other</code>.'
         required: true
-        example: rerum
+        example: voluptatem
         type: string
         custom: []
       target_weight:
         name: target_weight
         description: ''
         required: false
-        example: 426.33
+        example: 131.4
         type: number
         custom: []
     cleanBodyParameters:
-      name: est
-      dob: '2023-02-24T14:50:42'
-      user_activity_id: 8
-      user_goal_id: 19
-      weight: 766.04
-      height: 3630.495017753
-      gender: rerum
-      target_weight: 426.33
+      name: explicabo
+      dob: '2023-02-27T15:38:03'
+      user_activity_id: 10
+      user_goal_id: 11
+      weight: 292.630167696
+      height: 18.8659
+      gender: voluptatem
+      target_weight: 131.4
     fileParameters: []
     responses: []
     responseFields: []

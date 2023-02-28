@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\v1\Dietician;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DietResource;
 use App\Models\UserDailyDiet;
 
 /**
@@ -54,5 +55,33 @@ class DietController extends Controller
         return response()->json([
             'message' => 'Diet assigned successfully',
         ]);
+    }
+
+
+    /**
+     * Get Assigned Diet
+     * 
+     * This API is used to get assigned diet to user by date
+     * 
+     */
+
+
+    public function assigned(Request $request)
+    {
+
+        $request->validate([
+            'user_id' => 'integer|required',
+            'date' => 'date|required',
+
+        ]);
+
+        $dietician = $request->user();
+
+        $diets = $dietician->assigned_daily_diets()
+            ->where('user_id', $request->user_id)
+            ->whereDate('schedule_date', '>', $request->date)
+            ->with(['user'])->get();
+
+        return DietResource::collection($diets);
     }
 }

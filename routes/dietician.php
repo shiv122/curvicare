@@ -29,5 +29,6 @@ Route::prefix('v1/dietician')
         });
         Route::prefix('diet')->controller(DietController::class)->group(function () {
             Route::post('assign', 'assign');
+            Route::post('assigned', 'assigned');
         });
     });

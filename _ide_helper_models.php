@@ -229,6 +229,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserDailyDiet[] $assigned_daily_diets
+ * @property-read int|null $assigned_daily_diets_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AssignedDietician[] $assignments
  * @property-read int|null $assignments_count
  * @property-read \App\Models\DieticianBankDetails|null $bank
@@ -971,6 +973,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property mixed|null $form_data
+ * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RazorpayOrder query()
@@ -1068,6 +1071,8 @@ namespace App\Models{
  * @property float $percentage
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Nutrient $nutrient
+ * @property-read \App\Models\Recipe $recipe
  * @method static \Illuminate\Database\Eloquent\Builder|RecipeComposition newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RecipeComposition newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RecipeComposition query()
@@ -1154,10 +1159,14 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property string|null $image
+ * @property int $days
+ * @property string $type
  * @property string|null $description
  * @property string $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Recipe[] $recipes
+ * @property-read int|null $recipes_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\TemplateRecipe[] $template_recipes
  * @property-read int|null $template_recipes_count
  * @method static \Illuminate\Database\Eloquent\Builder|Template active()
@@ -1165,11 +1174,13 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Template newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Template query()
  * @method static \Illuminate\Database\Eloquent\Builder|Template whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereDays($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Template whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Template whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Template whereImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Template whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Template whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Template whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Template whereUpdatedAt($value)
  */
 	class Template extends \Eloquent {}
@@ -1183,6 +1194,7 @@ namespace App\Models{
  * @property int $template_id
  * @property int $recipe_id
  * @property string $for breakfast, lunch, dinner, snack, dessert, etc.
+ * @property int $day
  * @property string $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -1192,6 +1204,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe query()
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereDay($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereFor($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TemplateRecipe whereRecipeId($value)
@@ -1252,6 +1265,8 @@ namespace App\Models{
  * @property-read int|null $assignments_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Chat[] $chats
  * @property-read int|null $chats_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserDailyDiet[] $daily_diet
+ * @property-read int|null $daily_diet_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserMedicalCondition[] $medical_conditions
  * @property-read int|null $medical_conditions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Message[] $messages
@@ -1317,6 +1332,40 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\UserDailyDiet
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $dietician_id
+ * @property mixed $diet
+ * @property string $schedule_date
+ * @property int $is_completed
+ * @property string|null $completed_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Dietician $dietician
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet completed()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet forUpcomingDays(int $days, ?string $date = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet query()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet uncompleted()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereCompletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereDiet($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereDieticianId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereIsCompleted($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereScheduleDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDailyDiet whereUserId($value)
+ */
+	class UserDailyDiet extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\UserData
  *
  * @property int $id
@@ -1325,6 +1374,7 @@ namespace App\Models{
  * @property string $gender
  * @property float $height
  * @property float $weight
+ * @property float|null $target_weight
  * @property int|null $user_activity_id
  * @property int|null $user_goal_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -1340,6 +1390,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|UserData whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserData whereHeight($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserData whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserData whereTargetWeight($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserData whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserData whereUserActivityId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserData whereUserGoalId($value)

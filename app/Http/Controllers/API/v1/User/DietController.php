@@ -29,9 +29,10 @@ class DietController extends Controller
 
         $request->validate([
             'days' => 'integer|nullable',
+            'date' => 'date|nullable',
         ]);
         $user = $request->user();
-        $diet = $user->daily_diet()->forUpcomingDays($request->days ?? 7)
+        $diet = $user->daily_diet()->forUpcomingDays($request->days ?? 7, $request->date)
             ->with('dietician')
             ->get();
 

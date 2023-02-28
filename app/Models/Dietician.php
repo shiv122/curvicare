@@ -45,6 +45,12 @@ class Dietician extends Authenticatable
     }
 
 
+    public function assigned_daily_diets()
+    {
+        return $this->hasMany(UserDailyDiet::class, 'dietician_id', 'id');
+    }
+
+
     public function chats()
     {
         return $this->hasManyThrough(

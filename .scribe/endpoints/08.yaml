@@ -34,19 +34,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: muller.emmy@example.org
+        example: marco81@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: ducimus
+        example: aperiam
         type: string
         custom: []
     cleanBodyParameters:
-      email: muller.emmy@example.org
-      password: ducimus
+      email: marco81@example.net
+      password: aperiam
     fileParameters: []
     responses: []
     responseFields: []
