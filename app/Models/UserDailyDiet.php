@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,6 +39,6 @@ class UserDailyDiet extends Model
     public function scopeForUpcomingDays($query, int $days, string $date = null)
     {
         return $query->whereDate('schedule_date', '>=', $date ?? today())
-            ->whereDate('schedule_date', '<=', today()->addDays($days)->toDateString());
+            ->whereDate('schedule_date', '<=', ($date) ? Carbon::parse($date)->addDays($days - 1) : today()->addDays($days - 1));
     }
 }

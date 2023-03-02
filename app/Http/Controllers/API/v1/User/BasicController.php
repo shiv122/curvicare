@@ -51,7 +51,15 @@ class BasicController extends Controller
     public function profile(Request $request)
     {
         $user = User::where('id', $request->user()->id)
-            ->with(['user_data' => ['user_goal', 'user_activity'], 'medical_conditions'])
+            ->with([
+                'user_data' => ['user_goal', 'user_activity'],
+                'medical_conditions',
+                'assignments' => function ($q) {
+                    return $q->orderBy('created_at', 'desc')->limit(1)->with(['assigned_dieticians' => function ($q) {
+                        return $q->orderBy('created_at', 'desc')->limit(1)->with(['dietician']);
+                    }]);
+                }
+            ])
             ->first();
 
         return response()->json($user);

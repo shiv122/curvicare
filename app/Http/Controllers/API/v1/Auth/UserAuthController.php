@@ -45,11 +45,11 @@ class UserAuthController extends Controller
         ]);
 
 
-        // $user = User::find(2)->createToken('user')->plainTextToken;
+
 
 
         // return response()->json([
-        //     'user' => $user,
+        //     'user' => User::find(2)->createToken('user')->plainTextToken,
         // ]);
 
         return $authService->authenticate($request);
