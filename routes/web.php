@@ -25,6 +25,9 @@ use App\Http\Controllers\Admin\Metadata\MoodController;
 use App\Http\Controllers\Admin\MiscellaneousController;
 use App\Http\Controllers\Admin\Metadata\QuoteController;
 use App\Http\Controllers\Admin\Metadata\ExpertiseController;
+use App\Http\Controllers\Admin\Support\ChatController;
+use App\Http\Controllers\Admin\Support\TicketController;
+use App\Http\Controllers\Admin\Support\TicketQuestionController;
 
 Route::prefix('admin')->middleware(['web'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -199,12 +202,44 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     });
 
 
+
+
+
+
     Route::name('product.')->prefix('product')->controller(ProductController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('add', 'add')->name('add');
         Route::post('store', 'store')->name('store');
         Route::put('status', 'status')->name('status');
     });
+
+
+
+    Route::name('ticket.')->prefix('ticket')->controller(TicketController::class)->group(function () {
+
+
+
+        Route::name('question.')->prefix('question')->controller(TicketQuestionController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::post('update', 'update')->name('update');
+            Route::delete('destroy/{id}', 'destroy')->name('destroy');
+            Route::put('status', 'status')->name('status');
+        });
+
+
+        Route::get('/', 'index')->name('index');
+        Route::post('reply', 'reply')->name('reply');
+    });
+
+    Route::name('chat.')->prefix('chat')->controller(ChatController::class)->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('by-user', 'chatByUser')->name('by-user');
+        Route::post('send', 'send')->name('send');
+    });
+
+
 
 
     Route::name('setting.')->prefix('setting')->controller(SettingController::class)->group(function () {

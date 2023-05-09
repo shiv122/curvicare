@@ -43,11 +43,11 @@ $(function () {
     }
 
     // Chat area
-    if (userChats.length > 0) {
-      var chatsUser = new PerfectScrollbar(userChats[0], {
-        wheelPropagation: false
-      });
-    }
+    // if (userChats.length > 0) {
+    //   var chatsUser = new PerfectScrollbar(userChats[0], {
+    //     wheelPropagation: false
+    //   });
+    // }
 
     // User profile right area
     if (profileSidebarArea.length > 0) {

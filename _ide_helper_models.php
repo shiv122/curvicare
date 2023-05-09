@@ -1132,6 +1132,36 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\SupportChat
+ *
+ * @property int $id
+ * @property string|null $message
+ * @property string|null $file
+ * @property int $user_id
+ * @property string $from
+ * @property int $read_by_admin
+ * @property int $read_by_user
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereFrom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereReadByAdmin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereReadByUser($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SupportChat whereUserId($value)
+ */
+	class SupportChat extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Tag
  *
  * @property int $id
@@ -1245,6 +1275,61 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Ticket
+ *
+ * @property int $id
+ * @property string $ticket_no
+ * @property int $user_id
+ * @property int $ticket_question_id
+ * @property string $description
+ * @property string|null $reply
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\TicketQuestion $question
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereReply($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereTicketNo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereTicketQuestionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereUserId($value)
+ */
+	class Ticket extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\TicketQuestion
+ *
+ * @property int $id
+ * @property string $question
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Ticket[] $tickets
+ * @property-read int|null $tickets_count
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion active()
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion whereQuestion($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TicketQuestion whereUpdatedAt($value)
+ */
+	class TicketQuestion extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property int $id
@@ -1279,6 +1364,10 @@ namespace App\Models{
  * @property-read int|null $steps_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserSubscription[] $subscriptions
  * @property-read int|null $subscriptions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SupportChat[] $support_chats
+ * @property-read int|null $support_chats_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Ticket[] $tickets
+ * @property-read int|null $tickets_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
  * @property-read \App\Models\UserData|null $user_data

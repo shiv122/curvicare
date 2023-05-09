@@ -8,6 +8,7 @@ use App\Http\Controllers\API\v1\Auth\UserAuthController;
 use App\Http\Controllers\API\v1\User\ChatController;
 use App\Http\Controllers\API\v1\User\DietController;
 use App\Http\Controllers\API\v1\User\SubscriptionController;
+use App\Http\Controllers\API\v1\User\SupportController;
 
 Route::prefix('v1/user')->group(function () {
     Route::post('login', [UserAuthController::class, 'login']);
@@ -73,6 +74,16 @@ Route::prefix('v1/user')->group(function () {
                 ->prefix('diet')
                 ->group(function () {
                     Route::get('/', 'index');
+                });
+
+            Route::controller(SupportController::class)
+                ->prefix('support')
+                ->group(function () {
+                    Route::get('get-questions', 'getQuestions');
+                    Route::get('get-tickets', 'getTickets');
+                    Route::post('raise-ticket', 'raiseTicket');
+                    Route::get('chat', 'getChat');
+                    Route::post('send-message', 'sendMessage');
                 });
         });
 });

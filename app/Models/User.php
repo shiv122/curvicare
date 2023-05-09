@@ -119,6 +119,17 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+
+    public function support_chats()
+    {
+        return $this->hasMany(SupportChat::class);
+    }
+
 
 
     /*

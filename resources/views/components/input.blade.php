@@ -4,7 +4,7 @@
     @endif
     @if ($type == 'textarea')
         <textarea @if ($required) required @endif {!! $attrs !!} class="form-control"
-            id="{{ $id ?? $name }}" name="{{ $name }}" rows="3">{{ $value }}</textarea>
+            id="{{ $id ?? $name }}" name="{{ $name }}" rows="5">{{ $value }}</textarea>
         @if (!empty($helperText))
             <p><small class="text-muted">{{ $helperText }}</small></p>
         @endif
