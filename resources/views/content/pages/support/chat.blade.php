@@ -57,13 +57,13 @@
                     <input type="text" class="form-control message" name="message" id="message"
                         placeholder="Type your message or use speech to text" />
 
-                    <div class="input-group-append">
+                    {{-- <div class="input-group-append">
                         <span class="input-group-text">
                             <label for="attach-doc" class="attachment-icon mb-0">
                                 <i data-feather="image" class="cursor-pointer lighten-2 text-secondary"></i>
                                 <input name="file" accept="image/*" type="file" id="attach-doc" hidden />
                             </label></span>
-                    </div>
+                    </div> --}}
                 </div>
                 <button type="submit" class="btn btn-primary send">
                     <i data-feather="send" class="d-lg-none"></i>
