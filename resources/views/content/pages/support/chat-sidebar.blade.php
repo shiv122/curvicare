@@ -128,8 +128,7 @@
                             </p>
                         </div>
                         <div class="chat-meta text-nowrap">
-                            <small
-                                class="float-right mb-25 chat-time">{{ $chat->created_at->format('d-m-Y H:i A') }}</small>
+                            {{-- <small class="float-right mb-25 chat-time">{{ $chat->created_at->format('d-m H:i A') }}</small> --}}
                             @if ($chat->user->unread > 0)
                                 <span data-unread
                                     class="badge badge-danger badge-pill float-right">{{ $chat->user->unread }}</span>

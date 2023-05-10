@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ChatController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $pageConfigs = [
             'pageHeader' => false,
@@ -30,6 +30,10 @@ class ChatController extends Controller
                 }
             ])->get();
 
+
+        if ($request->ajax()) {
+            return view('content.ajax-component.support.support-sidebar-users', compact('chats'));
+        }
 
 
         return view('content.pages.support.chat', compact('pageConfigs', 'chats'));

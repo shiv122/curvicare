@@ -6,6 +6,17 @@
     <!-- Page css files -->
     <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-chat.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-chat-list.css')) }}">
+    <style>
+        .chat-application .sidebar-content .chat-user-list-wrapper .avatar {
+            height: 42px;
+            width: 42px;
+        }
+
+        .chat-application .sidebar-content .avatar .avatar-content {
+            height: 42px;
+            width: 42px;
+        }
+    </style>
 @endsection
 @include('content/pages/support/chat-sidebar')
 @section('content')
@@ -86,8 +97,8 @@
             if ($(this).hasClass('custom-active')) {
                 return;
             } else {
-                $('.chat-users-list > li').removeClass('custom-active');
-                $(this).addClass('custom-active');
+                $('.chat-users-list > li').removeClass('active custom-active');
+                $(this).addClass('active custom-active');
             }
 
             const user = $(this).data('user');
@@ -199,6 +210,31 @@
                 fetchMessage(current_user, ++pagination, false)
             }
         });
+
+
+        // function refetchUsers() {
+
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "{{ route('admin.chat.index') }}",
+        //         data: "",
+        //         success: function(response) {
+        //             if ($('#users-list .chat-users-list').html() !== response) {
+
+        //                 $('#users-list .chat-users-list').html(response);
+        //             }
+        //         },
+        //         error: function(response) {
+        //             snb('error', 'Error', 'Somting went wrong while updating users list');
+        //         }
+        //     });
+
+
+        //     setTimeout(() => {
+        //         // refetchUsers()
+        //     }, 5000);
+        // }
+        // refetchUsers();
     </script>
     <script defer src="{{ asset(mix('js/scripts/pages/app-chat.js')) }}"></script>
 @endsection

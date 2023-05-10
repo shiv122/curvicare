@@ -12,6 +12,14 @@ use App\Http\Resources\Support\TicketResource;
 use App\Http\Resources\Support\SupportChatResource;
 use App\Http\Resources\Support\TicketQuestionResource;
 
+
+/**
+ * @group User Support
+ * 
+ * APIs for Ticket/Chat support
+ */
+
+
 class SupportController extends Controller
 {
 
