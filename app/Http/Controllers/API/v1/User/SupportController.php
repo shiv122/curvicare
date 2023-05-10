@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Support\TicketResource;
 use App\Http\Resources\Support\SupportChatResource;
 use App\Http\Resources\Support\TicketQuestionResource;
-
+use App\Models\Ticket;
 
 /**
  * @group User Support
@@ -53,7 +53,10 @@ class SupportController extends Controller
     {
         $user = $request->user();
 
-        $tickets = $user->tickets->load(['question']);
+        $tickets = Ticket::where('user_id', $user->id)
+            ->orderBy('id', 'desc')
+            ->with(['question'])
+            ->get();
 
         return TicketResource::collection($tickets);
     }
@@ -99,7 +102,9 @@ class SupportController extends Controller
     {
         $user = $request->user();
 
-        $chats = SupportChat::where('user_id', $user->id)->simplePaginate(40);
+        $chats = SupportChat::where('user_id', $user->id)
+            ->orderBy('id', 'desc')
+            ->simplePaginate(40);
 
         return SupportChatResource::collection($chats);
     }
