@@ -32,19 +32,19 @@ endpoints:
         name: days
         description: ''
         required: false
-        example: 17
+        example: 11
         type: integer
         custom: []
       date:
         name: date
         description: 'Must be a valid date.'
         required: false
-        example: '2023-02-27T15:38:04'
+        example: '2023-05-10T11:21:37'
         type: string
         custom: []
     cleanBodyParameters:
-      days: 17
-      date: '2023-02-27T15:38:04'
+      days: 11
+      date: '2023-05-10T11:21:37'
     fileParameters: []
     responses:
       -

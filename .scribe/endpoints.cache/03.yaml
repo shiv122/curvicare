@@ -424,7 +424,7 @@ endpoints:
         name: package_id
         description: ''
         required: true
-        example: 15
+        example: 13
         type: integer
         custom: []
       type:
@@ -445,7 +445,7 @@ endpoints:
         name: coupon_code
         description: 'Must be 255 characters.'
         required: false
-        example: djeiprkchpssujhkptxxxhgkupqasesalboabpvebxkkptgujlsbahtwvfdefhqzlapuepvrtqtpncfzblxysimctclcmhjdsxngoxregasmanqzjjprmbwyhpsgpgsskwrfsxfxlmjdovdthuarpifsqqkdbfypvfavrjfpbunitisxbhnfwitxgddjgdoqppkmgpjhlgzpynagefuhyoaezsjhuifcyaotisyovydddbcjsfwedfroysfhcmz
+        example: uxuxucokodvvxopqlbhzcazkdfuyjhmucvtrxcmmgaktzdyejwdwzjgjxnivrwetefanepklnbuigizdaaicqhlwmasoulptqmsxajoypxzbjsxxathftmqrtpprmtjejtdgbcxhvofgmmczvazvxefzqwcovpjylvhbqshhteqopfijjmioowearjrsowdfbzzmlbuxekibubodramkvkbvtiplxwkjjqswvntrazovwvmuizfqgdkvksotfpp
         type: string
         custom: []
       form_data:
@@ -456,10 +456,10 @@ endpoints:
         type: object
         custom: []
     cleanBodyParameters:
-      package_id: 15
+      package_id: 13
       type: new
       currency: USD
-      coupon_code: djeiprkchpssujhkptxxxhgkupqasesalboabpvebxkkptgujlsbahtwvfdefhqzlapuepvrtqtpncfzblxysimctclcmhjdsxngoxregasmanqzjjprmbwyhpsgpgsskwrfsxfxlmjdovdthuarpifsqqkdbfypvfavrjfpbunitisxbhnfwitxgddjgdoqppkmgpjhlgzpynagefuhyoaezsjhuifcyaotisyovydddbcjsfwedfroysfhcmz
+      coupon_code: uxuxucokodvvxopqlbhzcazkdfuyjhmucvtrxcmmgaktzdyejwdwzjgjxnivrwetefanepklnbuigizdaaicqhlwmasoulptqmsxajoypxzbjsxxathftmqrtpprmtjejtdgbcxhvofgmmczvazvxefzqwcovpjylvhbqshhteqopfijjmioowearjrsowdfbzzmlbuxekibubodramkvkbvtiplxwkjjqswvntrazovwvmuizfqgdkvksotfpp
       form_data: []
     fileParameters: []
     responses: []
@@ -496,11 +496,11 @@ endpoints:
         name: id
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: kqvvidxrbag
+        example: ayymyvvitpshsbvmoxfawxt
         type: string
         custom: []
     cleanBodyParameters:
-      id: kqvvidxrbag
+      id: ayymyvvitpshsbvmoxfawxt
     fileParameters: []
     responses: []
     responseFields: []

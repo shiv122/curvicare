@@ -17,6 +17,7 @@ use App\Http\Resources\Support\TicketQuestionResource;
  * @group User Support
  * 
  * APIs for Ticket/Chat support
+ *  @authenticated
  */
 
 
@@ -24,12 +25,28 @@ class SupportController extends Controller
 {
 
 
+    /**
+     * 
+     * Get Question 
+     * 
+     * This api will return predefined question of tickets
+     * @authenticated 
+     */
+
     public function getQuestions()
     {
         $questions = TicketQuestion::active()->get();
 
         return TicketQuestionResource::collection($questions);
     }
+
+    /**
+     * 
+     * Get Tickets 
+     * 
+     * This api will return Ticket raised by user
+     * @authenticated 
+     */
 
 
     public function getTickets(Request $request)
@@ -40,6 +57,13 @@ class SupportController extends Controller
 
         return TicketResource::collection($tickets);
     }
+    /**
+     * 
+     * Raise Ticket
+     * 
+     * This api will create a ticket
+     * @authenticated 
+     */
 
 
     public function raiseTicket(Request $request)
@@ -63,7 +87,13 @@ class SupportController extends Controller
         ]);
     }
 
-
+    /**
+     * 
+     * Get Chat
+     * 
+     * This api will return message from user and support
+     * @authenticated 
+     */
 
     public function getChat(Request $request)
     {
@@ -74,6 +104,13 @@ class SupportController extends Controller
         return SupportChatResource::collection($chats);
     }
 
+    /**
+     * 
+     * Send Message
+     * 
+     * This api will send message to support
+     * @authenticated 
+     */
     public function sendMessage(Request $request, FileUploader $uploader)
     {
         $request->validate([
