@@ -257,21 +257,21 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 122,
+                      "line": 124,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 69,
+                      "line": 71,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 47,
+                      "line": 49,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -313,14 +313,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 651,
+                      "line": 661,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 182,
+                      "line": 183,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
@@ -334,7 +334,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 152,
+                      "line": 153,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
@@ -422,7 +422,7 @@ endpoints:
         name: package_id
         description: ''
         required: true
-        example: 13
+        example: 18
         type: integer
         custom: []
       type:
@@ -443,7 +443,7 @@ endpoints:
         name: coupon_code
         description: 'Must be 255 characters.'
         required: false
-        example: uxuxucokodvvxopqlbhzcazkdfuyjhmucvtrxcmmgaktzdyejwdwzjgjxnivrwetefanepklnbuigizdaaicqhlwmasoulptqmsxajoypxzbjsxxathftmqrtpprmtjejtdgbcxhvofgmmczvazvxefzqwcovpjylvhbqshhteqopfijjmioowearjrsowdfbzzmlbuxekibubodramkvkbvtiplxwkjjqswvntrazovwvmuizfqgdkvksotfpp
+        example: zfpxviofuvrnyfcnalikpzfsoayqozdzttmktexcrylcugkveorucddtxmpszvwlwpprqvpybpokifmzazgcfbtrtjuqgtzzuyhtphvfxeqcyjpjvcieymccsqtrpmbdsubfghsgpjdagbwxlebxfjiqlrhfenxuuimaccejyzyymuxrspdghgbvwyxmoepbeavictwctoszqtibookjcqgdcieagittulaudsmmcajhifucyfwoprgeraikzgs
         type: string
         custom: []
       form_data:
@@ -454,10 +454,10 @@ endpoints:
         type: object
         custom: []
     cleanBodyParameters:
-      package_id: 13
+      package_id: 18
       type: new
       currency: USD
-      coupon_code: uxuxucokodvvxopqlbhzcazkdfuyjhmucvtrxcmmgaktzdyejwdwzjgjxnivrwetefanepklnbuigizdaaicqhlwmasoulptqmsxajoypxzbjsxxathftmqrtpprmtjejtdgbcxhvofgmmczvazvxefzqwcovpjylvhbqshhteqopfijjmioowearjrsowdfbzzmlbuxekibubodramkvkbvtiplxwkjjqswvntrazovwvmuizfqgdkvksotfpp
+      coupon_code: zfpxviofuvrnyfcnalikpzfsoayqozdzttmktexcrylcugkveorucddtxmpszvwlwpprqvpybpokifmzazgcfbtrtjuqgtzzuyhtphvfxeqcyjpjvcieymccsqtrpmbdsubfghsgpjdagbwxlebxfjiqlrhfenxuuimaccejyzyymuxrspdghgbvwyxmoepbeavictwctoszqtibookjcqgdcieagittulaudsmmcajhifucyfwoprgeraikzgs
       form_data: []
     fileParameters: []
     responses: []
@@ -494,11 +494,11 @@ endpoints:
         name: id
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: ayymyvvitpshsbvmoxfawxt
+        example: gecbwmbcffpfuu
         type: string
         custom: []
     cleanBodyParameters:
-      id: ayymyvvitpshsbvmoxfawxt
+      id: gecbwmbcffpfuu
     fileParameters: []
     responses: []
     responseFields: []

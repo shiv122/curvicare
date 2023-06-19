@@ -34,19 +34,19 @@ endpoints:
         name: days
         description: ''
         required: false
-        example: 11
+        example: 9
         type: integer
         custom: []
       date:
         name: date
         description: 'Must be a valid date.'
         required: false
-        example: '2023-05-10T11:21:37'
+        example: '2023-06-19T11:11:58'
         type: string
         custom: []
     cleanBodyParameters:
-      days: 11
-      date: '2023-05-10T11:21:37'
+      days: 9
+      date: '2023-06-19T11:11:58'
     fileParameters: []
     responses:
       -
@@ -277,21 +277,21 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 122,
+                      "line": 124,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 69,
+                      "line": 71,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 47,
+                      "line": 49,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -333,14 +333,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 651,
+                      "line": 661,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 182,
+                      "line": 183,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
@@ -354,7 +354,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 152,
+                      "line": 153,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"

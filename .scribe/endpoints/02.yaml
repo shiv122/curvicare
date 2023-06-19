@@ -257,21 +257,21 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 122,
+                      "line": 124,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 69,
+                      "line": 71,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 47,
+                      "line": 49,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -313,14 +313,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 651,
+                      "line": 661,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 182,
+                      "line": 183,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
@@ -334,7 +334,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 152,
+                      "line": 153,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
@@ -649,21 +649,21 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 122,
+                      "line": 124,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 69,
+                      "line": 71,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 47,
+                      "line": 49,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -705,14 +705,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 651,
+                      "line": 661,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 182,
+                      "line": 183,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
@@ -726,7 +726,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 152,
+                      "line": 153,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
@@ -1041,21 +1041,21 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 122,
+                      "line": 124,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 69,
+                      "line": 71,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 47,
+                      "line": 49,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -1097,14 +1097,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 651,
+                      "line": 661,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 182,
+                      "line": 183,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
@@ -1118,7 +1118,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 152,
+                      "line": 153,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
@@ -1206,11 +1206,11 @@ endpoints:
         name: mood
         description: ''
         required: true
-        example: 12
+        example: 1
         type: integer
         custom: []
     cleanBodyParameters:
-      mood: 12
+      mood: 1
     fileParameters: []
     responses: []
     responseFields: []
@@ -1473,21 +1473,21 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 122,
+                      "line": 124,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 69,
+                      "line": 71,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 47,
+                      "line": 49,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -1529,14 +1529,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 651,
+                      "line": 661,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 182,
+                      "line": 183,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
@@ -1550,7 +1550,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 152,
+                      "line": 153,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
@@ -1638,11 +1638,11 @@ endpoints:
         name: water_amount
         description: ''
         required: true
-        example: 8.0957
+        example: 18.0
         type: number
         custom: []
     cleanBodyParameters:
-      water_amount: 8.0957
+      water_amount: 18.0
     fileParameters: []
     responses: []
     responseFields: []
@@ -1905,21 +1905,21 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 122,
+                      "line": 124,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 69,
+                      "line": 71,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 47,
+                      "line": 49,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
@@ -1961,14 +1961,14 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 651,
+                      "line": 661,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 182,
+                      "line": 183,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
@@ -1982,7 +1982,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 152,
+                      "line": 153,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
@@ -2070,11 +2070,11 @@ endpoints:
         name: step
         description: ''
         required: true
-        example: 5
+        example: 6
         type: integer
         custom: []
     cleanBodyParameters:
-      step: 5
+      step: 6
     fileParameters: []
     responses: []
     responseFields: []
