@@ -14,6 +14,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\RecipeResource;
 use App\Http\Resources\Chat\ChatResources;
 use App\Http\Resources\Chat\MessageResources;
+use App\Http\Resources\WeeklyReportResource;
+use App\Models\WeeklyReport;
 
 /**
  * 
@@ -202,5 +204,20 @@ class ChatController extends Controller
             'message' => 'Message sent successfully',
             'data' => new MessageResources($message)
         ]);
+    }
+
+
+
+    /**
+     * Weekly Report By User
+     */
+
+
+
+    public function weeklyReport($user)
+    {
+        $report = WeeklyReport::where('user_id', $user)->get();
+
+        return WeeklyReportResource::collection($report);
     }
 }

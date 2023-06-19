@@ -5,8 +5,10 @@ use App\Http\Controllers\API\v1\User\LikeController;
 use App\Http\Controllers\API\v1\User\BasicController;
 use App\Http\Controllers\API\v1\User\TrackerController;
 use App\Http\Controllers\API\v1\Auth\UserAuthController;
+use App\Http\Controllers\API\v1\User\CallController;
 use App\Http\Controllers\API\v1\User\ChatController;
 use App\Http\Controllers\API\v1\User\DietController;
+use App\Http\Controllers\API\v1\User\ReportController;
 use App\Http\Controllers\API\v1\User\SubscriptionController;
 use App\Http\Controllers\API\v1\User\SupportController;
 
@@ -84,6 +86,19 @@ Route::prefix('v1/user')->group(function () {
                     Route::post('raise-ticket', 'raiseTicket');
                     Route::get('chat', 'getChat');
                     Route::post('send-message', 'sendMessage');
+                });
+            Route::controller(CallController::class)
+                ->prefix('call')
+                ->group(function () {
+                    Route::get('/', 'index');
+                    Route::post('start', 'start');
+                    Route::post('end', 'end');
+                });
+            Route::controller(ReportController::class)
+                ->prefix('report')
+                ->group(function () {
+                    Route::get('/', 'index');
+                    Route::post('submit', 'submit');
                 });
         });
 });

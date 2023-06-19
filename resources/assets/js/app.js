@@ -26,8 +26,8 @@ require("./bootstrap");
 //     console.log(e.message);
 //   });
 
-window.Echo.private("user-channel." + window.me.id).listen(
-  ".notification",
+window.Echo.private("user." + window.me.id + '.call').listen(
+  ".incoming",
   (e) => {
     console.log(e);
   }

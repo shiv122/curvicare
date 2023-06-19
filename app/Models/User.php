@@ -131,6 +131,18 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    public function calls()
+    {
+        return $this->hasMany(Call::class);
+    }
+
+
+    public function weekly_reports()
+    {
+        return $this->hasMany(WeeklyReport::class);
+    }
+
+
 
     /*
     |--------------------------------------------------------------------------

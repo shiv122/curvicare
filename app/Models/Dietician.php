@@ -70,6 +70,13 @@ class Dietician extends Authenticatable
 
 
 
+    public function calls()
+    {
+        return $this->hasMany(Call::class);
+    }
+
+
+
     //scopes
     public function scopeActive($query, $status = 'active')
     {

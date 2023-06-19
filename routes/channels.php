@@ -1,8 +1,10 @@
 <?php
 
-use App\Broadcasting\Dietician\BasicDieticianChannel;
-use App\Broadcasting\User\BasicUserChannel;
 use Illuminate\Support\Facades\Broadcast;
+use App\Broadcasting\User\UserCallChannel;
+use App\Broadcasting\User\BasicUserChannel;
+use App\Broadcasting\Dietician\DieticianCallChannel;
+use App\Broadcasting\Dietician\BasicDieticianChannel;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,9 @@ use Illuminate\Support\Facades\Broadcast;
 
 
 Broadcast::channel('user-channel.{id}', BasicUserChannel::class);
+
+Broadcast::channel('user.{id}.call', UserCallChannel::class);
+
 Broadcast::channel('DChannel.{id}', BasicDieticianChannel::class);
+
+Broadcast::channel('doctor.{id}.call', DieticianCallChannel::class);
