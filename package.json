@@ -10,15 +10,23 @@
     "production": "mix --production"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.27.2",
+    "@editorjs/list": "^1.8.0",
+    "@editorjs/paragraph": "^2.9.0",
     "bootstrap": "4.6.0",
+    "editorjs-header-with-anchor": "^2.6.0",
     "moment": "^2.29.1",
     "requirejs": "^2.3.6",
     "vivus": "^0.4.6",
     "waypoints": "^4.0.1"
   },
   "devDependencies": {
+    "@editorjs/image": "^2.8.1",
     "axios": "^0.21",
     "cross-env": "^5.2.1",
+    "editorjs-hyperlink": "^1.0.6",
+    "editorjs-table": "^1.4.10",
+    "editorjs-text-color-plugin": "^2.0.4",
     "jquery": "^3.2",
     "laravel-echo": "^1.14.2",
     "laravel-mix": "^6.0.6",

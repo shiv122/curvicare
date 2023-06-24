@@ -28,6 +28,7 @@ Route::prefix('v1/dietician')
             Route::get('{id}/messages', 'messages');
             Route::post('send-message', 'sendMessage');
             Route::get('weekly-report/{user}', 'weeklyReport');
+            Route::get('tracker-report/{user}', 'trackerReport');
         });
         Route::prefix('diet')->controller(DietController::class)->group(function () {
             Route::post('assign', 'assign');

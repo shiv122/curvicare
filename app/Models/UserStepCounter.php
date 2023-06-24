@@ -11,4 +11,9 @@ class UserStepCounter extends Model
 
 
     public $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

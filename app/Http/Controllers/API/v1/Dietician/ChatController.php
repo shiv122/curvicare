@@ -14,7 +14,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\RecipeResource;
 use App\Http\Resources\Chat\ChatResources;
 use App\Http\Resources\Chat\MessageResources;
+use App\Http\Resources\Tracker\UserMoodResource;
+use App\Http\Resources\Tracker\UserStepResource;
+use App\Http\Resources\Tracker\UserWaterResource;
 use App\Http\Resources\WeeklyReportResource;
+use App\Models\UserMoodTracker;
+use App\Models\UserSleepSchedule;
+use App\Models\UserStepCounter;
+use App\Models\UserWaterTracker;
 use App\Models\WeeklyReport;
 
 /**
@@ -219,5 +226,25 @@ class ChatController extends Controller
         $report = WeeklyReport::where('user_id', $user)->get();
 
         return WeeklyReportResource::collection($report);
+    }
+
+
+    public function trackerReport($user)
+    {
+        $mood = UserMoodTracker::where('user_id', $user)
+            // ->where('created_at', '>=', now()->subMonth(2))
+            ->with(['user', 'mood'])->get();
+        $step = UserStepCounter::where('user_id', $user)
+            // ->where('created_at', '>=', now()->subMonth(2))
+            ->with('user')->get();
+        $water = UserWaterTracker::where('user_id', $user)
+            // ->where('created_at', '>=', now()->subMonth(2))
+            ->with('user')->get();
+
+        return response([
+            'mood' => UserMoodResource::collection($mood),
+            'step' => UserStepResource::collection($step),
+            'water' => UserWaterResource::collection($water),
+        ]);
     }
 }

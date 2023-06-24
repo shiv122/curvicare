@@ -95,6 +95,7 @@ mix
   });
 mix.js("./resources/assets/js/app.js", "public/js/app.js");
 mix.copy("./resources/assets/js/init.js", "public/js/init.js");
+mix.js("./resources/assets/js/editor.js", "public/js/editor.js");
 mix.js("./resources/assets/js/chat.js", "public/js/chat.js");
 mix.js("./resources/assets/js/bootstrap.js", "public/js/bootstrap.js");
 mix.js("./resources/js/core/scripts.js", "public/js/core/scripts.js");

@@ -14,6 +14,7 @@ use App\Helpers\FileUploader;
 use App\Models\RecipeComposition;
 use App\DataTables\RecipeDataTable;
 use App\Http\Controllers\Controller;
+use App\Services\Editor\EditorHtmlParser;
 
 class RecipeController extends Controller
 {
@@ -32,6 +33,7 @@ class RecipeController extends Controller
     }
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required|string|unique:recipes,name',
             'foods.*' => 'required|exists:food,id',
@@ -88,10 +90,51 @@ class RecipeController extends Controller
             'reload' => true,
         ]);
     }
-    public function show($id)
+
+
+    public function newStore(Request $request, EditorHtmlParser $parser)
     {
-        $recipe = Recipe::where('id', $id)->with(['foods', 'compositions', 'tags'])->first();
-        // dd($recipe->toArray());
+        $request->validate([
+            'name' => 'required|string|unique:recipes,name',
+            'tags.*' => 'required|exists:tags,id',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_paid' => 'required|in:yes,no',
+            'recipe' => 'required|string'
+        ]);
+
+
+
+        $recipe = Recipe::create([
+            'name' => $request->name,
+            'caution' => $request->caution ?? 'NA',
+            'image' => FileUploader::uploadFile($request->file('image'), 'images/recipes'),
+            'is_paid' => $request->is_paid,
+            'recipe' => $request->recipe,
+            'recipe_html' => $parser->parseEditorJsBlocks(json_decode($request->recipe, true)['blocks']),
+        ]);
+        $tags = [];
+        foreach ($request->tags as $key => $t) {
+            $tags[] = [
+                'tag_id' => $t,
+                'recipe_id' => $recipe->id,
+                'created_at' => now(),
+            ];
+        }
+        RecipeTags::insert($tags);
+
+        return response()->json([
+            'message' => 'Recipe Added Successfully',
+            'header' => 'Success!!',
+            'reload' => true,
+        ]);
+    }
+
+
+    public function show($id, EditorHtmlParser $parser)
+    {
+        $recipe = Recipe::where('id', $id)->with(['tags'])->first();
+        $recipe->html  =  $parser->parseEditorJsBlocks(json_decode($recipe->recipe, true)['blocks']);
+
         return view('content.pages.recipe-details', compact('recipe'));
     }
     public function status(Request $request)
@@ -131,8 +174,68 @@ class RecipeController extends Controller
 
     public function edit($id)
     {
-        $recipe = Recipe::findOrFail($id);
+        $recipe = Recipe::findOrFail($id)->load(['tags']);
+        $tags = Tag::active()->select('id', 'name')->get();
+        return view('content.forms.edit-recipe', compact('recipe', 'tags'));
+    }
 
-        dd($recipe);
+
+    public function update(Request $request, EditorHtmlParser $parser)
+    {
+        $request->validate([
+            'name' => 'required|string|unique:recipes,name,' . $request->id,
+            'tags.*' => 'required|exists:tags,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_paid' => 'required|in:yes,no',
+            'recipe' => 'required|string',
+            'id' => 'required|numeric'
+        ]);
+
+
+        $recipe = Recipe::findOrFail($request->id);
+
+        $recipe->name = $request->name;
+        $recipe->is_paid = $request->is_paid;
+        $recipe->recipe = $request->recipe;
+        $recipe->recipe_html = $parser->parseEditorJsBlocks(json_decode($request->recipe, true)['blocks']);
+
+        if ($request->hasFile('image')) {
+            $recipe->image = FileUploader::uploadFile($request->file('image'));
+        }
+
+        $recipe->save();
+
+        if (!empty($recipe->tags)) {
+            RecipeTags::where('recipe_id', $recipe->id)->delete();
+            $tags = [];
+            foreach ($request->tags as $key => $tag) {
+                $tags[] = [
+                    'tag_id' => $tag,
+                    'recipe_id' => $recipe->id,
+                    'created_at' => now(),
+                ];
+            }
+            RecipeTags::insert($tags);
+        }
+
+
+        return response()->json([
+            'message' => 'Recipe Added Successfully',
+            'header' => 'Success!!',
+            'reload' => true,
+        ]);
+    }
+
+
+    public function uploadImage(Request $request, FileUploader $fileUploader)
+    {
+        $image = $fileUploader->uploadFile($request->image, 'images/recipe');
+
+        return response([
+            "success" => true,
+            "file" => [
+                "url" => asset($image),
+            ]
+        ]);
     }
 }

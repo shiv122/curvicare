@@ -26,7 +26,7 @@ Route::prefix('v1/user')->group(function () {
                     Route::get('/', 'profile');
                     Route::post('/', 'updateProfile');
                     Route::get('quotes', 'quotes');
-                    Route::get('recipes', 'recipes');
+                    Route::get('recipes/{id?}', 'recipes');
                     Route::get('blogs', 'blogs');
                     Route::get('faqs', 'faqs');
                     Route::get('faq-categories', 'faqCategories');

@@ -84,7 +84,7 @@
                             align: []
                         }
                     ],
-                    ['link', 'image', ],
+                    ['link', ],
                     ['clean']
                 ]
             },

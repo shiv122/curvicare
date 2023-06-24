@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Tracker;
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserWaterResource extends JsonResource
@@ -16,7 +17,7 @@ class UserWaterResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user' => $this->whenLoaded('user'),
+            'user' => new UserResource($this->whenLoaded('user')),
             'water_amount' => $this->water_amount,
             'created_at' => $this->created_at,
         ];

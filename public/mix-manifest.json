@@ -2,6 +2,7 @@
     "/js/core/app-menu.js": "/js/core/app-menu.js",
     "/js/core/app.js": "/js/core/app.js",
     "/js/app.js": "/js/app.js",
+    "/js/editor.js": "/js/editor.js",
     "/js/chat.js": "/js/chat.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
     "/js/core/scripts.js": "/js/core/scripts.js",

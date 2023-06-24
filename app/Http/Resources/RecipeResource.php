@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Services\Editor\EditorHtmlParser;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class RecipeResource extends JsonResource
@@ -17,7 +18,7 @@ class RecipeResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
+            'recipe_html' => $this->recipe_html,
             'caution' => $this->caution,
             'image' => $this->image,
             'is_paid' => $this->is_paid,

@@ -89,11 +89,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::name('recipe.')->prefix('recipe')->controller(RecipeController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/add', 'add')->name('add');
-        Route::post('/store', 'store')->name('store');
+        // Route::post('/store', 'store')->name('store');
+        Route::post('/store', 'newStore')->name('store');
         Route::put('/status', 'status')->name('status');
         Route::put('/paid-status', 'paidStatus')->name('paid-status');
         Route::get('/show/{id}', 'show')->name('show');
         Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('update', 'update')->name('update');
+
+        Route::post('upload-image', 'uploadImage')->name('upload-image');
     });
 
     Route::name('food.')->prefix('food')->controller(FoodController::class)->group(function () {

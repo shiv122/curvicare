@@ -16,4 +16,9 @@ class UserMoodTracker extends Model
     {
         return $this->belongsTo(Mood::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

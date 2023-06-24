@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Add Recipe')
+@section('title', 'Update Recipe')
 
 @section('page-style')
     <style>
@@ -15,11 +15,12 @@
     <section>
         <div class="row match-height">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <x-card title="Add Recipe">
-                    <form id="add-recipe-form" novalidate>
+                <x-card title="Update Recipe">
+                    <form id="update-recipe-form" novalidate>
                         <div class="row">
                             <div class="col-md-6 col-12 ">
-                                <x-input name="name" />
+                                <x-input :value="$recipe->name" name="name" />
+                                <input type="hidden" name="id" hidden value="{{ $recipe->id }}">
                             </div>
                             <div class="col-md-6 col-12 ">
                                 <x-input-file name="image" />
@@ -39,7 +40,7 @@
                                 {{-- <x-editor name="body" label="Recipe Body" /> --}}
                             </div>
                             <div class="col-md-12 col-12 mt-2">
-                                <x-input name="caution" type="textarea" />
+                                <x-input :value="$recipe->caution" name="caution" type="textarea" />
                             </div>
 
                             <div class="col-12 mt-4">
@@ -55,12 +56,29 @@
 
 @endsection
 @section('page-script')
-
     <script src="{{ asset(mix('js/editor.js')) }}"></script>
     <script>
-        $('#add-recipe-form').submit(async function(e) {
+        const tags = @json($recipe->tags->pluck('id'));
+        $(document).ready(async function() {
+            $('#tags').val(tags).trigger('change');
+            $('#is_paid').val('{{ $recipe->is_paid }}').trigger('change');
+            const data = @json(json_decode($recipe->recipe));
+            console.log(data);
+            console.log(window.editor);
+            await renderEditorData(data);
+        });
+
+        async function renderEditorData(data) {
+            window.editor.isReady.then(() => {
+                window.editor.render(data);
+            });
+
+        }
+
+
+        $('#update-recipe-form').submit(async function(e) {
             e.preventDefault();
-            const route = "{{ route('admin.recipe.store') }}";
+            const route = "{{ route('admin.recipe.update') }}";
             const editor_data = await getEditorData();
             $('#recipe_body').val(editor_data);
             reboundForm({
@@ -78,5 +96,4 @@
             return jsonData;
         }
     </script>
-
 @endsection

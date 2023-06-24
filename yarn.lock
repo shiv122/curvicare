@@ -899,10 +899,46 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     "to-fast-properties" "^2.0.0"
 
+"@codexteam/icons@^0.0.4":
+  "integrity" "sha512-V8N/TY2TGyas4wLrPIFq7bcow68b3gu8DfDt1+rrHPtXxcexadKauRJL6eQgfG7Z0LCrN4boLRawR4S9gjIh/Q=="
+  "resolved" "https://registry.npmjs.org/@codexteam/icons/-/icons-0.0.4.tgz"
+  "version" "0.0.4"
+
+"@codexteam/icons@^0.0.6":
+  "integrity" "sha512-L7Q5PET8PjKcBT5wp7VR+FCjwCi5PUp7rd/XjsgQ0CI5FJz0DphyHGRILMuDUdCW2MQT9NHbVr4QP31vwAkS/A=="
+  "resolved" "https://registry.npmjs.org/@codexteam/icons/-/icons-0.0.6.tgz"
+  "version" "0.0.6"
+
 "@discoveryjs/json-ext@^0.5.0":
   "integrity" "sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g=="
   "resolved" "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz"
   "version" "0.5.3"
+
+"@editorjs/editorjs@^2.27.2":
+  "integrity" "sha512-k4LavGJijAP0F1wATQ0fTo10xtBSny9z6yWaP3ANqqtyKr+pBMind5NQzckqYI0yPp31GObpcS/HsFGsFOGcug=="
+  "resolved" "https://registry.npmjs.org/@editorjs/editorjs/-/editorjs-2.27.2.tgz"
+  "version" "2.27.2"
+
+"@editorjs/image@^2.8.1":
+  "integrity" "sha512-4WscDAoi6OO0F6L7N1mkQymADwj8hHgH/ICk5wGRPdkesUZW1TgldX8XvSmy+f5VylsEi3F/gUggaZsrYxu2sA=="
+  "resolved" "https://registry.npmjs.org/@editorjs/image/-/image-2.8.1.tgz"
+  "version" "2.8.1"
+  dependencies:
+    "@codexteam/icons" "^0.0.6"
+
+"@editorjs/list@^1.8.0":
+  "integrity" "sha512-Vq6cjyTXBzgegYv/MtTfuDdiz59yGhDEc/yAVXr6lmvoWAFs9cJ4TLuh4/9SbrbhIptcQLDvUjMDKmRrV6v2NQ=="
+  "resolved" "https://registry.npmjs.org/@editorjs/list/-/list-1.8.0.tgz"
+  "version" "1.8.0"
+  dependencies:
+    "@codexteam/icons" "^0.0.4"
+
+"@editorjs/paragraph@^2.9.0":
+  "integrity" "sha512-lI6x1eiqFx2X3KmMak6gBlimFqXhG35fQpXMxzrjIphNLr4uPsXhVbyMPimPoLUnS9rM6Q00vptXmP2QNDd0zg=="
+  "resolved" "https://registry.npmjs.org/@editorjs/paragraph/-/paragraph-2.9.0.tgz"
+  "version" "2.9.0"
+  dependencies:
+    "@codexteam/icons" "^0.0.4"
 
 "@jridgewell/resolve-uri@^3.0.3":
   "integrity" "sha512-VPeQ7+wH0itvQxnG+lIzWgkysKIr3L9sslimFW55rHMdGu/qCQ5z5h9zq4gI8uBtqkpHhsF4Z/OwExufUCThew=="
@@ -2489,6 +2525,26 @@
   "integrity" "sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q=="
   "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-10.0.0.tgz"
   "version" "10.0.0"
+
+"editorjs-header-with-anchor@^2.6.0":
+  "integrity" "sha512-krI4GBxAJvgmS0R2RGnaN4QTDMuobu2Qcx1HZ5fJQohyIhEI4GD0uiOpVFZ7oFiDNRRvqn6e8lQin4W2rLOu9A=="
+  "resolved" "https://registry.npmjs.org/editorjs-header-with-anchor/-/editorjs-header-with-anchor-2.6.0.tgz"
+  "version" "2.6.0"
+
+"editorjs-hyperlink@^1.0.6":
+  "integrity" "sha512-E8UZA9AM3jPwMTE40ul4eGCFzH3+XoUR5YRCy5O1+Yrl5UZQXeJppZ0IHHKaNmHAikDN9dUbKGLabxXZkPRi9w=="
+  "resolved" "https://registry.npmjs.org/editorjs-hyperlink/-/editorjs-hyperlink-1.0.6.tgz"
+  "version" "1.0.6"
+
+"editorjs-table@^1.4.10":
+  "integrity" "sha512-jRpgqnimReXXtMLhjXWQ2M+qkOLNqCvKfoiExpZtzPThTFNtSPrE6WZ/HhTsOA2BMkZSejoLcf4KUYvRa5dZYw=="
+  "resolved" "https://registry.npmjs.org/editorjs-table/-/editorjs-table-1.4.10.tgz"
+  "version" "1.4.10"
+
+"editorjs-text-color-plugin@^2.0.4":
+  "integrity" "sha512-QpibTkOxs3ndlKNOLT8ZlC4ktc3/eKIajiLO0Jm/hh9AJug/CrM1/rAvHy+ldfUKavbWeI+YZvgjad0YTyoyGw=="
+  "resolved" "https://registry.npmjs.org/editorjs-text-color-plugin/-/editorjs-text-color-plugin-2.0.4.tgz"
+  "version" "2.0.4"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="

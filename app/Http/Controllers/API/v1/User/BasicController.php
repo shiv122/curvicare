@@ -152,14 +152,21 @@ class BasicController extends Controller
      * 
      */
 
-    public function recipes(Request $request, RecipeHelper $recipeHelper)
+    public function recipes(Request $request, $id = null,)
     {
         $user = $request->user();
+
+        $recipeHelper = new RecipeHelper();
+
         $recipes = Recipe::with([
             'foods' => ['ingredients', 'images'],
             'compositions',
             'tags',
-        ])->simplePaginate(30);
+        ])
+            ->when($id, function ($q) use ($id) {
+                $q->where('id', $id);
+            })
+            ->simplePaginate(30);
 
         $recipes = $recipeHelper->filterPaidRecipes($recipes, $user->isCurrentlySubscribed());
 
