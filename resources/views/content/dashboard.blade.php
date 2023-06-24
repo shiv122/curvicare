@@ -315,106 +315,72 @@
 
         </div>
         <div class="row match-height">
-            <section id="apexchart">
-                <div class="row">
-                    <!-- Area Chart starts -->
-                    <div class="col-12">
-                        <div class="card">
-                            <div
-                                class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
-                                <div>
-                                    <h4 class="card-title">User Stats</h4>
 
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <i class="font-medium-2" data-feather="calendar"></i>
-                                    <input type="text"
-                                        class="form-control flat-picker bg-transparent border-0 shadow-none"
-                                        placeholder="YYYY-MM-DD" />
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div id="line-area-chart"></div>
-                            </div>
-                        </div>
+
+
+            <!-- Column Chart Starts -->
+            <div class="col-12">
+                <div class="card">
+                    <div
+                        class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                        <h4 class="card-title">Users</h4>
+
                     </div>
-                    <!-- Area Chart ends -->
-
-                    <!-- Column Chart Starts -->
-                    <div class="col-12">
-                        <div class="card">
-                            <div
-                                class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
-                                <h4 class="card-title">Plan Sold</h4>
-                                <div class="d-flex align-items-center mt-md-0 mt-1">
-                                    <i class="font-medium-2" data-feather="calendar"></i>
-                                    <input type="text"
-                                        class="form-control flat-picker bg-transparent border-0 shadow-none"
-                                        placeholder="YYYY-MM-DD" />
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div id="column-chart"></div>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                        <div id="users-graph"></div>
                     </div>
-                    <!-- Column Chart Ends -->
-
-
-                    <!-- Line Chart Starts -->
-                    <div class="col-12">
-                        <div class="card">
-                            <div
-                                class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
-                                <div>
-                                    <h4 class="card-title mb-25">Subscription</h4>
-                                </div>
-                                <div class="d-flex align-items-center flex-wrap mt-sm-0 mt-1">
-                                    <h5 class="fw-bolder mb-0 me-1">₹ 100,000</h5>
-                                    <span class="badge badge-light-secondary">
-                                        <i class="text-danger font-small-3" data-feather="arrow-down"></i>
-                                        <span class="align-middle">20%</span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div id="line-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Line Chart Ends -->
-
-                    <!-- Bar Chart Starts -->
-                    <div class="col-xl-12 col-12">
-                        <div class="card">
-                            <div
-                                class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
-                                <div>
-                                    <p class="card-subtitle text-muted mb-25">Earnings</p>
-                                    <h4 class="card-title fw-bolder">₹74,382.72</h4>
-                                </div>
-                                <div class="d-flex align-items-center mt-md-0 mt-1">
-                                    <i class="font-medium-2" data-feather="calendar"></i>
-                                    <input type="text"
-                                        class="form-control flat-picker bg-transparent border-0 shadow-none"
-                                        placeholder="YYYY-MM-DD" />
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div id="bar-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Bar Chart Ends -->
                 </div>
-            </section>
+            </div>
+            <!-- Column Chart Ends -->
 
-        @endsection
+            <div class=" col-12">
+                <div class="card">
+                    <div class="card-header align-items-start">
+                        <div>
+                            <h4 class="card-title mb-25">Revenue</h4>
 
-        @section('page-script')
-            <script src="{{ asset(mix('js/scripts/charts/chart-apex.js')) }}"></script>
-            <script>
-                window.me = @json(auth()->user());
-            </script>
-            <script src="{{ asset(mix('js/app.js')) }}"></script>
-        @endsection
+                        </div>
+                    </div>
+                    <div class="card-body pb-0">
+                        <div id="revenue-graph"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+@endsection
+
+@section('page-script')
+    <script>
+        window.me = @json(auth()->user());
+    </script>
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
+
+    <script>
+        const user_count = @json($user_count);
+        const user_date = @json($user_date);
+
+        const revenue_sum = @json($revenue_count);
+        const revenue_date = @json($revenue_date);
+
+
+        $(document).ready(function() {
+            initChart({
+                selector: '#users-graph',
+                categories: user_date,
+                data: user_count,
+                label: 'Users'
+            });
+
+            initChart({
+                selector: '#revenue-graph',
+                categories: revenue_date,
+                data: revenue_sum,
+                label: 'Revenue',
+                label_prefix: '₹'
+            });
+        });
+    </script>
+@endsection

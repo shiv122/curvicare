@@ -630,6 +630,105 @@ function initDonutChart({
   donutCart = new ApexCharts($donutCart, chartOptions);
   donutCart.render();
 }
+function initChart({ selector, categories, data, label = 'label', label_prefix = "" }) {
+  const $salesLineChart = document.querySelector(selector);
+  const salesLineChartOptions = {
+    chart: {
+      height: 240,
+      toolbar: {
+        show: false
+      },
+      zoom: {
+        enabled: false
+      },
+      type: 'line',
+      dropShadow: {
+        enabled: true,
+        top: 18,
+        left: 2,
+        blur: 5,
+        opacity: 0.2
+      },
+      offsetX: -10
+    },
+    stroke: {
+      curve: 'smooth',
+      width: 4
+    },
+    grid: {
+      borderColor: $strokeColor,
+      padding: {
+        top: -20,
+        bottom: 5,
+        left: 20
+      }
+    },
+    legend: {
+      show: false
+    },
+    colors: [$salesStrokeColor2],
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'dark',
+        inverseColors: false,
+        gradientToColors: [window.colors.solid.primary],
+        shadeIntensity: 1,
+        type: 'horizontal',
+        opacityFrom: 1,
+        opacityTo: 1,
+        stops: [0, 100, 100, 100]
+      }
+    },
+    markers: {
+      size: 0,
+      hover: {
+        size: 5
+      }
+    },
+    xaxis: {
+      labels: {
+        offsetY: 5,
+        style: {
+          colors: $textMutedColor,
+          fontSize: '0.857rem'
+        }
+      },
+      axisTicks: {
+        show: false
+      },
+      categories: categories,
+      type: 'datetime',
+      axisBorder: {
+        show: false
+      },
+      tickPlacement: 'on'
+    },
+    yaxis: {
+
+      labels: {
+        style: {
+          colors: $textMutedColor,
+          fontSize: '0.857rem'
+        },
+        formatter: function (val) {
+          return val > 999 ? label_prefix + (val / 1000).toFixed(1) + 'k' : label_prefix + val.toFixed(0);
+        }
+      }
+    },
+    tooltip: {
+      x: {
+        show: false
+      }
+    },
+    series: [{
+      name: label,
+      data: data
+    }]
+  };
+  salesLineChart = new ApexCharts($salesLineChart, salesLineChartOptions);
+  salesLineChart.render();
+}
 function noCallback() {
   snb(
     "error",
