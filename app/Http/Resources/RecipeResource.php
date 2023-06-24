@@ -22,6 +22,7 @@ class RecipeResource extends JsonResource
             'caution' => $this->caution,
             'image' => $this->image,
             'is_paid' => $this->is_paid,
+            'liked' =>  $this->when($this->whenLoaded('liked'), true),
             'foods' => FoodResource::collection($this->whenLoaded('foods')),
             'compositions' => CompositionResource::collection($this->whenLoaded('compositions')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),

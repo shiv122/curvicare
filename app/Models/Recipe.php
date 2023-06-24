@@ -30,6 +30,19 @@ class Recipe extends Model
     }
 
 
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function liked()
+    {
+        return $this->morphOne(Like::class, 'likeable');
+    }
+
+
+
+
 
 
 

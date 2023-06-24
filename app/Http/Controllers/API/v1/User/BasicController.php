@@ -162,6 +162,7 @@ class BasicController extends Controller
             'foods' => ['ingredients', 'images'],
             'compositions',
             'tags',
+            'liked' => fn ($q) => $q->where('liker_id', $request->user()->id),
         ])
             ->when($id, function ($q) use ($id) {
                 $q->where('id', $id);
@@ -188,6 +189,7 @@ class BasicController extends Controller
             'direct_tags',
             'images',
             'dietician',
+            'liked' => fn ($q) => $q->where('liker_id', $request->user()->id),
         ])->simplePaginate(30);
 
 

@@ -38,4 +38,14 @@ class Blog extends Model
     {
         return $this->belongsTo(Dietician::class)->select('id', 'name', 'image');
     }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function liked()
+    {
+        return $this->morphOne(Like::class, 'likeable');
+    }
 }
