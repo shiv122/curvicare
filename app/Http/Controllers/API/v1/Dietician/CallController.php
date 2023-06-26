@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\API\v1\Dietician;
 
-use App\Events\User\CallEvent;
 use App\Models\Call;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Events\User\CallEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CallResource;
+use App\Jobs\Notification\NotificationJob;
 
 /**
  * @group Dietician Call
@@ -46,7 +47,7 @@ class CallController extends Controller
 
         $user = User::findOrFail($request->user_id);
 
-        Call::create([
+        $call =  Call::create([
             'user_id' => $user->id,
             'dietician_id' => $dietician->id,
             'by' => 'dietician',
@@ -55,13 +56,46 @@ class CallController extends Controller
         broadcast(new CallEvent(
             user: $user,
             dietician: $dietician,
-            data: ['channel_id' => $request->agora_channel_id],
+            data: ['channel_id' => $request->agora_channel_id, 'call_id' => $call->id],
             event: 'incoming'
         ));
+
+        dispatch(
+            new NotificationJob(
+                title: 'Incoming Call',
+                message: 'Hiii ' . $user->name . ', ' . $dietician->name . ' is calling you.',
+                device_ids: [$user->device_id],
+                data: [
+                    'call_id' => $call->id,
+                    'channel_id' => $request->agora_channel_id
+                ]
+            )
+        );
 
         return response([
             'status' => 'success',
             'message' => 'Calling...'
+        ]);
+    }
+
+    /**
+     * Pick Call
+     */
+    public function pick(Request $request)
+    {
+        $request->validate([
+            'call_id' => 'required|string'
+        ]);
+
+        $dietician = $request->user();
+
+        $dietician->calls()->find($request->call_id)->update([
+            'start_time' => now(),
+        ]);
+
+        return response([
+            'status' => 'success',
+            'message' => 'Call picked successfully'
         ]);
     }
 

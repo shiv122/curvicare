@@ -26,8 +26,9 @@ class NotificationJob implements ShouldQueue
     public $small_picture = null;
     public $big_picture = null;
     public $channel = null;
+    public $data = null;
 
-    public function __construct(string $title, string $message, array|null $device_ids = null, string $small_picture = null, string $big_picture = null, string $channel = null)
+    public function __construct(string $title, string $message, array|null $device_ids = null, string $small_picture = null, string $big_picture = null, string $channel = null, $data = [])
     {
         $this->title = $title;
         $this->message = $message;
@@ -35,6 +36,7 @@ class NotificationJob implements ShouldQueue
         $this->small_picture = $small_picture;
         $this->big_picture = $big_picture;
         $this->channel = $channel;
+        $this->data = $data;
     }
 
     /**
@@ -54,7 +56,7 @@ class NotificationJob implements ShouldQueue
         }
         $params['contents'] = $contents;
         $params['headings'] = ["en" => $this->title,];
-        $params['data'] =  ['msg' => 'hello there'];
+        $params['data'] =  $this->data;
         $params['large_icon'] = $this->small_picture ?? asset('images/logo/logo.png');
         if ($this->channel) {
             $params['android_channel_id'] = $this->channel;

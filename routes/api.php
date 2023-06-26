@@ -93,6 +93,7 @@ Route::prefix('v1/user')->group(function () {
                 ->group(function () {
                     Route::get('/', 'index');
                     Route::post('start', 'start');
+                    Route::post('pick', 'pick');
                     Route::post('end', 'end');
                 });
             Route::controller(ReportController::class)
