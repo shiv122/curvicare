@@ -30,19 +30,19 @@ endpoints:
         name: user_id
         description: ''
         required: true
-        example: 15
+        example: 4
         type: integer
         custom: []
       diet:
         name: diet
         description: 'Must be a valid JSON string.'
         required: true
-        example: '["fugit","qui"]'
+        example: '["reiciendis","sit"]'
         type: string
         custom: []
     cleanBodyParameters:
-      user_id: 15
-      diet: '["fugit","qui"]'
+      user_id: 4
+      diet: '["reiciendis","sit"]'
     fileParameters: []
     responses: []
     responseFields: []
@@ -78,19 +78,19 @@ endpoints:
         name: user_id
         description: ''
         required: true
-        example: 10
+        example: 5
         type: integer
         custom: []
       date:
         name: date
         description: 'Must be a valid date.'
         required: true
-        example: '2023-06-19T11:11:59'
+        example: '2023-06-26T17:04:26'
         type: string
         custom: []
     cleanBodyParameters:
-      user_id: 10
-      date: '2023-06-19T11:11:59'
+      user_id: 5
+      date: '2023-06-26T17:04:26'
     fileParameters: []
     responses: []
     responseFields: []

@@ -32,359 +32,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 404
-        content: |-
-          {
-              "message": "The route api/v1/user/subscription could not be found.",
-              "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-              "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
-              "line": 44,
-              "trace": [
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php",
-                      "line": 162,
-                      "function": "handleMatchedRoute",
-                      "class": "Illuminate\\Routing\\AbstractRouteCollection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-                      "line": 753,
-                      "function": "match",
-                      "class": "Illuminate\\Routing\\RouteCollection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-                      "line": 740,
-                      "function": "findRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-                      "line": 729,
-                      "function": "dispatchToRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-                      "line": 190,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 141,
-                      "function": "Illuminate\\Foundation\\Http\\{closure}",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php",
-                      "line": 19,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 180,
-                      "function": "handle",
-                      "class": "Livewire\\DisableBrowserCache",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
-                      "line": 31,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 180,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
-                      "line": 40,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 180,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
-                      "line": 27,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 180,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
-                      "line": 86,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 180,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
-                      "line": 52,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 180,
-                      "function": "handle",
-                      "class": "Fruitcake\\Cors\\HandleCors",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 116,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-                      "line": 165,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-                      "line": 134,
-                      "function": "sendRequestThroughRouter",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 299,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 287,
-                      "function": "callLaravelOrLumenRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 92,
-                      "function": "makeApiCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 45,
-                      "function": "makeResponseCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 35,
-                      "function": "makeResponseCallIfConditionsPass",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
-                      "line": 209,
-                      "function": "__invoke",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
-                      "line": 166,
-                      "function": "iterateThroughStrategies",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
-                      "line": 95,
-                      "function": "fetchResponses",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 124,
-                      "function": "processRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 71,
-                      "function": "extractEndpointsInfoFromLaravelApp",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 49,
-                      "function": "extractEndpointsInfoAndWriteToDisk",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 51,
-                      "function": "get",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-                      "line": 36,
-                      "function": "handle",
-                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
-                      "line": 41,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-                      "line": 37,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 661,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 183,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Command\\Command.php",
-                      "line": 312,
-                      "function": "execute",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 153,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Command\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 1022,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 314,
-                      "function": "doRunCommand",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\symfony\\console\\Application.php",
-                      "line": 168,
-                      "function": "doRun",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
-                      "line": 102,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
-                      "line": 155,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\7854\\Desktop\\curvicare\\artisan",
-                      "line": 37,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Console\\Kernel",
-                      "type": "->"
-                  }
-              ]
-          }
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -424,28 +73,28 @@ endpoints:
         name: package_id
         description: ''
         required: true
-        example: 18
+        example: 5
         type: integer
         custom: []
       type:
         name: type
         description: 'Must be one of <code>new</code> or <code>renew</code>.'
         required: false
-        example: new
+        example: renew
         type: string
         custom: []
       currency:
         name: currency
         description: 'Must be one of <code>INR</code> or <code>USD</code>.'
         required: true
-        example: USD
+        example: INR
         type: string
         custom: []
       coupon_code:
         name: coupon_code
         description: 'Must be 255 characters.'
         required: false
-        example: zfpxviofuvrnyfcnalikpzfsoayqozdzttmktexcrylcugkveorucddtxmpszvwlwpprqvpybpokifmzazgcfbtrtjuqgtzzuyhtphvfxeqcyjpjvcieymccsqtrpmbdsubfghsgpjdagbwxlebxfjiqlrhfenxuuimaccejyzyymuxrspdghgbvwyxmoepbeavictwctoszqtibookjcqgdcieagittulaudsmmcajhifucyfwoprgeraikzgs
+        example: lsywsgpsrywexppvibfnzxzrirrfnysngxoyijfvjorbuovvqawfgeyubbrmgnmqozqqcwvoyhpwafcndgxfeptcnykhetcfyniqiepfkypabljqaxgffillpfwmeqzqnwngobsedbncnjzbowfrdsspyqudafkrevkffasnrvoymmyogwichsnsnkyzraollarhqrxpyjgisdnthzmygflqiqepkqgelapacgxwdpnoilwxxlluzcnngfokvto
         type: string
         custom: []
       form_data:
@@ -456,10 +105,10 @@ endpoints:
         type: object
         custom: []
     cleanBodyParameters:
-      package_id: 18
-      type: new
-      currency: USD
-      coupon_code: zfpxviofuvrnyfcnalikpzfsoayqozdzttmktexcrylcugkveorucddtxmpszvwlwpprqvpybpokifmzazgcfbtrtjuqgtzzuyhtphvfxeqcyjpjvcieymccsqtrpmbdsubfghsgpjdagbwxlebxfjiqlrhfenxuuimaccejyzyymuxrspdghgbvwyxmoepbeavictwctoszqtibookjcqgdcieagittulaudsmmcajhifucyfwoprgeraikzgs
+      package_id: 5
+      type: renew
+      currency: INR
+      coupon_code: lsywsgpsrywexppvibfnzxzrirrfnysngxoyijfvjorbuovvqawfgeyubbrmgnmqozqqcwvoyhpwafcndgxfeptcnykhetcfyniqiepfkypabljqaxgffillpfwmeqzqnwngobsedbncnjzbowfrdsspyqudafkrevkffasnrvoymmyogwichsnsnkyzraollarhqrxpyjgisdnthzmygflqiqepkqgelapacgxwdpnoilwxxlluzcnngfokvto
       form_data: []
     fileParameters: []
     responses: []
@@ -496,11 +145,11 @@ endpoints:
         name: id
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: gecbwmbcffpfuu
+        example: pqixeduvjywpoqgsdyxhxpsqd
         type: string
         custom: []
     cleanBodyParameters:
-      id: gecbwmbcffpfuu
+      id: pqixeduvjywpoqgsdyxhxpsqd
     fileParameters: []
     responses: []
     responseFields: []
