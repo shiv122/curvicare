@@ -21,6 +21,7 @@ Route::prefix('v1/dietician')
                 Route::get('templates/{id?}', 'templates');
                 Route::get('recipes', 'recipes');
                 Route::get('blogs', 'blogs');
+                Route::post('get-agora-token', 'getAgoraToken');
             });
 
         Route::prefix('chat')->controller(ChatController::class)->group(function () {

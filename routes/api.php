@@ -32,6 +32,7 @@ Route::prefix('v1/user')->group(function () {
                     Route::get('faq-categories', 'faqCategories');
                     Route::get('testimonials', 'testimonials');
                     Route::get('packages', 'packages');
+                    Route::post('get-agora-token', 'getAgoraToken');
                 });
 
             Route::controller(TrackerController::class)

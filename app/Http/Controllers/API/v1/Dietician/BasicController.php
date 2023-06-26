@@ -8,9 +8,10 @@ use App\Models\Template;
 use Illuminate\Http\Request;
 use App\Helpers\FileUploader;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Misc\BlogResource;
 use App\Http\Resources\RecipeResource;
+use App\Services\Agora\RtcTokenBuilder;
 use App\Http\Resources\TemplateResource;
+use App\Http\Resources\Misc\BlogResource;
 use App\Services\Dietician\FormatDietService;
 
 /** 
@@ -143,5 +144,29 @@ class BasicController extends Controller
         ])->simplePaginate(30);
 
         return BlogResource::collection($blogs);
+    }
+
+
+    /**
+     * Generate Agora Token
+     * 
+     * This used to generate agora token
+     */
+
+    public function getAgoraToken(Request $request)
+    {
+        $request->validate([
+            'channel_name' => 'required|string',
+            'uid' => 'required',
+        ]);
+        $appId = "79d76d9627dc428c801d77502a9cc47f";
+        $appCertificate = "988cebdf444c4469b2546c0beecdafa6";
+        $channelName = $request->channel_name;
+        $uid = $request->uid;
+        $uidStr = "$request->uid";
+        $tokenExpirationInSeconds = 3600;
+        $privilegeExpirationInSeconds = 3600;
+        $token = RtcTokenBuilder::buildTokenWithUid($appId, $appCertificate, $channelName, $uid, RtcTokenBuilder::ROLE_PUBLISHER, $tokenExpirationInSeconds, $privilegeExpirationInSeconds);
+        return response()->json(['token' => $token]);
     }
 }

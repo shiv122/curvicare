@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('user_water_trackers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->float('water_amount', 4, 2);
+            $table->float('water_amount');
             $table->timestamps();
         });
     }
