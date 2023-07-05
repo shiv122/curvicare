@@ -93,7 +93,10 @@ class DieticianController extends Controller
         if ($request->hasFile('aadhar_card_image')) {
             $aadhar_card_image = FileUploader::uploadFile($request->file('aadhar_card_image'), 'images/dietician/kyc');
         }
-        $certificate = FileUploader::uploadFile($request->file('certificate'), 'images/dietician/certificate');
+        $certificate = null;
+        if ($request->hasFile('certificate')) {
+            $certificate = FileUploader::uploadFile($request->file('certificate'), 'images/dietician/certificate');
+        }
 
         DieticianKyc::create([
             'dietician_id' => $dietician->id,
