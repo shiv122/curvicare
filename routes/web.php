@@ -81,6 +81,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::get('get-days', 'getDays')->name('get-days');
         Route::get('get-assignments', 'getAssignments')->name('get-assignments');
         Route::post('assign-recipe', 'assignRecipe')->name('assign-recipe');
+        Route::post('assign-recipe/update', 'updateAssignedRecipe')->name('assign-recipe.update');
         Route::delete('delete-assign-recipe/{id}', 'deleteAssignRecipe')->name('delete-assign-recipe');
     });
 

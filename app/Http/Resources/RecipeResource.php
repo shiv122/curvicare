@@ -29,6 +29,9 @@ class RecipeResource extends JsonResource
             'for' => $this->whenLoaded('pivot', function () {
                 return $this->pivot->for;
             }),
+            'extra' => $this->whenLoaded('pivot', function () {
+                return $this->pivot->extra;
+            }),
             'day' => $this->whenLoaded('pivot', function () {
                 return $this->pivot->day;
             }),

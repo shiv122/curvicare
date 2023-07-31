@@ -205,7 +205,7 @@
 
     <x-side-modal :footer="false" size="lg" id="add-meal" title="Add Meal">
 
-        <x-form successCallback="mealAdded" id="add-meal-form" :route="route('admin.template.assign-recipe')">
+        <x-form successCallback="refreshData" id="add-meal-form" :route="route('admin.template.assign-recipe')">
             <div class="col-md-12 col-12 ">
                 <x-select :multiple="true" name="recipes" :options="$recipes" />
                 <input type="text" name="for" hidden>
@@ -215,6 +215,17 @@
         </x-form>
 
     </x-side-modal>
+
+    <x-modal :footer="false" size="lg" id="edit-meal" title="Edit Meal">
+
+        <x-form successCallback="refreshData" btnText="Update" id="edit-meal-form" :route="route('admin.template.assign-recipe.update')">
+            <div class="col-md-12 col-12 ">
+                <input type="hidden" hidden name="id" id="id">
+                <x-input type="textarea" name="details" :required="false" />
+            </div>
+        </x-form>
+
+    </x-modal>
 
 @endsection
 @section('page-script')
@@ -346,7 +357,7 @@
             })
         }
 
-        function mealAdded() {
+        function refreshData() {
             const template_id = $('#template').val();
             const day = $('[data-custom-chb]:checked').val();
             fetchMealData(template_id, day);
@@ -398,6 +409,17 @@
             }
 
         }
+    </script>
+
+    <script>
+        $(document).on('click', '[data-edit-meal]', function(e) {
+            e.preventDefault();
+            const data = $(this).data('edit-meal');
+            console.log(data);
+            $('#edit-meal #id').val(data.id);
+            $('#edit-meal #details').val(data.extra);
+            $('#edit-meal').modal('show');
+        });
     </script>
 
 @endsection

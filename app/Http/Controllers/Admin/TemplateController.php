@@ -159,6 +159,7 @@ class TemplateController extends Controller
         $template = Template::findOrFail($request->template_id);
 
 
+        DB::beginTransaction();
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $assignments = $template->template_recipes()
             ->when($template->type == 'weekly', function ($query) use ($request) {
@@ -172,6 +173,7 @@ class TemplateController extends Controller
             })
             ->with(['recipe'])->get();
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
+        DB::commit();
 
 
         $arr = [
@@ -267,6 +269,27 @@ class TemplateController extends Controller
             'header' => 'Success',
             'message' => 'Recipe unassigned successfully',
             'status' => 'success',
+        ]);
+    }
+
+
+    public function updateAssignedRecipe(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|numeric',
+            'details' => 'nullable|string|max:20000'
+        ]);
+
+
+        $recipe = TemplateRecipe::findOrFail($request->id);
+
+        $recipe->update([
+            'extra' => $request->details
+        ]);
+
+        return response([
+            'status' => 'success',
+            'message' => 'Template Updated'
         ]);
     }
 }
