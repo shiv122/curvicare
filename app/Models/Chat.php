@@ -26,6 +26,11 @@ class Chat extends Model
     }
 
 
+    public function media()
+    {
+        return  $this->hasManyThrough(MessageMedia::class, Message::class);
+    }
+
     public function dietician()
     {
         return $this->belongsToThrough(

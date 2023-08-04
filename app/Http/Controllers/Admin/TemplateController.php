@@ -210,8 +210,7 @@ class TemplateController extends Controller
         $request->validate([
             'template' => 'required|integer',
             'day' => 'required|integer|gt:0',
-            'recipes' => 'required|array',
-            'recipes.*' => 'required|integer|exists:recipes,id',
+            'recipe' => 'string',
             'for' => 'required|in:early_morning,breakfast,mid_morning,pre_lunch,lunch,post_lunch,pre_snack,evening_snack,post_snack,pre_dinner,dinner,post_dinner',
         ]);
 
@@ -226,16 +225,16 @@ class TemplateController extends Controller
         } else {
             $days = [$request->day];
         }
-        foreach ($request->recipes as $key => $recipe) {
-            foreach ($days as $day) {
-                TemplateRecipe::updateOrCreate([
-                    'template_id' => $template->id,
-                    'recipe_id' => $recipe,
-                    'day' => $day,
-                    'for' => $request->for,
-                ]);
-            }
+
+        foreach ($days as $day) {
+            TemplateRecipe::updateOrCreate([
+                'template_id' => $template->id,
+                'extra' => $request->recipe,
+                'day' => $day,
+                'for' => $request->for,
+            ]);
         }
+
 
 
         return response()->json([
@@ -283,9 +282,12 @@ class TemplateController extends Controller
 
         $recipe = TemplateRecipe::findOrFail($request->id);
 
-        $recipe->update([
-            'extra' => $request->details
-        ]);
+
+        TemplateRecipe::where('template_id', $recipe->template_id)
+            ->where('for', $recipe->for)
+            ->update([
+                'extra' => $request->details
+            ]);
 
         return response([
             'status' => 'success',

@@ -10,6 +10,7 @@ use App\Events\Dietician\BasicEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Chat\ChatResources;
 use App\Events\Dietician\BasicDieticianEvent;
+use App\Http\Resources\Chat\MessageMediaResources;
 use App\Http\Resources\Chat\MessageResources;
 
 
@@ -39,6 +40,9 @@ class ChatController extends Controller
 
     public function activeChat(Request $request)
     {
+        $request->validate([
+            'q' => 'nullable|string'
+        ]);
         $user = $request->user();
         $chat = $user->chats()
             ->whereHas('assignment', function ($query) {
@@ -55,6 +59,9 @@ class ChatController extends Controller
 
 
         $messages = $chat->messages()
+            ->when($request->q, function ($q) use ($request) {
+                $q->where('message', 'LIKE', '%' . $request->q . '%');
+            })
             ->with([
                 'media',
                 'reply' => ['media'],
@@ -164,5 +171,40 @@ class ChatController extends Controller
         return response()->json([
             'message' => 'Message marked as read',
         ], 200);
+    }
+
+
+
+    public function deleteMessage(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+        ]);
+
+        $user = $request->user();
+
+
+        $user->messages()->where('id', $request->id)->delete();
+
+        return response([
+            'status' => 'success',
+            'message' => 'Message deleted successfully'
+        ]);
+    }
+
+
+    public function media(Request $request)
+    {
+        $user = $request->user();
+        $chat = $user->chats()
+            ->whereHas('assignment', function ($query) {
+                $query->where('expiry', '>=', now());
+            })
+            ->latest()
+            ->first();
+
+        $media = $chat->media;
+
+        return MessageMediaResources::collection($media);
     }
 }

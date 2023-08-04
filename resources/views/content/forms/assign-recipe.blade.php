@@ -29,7 +29,7 @@
         .recipe-action {
             position: absolute;
             right: 0;
-            bottom: 0;
+            bottom: -5px;
         }
 
         .recipe-info {
@@ -203,18 +203,18 @@
 
 
 
-    <x-side-modal :footer="false" size="lg" id="add-meal" title="Add Meal">
+    <x-modal :footer="false" size="lg" id="add-meal" title="Add Meal">
 
         <x-form successCallback="refreshData" id="add-meal-form" :route="route('admin.template.assign-recipe')">
             <div class="col-md-12 col-12 ">
-                <x-select :multiple="true" name="recipes" :options="$recipes" />
+                <x-input type="textarea" name="recipe" />
                 <input type="text" name="for" hidden>
                 <input type="number" name="template" hidden>
                 <input type="number" name="day" hidden>
             </div>
         </x-form>
 
-    </x-side-modal>
+    </x-modal>
 
     <x-modal :footer="false" size="lg" id="edit-meal" title="Edit Meal">
 
