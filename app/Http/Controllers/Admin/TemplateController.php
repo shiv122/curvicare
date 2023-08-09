@@ -183,12 +183,12 @@ class TemplateController extends Controller
             'pre_lunch',
             'lunch',
             'post_lunch',
-            'pre_snack',
             'evening_snack',
-            'post_snack',
             'pre_dinner',
             'dinner',
             'post_dinner',
+            'pre_workout',
+            'post_workout'
         ];
 
 
@@ -216,7 +216,7 @@ class TemplateController extends Controller
             'template' => 'required|integer',
             'day' => 'required|integer|gt:0',
             'recipe' => 'string',
-            'for' => 'required|in:early_morning,breakfast,mid_morning,pre_lunch,lunch,post_lunch,pre_snack,evening_snack,post_snack,pre_dinner,dinner,post_dinner',
+            'for' => 'required|in:early_morning,breakfast,mid_morning,pre_lunch,lunch,post_lunch,pre_snack,evening_snack,post_snack,pre_dinner,dinner,post_dinner,pre_workout,post_workout',
         ]);
 
         $template = Template::findOrFail($request->template);

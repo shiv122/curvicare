@@ -79,13 +79,13 @@
                         'pre_lunch',
                         'lunch',
                         'post_lunch',
-                        'pre_snack',
                         'evening_snack',
-                        'post_snack',
                         'pre_dinner',
                         'dinner',
                         'post_dinner',
-                    ]" active="breakfast">
+                        'pre_workout',
+                        'post_workout',
+                    ]" active="early_morning">
 
                         <x-slot name="early_morning">
                             <div class="row match-height mr-0 mb-5" id="early_morning-data"></div>
@@ -201,6 +201,26 @@
                                 </button>
                             </div>
                         </x-slot>
+                        <x-slot name="pre_workout">
+                            <div class="row match-height mr-0 mb-5" id="pre_workout-data"></div>
+
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="pre_workout"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Pre Workout
+                                </button>
+                            </div>
+                        </x-slot>
+                        <x-slot name="post_workout">
+                            <div class="row match-height mr-0 mb-5" id="post_workout-data"></div>
+
+                            <div class="btn-holder d-none text-center">
+                                <button type="button" class="btn btn-primary btn-sm" data-for="post_workout"
+                                    data-toggle="modal" data-target="#add-meal">
+                                    Add Post Workout
+                                </button>
+                            </div>
+                        </x-slot>
 
                     </x-tab>
                 </x-card>
@@ -249,12 +269,12 @@
             'pre_lunch',
             'lunch',
             'post_lunch',
-            'pre_snack',
             'evening_snack',
-            'post_snack',
             'pre_dinner',
             'dinner',
             'post_dinner',
+            'pre_workout',
+            'post_workout',
         ];
         let temprary;
         $(document).on('click', '[data-target="#add-meal"]', function(e) {
