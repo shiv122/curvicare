@@ -28,10 +28,15 @@ class DieticianDataTable extends DataTable
                 $image = $data->image;
                 return  view('content.table-component.avatar', compact('image'));
             })
+            ->editColumn('name', function ($data) {
+
+                return  '<a href="' . route('admin.dietician.edit', $data->id) . '">' . $data->name . '</a>';
+            })
             ->addColumn('status', function ($data) {
                 $route = route('admin.dietician.status');
                 return view('content.table-component.switch', compact('data', 'route'));
-            });
+            })
+            ->escapeColumns('name');
     }
 
     /**

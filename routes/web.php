@@ -66,6 +66,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::post('/store', 'store')->name('store');
         Route::get('/view', 'viewDietician')->name('view');
         Route::put('/status', 'status')->name('status');
+        Route::get('/edit/{id}', 'editDietician')->name('edit');
     });
 
 

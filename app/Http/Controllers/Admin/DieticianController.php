@@ -26,6 +26,15 @@ class DieticianController extends Controller
     }
 
 
+    public function editDietician($id)
+    {
+        $dietician = Dietician::findOrFail($id)->load(['bank']);
+        $bank  = $dietician->bank;
+
+        return view('content.forms.edit-dietician', compact('dietician', 'bank'));
+    }
+
+
     public function store(Request $request)
     {
         $request->validate([

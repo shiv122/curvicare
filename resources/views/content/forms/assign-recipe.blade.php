@@ -214,7 +214,7 @@
 
         <x-form successCallback="refreshData" id="add-meal-form" :route="route('admin.template.assign-recipe')">
             <div class="col-md-12 col-12 ">
-                <x-input type="textarea" name="recipe" />
+                <x-editor name="recipe" />
                 <input type="text" name="for" hidden>
                 <input type="number" name="template" hidden>
                 <input type="number" name="day" hidden>
@@ -228,7 +228,7 @@
         <x-form successCallback="refreshData" btnText="Update" id="edit-meal-form" :route="route('admin.template.assign-recipe.update')">
             <div class="col-md-12 col-12 ">
                 <input type="hidden" hidden name="id" id="id">
-                <x-input type="textarea" name="details" :required="false" />
+                <x-editor name="details" />
             </div>
         </x-form>
 
@@ -424,7 +424,11 @@
             const data = $(this).data('edit-meal');
             console.log(data);
             $('#edit-meal #id').val(data.id);
-            $('#edit-meal #details').val(data.extra);
+
+            const value = data.extra
+            const delta = fullEditor_details.clipboard.convert(value)
+
+            fullEditor_details.setContents(delta, 'silent')
             $('#edit-meal').modal('show');
         });
     </script>
