@@ -12,8 +12,12 @@
             border-radius: 5px;
             overflow: hidden;
             position: relative;
-            padding: 1rem;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+            padding: 1.5rem 1rem;
+            /* box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; */
+        }
+
+        #assignment-list .recipe-holder {
+            margin-top: 1rem;
         }
 
         .dark-layout .recipe-holder {
@@ -84,7 +88,7 @@
                     ]" active="breakfast">
 
                         <x-slot name="early_morning">
-                            <div class="row match-height w-md-90 mb-5" id="early_morning-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="early_morning-data"></div>
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="early_morning"
                                     data-toggle="modal" data-target="#add-meal">
@@ -93,7 +97,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="breakfast">
-                            <div class="row match-height w-md-90 mb-5" id="breakfast-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="breakfast-data"></div>
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="breakfast"
                                     data-toggle="modal" data-target="#add-meal">
@@ -102,7 +106,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="mid_morning">
-                            <div class="row match-height w-md-90 mb-5" id="mid_morning-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="mid_morning-data"></div>
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="mid_morning"
                                     data-toggle="modal" data-target="#add-meal">
@@ -111,7 +115,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="pre_lunch">
-                            <div class="row match-height w-md-90 mb-5" id="pre_lunch-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="pre_lunch-data"></div>
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="pre_lunch"
                                     data-toggle="modal" data-target="#add-meal">
@@ -120,7 +124,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="lunch">
-                            <div class="row match-height w-md-90 mb-5" id="lunch-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="lunch-data"></div>
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="lunch" data-toggle="modal"
                                     data-target="#add-meal">
@@ -129,7 +133,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="post_lunch">
-                            <div class="row match-height w-md-90 mb-5" id="post_lunch-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="post_lunch-data"></div>
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="post_lunch"
                                     data-toggle="modal" data-target="#add-meal">
@@ -138,7 +142,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="pre_snack">
-                            <div class="row match-height w-md-90 mb-5" id="pre_snack-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="pre_snack-data"></div>
 
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="pre_snack"
@@ -148,7 +152,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="evening_snack">
-                            <div class="row match-height w-md-90 mb-5" id="evening_snack-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="evening_snack-data"></div>
 
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="evening_snack"
@@ -158,7 +162,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="post_snack">
-                            <div class="row match-height w-md-90 mb-5" id="post_snack-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="post_snack-data"></div>
 
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="post_snack"
@@ -168,7 +172,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="pre_dinner">
-                            <div class="row match-height w-md-90 mb-5" id="pre_dinner-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="pre_dinner-data"></div>
 
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="pre_dinner"
@@ -178,7 +182,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="dinner">
-                            <div class="row match-height w-md-90 mb-5" id="dinner-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="dinner-data"></div>
 
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="dinner"
@@ -188,7 +192,7 @@
                             </div>
                         </x-slot>
                         <x-slot name="post_dinner">
-                            <div class="row match-height w-md-90 mb-5" id="post_dinner-data"></div>
+                            <div class="row match-height mr-0 mb-5" id="post_dinner-data"></div>
 
                             <div class="btn-holder d-none text-center">
                                 <button type="button" class="btn btn-primary btn-sm" data-for="post_dinner"
