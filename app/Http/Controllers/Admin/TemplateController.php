@@ -250,6 +250,16 @@ class TemplateController extends Controller
     }
 
 
+    public function destroy($id)
+    {
+        $expertise = Template::findOrFail($id);
+        $expertise->delete();
+
+        return response()->json([
+            'message' => 'Template deleted successfully',
+            'table' => 'template-table'
+        ]);
+    }
     public function deleteAssignRecipe($id)
     {
 

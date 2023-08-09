@@ -73,6 +73,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::name('template.')->prefix('template')->controller(TemplateController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('edit/{id}', 'edit')->name('edit');
+        Route::delete('destroy/{id}', 'destroy')->name('destroy');
         Route::post('store', 'store')->name('store');
         Route::post('update', 'update')->name('update');
         Route::put('status', 'status')->name('status');

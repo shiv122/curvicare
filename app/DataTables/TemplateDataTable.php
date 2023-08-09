@@ -33,7 +33,8 @@ class TemplateDataTable extends DataTable
                 $edit_route = route('admin.template.edit', $value->id);
                 $edit_callback = 'setValue';
                 $modal = '#edit-template-modal';
-                return view('content.table-component.action', compact('edit_route', 'edit_callback', 'modal'));
+                $delete_route = route('admin.template.destroy', $value->id);
+                return view('content.table-component.action', compact('edit_route', 'delete_route', 'edit_callback', 'modal'));
             })
             ->escapeColumns('action');
     }
