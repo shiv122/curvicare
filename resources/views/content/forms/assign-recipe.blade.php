@@ -64,7 +64,10 @@
             </div>
 
             <div class="col-12">
-                <x-card title="Recipe List">
+
+                <x-card class=" position-relative" title="Recipe List">
+                    <button type="button" data-toggle="modal" data-target="#assignment-list" style="right: 10px;top:10px;"
+                        class="btn btn-sm btn-info position-absolute">View All</button>
                     <x-tab class="col-md-12 nav-vertical" innerClass="nav-left" :tabs="[
                         'early_morning',
                         'breakfast',
@@ -201,7 +204,11 @@
         </div>
     </section>
 
+    <x-modal size="xl" id="assignment-list" name="assignment-list">
+        <div id="assignment-list-data" class="row">
 
+        </div>
+    </x-modal>
 
     <x-modal :footer="false" size="lg" id="add-meal" title="Add Meal">
 
@@ -340,7 +347,7 @@
                     // $('#post_snack-data').html(response.post_snack);
                     // $('#pre_snack-data').html(response.pre_snack);
                     temprary = response;
-
+                    $('#assignment-list-data').html(response.all_list);
                     arr.forEach((item) => {
 
                         $(`#${item}-data`).html(response[item]);

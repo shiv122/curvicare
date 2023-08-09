@@ -197,10 +197,15 @@ class TemplateController extends Controller
         }
 
         $res = [];
+        $html = '';
 
         foreach ($arr as $key => $value) {
-            $res[$value] = view('components.Recipe.recipe-list', ['assignments' => ${$value}])->render();
+            $rendered_html = view('components.Recipe.recipe-list', ['assignments' => ${$value}])->render();
+            $html .= '<div class="col-12 text-center"><h4>' . ucfirst(str_replace('_', ' ', $value)) . '</h4></div>';
+            $html .= $rendered_html;
+            $res[$value] =  $rendered_html;
         }
+        $res['all_list'] =  $html;
         return response()->json($res);
     }
 

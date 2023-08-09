@@ -99,10 +99,7 @@
             <div class="alert-body">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                     ×</button>
-                <span class="glyphicon glyphicon-ok"></span> <strong>Info Message</strong>
-                <hr class="message-inner-separator">
-                <p>
-                    No recipes assigned yet to this template.</p>
+                <p>No recipes assigned yet to this template.</p>
             </div>
         </div>
     </div>
