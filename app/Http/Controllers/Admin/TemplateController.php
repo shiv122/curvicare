@@ -323,7 +323,6 @@ class TemplateController extends Controller
 
         $template = Template::findOrFail($request->template_id);
 
-
         DB::beginTransaction();
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $assignments = $template->template_recipes()
@@ -362,28 +361,10 @@ class TemplateController extends Controller
             ${$value} = $helper->getAssignmentsByMeal($assignments, $value);
         }
 
-        $res = [];
-        $html = '';
 
-        foreach ($arr as $key => $value) {
-            $rendered_html = view('components.Recipe.recipe-list', ['assignments' => ${$value}])->render();
-            if (!empty($rendered_html)) {
-                $html .= '<div class="col-12 text-left text-bold"><h4>' . ucfirst(str_replace('_', ' ', $value)) . '</h4></div>';
-                $html .= $rendered_html;
-                $res[$value] =  $rendered_html;
-            }
-        }
-        $res['all_list'] =  $html;
-
-
-        
-
-        // share data to view
-
-
-        $pdf = \PDF::loadView('pdf_view', $res);
-        return $pdf->stream();
+        $pdf = \PDF::loadView('components.helper.pdf_view', ['assignments' => $assignments, 'helper' => $helper]);
+        // return $pdf->stream();
         // download PDF file with download method
-        // return $pdf->download('pdf_file.pdf');
+        return $pdf->download('pdf_file.pdf');
     }
 }
