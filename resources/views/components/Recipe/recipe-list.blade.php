@@ -94,13 +94,5 @@
     </script>
 @empty
 
-    <div class="col-12">
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <div class="alert-body">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                    ×</button>
-                <p>No recipes assigned yet to this template.</p>
-            </div>
-        </div>
-    </div>
+   
 @endforelse

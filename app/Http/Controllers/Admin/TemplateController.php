@@ -10,6 +10,7 @@ use App\Models\TemplateRecipe;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\DataTables\TemplateDataTable;
+use PDF;
 
 class TemplateController extends Controller
 {
@@ -193,6 +194,7 @@ class TemplateController extends Controller
 
 
         foreach ($arr as $key => $value) {
+
             ${$value} = $helper->getAssignmentsByMeal($assignments, $value);
         }
 
@@ -201,9 +203,11 @@ class TemplateController extends Controller
 
         foreach ($arr as $key => $value) {
             $rendered_html = view('components.Recipe.recipe-list', ['assignments' => ${$value}])->render();
-            $html .= '<div class="col-12 text-center"><h4>' . ucfirst(str_replace('_', ' ', $value)) . '</h4></div>';
-            $html .= $rendered_html;
-            $res[$value] =  $rendered_html;
+            if (!empty($rendered_html)) {
+                $html .= '<div class="col-12 text-left text-bold"><h4>' . ucfirst(str_replace('_', ' ', $value)) . '</h4></div>';
+                $html .= $rendered_html;
+                $res[$value] =  $rendered_html;
+            }
         }
         $res['all_list'] =  $html;
         return response()->json($res);
@@ -308,5 +312,78 @@ class TemplateController extends Controller
             'status' => 'success',
             'message' => 'Template Updated'
         ]);
+    }
+
+    public function createPDF(Request $request, RecipeHelper $helper)
+    {
+        $request->validate([
+            'template_id' => 'required|integer',
+            'day' => 'required|integer',
+        ]);
+
+        $template = Template::findOrFail($request->template_id);
+
+
+        DB::beginTransaction();
+        DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+        $assignments = $template->template_recipes()
+            ->when($template->type == 'weekly', function ($query) use ($request) {
+                $start_day = ($request->day - 1) * 7 + 1;
+                $end_day = $request->day * 7;
+                return $query->whereBetween('day', [$start_day, $end_day])
+                    ->groupBy('recipe_id', 'for');
+            })
+            ->when($template->type == 'daily', function ($query) use ($request) {
+                return $query->where('day', $request->day);
+            })
+            ->with(['recipe'])->get();
+        DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
+        DB::commit();
+
+
+        $arr = [
+            'early_morning',
+            'breakfast',
+            'mid_morning',
+            'pre_lunch',
+            'lunch',
+            'post_lunch',
+            'evening_snack',
+            'pre_dinner',
+            'dinner',
+            'post_dinner',
+            'pre_workout',
+            'post_workout'
+        ];
+
+
+        foreach ($arr as $key => $value) {
+
+            ${$value} = $helper->getAssignmentsByMeal($assignments, $value);
+        }
+
+        $res = [];
+        $html = '';
+
+        foreach ($arr as $key => $value) {
+            $rendered_html = view('components.Recipe.recipe-list', ['assignments' => ${$value}])->render();
+            if (!empty($rendered_html)) {
+                $html .= '<div class="col-12 text-left text-bold"><h4>' . ucfirst(str_replace('_', ' ', $value)) . '</h4></div>';
+                $html .= $rendered_html;
+                $res[$value] =  $rendered_html;
+            }
+        }
+        $res['all_list'] =  $html;
+
+
+        
+
+        // share data to view
+
+
+        $pdf = \PDF::loadView('pdf_view', $res);
+        return $pdf->stream();
+        // download PDF file with download method
+        // return $pdf->download('pdf_file.pdf');
     }
 }

@@ -70,8 +70,10 @@
             <div class="col-12">
 
                 <x-card class=" position-relative" title="Recipe List">
-                    <button type="button" data-toggle="modal" data-target="#assignment-list" style="right: 10px;top:10px;"
-                        class="btn btn-sm btn-info position-absolute">View All</button>
+                    <button type="button" style="right: 10px;top:10px;" class="btn btn-sm btn-info position-absolute"
+                        onclick="createPDF()">PDF</button>
+                    <button type="button" data-toggle="modal" data-target="#assignment-list" style="right: 80px;top:10px;"
+                        class="btn btn-sm btn-info position-absolute">Preview</button>
                     <x-tab class="col-md-12 nav-vertical" innerClass="nav-left" :tabs="[
                         'early_morning',
                         'breakfast',
@@ -353,6 +355,23 @@
         }
 
 
+        function createPDF() {
+            const template_id = $('#template').val();
+            const day = $('[data-custom-chb]:checked').val();
+            $.ajax({
+                type: "GET",
+                url: "{{ route('admin.template.createPDF') }}",
+                data: {
+                    template_id: template_id,
+                    day: day
+                },
+                success: function(response) {
+                    console.log("Hi");
+                }
+            });
+        }
+
+
         function fetchMealData(template_id, day) {
             console.log('fetchMealData Called from :', arguments.callee.caller.name);
             reboundForm({
@@ -392,13 +411,15 @@
             const template_id = $('#template').val();
             const day = $('[data-custom-chb]:checked').val();
             fetchMealData(template_id, day);
+
         }
 
         function recipeAssignmentDeleted(data) {
-            const template_id = $('#template').val();
+            const template_id = $('#s').val();
             const day = $('[data-custom-chb]:checked').val();
             console.log(data);
             fetchMealData(template_id, day);
+
         }
 
 
