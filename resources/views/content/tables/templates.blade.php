@@ -76,6 +76,10 @@
         });
 
 
+        function viewTemplate(template_id, days) {
+            window.location.href = "{{ route('admin.template.assign') }}?template_id=" + template_id;
+        }
+
         function setValue(data, modal) {
             $(`${modal} input[name="id"]`).val(data.id);
             $(`${modal} input[name="name"]`).val(data.name);

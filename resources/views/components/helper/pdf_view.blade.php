@@ -12,16 +12,36 @@
     .recipe-holder {
         display: flex;
         gap: 1rem;
-        border: 1px solid #c0bfc5;
+        /* border: 1px solid #c0bfc5; */
         border-radius: 5px;
         overflow: hidden;
         position: relative;
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 1rem 0rem;
         /* box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; */
+    }
+
+    .text-left {
+        text-align: left !important;
+        font-weight: bold;
+    }
+
+    .align-content-center {
+        align-content: center;
+    }
+
+    .image {
+        text-align: center;
+        margin-bottom: 20px;
+
     }
 </style>
 
 <body>
+
+    <div class="col-12 image">
+        <img src="https://static.wixstatic.com/media/908385_c21ee7ba95b4406cb707029ae9e7bfb8~mv2.png/v1/fill/w_349,h_86,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/CurviCareSecondary%20Logo_CMYK_PNG_edited.png"
+            alt="" />
+    </div>
     <div class="col-12 text-left text-bold">
 
 
