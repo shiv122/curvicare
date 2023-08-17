@@ -48,16 +48,18 @@
         }
     </style>
 @endsection
-
 @section('content')
     <section>
         <div class="row match-height">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <x-card title="Assign Recipe">
-
                     <div class="col-md-12 col-12 ">
                         <x-select name="template" :options="$templates" label="Select template to get the assigned recipes" />
                     </div>
+
+                    <input type="hidden" id="template_data_id" name="template_data_id"
+                        value="{{ Request()->template_id ?? '' }}">
+
 
                     <div class="col-12 mt-5">
                         <div class="selector-container owl-carousel owl-theme">
@@ -268,6 +270,11 @@
 @section('page-script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
+        $(document).ready(function() {
+            var tem_id = $('#template_data_id').val();
+            $('#template').val(tem_id).trigger('change');
+
+        });
         const arr = [
             'early_morning',
             'breakfast',
@@ -441,7 +448,7 @@
         }
 
         function recipeAssignmentDeleted(data) {
-            const template_id = $('#s').val();
+            const template_id = $('#template').val();
             const day = $('[data-custom-chb]:checked').val();
             $('#create_pdf').attr('href', "{{ route('admin.template.createPDF') }}");
 

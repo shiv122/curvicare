@@ -29,6 +29,9 @@ class TemplateDataTable extends DataTable
                 $route = route('admin.template.status');
                 return view('content.table-component.switch', compact('data', 'route'));
             })
+            ->addColumn('view', function ($data) {
+                return '<a target="_blank"  href="" onclick="viewTemplate(' . $data->id . ')" class="btn btn-sm btn-primary">View</a>';
+            })
             ->addColumn('action', function ($value) {
                 $edit_route = route('admin.template.edit', $value->id);
                 $edit_callback = 'setValue';
@@ -90,6 +93,7 @@ class TemplateDataTable extends DataTable
             Column::make('name'),
             Column::make('days'),
             Column::make('type'),
+            Column::make('view'),
             Column::make('created_at'),
             Column::make('status')
                 ->exportable(false)
