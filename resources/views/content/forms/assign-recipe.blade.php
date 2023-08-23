@@ -231,7 +231,17 @@
                         </x-slot>
 
                     </x-tab>
+                    <x-form successCallback="resetData" id="add-guideline-form" :route="route('admin.template.add-guideline')">
+
+                        <div class="col-lg-12">
+                            <x-input name="guideline" type="textarea" />
+                            <x-input name="guideline_template_id" type="hidden" />
+
+                        </div>
+                    </x-form>
+
                 </x-card>
+
             </div>
         </div>
     </section>
@@ -309,6 +319,8 @@
                 return;
             }
             $('#add-meal input[name="template"]').val(template_id);
+            $('#guideline_template_id').val(template_id);
+
             fetchSelectorData(template_id);
         });
 
@@ -318,6 +330,8 @@
             const selected = $(this).val();
             const template_id = $('#template').val();
             $('#add-meal-form input[name="day"]').val(selected);
+            $('#guideline_template_id').val(selected);
+
             fetchMealData(template_id, selected);
         });
 
@@ -335,6 +349,7 @@
                 successCallback: function(response) {
                     const container = $('.selector-container');
                     container.html(response.selector_html);
+                    $('#guideline').text(response.guideline)
                     if (container.hasClass('owl-carousel')) {
                         container.trigger('destroy.owl.carousel');
                     }
@@ -511,6 +526,11 @@
             fullEditor_details.setContents(delta, 'silent')
             $('#edit-meal').modal('show');
         });
+
+
+        function resetData(response) {
+            $('#guideline').text(response.data.guideline);
+        }
     </script>
 
 @endsection

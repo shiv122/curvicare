@@ -80,6 +80,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 
         // for recipe assignment to template
         Route::get('assign', 'assignPage')->name('assign');
+        Route::post('add-guideline', 'addGuideline')->name('add-guideline');
         Route::get('get-days', 'getDays')->name('get-days');
         Route::get('get-assignments', 'getAssignments')->name('get-assignments');
         Route::post('assign-recipe', 'assignRecipe')->name('assign-recipe');

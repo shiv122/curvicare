@@ -55,6 +55,20 @@ class TemplateController extends Controller
         ]);
     }
 
+    public function addGuideline(Request $request)
+    {
+
+        $template = Template::where('id', $request->guideline_template_id)->first();
+        $template->guideline = $request->guideline;
+        $template->save();
+        return response()->json([
+            'header' => 'Success',
+            'message' => 'Guideline For Template Updated Successfully',
+            'status' => 'success',
+            'data' => $template
+        ]);
+    }
+
     public function edit($id)
     {
         $template = Template::findOrFail($id);
@@ -145,6 +159,8 @@ class TemplateController extends Controller
 
         return response()->json([
             'selector_html' => $selector_html,
+            'guideline' => $template->guideline,
+
         ]);
     }
 
