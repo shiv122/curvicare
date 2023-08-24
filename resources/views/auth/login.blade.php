@@ -17,9 +17,9 @@
                 <div class="card-body">
                     <a href="javascript:void(0);" class="brand-logo align-items-center flex-column">
 
-                        <img style="max-width: 5em" src="{{ asset('images/logo/logo.png') }}" alt="">
+                        <img src="{{ asset('images/logo/curvicarelogo.png') }}" alt="" style="max-width: 90%">
 
-                        <h2 class="brand-text text-primary ">Curvicare</h2>
+                        {{-- <h2 class="brand-text text-primary ">Curvicare</h2> --}}
                     </a>
 
                     <h4 class="card-title mb-1">Welcome to Curvicare! 👋</h4>
