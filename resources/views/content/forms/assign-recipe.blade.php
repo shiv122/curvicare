@@ -250,6 +250,7 @@
         <div id="assignment-list-data" class="row">
 
         </div>
+
     </x-modal>
 
     <x-modal :footer="false" size="lg" id="add-meal" title="Add Meal">
@@ -398,6 +399,7 @@
             console.log('fetchMealData Called from :', arguments.callee.caller.name);
             $('#create_pdf').attr('href', "{{ route('admin.template.createPDF') }}?template_id=" + template_id + "&day=" +
                 day);
+            $('#guideline_template_id').val(template_id);
             reboundForm({
                 data: {
                     template_id: template_id,

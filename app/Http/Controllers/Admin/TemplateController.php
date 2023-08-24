@@ -225,6 +225,7 @@ class TemplateController extends Controller
                 $res[$value] =  $rendered_html;
             }
         }
+        $html .= '<h4 class="ml-1">GuideLine: </h4><div class="col-12">' . ($template->guideline ?? '') . '</div>';
         $res['all_list'] =  $html;
         return response()->json($res);
     }
@@ -378,7 +379,7 @@ class TemplateController extends Controller
         }
 
 
-        $pdf = \PDF::loadView('components.helper.pdf_view', ['assignments' => $assignments, 'helper' => $helper]);
+        $pdf = \PDF::loadView('components.helper.pdf_view', ['assignments' => $assignments, 'helper' => $helper, 'template' => $template]);
         // return $pdf->stream();
         // download PDF file with download method
         return $pdf->download('pdf_file.pdf');

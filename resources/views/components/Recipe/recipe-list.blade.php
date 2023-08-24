@@ -93,6 +93,4 @@
         $('[data-for="{{ $assignment->for }}"]').remove();
     </script>
 @empty
-
-   
 @endforelse
