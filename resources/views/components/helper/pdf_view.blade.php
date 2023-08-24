@@ -63,6 +63,8 @@
                             <div class="col-12">
                                 {!! $assignment->extra !!}
                             </div>
+
+
                             <div class="col-12">
                                 <div class="recipe-action">
                                     {{-- <button data-edit-meal="{{ json_encode($assignment->only('id', 'extra')) }}"
@@ -100,6 +102,12 @@
             @empty
             @endforelse
         @endforeach
+
+        <h4>GuideLine: </h4>
+
+        <div class="col-12">
+            {{ $template->guideline ?? '' }}
+        </div>
 
 
     </div>
