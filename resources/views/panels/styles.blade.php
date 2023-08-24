@@ -1,5 +1,16 @@
 <link rel="stylesheet" href="{{ asset(mix('vendors/css/vendors.min.css')) }}" />
 <link rel="stylesheet" href="{{ asset(mix('vendors/css/ui/prism.min.css')) }}" />
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+    body {
+        font-family: 'Open Sans', sans-serif !important;
+    }
+
+    .navigation {
+        font-family: 'Paytone One', sans-serif !important;
+    }
+</style>
 @if (!empty($pageConfigs['has_table']))
     @if ($pageConfigs['has_table'])
         <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')) }}" />

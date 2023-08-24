@@ -1,5 +1,5 @@
 @php
-$configData = Helper::applClasses();
+    $configData = Helper::applClasses();
 @endphp
 <div class="main-menu menu-fixed {{ $configData['theme'] === 'dark' ? 'menu-dark' : 'menu-light' }} menu-accordion menu-shadow"
     data-scroll-to-active="true">
@@ -8,9 +8,9 @@ $configData = Helper::applClasses();
             <li class="nav-item mr-auto">
                 <a class="navbar-brand" href="{{ url('admin/') }}">
                     <span class="brand-logo">
-                        <img src="{{ asset('images/logo/logo.png') }}" alt="">
+                        <img src="{{ asset('images/logo/curvicarelogo.png') }}" alt="" style="max-width: 100%;">
                     </span>
-                    <h4 class="brand-text">Curvicare</h4>
+                    {{-- <h4 class="brand-text">Curvicare</h4> --}}
                 </a>
             </li>
             <li class="nav-item nav-toggle">
