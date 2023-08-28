@@ -234,7 +234,9 @@
                     <x-form successCallback="resetData" id="add-guideline-form" :route="route('admin.template.add-guideline')">
 
                         <div class="col-lg-12">
-                            <x-input name="guideline" type="textarea" />
+                            {{-- <x-input name="guideline" type="textarea" /> --}}
+                            <x-editor name="guideline" />
+
                             <x-input name="guideline_template_id" type="hidden" />
 
                         </div>
@@ -350,7 +352,16 @@
                 successCallback: function(response) {
                     const container = $('.selector-container');
                     container.html(response.selector_html);
-                    $('#guideline').text(response.guideline)
+
+
+                    // $('#guideline').text(response.guideline)
+                    // $('#guideline').text(response.guideline)
+
+                    fullEditor_guideline.root.innerHTML = response.guideline;
+
+
+
+
                     if (container.hasClass('owl-carousel')) {
                         container.trigger('destroy.owl.carousel');
                     }
@@ -531,7 +542,8 @@
 
 
         function resetData(response) {
-            $('#guideline').text(response.data.guideline);
+            // $('#guideline').text(response.data.guideline);
+            fullEditor_guideline.root.innerHTML = response.data.guideline;
         }
     </script>
 
