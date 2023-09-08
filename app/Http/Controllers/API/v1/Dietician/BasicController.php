@@ -84,7 +84,7 @@ class BasicController extends Controller
                         'foods' => ['ingredients', 'images'],
                         'compositions',
                         'tags'
-                    ]]);
+                    ], 'template_recipes']);
             })
             ->get();
 
