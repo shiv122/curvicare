@@ -41,16 +41,25 @@ class DietController extends Controller
         $data = [];
         foreach ($all_diets as $diet) {
             $date = $diet['date'];
-            $data[] = [
-                'user_id' => $user->id,
-                'dietician_id' => $dietician->id,
-                'diet' => json_encode($diet['diet_template']),
-                'schedule_date' => $date,
-                'created_at' => now(),
-            ];
+
+            //user_id and date
+
+            UserDailyDiet::updateOrCreate(
+                ['user_id' => $user->id, 'schedule_date' => $date],
+                ['dietician_id' => $dietician->id, 'diet' => json_encode($diet['diet_template']), 'created_at' => now()]
+            );
+
+
+            // $data[] = [
+            //     'user_id' => $user->id,
+            //     'dietician_id' => $dietician->id,
+            //     'diet' => json_encode($diet['diet_template']),
+            //     'schedule_date' => $date,
+            //     'created_at' => now(),
+            // ];
         }
 
-        UserDailyDiet::insert($data);
+        // UserDailyDiet::insert($data);
 
         return response()->json([
             'message' => 'Diet assigned successfully',
