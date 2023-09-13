@@ -33,7 +33,7 @@ class DietController extends Controller
         ]);
         $user = $request->user();
         $diet = $user->daily_diet()->forUpcomingDays($request->days ?? 7, $request->date)
-            ->with('dietician')
+            ->with('dietician')->orderBy('created_at', 'DESC')
             ->get();
 
         return DietResource::collection($diet);
