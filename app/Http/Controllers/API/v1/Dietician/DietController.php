@@ -27,6 +27,7 @@ class DietController extends Controller
 
     public function assign(Request $request)
     {
+      return  $request->all();
         $request->validate([
             'user_id' => 'required|integer',
             'diet' => 'required|json',
